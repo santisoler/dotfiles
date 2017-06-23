@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp -Rf dotfiles/ $HOME
+cp -Rf dotfiles/. $HOME
