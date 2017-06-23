@@ -1,0 +1,8 @@
+# GIMP gimp-paintbrush-tool options
+
+(brush "Portapapeles")
+(dynamics "Dynamics Off")
+(gradient "Frente a fondo (RGB)")
+(palette "Default")
+
+# end of gimp-paintbrush-tool options
