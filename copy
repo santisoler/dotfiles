@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+import os
+from optparse import OptionParser
+
+
+# Option Parser
+parser = OptionParser()
+parser.add_option("-x", "--xfce", action="store_true", dest="xfce",
+                  default=False, help="Install XFCE related dotfiles")
+parser.add_option("-g", "--gnome", action="store_true", dest="gnome", 
+                  default=False, help="Install GNOME related dotfiles")
+
+(options, args) = parser.parse_args()
+
+# Copy files
+os.system("cp -Rf dotfiles/. $HOME")
+
+if options.xfce:
+    os.system("cp -Rf xfce/. $HOME")
+
+if options.gnome:
+    os.system("cp -Rf gnome/. $HOME")
+
+print "Reboot now to apply changes (do not save session)"
