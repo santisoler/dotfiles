@@ -178,14 +178,14 @@
       <property name="&lt;Control&gt;F1" type="string" value="workspace_1_key"/>
       <property name="&lt;Control&gt;F11" type="string" value="workspace_11_key"/>
       <property name="override" type="bool" value="true"/>
-      <property name="&lt;Alt&gt;&lt;Super&gt;Left" type="string" value="tile_left_key"/>
-      <property name="&lt;Alt&gt;&lt;Super&gt;Right" type="string" value="tile_right_key"/>
-      <property name="&lt;Alt&gt;&lt;Super&gt;Up" type="string" value="tile_up_key"/>
-      <property name="&lt;Alt&gt;&lt;Super&gt;Down" type="string" value="tile_down_key"/>
-      <property name="&lt;Super&gt;Left" type="string" value="prev_workspace_key"/>
-      <property name="&lt;Super&gt;Right" type="string" value="next_workspace_key"/>
-      <property name="&lt;Shift&gt;&lt;Super&gt;Left" type="string" value="move_window_prev_workspace_key"/>
-      <property name="&lt;Shift&gt;&lt;Super&gt;Right" type="string" value="move_window_next_workspace_key"/>
+      <property name="&lt;Shift&gt;&lt;Super&gt;Page_Up" type="string" value="move_window_prev_workspace_key"/>
+      <property name="&lt;Shift&gt;&lt;Super&gt;Page_Down" type="string" value="move_window_next_workspace_key"/>
+      <property name="&lt;Super&gt;Page_Up" type="string" value="prev_workspace_key"/>
+      <property name="&lt;Super&gt;Page_Down" type="string" value="next_workspace_key"/>
+      <property name="&lt;Super&gt;Up" type="string" value="tile_up_key"/>
+      <property name="&lt;Super&gt;Down" type="string" value="tile_down_key"/>
+      <property name="&lt;Super&gt;Left" type="string" value="tile_left_key"/>
+      <property name="&lt;Super&gt;Right" type="string" value="tile_right_key"/>
     </property>
   </property>
   <property name="providers" type="array">
