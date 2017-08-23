@@ -5,6 +5,8 @@ from optparse import OptionParser
 
 # Option Parser
 parser = OptionParser()
+parser.add_option("-b", "--basic", action="store_true", dest="basic",
+                  default=False, help="Install basic dotfiles")
 parser.add_option("-x", "--xfce", action="store_true", dest="xfce",
                   default=False, help="Install XFCE related dotfiles")
 parser.add_option("-g", "--gnome", action="store_true", dest="gnome", 
@@ -13,12 +15,24 @@ parser.add_option("-g", "--gnome", action="store_true", dest="gnome",
 (options, args) = parser.parse_args()
 
 # Copy files
-os.system("cp -Rf dotfiles/. $HOME")
+copied = False
+
+if options.basic:
+    print "Copying basic dotfiles"
+    os.system("cp -Rf dotfiles/. $HOME")
+    copied = True
 
 if options.xfce:
+    print "Copying XFCE related dotfiles"
     os.system("cp -Rf xfce/. $HOME")
+    copied = True
 
 if options.gnome:
+    print "Copying GNOME related dotfiles"
     os.system("cp -Rf gnome/. $HOME")
+    copied = True
 
-print "Reboot now to apply changes (do not save session)"
+if copied:
+    print "Reboot now to apply changes (do not save session)"
+else:
+    print "No dotfiles were copied"
