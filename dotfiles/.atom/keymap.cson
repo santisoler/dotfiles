@@ -34,3 +34,4 @@
 'atom-text-editor':
   'ctrl-i': 'editor:indent-selected-rows'
   'ctrl-u': 'editor:outdent-selected-rows'
+  'ctrl-e': 'editor:toggle-line-comments'
