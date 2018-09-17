@@ -12,7 +12,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugins are downloaded from Github (username/repo)
-
+Plug 'lervag/vimtex'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
@@ -159,9 +159,8 @@ autocmd BufNewFile,BufRead *.md,*.tex,*.rst setlocal spell
 " Please check if airline has <let g:airline#extensions#tabline#enabled = 1>
 
 " Move to the next and previous buffer
-nmap <C-l> :bnext<CR>
-nmap <C-h> :bprevious<CR>
-
+nmap <C-l> :bnext!<CR>
+nmap <C-h> :bprevious!<CR>
 
 " ====================
 " Plugin Configuration
