@@ -1,132 +1,181 @@
+" ==================================
+" Plugin Installation using vim-plug
+" ==================================
+" Visit https://github.com/junegunn/vim-plug for more info
+" Automatically download and install vim-plug if it's not installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
 
-" Custom configuration on top of default vimrc file
+call plug#begin('~/.vim/plugged')
+
+" Plugins are downloaded from Github (username/repo)
+
+Plug 'tpope/vim-fugitive'
+Plug 'vim-syntastic/syntastic'
+Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdcommenter'
+Plug 'neutaaaaan/iosvkem'
+Plug 'joshdick/onedark.vim'
+
+call plug#end()
+
+
+" =====================
+" General Configuration
+" =====================
+set nocompatible
+set modelines=0
+
+" Change tabulations and indentation
+set nu
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4
 set expandtab
+set autoindent
+
+set undofile
+
+" Change updatetime for gitgutter
+set updatetime=100
+
+" Configure searches
+set incsearch
+set showmatch
+set hlsearch
+
+" Set an 80 characters column
+" set wrap
+set textwidth=88
+set formatoptions=qrn1
+set colorcolumn=89
+
+" Split keyboard shortcuts
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Syntax highlightning
+syntax on
+autocmd BufNewFile,BufRead *.ipy set filetype=python
+autocmd BufNewFile,BufRead *.pyx set filetype=python
+autocmd BufNewFile,BufRead SConstruct set filetype=python
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+" Remove trailing spaces on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Map leader to -
+let mapleader = "-"
+
+" Replace Esc with Ctrl+L to make this work better on Termux.
+" Android uses Esc as a shortcut for the home screen.
+" Use solution in:
+" http://vim.wikia.com/wiki/Avoid_the_escape_key
+" This is a variation on the previous mapping that additionally checks for
+" the popup menu (present when doing completions). During completions, <C-L>
+" adds a character from the current match, so this mapping will preserve that
+" behavior. See :help popupmenu-keys for more.
+:inoremap <expr> <C-L> (pumvisible() <bar><bar> &insertmode) ? '<C-L>' : '<Esc>'
 
 
-" The default vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2016 Sep 02
-"
-" This is loaded if no vimrc file was found.
-" Except when Vim is run with "-u NONE" or "-C".
-" Individual settings can be reverted with ":set option&".
-" Other commands can be reverted as mentioned below.
+" ============
+" Color scheme
+" ============
 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
+" Choose onedark color scheme from joshdick/onedark.vim
+colorscheme onedark
+
+" Prevent wrong terminal background color on scrolling
+set t_ut=
+
+" Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+" If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check
+" and use tmux's 24-bit color support
+" (see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+    if (has("nvim"))
+        "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    endif
+    " For Neovim > 0.1.5 and Vim > patch 7.4.1799
+    " <https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162>
+    " Based on Vim patch 7.4.1770 (`guicolors` option)
+    " <https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd>
+    " <https://github.com/neovim/neovim/wiki/Following-HEAD#20160511>
+    if (has("termguicolors"))
+        set termguicolors
+    endif
 endif
 
-" Bail out if something that ran earlier, e.g. a system wide vimrc, does not
-" want Vim to use these default values.
-if exists('skip_defaults_vim')
-  finish
-endif
 
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
+" ===========
+" Spell Check
+" ===========
 
-" Allow backspacing over everything in insert mode.
-set backspace=indent,eol,start
+" Function to rotate the spell language that is used
+let b:myLang=0
+let g:myLangList=["nospell","es","en_us"]
+function! ToggleSpell()
+    let b:myLang=b:myLang+1
+    if b:myLang>=len(g:myLangList) | let b:myLang=0 | endif
+    if b:myLang==0
+        setlocal nospell
+    else
+        execute "setlocal spell spelllang=".get(g:myLangList, b:myLang)
+    endif
+    echo "spell checking language:" g:myLangList[b:myLang]
+endfunction
 
-set history=200		" keep 200 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set wildmenu		" display completion matches in a status line
+" Pressing \ss will toggle and untoggle spell checking
+map <leader>ss :call ToggleSpell()<cr>
+" ]s and [s to move down-up marked words
+" Shortcuts using <leader> (\)
 
-set ttimeout		" time out for key codes
-set ttimeoutlen=100	" wait up to 100ms after Esc for special key
+" Add word to dictionary (\sa)
+map <leader>sa zg
 
-" Show @@@ in the last line if it is truncated.
-set display=truncate
+" Substitution option for marked word (\s?)
+map <leader>s? z=
 
-" Show a few lines of context around the cursor.  Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
-set scrolloff=5
+" Spelling always on for some files
+" autocmd BufNewFile,BufRead *.ipy,*.py,*.md,*.tex,*.rst,*.c,*.h,Makefile setlocal spell
+autocmd BufNewFile,BufRead *.md,*.tex,*.rst setlocal spell
 
-" Do incremental searching when it's possible to timeout.
-if has('reltime')
-  set incsearch
-endif
 
-" Do not recognize octal numbers for Ctrl-A and Ctrl-X, most users find it
-" confusing.
-set nrformats-=octal
+" ====================
+" Plugin Configuration
+" ====================
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries.
-if has('win32')
-  set guioptions-=t
-endif
+" nerdcommenter
+" -------------
+filetype plugin indent on
+let g:NERDSpaceDelims = 1
 
-" Don't use Ex mode, use Q for formatting.
-" Revert with ":unmap Q".
-map Q gq
+" vim-airline
+" -----------
+let g:airline_detect_modified=1
+let g:airline_detect_paste=1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#branch#symbol = '⎇  '
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_theme='onedark'
 
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-" Revert with ":iunmap <C-U>".
-inoremap <C-U> <C-G>u<C-U>
-
-" In many terminal emulators the mouse works just fine.  By enabling it you
-" can position the cursor, Visually select and scroll with the mouse.
-if has('mouse')
-  set mouse=a
-endif
-
-" Switch syntax highlighting on when the terminal has colors or when using the
-" GUI (which always has colors).
-if &t_Co > 2 || has("gui_running")
-  " Revert with ":syntax off".
-  syntax on
-
-  " I like highlighting strings inside C comments.
-  " Revert with ":unlet c_comment_strings".
-  let c_comment_strings=1
-endif
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  " Revert with ":filetype off".
-  filetype plugin indent on
-
-  " Put these in an autocmd group, so that you can revert them with:
-  " ":augroup vimStartup | au! | augroup END"
-  augroup vimStartup
-    au!
-
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it when the position is invalid or when inside an event handler
-    " (happens when dropping a file on gvim).
-    autocmd BufReadPost *
-      \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
-
-  augroup END
-
-endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-" Revert with: ":delcommand DiffOrig".
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
-
-if has('langmap') && exists('+langremap')
-  " Prevent that the langmap option applies to characters that result from a
-  " mapping.  If set (default), this may break plugins (but it's backward
-  " compatible).
-  set nolangremap
-endif
+" syntastic
+" ---------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_rst_checkers = ['text/language_check']
+let g:syntastic_python_checkers = ['flake8']
+map <leader>sy :call SyntasticToggleMode()<cr>
