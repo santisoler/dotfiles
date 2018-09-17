@@ -12,16 +12,15 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugins are downloaded from Github (username/repo)
-Plug 'lervag/vimtex'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
+Plug 'mkitt/tabline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'lervag/vimtex'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
-Plug 'neutaaaaan/iosvkem'
 Plug 'joshdick/onedark.vim'
-Plug 'mkitt/tabline.vim'
 
 call plug#end()
 
