@@ -12,15 +12,17 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugins are downloaded from Github (username/repo)
+Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
 Plug 'mkitt/tabline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'tweekmonster/braceless.vim', {'for': ['python']}
 Plug 'lervag/vimtex'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
-Plug 'joshdick/onedark.vim'
+Plug 'davidhalter/jedi-vim'
 
 call plug#end()
 
@@ -169,6 +171,10 @@ nmap <C-h> :bprevious!<CR>
 " -------------
 filetype plugin indent on
 let g:NERDSpaceDelims = 1
+
+" braceless.vim
+" -------------
+autocmd FileType python BracelessEnable +indent +highlight
 
 " vim-airline
 " -----------
