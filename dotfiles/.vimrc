@@ -16,10 +16,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
 Plug 'neutaaaaan/iosvkem'
 Plug 'joshdick/onedark.vim'
+Plug 'mkitt/tabline.vim'
 
 call plug#end()
 
@@ -55,10 +57,10 @@ set formatoptions=qrn1
 set colorcolumn=89
 
 " Split keyboard shortcuts
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
 
 " Syntax highlightning
 syntax on
@@ -120,8 +122,11 @@ endif
 
 " Function to rotate the spell language that is used
 let b:myLang=0
-let g:myLangList=["nospell","es","en_us"]
+let g:myLangList=["nospell","es","en_us","en_gb"]
 function! ToggleSpell()
+    if !exists( "b:myLang" )
+        let b:myLang=0
+    endif
     let b:myLang=b:myLang+1
     if b:myLang>=len(g:myLangList) | let b:myLang=0 | endif
     if b:myLang==0
@@ -148,6 +153,16 @@ map <leader>s? z=
 autocmd BufNewFile,BufRead *.md,*.tex,*.rst setlocal spell
 
 
+" =======
+" Buffers
+" =======
+" Please check if airline has <let g:airline#extensions#tabline#enabled = 1>
+
+" Move to the next and previous buffer
+nmap <C-l> :bnext<CR>
+nmap <C-h> :bprevious<CR>
+
+
 " ====================
 " Plugin Configuration
 " ====================
@@ -165,7 +180,9 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#symbol = '⎇  '
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-let g:airline_theme='onedark'
+" g:airline_theme='onedark'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='tomorrow'
 
 " syntastic
 " ---------
