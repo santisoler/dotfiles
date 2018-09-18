@@ -15,7 +15,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
-Plug 'mkitt/tabline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tweekmonster/braceless.vim', {'for': ['python']}
@@ -53,9 +52,9 @@ set hlsearch
 
 " Set an 80 characters column
 " set wrap
-set textwidth=88
+set textwidth=80
 set formatoptions=qrn1
-set colorcolumn=89
+set colorcolumn=80
 
 " Split keyboard shortcuts
 " nnoremap <C-h> <C-w>h
@@ -170,7 +169,7 @@ nmap <C-h> :bprevious!<CR>
 " nerdcommenter
 " -------------
 filetype plugin indent on
-let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims = 0
 
 " braceless.vim
 " -------------
@@ -186,6 +185,7 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 " g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_theme='tomorrow'
 
 " syntastic
