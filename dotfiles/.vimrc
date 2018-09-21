@@ -51,7 +51,8 @@ set showmatch
 set hlsearch
 
 " Set an 80 characters column
-" set wrap
+set nowrap           " remove soft wrap
+set formatoptions+=t " enable hard wrap
 set textwidth=80
 set formatoptions=qrn1
 set colorcolumn=80
