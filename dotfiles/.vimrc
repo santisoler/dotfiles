@@ -32,6 +32,9 @@ call plug#end()
 set nocompatible
 set modelines=0
 
+" Map leader to -
+let mapleader = "-"
+
 " Change tabulations and indentation
 set nu
 set tabstop=4
@@ -49,12 +52,13 @@ set updatetime=100
 set incsearch
 set showmatch
 set hlsearch
+nnoremap <leader><space> :noh<cr>
 
 " Set an 80 characters column
+set formatoptions=qrn1
 set wrap             " enable soft wrap
 set formatoptions+=t " enable hard wrap
 set textwidth=80
-set formatoptions=qrn1
 set colorcolumn=80
 
 " Split keyboard shortcuts
@@ -72,9 +76,6 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 " Remove trailing spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
-
-" Map leader to -
-let mapleader = "-"
 
 " Replace Esc with Ctrl+L to make this work better on Termux.
 " Android uses Esc as a shortcut for the home screen.
