@@ -77,6 +77,7 @@ if ${use_color} ; then
 	fi
 
 	alias ls='ls --color=auto'
+    alias lsq='/bin/ls' # quiet version for ls
 	alias grep='grep --colour=auto'
 	alias egrep='egrep --colour=auto'
 	alias fgrep='fgrep --colour=auto'
