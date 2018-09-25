@@ -12,16 +12,16 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugins are downloaded from Github (username/repo)
-Plug 'joshdick/onedark.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-syntastic/syntastic'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'joshdick/onedark.vim'            " onedark colorscheme (from atom)
+Plug 'tpope/vim-fugitive'              " git wrapper
+Plug 'vim-syntastic/syntastic'         " syntax linter
+Plug 'vim-airline/vim-airline'         " airline (bottom bar)
+Plug 'vim-airline/vim-airline-themes'  " airline themes
 Plug 'tweekmonster/braceless.vim', {'for': ['python']}
-Plug 'lervag/vimtex'
-Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdcommenter'
-Plug 'davidhalter/jedi-vim'
+Plug 'lervag/vimtex'            " latex plugin
+Plug 'airblade/vim-gitgutter'   " git flags in the sign column
+Plug 'scrooloose/nerdcommenter' " improved comments
+Plug 'davidhalter/jedi-vim'     " autocompletion using jedi
 
 call plug#end()
 
