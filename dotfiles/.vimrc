@@ -75,6 +75,8 @@ autocmd BufNewFile,BufRead SConstruct set filetype=python
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 " Remove trailing spaces on save
+" To disable this from running on a one-time saving, run:
+"   :noautocmd w
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Replace Esc with Ctrl+L to make this work better on Termux.
