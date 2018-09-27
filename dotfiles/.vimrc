@@ -70,6 +70,9 @@ set colorcolumn=80
 " Split new windows below
 set splitbelow
 
+" Configure Git commits
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
 " Syntax highlightning
 syntax on
 autocmd BufNewFile,BufRead *.ipy set filetype=python
