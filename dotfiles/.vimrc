@@ -204,3 +204,10 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_rst_checkers = ['text/language_check']
 let g:syntastic_python_checkers = ['flake8']
 map <leader>sy :call SyntasticToggleMode()<cr>
+
+" vimtex
+" ------
+let g:vimtex_enabled=1
+let g:vimtex_compiler_enabled=0
+let g:vimtex_complete_enabled=1
+let g:vimtex_complete_close_braces=1
