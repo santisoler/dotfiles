@@ -67,6 +67,9 @@ set colorcolumn=80
 " nnoremap <C-k> <C-w>k
 " nnoremap <C-l> <C-w>l
 
+" Split new windows below
+set splitbelow
+
 " Syntax highlightning
 syntax on
 autocmd BufNewFile,BufRead *.ipy set filetype=python
@@ -166,6 +169,7 @@ autocmd BufNewFile,BufRead *.md,*.tex,*.rst setlocal spell
 nmap <C-l> :bnext!<CR>
 nmap <C-h> :bprevious!<CR>
 
+
 " ====================
 " Plugin Configuration
 " ====================
@@ -211,3 +215,9 @@ let g:vimtex_enabled=1
 let g:vimtex_compiler_enabled=0
 let g:vimtex_complete_enabled=1
 let g:vimtex_complete_close_braces=1
+
+" jedi-vim
+" --------
+" Don't show docstring on completion (use K instead)
+autocmd FileType python setlocal completeopt-=preview
+let g:jedi#use_splits_not_buffers="left"
