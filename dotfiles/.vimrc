@@ -70,6 +70,9 @@ set colorcolumn=80
 " Split new windows below
 set splitbelow
 
+" Disable folding
+set nofoldenable
+
 " Configure Git commits
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
