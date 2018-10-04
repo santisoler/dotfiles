@@ -73,6 +73,10 @@ set splitbelow
 " Disable folding
 set nofoldenable
 
+" Map F2 to paste mode so that pasting in the terminal doesn't mess identation
+ nnoremap <F2> :set invpaste paste?<CR>
+ set pastetoggle=<F2>
+
 " Configure Git commits
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
