@@ -62,10 +62,10 @@ set textwidth=80
 set colorcolumn=80
 
 " Split keyboard shortcuts
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Split new windows below
 set splitbelow
@@ -176,8 +176,8 @@ autocmd BufNewFile,BufRead *.md,*.tex,*.rst setlocal spell
 " Please check if airline has <let g:airline#extensions#tabline#enabled = 1>
 
 " Move to the next and previous buffer
-nmap <C-l> :bnext!<CR>
-nmap <C-h> :bprevious!<CR>
+nmap <C-e> :bnext!<CR>
+nmap <C-w> :bprevious!<CR>
 
 
 " ====================
