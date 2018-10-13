@@ -77,6 +77,11 @@ set nofoldenable
  nnoremap <F2> :set invpaste paste?<CR>
  set pastetoggle=<F2>
 
+" Map "+y in order to copy to clipboard
+" In order to work, :echo has('clipboard') must return 1
+" Try installing vim-gtk or gvim according to you distro
+vnoremap <C-c> "+y
+
 " Configure Git commits
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
