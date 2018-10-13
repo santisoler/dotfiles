@@ -14,7 +14,6 @@ if [ -f ~/.bash/aliases.sh ]; then
 fi
 
 if [ -f ~/.bash/colors.sh ]; then
-    # Make the prompt pretty and show git branch information
     source ~/.bash/colors.sh
 fi
 
