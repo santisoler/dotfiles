@@ -1,7 +1,0 @@
-# GIMP gimp-eraser-tool options
-
-(brush "Portapapeles")
-(dynamics "Dynamics Off")
-(palette "Default")
-
-# end of gimp-eraser-tool options

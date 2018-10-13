@@ -1,7 +1,0 @@
-# GIMP gimp-convolve-tool options
-
-(brush "Portapapeles")
-(dynamics "Dynamics Off")
-(palette "Default")
-
-# end of gimp-convolve-tool options

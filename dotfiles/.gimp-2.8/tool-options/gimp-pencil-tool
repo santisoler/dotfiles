@@ -1,8 +1,0 @@
-# GIMP gimp-pencil-tool options
-
-(brush "Portapapeles")
-(dynamics "Dynamics Off")
-(gradient "Frente a fondo (bordes duros)")
-(palette "Default")
-
-# end of gimp-pencil-tool options
