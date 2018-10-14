@@ -16,6 +16,10 @@ set_prompt()
     local ahead="$git_style↑"
     local behind="$git_style↓"
     local diverged="$git_style↱"
+    local changed="\[\e[1;33;40m\]✚"
+    local staged="\[\e[1;32;40m\]●"
+    local untracked="\[\e[1;37;40m\]|"
+    local conflict="\[\e[1;30;41m\]✖"
 
     # Basic first part of the PS1 prompt
     local host="$main_style[`whoami`@`hostname` $path_style\W$main_style]"
@@ -44,11 +48,36 @@ set_prompt()
             local remote=""
         fi
         if [[ -n $remote ]]; then
-            git="$git $remote"
+            local git="$git $remote"
+        fi
+        local git="$git "
+
+        local files_changed=`git diff --numstat | wc -l`
+        if [[ $files_changed -ne 0 ]]; then
+            #local status="$status $changed $files_changed"
+            local git="$git$changed$files_changed"
         fi
 
+        local files_staged=`git diff --cached --numstat | wc -l`
+        if [[ $files_staged -ne 0 ]]; then
+            #local status="$status $staged $files_staged"
+            local git="$git$staged$files_staged"
+        fi
+
+        local files_untracked=`git ls-files --others --exclude-standard | wc -l`
+        if [[ $files_untracked -ne 0 ]]; then
+            local git="$git$untracked$files_untracked"
+        fi
+
+        local files_conflict=`git diff --name-only --diff-filter=U | wc -l`
+        if [[ $files_conflict -ne 0 ]]; then
+            #local status="$status $conflict $files_conflict"
+            local git="$git$conflict$files_conflict"
+        fi
+
+        local git="$git_style$git"
+
         # Append the git info to the PS1
-        git="$git_style$git"
         PS1="$PS1 $git"
     fi
 
