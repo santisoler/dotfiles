@@ -43,6 +43,8 @@
       <property name="&lt;Super&gt;w" type="string" value="firefox"/>
       <property name="&lt;Super&gt;f" type="string" value="thunar"/>
       <property name="&lt;Super&gt;l" type="string" value="xflock4"/>
+      <property name="&lt;Super&gt;m" type="string" value="lollypop"/>
+      <property name="&lt;Super&gt;v" type="string" value="pavucontrol"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
