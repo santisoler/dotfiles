@@ -21,18 +21,18 @@ set_prompt()
     # Set the PS1 configuration for the prompt
 
     # Default values for the appearance of the prompt.
-    local main_style="\[\e[1;32;40m\]"
-    local path_style="\[\e[1;37;40m\]"
+    local main_style="\[\e[1;32m\]"
+    local path_style="\[\e[1;37m\]"
     local normal_style="\[\e[0m\]"
-    local git_style="\[\e[1;33;40m\]"
-    local python_style="\[\e[0;37;40m\]"
+    local git_style="\[\e[1;33m\]"
+    local python_style="\[\e[0;35m\]"
     local ahead="$git_style↑"
     local behind="$git_style↓"
-    local diverged="$git_style↱"
-    local changed="\[\e[1;33;40m\]✚"
-    local staged="\[\e[1;32;40m\]●"
-    local untracked="\[\e[1;37;40m\]|"
-    local conflict="\[\e[1;30;41m\]✖"
+    local diverged="\[\e[1;30;41m\]↱\[\e[0m\]"
+    local changed="\[\e[1;31m\]✚"
+    local staged="\[\e[1;32m\]●"
+    local untracked="\[\e[1;30m\]|"
+    local conflict="\[\e[1;30;41m\]✖\[\e[0m\]"
 
     # Basic first part of the PS1 prompt
     local host="$main_style[`whoami`@`hostname` $path_style\W$main_style]"
