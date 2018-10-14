@@ -28,11 +28,11 @@ set_prompt()
     local python_style="\[\e[0;35m\]"
     local ahead="$git_style↑"
     local behind="$git_style↓"
-    local diverged="\[\e[1;30;41m\]↱\[\e[0m\]"
+    local diverged="\[\e[1;30;41m\]↱$normal_style"
     local changed="\[\e[1;31m\]✚"
     local staged="\[\e[1;32m\]●"
     local untracked="\[\e[1;30m\]|"
-    local conflict="\[\e[1;30;41m\]✖\[\e[0m\]"
+    local conflict="\[\e[1;30;41m\]✖$normal_style"
 
     # Basic first part of the PS1 prompt
     local host="$main_style[`whoami`@`hostname` $path_style\W$main_style]"
@@ -41,8 +41,7 @@ set_prompt()
     # Python env
     local conda_env=`get_conda_env`
     if [[ $conda_env != "" ]]; then
-        local python_env="$python_style$conda_env"
-        PS1="$PS1 $python_env"
+        PS1="$PS1 $python_style$conda_env"
     fi
 
     # Build and append the git status symbols
@@ -100,7 +99,7 @@ set_prompt()
     fi
 
     # Finish off with the current directory and the end of the prompt
-    if [[ "${PS1: -1}" == "]" ]]; then
+    if [[ $conda_env == "" ]] && [[ $git == "" ]]; then
         local end="$main_style$ $normal_style"
     else
         local end="$main_style $ $normal_style"
