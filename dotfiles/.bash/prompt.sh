@@ -10,15 +10,16 @@ set_prompt()
     # Set the PS1 configuration for the prompt
 
     # Default values for the appearance of the prompt.
-    local main_style="\[\e[1;32m\]"
-    local path_style="\[\e[1;37m\]"
+    local main_style="\[\e[1;32;40m\]"
+    local path_style="\[\e[1;37;40m\]"
     local normal_style="\[\e[0m\]"
-    local gitbranch_style="\[\e[1;33m\]"
+    local gitbranch_style="\[\e[1;33;40m\]"
+    local python_style="\[\e[0;31;40m\]"
     #local changed="\[\033[01;32m\]✚"
     #local staged="\[\033[01;32m\]●"
     #local untracked="$main_style…"
     #local conflict="\[\033[01;32m\]✖"
-    local gitremote_style="\[\e[1;36m\]"
+    #local gitremote_style="\[\e[1;36m\]"
     local ahead="$gitbranch_style↑"
     local behind="$gitbranch_style↓"
     local diverged="$gitbranch_style↱"
@@ -26,10 +27,14 @@ set_prompt()
     # Basic first part of the PS1 prompt
     #local host="\[\e[0;97;100m\] `whoami`@`hostname` "
     local host="$main_style[`whoami`@`hostname` $path_style\W$main_style]"
-    #local python_env="\[\033[01;37m\] `get_conda_env`\[\033[01;32m\]]"
-
-    #PS1="$host$python_env"
     PS1="$host"
+
+    # Python env
+    local conda_env=`get_conda_env`
+    if [[ $conda_env != "" ]]; then
+        local python_env="$python_style$conda_env"
+        PS1="$PS1 $python_env"
+    fi
 
     # Build and append the git status symbols
     if inside_git_repo; then
@@ -73,11 +78,11 @@ set_prompt()
         local branch=`get_git_branch`
 
         # Append the git info to the PS1
-        local git="$gitbranch_style$branch"
+        local git="$gitbranch_style $branch"
         if [[ -n $status ]]; then
             local git="$git$status"
         fi
-        PS1="$PS1 $git "
+        PS1="$PS1$git "
     fi
 
     # Finish off with the current directory and the end of the prompt
@@ -95,12 +100,11 @@ PROMPT_COMMAND=set_prompt
 get_conda_env ()
 {
     # Determine active conda env details
-    local env_name="base"
+    local env_name=""
     if [[ ! -z $CONDA_DEFAULT_ENV ]]; then
         local env_name="`basename \"$CONDA_DEFAULT_ENV\"`"
     fi
-    local python_version="$(python -c 'from __future__ import print_function; import sys; print(".".join(map(str, sys.version_info[:2])))')"
-    echo "$env_name-$python_version"
+    echo "$env_name"
 }
 
 
