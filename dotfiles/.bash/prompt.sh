@@ -12,7 +12,7 @@ set_prompt()
     local path_style="\[\e[1;37;40m\]"
     local normal_style="\[\e[0m\]"
     local git_style="\[\e[1;33;40m\]"
-    local python_style="\[\e[0;31;40m\]"
+    local python_style="\[\e[0;37;40m\]"
     local ahead="$git_style↑"
     local behind="$git_style↓"
     local diverged="$git_style↱"
@@ -35,8 +35,10 @@ set_prompt()
     # Build and append the git status symbols
     if inside_git_repo; then
 
+        # Branch
         local git=`get_git_branch`
 
+        # Remote status
         local remote_status=`get_git_remote_status`
         if [[ $remote_status == "ahead" ]]; then
             local remote="$ahead"
@@ -47,42 +49,49 @@ set_prompt()
         else
             local remote=""
         fi
+
         if [[ -n $remote ]]; then
             local git="$git $remote"
         fi
-        local git="$git "
 
+        # Files status
+        local files_status=""
         local files_changed=`git diff --numstat | wc -l`
         if [[ $files_changed -ne 0 ]]; then
-            #local status="$status $changed $files_changed"
-            local git="$git$changed$files_changed"
+            local files_status="$files_status$changed$files_changed"
         fi
 
         local files_staged=`git diff --cached --numstat | wc -l`
         if [[ $files_staged -ne 0 ]]; then
-            #local status="$status $staged $files_staged"
-            local git="$git$staged$files_staged"
+            local files_status="$files_status$staged$files_staged"
         fi
 
         local files_untracked=`git ls-files --others --exclude-standard | wc -l`
         if [[ $files_untracked -ne 0 ]]; then
-            local git="$git$untracked$files_untracked"
+            local files_status="$files_status$untracked$files_untracked"
         fi
 
         local files_conflict=`git diff --name-only --diff-filter=U | wc -l`
         if [[ $files_conflict -ne 0 ]]; then
-            #local status="$status $conflict $files_conflict"
-            local git="$git$conflict$files_conflict"
+            local files_status="$files_status$conflict$files_conflict"
         fi
 
-        local git="$git_style$git"
+        if [[ -n $files_status ]]; then
+            local git="$git $files_status"
+        fi
 
         # Append the git info to the PS1
-        PS1="$PS1 $git"
+        if [[ -n $git ]]; then
+            PS1="$PS1 $git_style$git"
+        fi
     fi
 
     # Finish off with the current directory and the end of the prompt
-    local end="$main_style $ $normal_style"
+    if [[ "${PS1: -1}" == "]" ]]; then
+        local end="$main_style$ $normal_style"
+    else
+        local end="$main_style $ $normal_style"
+    fi
     PS1="$PS1$end"
 }
 
