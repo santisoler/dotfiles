@@ -18,9 +18,10 @@ set_prompt()
     #local staged="\[\033[01;32m\]●"
     #local untracked="$main_style…"
     #local conflict="\[\033[01;32m\]✖"
-    #local ahead="$main_style↑"
-    #local behind="$main_style↓"
-    #local diverged="$main_style⑂"
+    local gitremote_style="\[\e[1;36m\]"
+    local ahead="$gitbranch_style↑"
+    local behind="$gitbranch_style↓"
+    local diverged="$gitbranch_style↱"
 
     # Basic first part of the PS1 prompt
     #local host="\[\e[0;97;100m\] `whoami`@`hostname` "
@@ -55,19 +56,19 @@ set_prompt()
             #local status="$status $untracked$files_untracked"
         #fi
 
-        #local remote_status=`get_git_remote_status`
-        #if [[ $remote_status == "ahead" ]]; then
-            #local remote="$ahead"
-        #elif [[ $remote_status == "behind" ]]; then
-            #local remote="$behind"
-        #elif [[ $remote_status == "diverged" ]]; then
-            #local remote="$diverged"
-        #else
-            #local remote=""
-        #fi
-        #if [[ -n $remote ]]; then
-            #local status="$status $remote"
-        #fi
+        local remote_status=`get_git_remote_status`
+        if [[ $remote_status == "ahead" ]]; then
+            local remote="$ahead"
+        elif [[ $remote_status == "behind" ]]; then
+            local remote="$behind"
+        elif [[ $remote_status == "diverged" ]]; then
+            local remote="$diverged"
+        else
+            local remote=""
+        fi
+        if [[ -n $remote ]]; then
+            local status="$status $remote"
+        fi
 
         local branch=`get_git_branch`
 
