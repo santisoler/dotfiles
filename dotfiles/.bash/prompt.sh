@@ -1,9 +1,7 @@
 # Set the prompt style to include the conda env and git repository status
 #
-# Started out as an apdaptation of https://github.com/magicmonty/bash-git-prompt
-# but I ended up completely re-implementing everything using only bash.
-# The result is faster and probably won't break between Python versions.
-
+# Based on
+# https://github.com/leouieda/dotfiles/blob/7772b82dc35d8d58ff9504cded966ef518cc24ce/.bash/prompt.sh
 
 set_prompt()
 {
@@ -13,19 +11,13 @@ set_prompt()
     local main_style="\[\e[1;32;40m\]"
     local path_style="\[\e[1;37;40m\]"
     local normal_style="\[\e[0m\]"
-    local gitbranch_style="\[\e[1;33;40m\]"
+    local git_style="\[\e[1;33;40m\]"
     local python_style="\[\e[0;31;40m\]"
-    #local changed="\[\033[01;32m\]✚"
-    #local staged="\[\033[01;32m\]●"
-    #local untracked="$main_style…"
-    #local conflict="\[\033[01;32m\]✖"
-    #local gitremote_style="\[\e[1;36m\]"
-    local ahead="$gitbranch_style↑"
-    local behind="$gitbranch_style↓"
-    local diverged="$gitbranch_style↱"
+    local ahead="$git_style↑"
+    local behind="$git_style↓"
+    local diverged="$git_style↱"
 
     # Basic first part of the PS1 prompt
-    #local host="\[\e[0;97;100m\] `whoami`@`hostname` "
     local host="$main_style[`whoami`@`hostname` $path_style\W$main_style]"
     PS1="$host"
 
@@ -38,28 +30,8 @@ set_prompt()
 
     # Build and append the git status symbols
     if inside_git_repo; then
-        # Construct the status info (how many files changed, etc)
-        local status=""
 
-        #local files_changed=`git diff --numstat | wc -l`
-        #if [[ $files_changed -ne 0 ]]; then
-            #local status="$status $changed $files_changed"
-        #fi
-
-        #local files_staged=`git diff --cached --numstat | wc -l`
-        #if [[ $files_staged -ne 0 ]]; then
-            #local status="$status $staged $files_staged"
-        #fi
-
-        #local files_conflict=`git diff --name-only --diff-filter=U | wc -l`
-        #if [[ $files_conflict -ne 0 ]]; then
-            #local status="$status $conflict $files_conflict"
-        #fi
-
-        #local files_untracked=`git ls-files --others --exclude-standard | wc -l`
-        #if [[ $files_untracked -ne 0 ]]; then
-            #local status="$status $untracked$files_untracked"
-        #fi
+        local git=`get_git_branch`
 
         local remote_status=`get_git_remote_status`
         if [[ $remote_status == "ahead" ]]; then
@@ -72,24 +44,16 @@ set_prompt()
             local remote=""
         fi
         if [[ -n $remote ]]; then
-            local status="$status $remote"
+            git="$git $remote"
         fi
-
-        local branch=`get_git_branch`
 
         # Append the git info to the PS1
-        local git="$gitbranch_style $branch"
-        if [[ -n $status ]]; then
-            local git="$git$status"
-        fi
-        PS1="$PS1$git "
+        git="$git_style$git"
+        PS1="$PS1 $git"
     fi
 
     # Finish off with the current directory and the end of the prompt
-    #local path="\[\033[01;33m\] \W"
-    #local end="$reset_color $ "
-    local end="$main_style$ $normal_style"
-
+    local end="$main_style $ $normal_style"
     PS1="$PS1$end"
 }
 
