@@ -1,5 +1,6 @@
 # Define variables
 
+export DICEWARE_ES="$HOME/.diceware/diceware-spanish.txt"
 export CONDA_PREFIX=$HOME/.anaconda2
 #export CONDA_PREFIX=$HOME/.anaconda3
 
