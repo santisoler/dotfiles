@@ -38,6 +38,11 @@ set_prompt()
     local host="$main_style[`whoami`@`hostname` $path_style\W$main_style]"
     PS1="$host"
 
+    local njobs=`jobs | wc -l`
+    if [[ $njobs -ne 0 ]]; then
+        PS1="$PS1 $normal_style($njobs)"
+    fi
+
     # Python env
     local conda_env=`get_conda_env`
     if [[ $conda_env != "" ]]; then
@@ -99,7 +104,7 @@ set_prompt()
     fi
 
     # Finish off with the current directory and the end of the prompt
-    if [[ $conda_env == "" ]] && [[ $git == "" ]]; then
+    if [[ $conda_env == "" ]] && [[ $git == "" ]] && [[ $njobs -eq 0 ]]; then
         local end="$main_style$ $normal_style"
     else
         local end="$main_style $ $normal_style"
