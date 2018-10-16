@@ -73,14 +73,15 @@ set_prompt()
 
         # Files status
         local files_status=""
-        local files_changed=`git diff --numstat | wc -l`
-        if [[ $files_changed -ne 0 ]]; then
-            local files_status="$files_status$changed$files_changed"
-        fi
 
         local files_staged=`git diff --cached --numstat | wc -l`
         if [[ $files_staged -ne 0 ]]; then
             local files_status="$files_status$staged$files_staged"
+        fi
+
+        local files_changed=`git diff --numstat | wc -l`
+        if [[ $files_changed -ne 0 ]]; then
+            local files_status="$files_status$changed$files_changed"
         fi
 
         local files_untracked=`git ls-files --others --exclude-standard $(git rev-parse --show-toplevel) | wc -l`
