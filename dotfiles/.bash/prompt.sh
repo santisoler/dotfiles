@@ -78,7 +78,7 @@ set_prompt()
             local files_status="$files_status$staged$files_staged"
         fi
 
-        local files_untracked=`git ls-files --others --exclude-standard | wc -l`
+        local files_untracked=`git ls-files --others --exclude-standard $(git rev-parse --show-toplevel) | wc -l`
         if [[ $files_untracked -ne 0 ]]; then
             local files_status="$files_status$untracked$files_untracked"
         fi
