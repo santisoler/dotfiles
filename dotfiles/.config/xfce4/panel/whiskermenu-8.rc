@@ -1,0 +1,68 @@
+favorites=firefox.desktop,Thunar.desktop,xfce4-terminal.desktop,simplenote.desktop,org.gnome.Lollypop.desktop,deluge.desktop
+recent=simplenote.desktop,keepassx2.desktop,Thunar.desktop,libreoffice-startcenter.desktop,firefox.desktop,xfce4-terminal.desktop,xfce-session-settings.desktop,vlc.desktop,org.flightgear.FlightGear.desktop,menulibre.desktop
+button-title=\ \ Aplicaciones\ \ 
+button-icon=/usr/share/icons/whiskermenu-manjaro.svg
+button-single-row=false
+show-button-title=true
+show-button-icon=false
+launcher-show-name=true
+launcher-show-description=false
+launcher-show-tooltip=true
+item-icon-size=2
+hover-switch-category=false
+category-show-name=true
+category-icon-size=1
+load-hierarchy=false
+recent-items-max=10
+favorites-in-recent=true
+display-recent-default=false
+position-search-alternate=true
+position-commands-alternate=false
+position-categories-alternate=true
+menu-width=482
+menu-height=505
+menu-opacity=100
+command-settings=xfce4-settings-manager
+show-command-settings=true
+command-lockscreen=xflock4
+show-command-lockscreen=true
+command-switchuser=dm-tool switch-to-greeter
+show-command-switchuser=true
+command-logout=xfce4-session-logout
+show-command-logout=true
+command-menueditor=menulibre
+show-command-menueditor=true
+command-profile=mugshot
+show-command-profile=true
+search-actions=5
+
+[action0]
+name=Páginas del manual
+pattern=#
+command=exo-open --launch TerminalEmulator man %s
+regex=false
+
+[action1]
+name=Búsqueda en la Web
+pattern=?
+command=exo-open --launch WebBrowser https://duckduckgo.com/?q=%u
+regex=false
+
+[action2]
+name=Wikipedia
+pattern=!w
+command=exo-open --launch WebBrowser https://en.wikipedia.org/wiki/%u
+regex=false
+
+[action3]
+name=Abrir en la terminal
+pattern=!
+command=exo-open --launch TerminalEmulator %s
+regex=false
+
+[action4]
+name=Abrir un URI
+pattern=^(file|http|https):\\/\\/(.*)$
+command=exo-open \\0
+regex=true
+
