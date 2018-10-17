@@ -28,6 +28,7 @@ set_prompt()
     local python_style="\[\e[0;35m\]"
     local ahead="$git_style↑"
     local behind="$git_style↓"
+    local noupstream="$git_style!"
     local diverged="\[\e[1;30;41m\]↱$normal_style"
     local changed="\[\e[1;31m\]✚"
     local staged="\[\e[1;32m\]●"
@@ -61,6 +62,8 @@ set_prompt()
             local remote="$ahead"
         elif [[ $remote_status == "behind" ]]; then
             local remote="$behind"
+        elif [[ $remote_status == "noupstream" ]]; then
+            local remote="$noupstream"
         elif [[ $remote_status == "diverged" ]]; then
             local remote="$diverged"
         else
@@ -141,12 +144,18 @@ get_git_branch()
 get_git_remote_status()
 {
     # Get the status regarding the remote
+    local has_remote=$(git rev-parse --remotes | wc -l)
     local upstream=${1:-'@{u}'}
     local local=$(git rev-parse @ 2> /dev/null)
     local remote=$(git rev-parse "$upstream" 2> /dev/null)
+    local has_upstream=$(git rev-parse "$upstream" 2> /dev/null | wc -l)
     local base=$(git merge-base @ "$upstream" 2> /dev/null)
 
-    if [[ $local == $remote ]]; then
+    if [[ $has_remote -eq 0 ]]; then
+        echo "noremote"
+    elif [[ $has_upstream -eq 0 ]]; then
+        echo "noupstream"
+    elif [[ $local == $remote ]]; then
         echo "updated"
     elif [[ $local == $base ]]; then
         echo "behind"
