@@ -31,7 +31,7 @@ set_prompt()
     local noupstream="$git_style!"
     local diverged="\[\e[1;30;41m\]↱$normal_style"
     local changed="\[\e[1;31m\]✚"
-    local staged="\[\e[1;32m\]●"
+    local staged="\[\e[1;32m\]•"
     local untracked="\[\e[1;37m\]|"
     local conflict="\[\e[1;30;41m\]✖$normal_style"
 
