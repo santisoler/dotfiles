@@ -5,10 +5,6 @@ if [ -f ~/.bash/variables.sh ]; then
     source ~/.bash/variables.sh
 fi
 
-if [ -f ~/.bash/path.sh ]; then
-    source ~/.bash/path.sh
-fi
-
 if [ -f ~/.bash/aliases.sh ]; then
     source ~/.bash/aliases.sh
 fi
