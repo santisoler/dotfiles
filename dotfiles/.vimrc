@@ -207,7 +207,7 @@ let g:NERDSpaceDelims = 0
 
 " braceless.vim
 " -------------
-autocmd FileType python BracelessEnable +indent +highlight
+autocmd FileType python BracelessEnable +indent
 
 " vim-airline
 " -----------
