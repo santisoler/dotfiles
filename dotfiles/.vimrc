@@ -21,7 +21,16 @@ Plug 'tweekmonster/braceless.vim', {'for': ['python']}
 Plug 'lervag/vimtex'            " latex plugin
 Plug 'airblade/vim-gitgutter'   " git flags in the sign column
 Plug 'scrooloose/nerdcommenter' " improved comments
-Plug 'davidhalter/jedi-vim'     " autocompletion using jedi
+
+if has('nvim')
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'zchee/deoplete-jedi'
+else
+	Plug 'Shougo/deoplete.nvim'
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
+	Plug 'davidhalter/jedi-vim'
+endif
 
 call plug#end()
 
@@ -76,8 +85,8 @@ set splitbelow
 set nofoldenable
 
 " Map F2 to paste mode so that pasting in the terminal doesn't mess identation
- nnoremap <F2> :set invpaste paste?<CR>
- set pastetoggle=<F2>
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
 
 " Map "+y in order to copy to clipboard
 " In order to work, :echo has('clipboard') must return 1
@@ -238,3 +247,13 @@ let g:vimtex_complete_close_braces=1
 " Don't show docstring on completion (use K instead)
 autocmd FileType python setlocal completeopt-=preview
 let g:jedi#use_splits_not_buffers="left"
+
+" deoplete
+" --------
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_refresh_always=0
+let g:deoplete#file#enable_buffer_path=1
+let g:deoplete#auto_completion_start_length = 0
+let g:deoplete#sources#jedi#show_docstring = 1
+" Escape: exit autocompletion, go to Normal mode
+inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
