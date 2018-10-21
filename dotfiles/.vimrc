@@ -242,12 +242,6 @@ let g:vimtex_compiler_enabled=0
 let g:vimtex_complete_enabled=1
 let g:vimtex_complete_close_braces=1
 
-" jedi-vim
-" --------
-" Don't show docstring on completion (use K instead)
-autocmd FileType python setlocal completeopt-=preview
-let g:jedi#use_splits_not_buffers="left"
-
 " deoplete
 " --------
 let g:deoplete#enable_at_startup = 1
