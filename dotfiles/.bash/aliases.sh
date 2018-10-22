@@ -8,6 +8,7 @@ alias open='xdg-open'
 alias xc='xclip -selection clipboard'    # copy to clipboard using xclip
 alias diceware-es='diceware -d " " --no-caps $DICEWARE_ES'
 alias jn='jupyter-notebook'
+alias sa='source activate'
 
 # git aliases for misspelling
 alias gti="git"
