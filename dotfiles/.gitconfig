@@ -2,7 +2,7 @@
 	name = Santiago Soler
 	email = santiago.r.soler@gmail.com
 [core]
-	editor = vim
+	editor = nvim
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
