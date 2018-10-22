@@ -23,13 +23,13 @@ Plug 'airblade/vim-gitgutter'   " git flags in the sign column
 Plug 'scrooloose/nerdcommenter' " improved comments
 
 if has('nvim')
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'zchee/deoplete-jedi'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi'
 else
-	Plug 'Shougo/deoplete.nvim'
-	Plug 'roxma/nvim-yarp'
-	Plug 'roxma/vim-hug-neovim-rpc'
-	Plug 'davidhalter/jedi-vim'
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+    Plug 'davidhalter/jedi-vim'
 endif
 
 call plug#end()
