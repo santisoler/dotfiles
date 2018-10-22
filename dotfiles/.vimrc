@@ -44,8 +44,11 @@ set modelines=0
 " Map leader to -
 let mapleader = "-"
 
+" Line numbers and cursorline
+set cursorline
+set number
+
 " Change tabulations and indentation
-set nu
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
