@@ -249,5 +249,7 @@ let g:deoplete#enable_refresh_always=0
 let g:deoplete#file#enable_buffer_path=1
 let g:deoplete#auto_completion_start_length = 0
 let g:deoplete#sources#jedi#show_docstring = 1
-" Escape: exit autocompletion, go to Normal mode
-inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
+if has('nvim')
+    " Escape: exit autocompletion, go to Normal mode
+    inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
+endif
