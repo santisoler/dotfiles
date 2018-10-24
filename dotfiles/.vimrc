@@ -248,10 +248,10 @@ let g:vimtex_complete_close_braces=1
 " deoplete
 " --------
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_refresh_always=0
-let g:deoplete#file#enable_buffer_path=1
-let g:deoplete#auto_completion_start_length = 0
 let g:deoplete#sources#jedi#show_docstring = 1
+"let g:deoplete#enable_refresh_always=0
+"let g:deoplete#file#enable_buffer_path=1
+"let g:deoplete#auto_completion_start_length = 0
 if has('nvim')
     " Escape: exit autocompletion, go to Normal mode
     inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
