@@ -21,6 +21,7 @@ Plug 'tweekmonster/braceless.vim', {'for': ['python']}
 Plug 'lervag/vimtex'            " latex plugin
 Plug 'airblade/vim-gitgutter'   " git flags in the sign column
 Plug 'scrooloose/nerdcommenter' " improved comments
+Plug 'scrooloose/nerdtree'      " nerdtree
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -256,3 +257,16 @@ if has('nvim')
     " Escape: exit autocompletion, go to Normal mode
     inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
 endif
+"let g:deoplete#sources#jedi#show_docstring = 1
+"if has('nvim')
+     "Escape: exit autocompletion, go to Normal mode
+    "inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
+"endif
+
+" NERDTree
+" --------
+"  Open NERDTree automatically when vim starts and no file is specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Open NERDTree with Ctrl-n
+map <C-n> :NERDTreeToggle<CR>
