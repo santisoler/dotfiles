@@ -9,6 +9,7 @@ alias xc='xclip -selection clipboard'    # copy to clipboard using xclip
 alias diceware-es='diceware -d " " --no-caps $DICEWARE_ES'
 alias jn='jupyter-notebook'
 alias sa='source activate'
+alias cdroot='cd $(git rev-parse --show-toplevel)' # cd to toplevel of git repo
 
 # git aliases for misspelling
 alias gti="git"
