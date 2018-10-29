@@ -82,6 +82,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Resize vertical splits mapping
+nnoremap <leader>vs :vertical resize 80<CR>
+
 " Split new windows below
 set splitbelow
 
