@@ -3,8 +3,7 @@
 # Copy dotfiles to ~
 # Regular cp options can be passed when running the script.
 # For example:
-#   $ ./copy.sh -f     # force the copy
-#   $ ./copy.sh -b     # backup files
+#   $ ./copy.sh -i               # prompt before overwrite
+#   $ ./copy.sh --backup=none    # doesn't backup existing files
 
-cp ~/.bashrc ~/.bashrc_dotfiles_backup
-cp -r $@ dotfiles/. -t ~
+cp -r --backup=numbered $@ dotfiles/. -t ~
