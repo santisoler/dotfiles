@@ -260,11 +260,6 @@ if has('nvim')
     " Escape: exit autocompletion, go to Normal mode
     inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
 endif
-"let g:deoplete#sources#jedi#show_docstring = 1
-"if has('nvim')
-     "Escape: exit autocompletion, go to Normal mode
-    "inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
-"endif
 
 " NERDTree
 " --------
