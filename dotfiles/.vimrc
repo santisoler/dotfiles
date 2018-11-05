@@ -24,12 +24,8 @@ Plug 'scrooloose/nerdcommenter' " improved comments
 Plug 'scrooloose/nerdtree'      " nerdtree
 
 if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-jedi'
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
+    "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    "Plug 'zchee/deoplete-jedi'
     Plug 'davidhalter/jedi-vim'
 endif
 
@@ -249,20 +245,22 @@ let g:vimtex_compiler_enabled=0
 let g:vimtex_complete_enabled=1
 let g:vimtex_complete_close_braces=1
 
+" jedi-vim
+" --------
+if has('nvim')
+    " Prevent popup docstring on autocompletion
+    autocmd FileType python setlocal completeopt-=preview
+endif
+
 " deoplete
 " --------
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#show_docstring = 1
+"let g:deoplete#enable_at_startup = 1
+"let g:deoplete#sources#jedi#show_docstring = 1
 "let g:deoplete#enable_refresh_always=0
 "let g:deoplete#file#enable_buffer_path=1
 "let g:deoplete#auto_completion_start_length = 0
-if has('nvim')
-    " Escape: exit autocompletion, go to Normal mode
-    inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
-endif
-"let g:deoplete#sources#jedi#show_docstring = 1
 "if has('nvim')
-     "Escape: exit autocompletion, go to Normal mode
+    "" Escape: exit autocompletion, go to Normal mode
     "inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
 "endif
 
