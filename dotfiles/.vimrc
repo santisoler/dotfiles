@@ -69,8 +69,8 @@ nnoremap <leader><space> :noh<cr>
 set formatoptions=qrn1
 set wrap             " enable soft wrap
 set formatoptions+=t " enable hard wrap
-set textwidth=80
-set colorcolumn=80
+set textwidth=88
+set colorcolumn=89
 
 " Split keyboard shortcuts
 nnoremap <C-h> <C-w>h
