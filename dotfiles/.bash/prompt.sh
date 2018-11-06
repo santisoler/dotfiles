@@ -33,7 +33,7 @@ set_prompt()
     local changed="\[\e[1;31m\]✚"
     local staged="\[\e[1;32m\]•"
     local untracked="\[\e[1;37m\]|"
-    local conflict="\[\e[1;30;41m\]✖$normal_style"
+    local conflict="\[\e[1;31m\]✖"
 
     # Basic first part of the PS1 prompt
     local host="$main_style[`whoami`@`hostname` $path_style\W$main_style]"
