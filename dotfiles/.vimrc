@@ -24,12 +24,8 @@ Plug 'scrooloose/nerdcommenter' " improved comments
 Plug 'scrooloose/nerdtree'      " nerdtree
 
 if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-jedi'
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
+    "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    "Plug 'zchee/deoplete-jedi'
     Plug 'davidhalter/jedi-vim'
 endif
 
@@ -73,8 +69,8 @@ nnoremap <leader><space> :noh<cr>
 set formatoptions=qrn1
 set wrap             " enable soft wrap
 set formatoptions+=t " enable hard wrap
-set textwidth=80
-set colorcolumn=80
+set textwidth=88
+set colorcolumn=89
 
 " Split keyboard shortcuts
 nnoremap <C-h> <C-w>h
@@ -239,7 +235,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_rst_checkers = ['text/language_check']
-let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checkers = ['flake8 --max-line-length=88']
 map <leader>sy :call SyntasticToggleMode()<cr>
 
 " vimtex
@@ -249,17 +245,24 @@ let g:vimtex_compiler_enabled=0
 let g:vimtex_complete_enabled=1
 let g:vimtex_complete_close_braces=1
 
+" jedi-vim
+" --------
+if has('nvim')
+    " Prevent popup docstring on autocompletion
+    autocmd FileType python setlocal completeopt-=preview
+endif
+
 " deoplete
 " --------
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#show_docstring = 1
+"let g:deoplete#enable_at_startup = 1
+"let g:deoplete#sources#jedi#show_docstring = 1
 "let g:deoplete#enable_refresh_always=0
 "let g:deoplete#file#enable_buffer_path=1
 "let g:deoplete#auto_completion_start_length = 0
-if has('nvim')
-    " Escape: exit autocompletion, go to Normal mode
-    inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
-endif
+"if has('nvim')
+    "" Escape: exit autocompletion, go to Normal mode
+    "inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
+"endif
 
 " NERDTree
 " --------
