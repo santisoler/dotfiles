@@ -41,8 +41,7 @@ set modelines=0
 " Map leader to -
 let mapleader = "-"
 
-" Line numbers and cursorline
-set cursorline
+" Show line numbers
 set number
 
 " Change tabulations and indentation
@@ -150,6 +149,11 @@ if (empty($TMUX))
         set termguicolors
     endif
 endif
+
+" Highlight Line number
+set cursorline
+hi clear CursorLine
+highlight CursorLineNr gui=bold guifg=#282c34 guibg=#61afef
 
 
 " ===========
