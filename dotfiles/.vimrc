@@ -44,6 +44,8 @@ let mapleader = "-"
 " Show line numbers
 set number
 
+set mouse=a
+
 " Change tabulations and indentation
 set tabstop=4
 set shiftwidth=4
