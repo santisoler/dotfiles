@@ -127,12 +127,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Color scheme
 " ============
 
-" Choose onedark color scheme from joshdick/onedark.vim
-colorscheme onedark
-
-" Prevent wrong terminal background color on scrolling
-set t_ut=
-
 " Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 " If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check
 " and use tmux's 24-bit color support
@@ -151,6 +145,12 @@ if (empty($TMUX))
         set termguicolors
     endif
 endif
+
+" Choose onedark color scheme from joshdick/onedark.vim
+colorscheme onedark
+
+" Prevent wrong terminal background color on scrolling
+set t_ut=
 
 " Highlight Line number
 set cursorline
