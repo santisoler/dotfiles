@@ -1,0 +1,33 @@
+[global_config]
+  title_font = DejaVu Sans Mono 9
+  title_hide_sizetext = True
+  title_inactive_bg_color = "#2e333e"
+  title_inactive_fg_color = "#abb2bf"
+  title_receive_bg_color = "#98c379"
+  title_receive_fg_color = "#2e333e"
+  title_transmit_bg_color = "#2e333e"
+  title_transmit_fg_color = "#98c379"
+  title_use_system_font = False
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#282c34"
+    cursor_color = "#ABB2BF"
+    font = DejaVu Sans Mono 9
+    foreground_color = "#abb2bf"
+    icon_bell = False
+    palette = "#282c34:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#abb2bf:#3e4452:#be5046:#98c379:#d19a66:#61afef:#c678dd:#56b6c2:#5c6370"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
