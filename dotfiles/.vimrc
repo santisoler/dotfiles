@@ -44,8 +44,8 @@ let mapleader = "-"
 " Show line numbers
 set number
 
-" Enable mouse interaction inside vim
-set mouse=a
+" Enable mouse interaction inside vim (only on Visual and Normal mode)
+set mouse=vn
 
 " Change tabulations and indentation
 set tabstop=4
