@@ -245,6 +245,14 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args="--max-line-length=88"
 map <leader>sy :call SyntasticToggleMode()<cr>
 
+" gitgutter
+" ---------
+" Existing mappings:
+"   <Leader>hu : Undo hunk
+nmap <Leader>hv <Plug>GitGutterPreviewHunk
+nmap <Leader>hh <Plug>GitGutterNextHunk
+nmap <Leader>hn <Plug>GitGutterPrevHunk
+
 " vimtex
 " ------
 let g:vimtex_enabled=1
