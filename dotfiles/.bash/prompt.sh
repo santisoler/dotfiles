@@ -22,7 +22,7 @@ set_prompt()
 
     # Default values for the appearance of the prompt.
     local main_style="\[\e[1;32m\]"
-    local path_style="\[\e[1;37m\]"
+    local path_style="\[\e[0m\]\[\e[1m\]"
     local normal_style="\[\e[0m\]"
     local git_style="\[\e[1;33m\]"
     local python_style="\[\e[0;35m\]"
