@@ -56,6 +56,7 @@ set autoindent
 set ignorecase
 set smartcase
 
+" Enable undo file
 set undofile
 
 " Change updatetime for gitgutter
@@ -65,7 +66,6 @@ set updatetime=100
 set incsearch
 set showmatch
 set hlsearch
-nnoremap <leader><space> :noh<cr>
 
 " Set an 80 characters column
 set formatoptions=qrn1
@@ -74,29 +74,11 @@ set formatoptions+=t " enable hard wrap
 set textwidth=88
 set colorcolumn=89
 
-" Split keyboard shortcuts
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" Resize vertical splits mapping
-nnoremap <leader>vs :vertical resize 80<CR>
-
 " Split new windows below
 set splitbelow
 
 " Disable folding
 set nofoldenable
-
-" Map F2 to paste mode so that pasting in the terminal doesn't mess identation
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
-
-" Map "+y in order to copy to clipboard
-" In order to work, :echo has('clipboard') must return 1
-" Try installing vim-gtk or gvim according to you distro
-vnoremap <C-c> "+y
 
 " Configure Git commits
 autocmd Filetype gitcommit setlocal spell textwidth=72
@@ -112,16 +94,6 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 " To disable this from running on a one-time saving, run:
 "   :noautocmd w
 autocmd BufWritePre * :%s/\s\+$//e
-
-" Replace Esc with Ctrl+L to make this work better on Termux.
-" Android uses Esc as a shortcut for the home screen.
-" Use solution in:
-" http://vim.wikia.com/wiki/Avoid_the_escape_key
-" This is a variation on the previous mapping that additionally checks for
-" the popup menu (present when doing completions). During completions, <C-L>
-" adds a character from the current match, so this mapping will preserve that
-" behavior. See :help popupmenu-keys for more.
-:inoremap <expr> <C-L> (pumvisible() <bar><bar> &insertmode) ? '<C-L>' : '<Esc>'
 
 
 " ============
@@ -180,30 +152,52 @@ function! ToggleSpell()
     echo "spell checking language:" g:myLangList[b:myLang]
 endfunction
 
-" Pressing \ss will toggle and untoggle spell checking
-map <leader>ss :call ToggleSpell()<cr>
-" ]s and [s to move down-up marked words
-" Shortcuts using <leader> (\)
-
-" Add word to dictionary (\sa)
-map <leader>sa zg
-
-" Substitution option for marked word (\s?)
-map <leader>s? z=
-
 " Spelling always on for some files
 " autocmd BufNewFile,BufRead *.ipy,*.py,*.md,*.tex,*.rst,*.c,*.h,Makefile setlocal spell
 autocmd BufNewFile,BufRead *.md,*.tex,*.rst setlocal spell
 
 
-" =======
-" Buffers
-" =======
-" Please check if airline has <let g:airline#extensions#tabline#enabled = 1>
+" ========
+" Mappings
+" ========
 
 " Move to the next and previous buffer
+" Please check if airline has <let g:airline#extensions#tabline#enabled = 1>
 nmap <C-e> :bnext!<CR>
 nmap <C-w> :bprevious!<CR>
+
+" Split keyboard shortcuts
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Resize vertical splits mapping
+nnoremap <leader>vs :vertical resize 80<CR>
+
+" Remove search highlight
+nnoremap <leader><space> :noh<cr>
+
+" Map "+y in order to copy to clipboard
+" In order to work, :echo has('clipboard') must return 1
+" Try installing vim-gtk or gvim according to you distro
+vnoremap <C-c> "+y
+
+" Pressing \ss will toggle and untoggle spell checking
+map <leader>ss :call ToggleSpell()<cr>
+" Add word to dictionary (\sa)
+map <leader>sa zg
+" Substitution option for marked word (\s?)
+map <leader>s? z
+" Use ]s and [s to move down-up marked words
+
+" Map F2 to paste mode so that pasting in the terminal doesn't mess identation
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+
+" Mappings for navigate to the start and the end of the paragraph
+map <leader>F {j
+map <leader>f }k
 
 
 " ====================
