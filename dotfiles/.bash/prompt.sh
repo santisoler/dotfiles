@@ -32,7 +32,7 @@ set_prompt()
     local diverged="\[\e[1;31m\]↱$normal_style"
     local changed="\[\e[1;31m\]✚"
     local staged="\[\e[1;32m\]•"
-    local untracked="\[\e[1;37m\]|"
+    local untracked="\[\e[0m\]\[\e[1m\]|"
     local conflict="\[\e[1;31m\]✖"
 
     # Basic first part of the PS1 prompt
