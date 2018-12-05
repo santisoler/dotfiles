@@ -4,6 +4,7 @@ alias v="nvim"
 alias vim="nvim"
 alias cp="cp -i"                          # confirm before overwriting something
 alias ll="ls -lh"                        # ls in list and human readable
+alias du="du -h"                         # shows disk usage with human readable sizes
 alias open='xdg-open'
 alias xc='xclip -selection clipboard'    # copy to clipboard using xclip
 alias diceware-es='diceware -d " " --no-caps $DICEWARE_ES'
