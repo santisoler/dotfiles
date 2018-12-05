@@ -9,7 +9,9 @@
   title_transmit_fg_color = "#98c379"
   title_use_system_font = False
 [keybindings]
-  new_terminator = <Primary><Shift>n
+  go_next = None
+  go_prev = None
+  new_window = <Primary><Shift>n
 [layouts]
   [[default]]
     [[[child1]]]
