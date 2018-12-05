@@ -7,11 +7,15 @@ OUTPUT = _output
 # Output PDF file names
 PDFS = $(addprefix $(OUTPUT)/, $(MARKDOWNS:.md=.pdf))
 
+PDFVIEWER = xdg-open
 
 all: $(PDFS)
 
 clean:
 	rm -rf $(OUTPUT)
+
+show: all
+	@ ( $(foreach PDF,$(PDFS),$(PDFVIEWER) $(PDF) 2> /dev/null;) )
 
 $(OUTPUT)/%.pdf: %.md | $(OUTPUT)/
 	pandoc -o $@ $<
