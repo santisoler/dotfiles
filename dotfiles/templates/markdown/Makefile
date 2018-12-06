@@ -1,5 +1,5 @@
 # All markdown files in the working directory
-MARKDOWNS = $(wildcard --depth=1 *.md)
+MARKDOWNS = $(shell find . -maxdepth 1 -name '*.md')
 
 # Name of the output directory (it will be created if it does not exist)
 OUTPUT = _output

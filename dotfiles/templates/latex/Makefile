@@ -1,5 +1,5 @@
 # All tex files in the working directory
-TEX_FILES = $(wildcard -depth=1 *.tex)
+TEX_FILES = $(shell find . -maxdepth 1 -name '*.tex')
 
 # Output directory name
 OUTPUT = _output
