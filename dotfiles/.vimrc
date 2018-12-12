@@ -188,7 +188,7 @@ map <leader>ss :call ToggleSpell()<cr>
 " Add word to dictionary (\sa)
 map <leader>sa zg
 " Substitution option for marked word (\s?)
-map <leader>s? z
+map <leader>s? z=
 " Use ]s and [s to move down-up marked words
 
 " Map F2 to paste mode so that pasting in the terminal doesn't mess identation
