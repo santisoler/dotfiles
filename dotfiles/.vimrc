@@ -232,11 +232,13 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_tex_checkers = ['lacheck', 'text/language_check']
 let g:syntastic_rst_checkers = ['text/language_check']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args="--max-line-length=88"
+let g:syntastic_tex_lacheck_quiet_messages = {'regex': '\Vpossible unwanted space at'}
 map <leader>sy :call SyntasticToggleMode()<cr>
 
 " gitgutter
