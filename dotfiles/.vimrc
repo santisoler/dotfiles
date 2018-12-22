@@ -100,29 +100,48 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Color scheme
 " ============
 
+" Function to configure the cursorline hightlight
+" -----------------------------------------------
+function! CursorLine()
+    " Highlight Line number
+    set cursorline
+    hi clear CursorLine
+    highlight CursorLineNr gui=bold guifg=#282c34 guibg=#61afef
+endfunction
+
+
+" Define function to toggle between colorschemes and airline themes
+" -----------------------------------------------------------------
+let g:myTheme=0
+let g:myColorSchemes=["onedark","default"]
+let g:myAirlineThemes=["tomorrow","base16_atelierdune"]
+let g:termguicolorStatus=["termguicolors","notermguicolors"]
+function! ToggleTheme()
+    let g:myTheme=g:myTheme+1
+    if g:myTheme>=len(g:myColorSchemes)
+        let g:myTheme=0
+    endif
+    if (empty($TMUX))
+        if (has("termguicolors"))
+            execute "set ".get(g:termguicolorStatus, g:myTheme)
+        endif
+    endif
+    execute "colorscheme ".get(g:myColorSchemes, g:myTheme)
+    execute "AirlineTheme ".get(g:myAirlineThemes, g:myTheme)
+    call CursorLine()
+endfunction
+
+
+" Set default colorscheme
 if (empty($TMUX))
     if (has("termguicolors"))
         set termguicolors
     endif
 endif
 
-" Prevent wrong terminal background color on scrolling
-"set t_ut=
+colorscheme onedark
+call CursorLine()
 
-function! OneDark()
-    " Choose onedark color scheme from joshdick/onedark.vim
-    colorscheme onedark
-
-    " Highlight Line number
-    set cursorline
-    hi clear CursorLine
-    highlight CursorLineNr gui=bold guifg=#282c34 guibg=#61afef
-
-    " Airline theme
-    let g:airline_theme='tomorrow'
-endfunction
-
-call OneDark()
 
 " ===========
 " Spell Check
@@ -216,6 +235,7 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_theme='tomorrow'
 
 " syntastic
 " ---------
