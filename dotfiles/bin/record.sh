@@ -51,8 +51,8 @@ fi
 
 module_id=$(pactl load-module module-combine-sink sink_name=record-n-play slaves=$default_output sink_properties=device.description="Record-and-Play")
 
-pactl move-sink-input $index record-n-play 
-parec --format=s16le -d record-n-play.monitor | lame -r -q 3 --lowpass 17 --abr 192 - "temp.mp3"
+pactl move-sink-input $index record-n-play
+parec --format=s16le -d record-n-play.monitor | lame -r -q 9 --cbr -b 320 - "temp.mp3"
 # export my variables so that cleanup function can access them
 export index,curr_sink,module_id
 cleanup
