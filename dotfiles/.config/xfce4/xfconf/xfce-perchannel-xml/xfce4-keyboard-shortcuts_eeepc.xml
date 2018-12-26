@@ -27,24 +27,23 @@
       <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="string" value="xflock4"/>
       <property name="XF86Mail" type="string" value="exo-open --launch MailReader"/>
       <property name="XF86WWW" type="string" value="exo-open --launch WebBrowser"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;p" type="string" value="xfce4-display-settings --minimal"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;f" type="string" value="exo-open --launch FileManager"/>
       <property name="&lt;Primary&gt;Escape" type="string" value="xfdesktop --menu"/>
       <property name="override" type="bool" value="true"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;x" type="string" value="xkill"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;m" type="string" value="xfce4-taskmanager"/>
       <property name="XF86Calculator" type="string" value="galculator"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="string" value="terminator --drop-down"/>
       <property name="Print" type="string" value="xfce4-screenshooter -fd 1"/>
       <property name="&lt;Shift&gt;Print" type="string" value="xfce4-screenshooter -wd 1"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;Print" type="string" value="xfce4-screenshooter -r"/>
       <property name="&lt;Alt&gt;F2" type="string" value="xfce4-popup-whiskermenu"/>
-      <property name="&lt;Super&gt;t" type="string" value="terminator"/>
       <property name="&lt;Super&gt;w" type="string" value="firefox"/>
       <property name="&lt;Super&gt;f" type="string" value="thunar"/>
       <property name="&lt;Super&gt;l" type="string" value="xflock4"/>
       <property name="&lt;Super&gt;m" type="string" value="lollypop"/>
       <property name="&lt;Super&gt;v" type="string" value="pavucontrol"/>
+      <property name="&lt;Super&gt;Return" type="string" value="terminator"/>
+      <property name="&lt;Super&gt;p" type="string" value="xfce4-display-settings --minimal"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
