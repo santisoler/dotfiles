@@ -4,7 +4,7 @@
 
 Clone the repo:
 
-    git clone https://www.github.com/santis19/dotfiles
+    git clone https://www.github.com/santisoler/dotfiles
 
 Enter into the cloned directory:
 
