@@ -7,21 +7,20 @@ PROG = "square_n_blur.py"
 DESCRIPTION = 'Create square version of images with blurred margins.'
 FILTER_RADIUS = 100
 DEFAULT_OUTPUT_DIR = "square_blur"
+DEFAULT_JPG_QUALITY = 75
 
 
-def create_square_image(image_path, filter_radius=FILTER_RADIUS):
+def create_square_image(image, filter_radius=FILTER_RADIUS):
     """
     Creates square version of an image by completing with blurred margins.
 
     Parameters
     ----------
-    image_path: str
-        Path to original image
+    image: PIL.Image
+        Original image
     filter_radius: int
         Radius for the Gaussian filter. A greater number creates more blur.
     """
-    # Create image
-    image = Image.open(image_path)
     # Calculate margin size
     height, width = image.height, image.width
     margin_size = int((max(height, width) - min(height, width)) / 2)
@@ -30,6 +29,7 @@ def create_square_image(image_path, filter_radius=FILTER_RADIUS):
     # Create new square image
     size = max(height, width)
     square_image = Image.new("RGB", (size, size))
+    square_image.info = image.info
     # Define position for blurred image and original one into the new image
     blur_box = (0, 2 * margin_size)
     image_box = (0, margin_size)
@@ -53,6 +53,9 @@ def create_argparser():
                         (if multiple input images are passed")
     parser.add_argument("--radius", type=int, default=FILTER_RADIUS,
                         help="Gaussian filter radius. A greater number increses blur.")
+    parser.add_argument("--quality", type=int, default=FILTER_RADIUS,
+                        help="JPG quality parameter(0-100). \
+                        Default to {}.".format(DEFAULT_JPG_QUALITY))
     return parser
 
 
@@ -81,5 +84,9 @@ if __name__ == "__main__":
 
     # Convert images
     for image_path, square_path in zip(args.input, args.output):
-        square_image = create_square_image(image_path, filter_radius=args.radius)
-        square_image.save(square_path)
+        image = Image.open(image_path)
+        square_image = create_square_image(image, filter_radius=args.radius)
+        # Assign quality if image format is JPEG
+        if image.format == "JPEG":
+            square_image.info["quality"] = args.quality
+        square_image.save(square_path, **square_image.info)
