@@ -6,19 +6,22 @@ from PIL import Image, ImageFilter
 PROG = "square_n_blur.py"
 DESCRIPTION = 'Create square version of images with blurred margins.'
 FILTER_RADIUS = 100
+DEFAULT_OUTPUT_DIR = "square_blur"
 
 
-def create_square_image(image, filter_radius=FILTER_RADIUS):
+def create_square_image(image_path, filter_radius=FILTER_RADIUS):
     """
     Creates square version of an image by completing with blurred margins.
 
     Parameters
     ----------
-    image: PIL.Image
-        Original image
+    image_path: str
+        Path to original image
     filter_radius: int
         Radius for the Gaussian filter. A greater number creates more blur.
     """
+    # Create image
+    image = Image.open(image_path)
     # Calculate margin size
     height, width = image.height, image.width
     margin_size = int((max(height, width) - min(height, width)) / 2)
@@ -44,9 +47,11 @@ def create_square_image(image, filter_radius=FILTER_RADIUS):
 def create_argparser():
     "Create argument parser"
     parser = argparse.ArgumentParser(prog=PROG, description=DESCRIPTION)
-    parser.add_argument("input", type=str, help="Input image")
-    parser.add_argument("output", type=str, help="Output image")
-    parser.add_argument("--radius", type=int,
+    parser.add_argument("input", nargs="+", type=str, help="Input image or images")
+    parser.add_argument("-o", "--output", type=str, default=DEFAULT_OUTPUT_DIR,
+                        help="Output image or directory \
+                        (if multiple input images are passed")
+    parser.add_argument("--radius", type=int, default=FILTER_RADIUS,
                         help="Gaussian filter radius. A greater number increses blur.")
     return parser
 
@@ -56,23 +61,25 @@ if __name__ == "__main__":
     parser = create_argparser()
     args = parser.parse_args()
 
-    # Get absolute paths of input and output images
-    wd = os.getcwd()
-    image_path = os.path.join(wd, args.input)
-    square_path = os.path.join(wd, args.output)
-    # Check if input exists
-    if not os.path.isfile(image_path):
-        raise IOError("Input file {} not found".format(args.input))
-    # Check if output already exists
-    if not os.path.isfile(square_path):
-        raise IOError(
-            "Output file {} already exists, won't override.".format(args.output)
-        )
+    # Override input
+    images_paths = [os.path.join(os.getcwd(), image) for image in args.input]
 
-    # Create square image and save
-    image = Image.open(image_path)
-    filter_radius = args.radius
-    if not filter_radius:
-        filter_radius = FILTER_RADIUS
-    square_image = create_square_image(image, filter_radius=filter_radius)
-    square_image.save(square_path)
+    # Override output
+    if len(args.input) == 1:
+        if args.output == DEFAULT_OUTPUT_DIR:
+            filename, extension = os.path.splitext(args.input[0])
+            args.output = [os.path.join(os.getcwd(),
+                                        "{}-square{}".format(filename, extension))]
+        else:
+            args.output = [os.path.join(os.getcwd(), args.output)]
+    else:
+        # Create output directory if it does not exist
+        if not os.path.exists(args.output):
+            os.makedirs(args.output)
+        args.output = [os.path.join(os.getcwd(), args.output, image)
+                       for image in args.input]
+
+    # Convert images
+    for image_path, square_path in zip(args.input, args.output):
+        square_image = create_square_image(image_path, filter_radius=args.radius)
+        square_image.save(square_path)
