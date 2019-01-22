@@ -3,7 +3,7 @@ import os
 import argparse
 from PIL import Image, ImageFilter
 
-PROG = "square_n_blur.py"
+PROG = "square_n_blur"
 DESCRIPTION = 'Create square version of images with blurred margins.'
 FILTER_RADIUS = 100
 DEFAULT_OUTPUT_DIR = "square_blur"
