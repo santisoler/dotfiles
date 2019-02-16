@@ -50,9 +50,10 @@ def create_argparser():
     parser.add_argument("input", nargs="+", type=str, help="Input image or images")
     parser.add_argument("-o", "--output", type=str, default=DEFAULT_OUTPUT_DIR,
                         help="Output image or directory \
-                        (if multiple input images are passed")
+                        (if multiple input images are passed)")
     parser.add_argument("--radius", type=int, default=FILTER_RADIUS,
-                        help="Gaussian filter radius. A greater number increses blur.")
+                        help="Gaussian filter radius. A greater number increses blur. \
+                        Default 100.")
     parser.add_argument("--quality", type=int, default=FILTER_RADIUS,
                         help="JPG quality parameter(0-100). \
                         Default to {}.".format(DEFAULT_JPG_QUALITY))
