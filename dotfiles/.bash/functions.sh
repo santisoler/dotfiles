@@ -39,47 +39,72 @@ coff() {
     source deactivate
 }
 
-cenv() {
-    # Activate and delete conda environments using the yml files.
-    # Finds the env name from the environment file (given or assumes environment.yml in
-    # current directory).
-    # Usage:
-    #   1. Activate using the environment.yml in the current directory:
-    #      $ cenv
-    #   2. Activate using the given enviroment file:
-    #      $ cenv my_env_file.yml
-    #   3. Delete an environment using the given file (deactivates environments first):
-    #      $ cenv rm my_env_file.yml
+function cenv() {
 
-    if [[ $# == 0 ]]; then
-        envfile="environment.yml"
+# Usage and help message
+read -r -d '' CENV_HELP <<-'EOF'
+Usage: cenv [COMMAND] [FILE]
+
+Detect, activate, delete, and update conda environments.
+FILE should be a conda .yml environment file.
+If FILE is not given, assumes it is environment.yml.
+Automatically finds the environment name from FILE.
+
+Commands:
+
+  None     Activates the environment
+  rm       Delete the environment
+  up       Update the environment
+
+EOF
+
+    envfile="environment.yml"
+
+    # Parse the command line arguments
+    if [[ $# -gt 2 ]]; then
+        >&2 echo "Invalid argument(s): $@";
+        return 1;
+    elif [[ $# == 0 ]]; then
         cmd="activate"
+    elif [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
+        echo "$CENV_HELP";
+        return 0;
+    elif [[ "$1" == "rm" ]]; then
+        cmd="delete"
+        if [[ $# == 2 ]]; then
+            envfile="$2"
+        fi
+    elif [[ "$1" == "up" ]]; then
+        cmd="update"
+        if [[ $# == 2 ]]; then
+            envfile="$2"
+        fi
     elif [[ $# == 1 ]]; then
         envfile="$1"
         cmd="activate"
-    elif [[ $# == 2 ]] && [[ "$1" == "rm" ]]; then
-        envfile="$2"
-        cmd="delete"
     else
-        #errcho "Invalid argument(s): $@";
-        echo "Invalid argument(s): $@";
+        >&2 echo "Invalid argument(s): $@";
         return 1;
     fi
 
     # Check if the file exists
     if [[ ! -e "$envfile" ]]; then
-        #errcho "Environment file not found:" $envfile;
-        echo "Environment file not found:" $envfile;
+        >&2 echo "Environment file not found:" $envfile;
         return 1;
     fi
 
-    # Get the environment name from a conda yml file
+    # Get the environment name from the yaml file
     envname=$(grep "name: *" $envfile | sed -n -e 's/name: //p')
 
+    # Execute one of these actions: activate, update, delete
     if [[ $cmd == "activate" ]]; then
         source activate "$envname";
+    elif [[ $cmd == "update" ]]; then
+        >&2 echo "Updating environment:" $envname;
+        source activate "$envname";
+        conda env update -f "$envfile"
     elif [[ $cmd == "delete" ]]; then
-        errcho "Removing environment:" $envname;
+        >&2 echo "Removing environment:" $envname;
         source deactivate;
         conda env remove --name "$envname";
     fi
