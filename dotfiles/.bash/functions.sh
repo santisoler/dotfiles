@@ -36,7 +36,7 @@ condaoff() {
 
 coff() {
     # Deactivate the conda environment
-    source deactivate
+    conda deactivate
 }
 
 function cenv() {
@@ -98,14 +98,14 @@ EOF
 
     # Execute one of these actions: activate, update, delete
     if [[ $cmd == "activate" ]]; then
-        source activate "$envname";
+        conda activate "$envname";
     elif [[ $cmd == "update" ]]; then
         >&2 echo "Updating environment:" $envname;
-        source activate "$envname";
+        conda activate "$envname";
         conda env update -f "$envfile"
     elif [[ $cmd == "delete" ]]; then
         >&2 echo "Removing environment:" $envname;
-        source deactivate;
+        conda deactivate;
         conda env remove --name "$envname";
     fi
 }
