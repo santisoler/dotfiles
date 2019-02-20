@@ -34,11 +34,6 @@ condaoff() {
     export PATH=`echo $PATH | sed -n -e 's@'"$CONDA_PREFIX"'/bin:@@p'`
 }
 
-coff() {
-    # Deactivate the conda environment
-    conda deactivate
-}
-
 function cenv() {
 
 # Usage and help message
@@ -53,6 +48,7 @@ Automatically finds the environment name from FILE.
 Commands:
 
   None     Activates the environment
+  da       Deactivate the environment
   rm       Delete the environment
   up       Update the environment
 
@@ -69,6 +65,8 @@ EOF
     elif [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
         echo "$CENV_HELP";
         return 0;
+    elif [[ "$1" == "da" ]]; then
+        cmd="deactivate"
     elif [[ "$1" == "rm" ]]; then
         cmd="delete"
         if [[ $# == 2 ]]; then
@@ -99,6 +97,8 @@ EOF
     # Execute one of these actions: activate, update, delete
     if [[ $cmd == "activate" ]]; then
         source activate "$envname";
+    elif [[ $cmd == "deactivate" ]]; then
+        source deactivate;
     elif [[ $cmd == "update" ]]; then
         >&2 echo "Updating environment:" $envname;
         source activate "$envname";
