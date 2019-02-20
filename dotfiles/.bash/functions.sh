@@ -98,14 +98,14 @@ EOF
 
     # Execute one of these actions: activate, update, delete
     if [[ $cmd == "activate" ]]; then
-        conda activate "$envname";
+        source activate "$envname";
     elif [[ $cmd == "update" ]]; then
         >&2 echo "Updating environment:" $envname;
-        conda activate "$envname";
+        source activate "$envname";
         conda env update -f "$envfile"
     elif [[ $cmd == "delete" ]]; then
         >&2 echo "Removing environment:" $envname;
-        conda deactivate;
+        source deactivate;
         conda env remove --name "$envname";
     fi
 }
