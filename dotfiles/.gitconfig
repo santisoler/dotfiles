@@ -1,8 +1,11 @@
 [user]
 	name = Santiago Soler
 	email = santiago.r.soler@gmail.com
+	signingKey = EA3B1F911EAF1F87E6CC8CE36532CF53B68099E3
 [core]
 	editor = nvim
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
+[commit]
+	gpgsign = true
