@@ -8,9 +8,10 @@ PATH="$PATH:$(ruby -e 'print Gem.user_dir' 2> /dev/null)/bin"
 # ----------------
 export DICEWARE_ES="$HOME/.diceware/diceware-spanish.txt"
 
+# Add Ruby to PATH
 export GEM_HOME=$HOME/.gem
 
-#export CONDA_PREFIX=$HOME/.anaconda2
+# Add Anaconda 3 to PATH
 export CONDA_PREFIX=$HOME/.anaconda3
 
 
