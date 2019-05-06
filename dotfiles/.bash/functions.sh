@@ -1,5 +1,7 @@
 # Bash functions
 
+
+# ----------------------
 # ex - archive extractor
 # ----------------------
 # usage: ex <file>
@@ -25,7 +27,10 @@ ex ()
   fi
 }
 
-# conda functions
+
+# ---------------
+# Conda functions
+# ---------------
 condaon() {
     export PATH=$CONDA_PREFIX/bin:$PATH
 }
