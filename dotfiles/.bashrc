@@ -22,5 +22,12 @@ if [ -f ~/.bash/functions.sh ]; then
     source ~/.bash/functions.sh
 fi
 
-# Include conda in the PATH by default
-condaon
+
+# Setup and activate the conda package manager
+if [ -f $CONDA_PREFIX/etc/profile.d/conda.sh ]; then
+    source "$CONDA_PREFIX/etc/profile.d/conda.sh"
+    conda activate
+fi
+
+# Activate my default environment to keep the base env clean
+cenv $HOME/environment.yml

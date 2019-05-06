@@ -39,9 +39,7 @@ condaoff() {
     export PATH=`echo $PATH | sed -n -e 's@'"$CONDA_PREFIX"'/bin:@@p'`
 }
 
-function cenv() {
-
-# Usage and help message
+cenv() {
 read -r -d '' CENV_HELP <<-'EOF'
 Usage: cenv [COMMAND] [FILE]
 
@@ -101,16 +99,16 @@ EOF
 
     # Execute one of these actions: activate, update, delete
     if [[ $cmd == "activate" ]]; then
-        source activate "$envname";
+        conda activate "$envname";
     elif [[ $cmd == "deactivate" ]]; then
-        source deactivate;
+        conda deactivate;
     elif [[ $cmd == "update" ]]; then
         >&2 echo "Updating environment:" $envname;
-        source activate "$envname";
+        conda activate "$envname";
         conda env update -f "$envfile"
     elif [[ $cmd == "delete" ]]; then
         >&2 echo "Removing environment:" $envname;
-        source deactivate;
+        conda deactivate;
         conda env remove --name "$envname";
     fi
 }
