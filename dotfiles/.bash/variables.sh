@@ -1,7 +1,7 @@
 # Define PATH
 # -----------
 export PATH=$HOME/bin/:$PATH
-PATH="$PATH:$(ruby -e 'print Gem.user_dir' 2> /dev/null)/bin"
+export PATH="$PATH:$(ruby -e 'print Gem.user_dir' 2> /dev/null)/bin"
 
 
 # Define variables
