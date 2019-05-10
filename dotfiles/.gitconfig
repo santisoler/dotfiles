@@ -9,3 +9,7 @@
 	conflictstyle = diff3
 [commit]
 	gpgsign = true
+[difftool.latex]
+    cmd = latexdiff "$LOCAL" "$REMOTE"
+[alias]
+    ldiff = difftool -y -t latex
