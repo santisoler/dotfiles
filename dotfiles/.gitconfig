@@ -5,11 +5,13 @@
 [core]
 	editor = nvim
 [merge]
-	tool = vimdiff
-	conflictstyle = diff3
-[commit]
-	gpgsign = true
+	tool = meld
 [difftool.latex]
     cmd = latexdiff "$LOCAL" "$REMOTE"
 [alias]
     ldiff = difftool -y -t latex
+[commit]
+	gpgsign = true
+[tag]
+forceSignAnnotated = true
+
