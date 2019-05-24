@@ -14,3 +14,4 @@ dependencies:
     - xarray
     - netcdf4
     - cartopy
+    - black
