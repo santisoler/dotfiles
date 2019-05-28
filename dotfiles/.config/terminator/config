@@ -9,8 +9,10 @@
   title_transmit_fg_color = "#98c379"
   title_use_system_font = False
 [keybindings]
+  full_screen = <Shift>F11
   go_next = None
   go_prev = None
+  help = <Shift>F1
   new_window = <Primary><Shift>n
 [layouts]
   [[default]]
