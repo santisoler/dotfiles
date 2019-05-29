@@ -23,10 +23,11 @@ Plug 'airblade/vim-gitgutter'   " git flags in the sign column
 Plug 'scrooloose/nerdcommenter' " improved comments
 Plug 'scrooloose/nerdtree'      " nerdtree
 Plug 'python/black'             " black
+Plug 'jiangmiao/auto-pairs'     " autocomplete brackes, parenthesis, quotes, etc
 
 if has('nvim')
-    "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    "Plug 'zchee/deoplete-jedi'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi'
     Plug 'davidhalter/jedi-vim'
 endif
 
@@ -176,17 +177,14 @@ autocmd BufNewFile,BufRead *.md,*.tex,*.rst setlocal spell
 
 " Move to the next and previous buffer
 " Please check if airline has <let g:airline#extensions#tabline#enabled = 1>
-nmap <C-e> :bnext!<CR>
-nmap <C-w> :bprevious!<CR>
+nmap <leader>bn :bnext!<CR>
+nmap <leader>bp :bprevious!<CR>
 
 " Split keyboard shortcuts
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-" Resize vertical splits mapping
-nnoremap <leader>vs :vertical resize 80<CR>
 
 " Remove search highlight
 nnoremap <leader><space> :noh<cr>
@@ -211,6 +209,7 @@ set pastetoggle=<F2>
 " Mappings for navigate to the start and the end of the paragraph
 map <leader>F {j
 map <leader>f }k
+
 
 
 " ====================
@@ -281,15 +280,7 @@ endif
 
 " deoplete
 " --------
-"let g:deoplete#enable_at_startup = 1
-"let g:deoplete#sources#jedi#show_docstring = 1
-"let g:deoplete#enable_refresh_always=0
-"let g:deoplete#file#enable_buffer_path=1
-"let g:deoplete#auto_completion_start_length = 0
-"if has('nvim')
-    "" Escape: exit autocompletion, go to Normal mode
-    "inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
-"endif
+let g:deoplete#enable_at_startup = 1
 
 " NERDTree
 " --------
