@@ -22,6 +22,7 @@ Plug 'lervag/vimtex'            " latex plugin
 Plug 'airblade/vim-gitgutter'   " git flags in the sign column
 Plug 'scrooloose/nerdcommenter' " improved comments
 Plug 'scrooloose/nerdtree'      " nerdtree
+Plug 'python/black'             " black
 
 if has('nvim')
     "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
