@@ -8,6 +8,7 @@ dependencies:
     - scipy
     - jupyter
     - jupyterlab
+    - jupytext
     - ipython
     - nb_conda
     - matplotlib
