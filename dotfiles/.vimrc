@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
 
 " Plugins are downloaded from Github (username/repo)
 Plug 'joshdick/onedark.vim'            " onedark colorscheme (from atom)
+Plug 'rakr/vim-one'                    " vim-one colorscheme (from atom)
 Plug 'tpope/vim-fugitive'              " git wrapper
 Plug 'vim-syntastic/syntastic'         " syntax linter
 Plug 'vim-airline/vim-airline'         " airline (bottom bar)
@@ -115,9 +116,9 @@ endfunction
 " Define function to toggle between colorschemes and airline themes
 " -----------------------------------------------------------------
 let g:myTheme=0
-let g:myColorSchemes=["onedark","default"]
-let g:myAirlineThemes=["tomorrow","base16_atelierdune"]
-let g:termguicolorStatus=["termguicolors","notermguicolors"]
+let g:myColorSchemes=["onedark","one","default"]
+let g:myAirlineThemes=["tomorrow","one","base16_atelierdune"]
+let g:termguicolorStatus=["termguicolors","termguicolors","notermguicolors"]
 function! ToggleTheme()
     let g:myTheme=g:myTheme+1
     if g:myTheme>=len(g:myColorSchemes)
@@ -129,6 +130,10 @@ function! ToggleTheme()
         endif
     endif
     execute "colorscheme ".get(g:myColorSchemes, g:myTheme)
+    " Set background light for one theme
+    if g:myTheme==1
+        set background=light
+    endif
     execute "AirlineTheme ".get(g:myAirlineThemes, g:myTheme)
     call CursorLine()
 endfunction
