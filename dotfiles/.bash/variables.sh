@@ -1,18 +1,14 @@
-# Define PATH
-# -----------
-export PATH=$HOME/bin/:$PATH
-export PATH="$PATH:$(ruby -e 'print Gem.user_dir' 2> /dev/null)/bin"
-
-
 # Define variables
 # ----------------
 export DICEWARE_ES="$HOME/.diceware/diceware-spanish.txt"
-
-# Add Ruby to PATH
 export GEM_HOME=$HOME/.gem
+export CONDA_PREFIX=$HOME/.miniconda3
 
-# Add Anaconda 3 to PATH
-export CONDA_PREFIX=$HOME/.anaconda3
+
+# Add directories to PATH
+# -----------------------
+export PATH=$HOME/bin/:$PATH
+export PATH="$PATH:$(ruby -e 'print Gem.user_dir' 2> /dev/null)/bin"
 
 
 # The following lines are default manjaro .bashrc lines
