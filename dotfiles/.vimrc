@@ -24,7 +24,6 @@ Plug 'airblade/vim-gitgutter'   " git flags in the sign column
 Plug 'scrooloose/nerdcommenter' " improved comments
 Plug 'scrooloose/nerdtree'      " nerdtree
 Plug 'python/black'             " black
-Plug 'jiangmiao/auto-pairs'     " autocomplete brackes, parenthesis, quotes, etc
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
