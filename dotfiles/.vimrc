@@ -76,6 +76,9 @@ set formatoptions+=t " enable hard wrap
 set textwidth=88
 set colorcolumn=89
 
+" Prevent dual spaces after period
+set nojoinspaces
+
 " Split new windows below
 set splitbelow
 
