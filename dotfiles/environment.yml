@@ -6,6 +6,7 @@ dependencies:
     - pip
     - numpy
     - scipy
+    - sympy
     - jupyter
     - jupyterlab
     - jupytext
