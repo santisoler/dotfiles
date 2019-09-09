@@ -85,8 +85,9 @@ set splitbelow
 " Disable folding
 set nofoldenable
 
-" Configure Git commits
+" Configure Git commits and hub pull-requests
 autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd Filetype pullrequest setlocal spell textwidth=72
 
 " Syntax highlightning
 syntax on
