@@ -11,6 +11,21 @@ export PATH=$HOME/bin/:$PATH
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir' 2> /dev/null)/bin"
 
 
+# Make less use pygments to colour files
+# --------------------------------------
+# This needs pygments to be installed
+# Choose your style
+#export SOURCE_HIGHLIGHT_STYLE=/home/.../esc-solarized.style
+# obviously, you'll need to arrange for "pygmentize" to be installed;
+# consult your distribution's package manager, or PyPI.
+export LESSOPEN="| pygmentize -f terminal -O style=native -g %s"
+# I find I need -X
+export LESS='-FXR'
+# ...but do *not* want -X for man-pages
+export MANPAGER="less -+X -is"
+# Source: https://www.meejah.ca/blog/less-pygments
+
+
 # The following lines are default manjaro .bashrc lines
 # -----------------------------------------------------
 [[ $- != *i* ]] && return
