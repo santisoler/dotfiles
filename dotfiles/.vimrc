@@ -265,12 +265,12 @@ map <leader>sy :call SyntasticToggleMode()<cr>
 " ---------
 " Existing mappings:
 "   <Leader>hu : Undo hunk
-nmap <Leader>hv <Plug>GitGutterPreviewHunk
-nmap <Leader>hn <Plug>GitGutterNextHunk
-nmap <Leader>hp <Plug>GitGutterPrevHunk
+nmap <Leader>hv <Plug>(GitGutterPreviewHunk)
+nmap <Leader>hn <Plug>(GitGutterNextHunk)
+nmap <Leader>hp <Plug>(GitGutterPrevHunk)
 " Stage and reset hunks
-nmap <Leader>ha <Plug>GitGutterStageHunk
-nmap <Leader>hr <Plug>GitGutterUndoHunk
+nmap <Leader>ha <Plug>(GitGutterStageHunk)
+nmap <Leader>hr <Plug>(GitGutterUndoHunk)
 
 " vimtex
 " ------
