@@ -95,6 +95,8 @@ autocmd BufNewFile,BufRead *.ipy set filetype=python
 autocmd BufNewFile,BufRead *.pyx set filetype=python
 autocmd BufNewFile,BufRead SConstruct set filetype=python
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead Snakefile set syntax=snakemake
+autocmd BufNewFile,BufRead *.snake set syntax=snakemake
 
 " Remove trailing spaces on save
 " To disable this from running on a one-time saving, run:
