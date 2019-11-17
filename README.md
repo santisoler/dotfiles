@@ -28,3 +28,13 @@ For example, if you want confirmation for every file that will be overwritten
 If you don't want to make backups of existing files (use carefully!):
 
     ./copy.sh --backup=none
+
+
+## Hot how to load Tilix configurations
+
+Tilix uses dconf to manage its configurations. Therefore you need to use it to load them
+from the `tilix` file:
+
+```bash
+dconf load /com/gexperts/Tilix/ < tilix
+```
