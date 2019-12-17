@@ -3,19 +3,6 @@
 # Based on
 # https://github.com/leouieda/dotfiles/blob/7772b82dc35d8d58ff9504cded966ef518cc24ce/.bash/prompt.sh
 
-
-# Set PROMPT_COMMAND as set_prompt function and a line that
-# changes the window title of X terminals
-case ${TERM} in
-	xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)
-		PROMPT_COMMAND='set_prompt && echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
-		;;
-	screen*)
-		PROMPT_COMMAND='set_prompt && echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
-		;;
-esac
-
-
 set_prompt()
 {
     # Set the PS1 configuration for the prompt
@@ -114,7 +101,18 @@ set_prompt()
         local end="$main_style $ $normal_style"
     fi
     PS1="$PS1$end"
+
+    # Append __vte_osc7 function in /etc/profile.d/vte.sh in order to make Tilix open
+    # the current directory on a new terminal
+    # https://gnunn1.github.io/tilix-web/manual/vteconfig/
+    if [[ $TILIX_ID ]]; then
+        VTE_PWD_THING="\[$(__vte_osc7)"
+        PS1="$PS1$VTE_PWD_THING"
+    fi
 }
+
+
+PROMPT_COMMAND=set_prompt
 
 
 get_conda_env ()
