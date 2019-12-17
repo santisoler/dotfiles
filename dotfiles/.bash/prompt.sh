@@ -106,7 +106,7 @@ set_prompt()
     # the current directory on a new terminal
     # https://gnunn1.github.io/tilix-web/manual/vteconfig/
     if [[ $TILIX_ID ]]; then
-        VTE_PWD_THING="$(__vte_osc7)"
+        VTE_PWD_THING="\[$(__vte_osc7)"
         PS1="$PS1$VTE_PWD_THING"
     fi
 }
