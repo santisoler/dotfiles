@@ -23,8 +23,9 @@ set_prompt()
     local conflict="\[\e[1;31m\]✖"
 
     # Basic first part of the PS1 prompt
-    local host="$main_style[`whoami`@`hostname` $path_style\W$main_style]"
-    PS1="$host"
+    local host="$main_style`hostname`"
+    local path="$path_style\W"
+    PS1="$main_style[$host $path$main_style]"
 
     local njobs=`jobs | wc -l`
     if [[ $njobs -ne 0 ]]; then
