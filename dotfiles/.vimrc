@@ -29,6 +29,7 @@ if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-jedi'
     Plug 'davidhalter/jedi-vim'
+    Plug 'mattn/emmet-vim'  " for HTML completion
 endif
 
 call plug#end()
