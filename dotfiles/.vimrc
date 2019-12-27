@@ -98,6 +98,10 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead Snakefile set syntax=snakemake
 autocmd BufNewFile,BufRead *.snake set syntax=snakemake
 
+" Change indentation size for CSS and HTML
+autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
 " Remove trailing spaces on save
 " To disable this from running on a one-time saving, run:
 "   :noautocmd w
