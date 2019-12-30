@@ -120,6 +120,9 @@ set cursorline
 hi clear CursorLine
 highlight CursorLineNr gui=bold guifg=#282c34 guibg=#61afef
 
+" Change background color to match Matcha Sea theme
+highlight Normal guibg=#1B2224
+
 
 " ===========
 " Spell Check
