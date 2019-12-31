@@ -13,7 +13,6 @@ call plug#begin('~/.vim/plugged')
 
 " Plugins are downloaded from Github (username/repo)
 Plug 'joshdick/onedark.vim'            " onedark colorscheme (from atom)
-Plug 'rakr/vim-one'                    " vim-one colorscheme (from atom)
 Plug 'tpope/vim-fugitive'              " git wrapper
 Plug 'vim-syntastic/syntastic'         " syntax linter
 Plug 'vim-airline/vim-airline'         " airline (bottom bar)
@@ -107,52 +106,22 @@ autocmd BufWritePre * :%s/\s\+$//e
 " ============
 " Color scheme
 " ============
-
-" Function to configure the cursorline hightlight
-" -----------------------------------------------
-function! CursorLine()
-    " Highlight Line number
-    set cursorline
-    hi clear CursorLine
-    highlight CursorLineNr gui=bold guifg=#282c34 guibg=#61afef
-endfunction
-
-
-" Define function to toggle between colorschemes and airline themes
-" -----------------------------------------------------------------
-let g:myTheme=0
-let g:myColorSchemes=["onedark","one","default"]
-let g:myAirlineThemes=["tomorrow","one","base16_atelierdune"]
-let g:termguicolorStatus=["termguicolors","termguicolors","notermguicolors"]
-function! ToggleTheme()
-    let g:myTheme=g:myTheme+1
-    if g:myTheme>=len(g:myColorSchemes)
-        let g:myTheme=0
-    endif
-    if (empty($TMUX))
-        if (has("termguicolors"))
-            execute "set ".get(g:termguicolorStatus, g:myTheme)
-        endif
-    endif
-    execute "colorscheme ".get(g:myColorSchemes, g:myTheme)
-    " Set background light for one theme
-    if g:myTheme==1
-        set background=light
-    endif
-    execute "AirlineTheme ".get(g:myAirlineThemes, g:myTheme)
-    call CursorLine()
-endfunction
-
-
-" Set default colorscheme
 if (empty($TMUX))
     if (has("termguicolors"))
         set termguicolors
     endif
 endif
 
+" Set colorscheme
 colorscheme onedark
-call CursorLine()
+
+" Highlight Line number
+set cursorline
+hi clear CursorLine
+highlight CursorLineNr gui=bold guifg=#282c34 guibg=#61afef
+
+" Change background color to match Matcha Sea theme
+highlight Normal guibg=#1B2224
 
 
 " ===========
