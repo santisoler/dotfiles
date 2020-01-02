@@ -3,7 +3,7 @@
     "comment": "Colors from joshdick/onedark.vim",
     "use-theme-colors": false,
     "foreground-color": "#abb2bf",
-    "background-color": "#282c34",
+    "background-color": "#1B2224",
     "palette": [
       "#000000",
       "#e06C75",
