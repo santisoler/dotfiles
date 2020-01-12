@@ -1,11 +1,11 @@
 {
-    "name": "One Dark",
-    "comment": "Colors from joshdick/onedark.vim",
+    "name": "Matcha Sea One Dark",
+    "comment": "Colors from joshdick/onedark.vim with Matcha Sea background",
     "use-theme-colors": false,
     "foreground-color": "#abb2bf",
-    "background-color": "#1B2224",
+    "background-color": "#1b2224",
     "palette": [
-      "#000000",
+      "#1b2224",
       "#e06C75",
       "#98c379",
       "#e5c07b",
