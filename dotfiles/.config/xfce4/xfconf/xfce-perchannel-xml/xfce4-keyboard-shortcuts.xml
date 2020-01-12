@@ -23,9 +23,6 @@
       <property name="&lt;Control&gt;Escape" type="empty"/>
     </property>
     <property name="custom" type="empty">
-      <property name="&lt;Alt&gt;F3" type="string" value="kupfer">
-        <property name="startup-notify" type="bool" value="true"/>
-      </property>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="string" value="xflock4"/>
       <property name="XF86Mail" type="string" value="exo-open --launch MailReader"/>
       <property name="XF86WWW" type="string" value="exo-open --launch WebBrowser"/>
@@ -48,6 +45,7 @@
       <property name="&lt;Super&gt;k" type="string" value="keepassxc"/>
       <property name="&lt;Super&gt;Return" type="string" value="tilix"/>
       <property name="&lt;Super&gt;s" type="string" value="skippy-xd"/>
+      <property name="&lt;Alt&gt;F3" type="string" value="xfce4-appfinder --collapsed"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
