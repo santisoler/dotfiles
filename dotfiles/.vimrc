@@ -76,8 +76,8 @@ set hlsearch
 set formatoptions=qrn1
 set wrap             " enable soft wrap
 set formatoptions+=t " enable hard wrap
-set textwidth=88
-set colorcolumn=89
+set textwidth=79
+set colorcolumn=80
 
 " Prevent dual spaces after period
 set nojoinspaces
