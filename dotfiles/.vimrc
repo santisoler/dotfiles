@@ -255,14 +255,19 @@ let g:vimtex_complete_close_braces=1
 
 " jedi-vim
 " --------
-if has('nvim')
-    " Prevent popup docstring on autocompletion
-    autocmd FileType python setlocal completeopt-=preview
-endif
+"if has('nvim')
+    "" Prevent popup docstring on autocompletion
+    "autocmd FileType python setlocal completeopt-=preview
+"endif
 
 " deoplete
 " --------
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#show_docstring = 1
+" Press Escape exit autocompletion, go to Normal mode
+inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
+" Close the docstring window when completion is finished
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " NERDTree
 " --------
