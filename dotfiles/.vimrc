@@ -73,12 +73,14 @@ set incsearch
 set showmatch
 set hlsearch
 
-" Set an 80 characters column
+" Set text width to 80 characters (88 for Python)
+set noai textwidth=79 colorcolumn=80
+autocmd FileType python setlocal textwidth=88 colorcolumn=89
+
+" Enable soft and hard wrapping
 set formatoptions=qrn1
 set wrap             " enable soft wrap
 set formatoptions+=t " enable hard wrap
-set textwidth=79
-set colorcolumn=80
 
 " Prevent dual spaces after period
 set nojoinspaces
@@ -233,6 +235,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_tex_checkers = ['lacheck', 'text/language_check']
 let g:syntastic_rst_checkers = ['text/language_check']
 let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args="--max-line-length=88"
 let g:syntastic_tex_lacheck_quiet_messages = {'regex': '\Vpossible unwanted space at'}
 map <leader>sy :call SyntasticToggleMode()<cr>
 
