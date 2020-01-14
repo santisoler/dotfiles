@@ -52,12 +52,13 @@ set number
 " Enable mouse interaction inside vim (only on Visual and Normal mode)
 set mouse=vn
 
-" Change tabulations and indentation
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set autoindent
+" Set indentation to 4 characters (except for html and yml)
+set autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType python setlocal noautoindent  " indent python with braceless
+autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" Change configuration for cases
 set ignorecase
 set smartcase
 
