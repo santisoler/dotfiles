@@ -180,11 +180,11 @@ nnoremap <leader><space> :noh<cr>
 " Try installing vim-gtk or gvim according to you distro
 vnoremap <C-c> "+y
 
-" Pressing \ss will toggle and untoggle spell checking
+" Pressing <leader>ss will toggle and untoggle spell checking
 map <leader>ss :call ToggleSpell()<cr>
-" Add word to dictionary (\sa)
+" Add word to dictionary (<leader>sa)
 map <leader>sa zg
-" Substitution option for marked word (\s?)
+" Substitution option for marked word (<leader>s?)
 map <leader>s? z=
 " Use ]s and [s to move down-up marked words
 
