@@ -192,6 +192,9 @@ map <leader>s? z=
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 
+" Map <leader>s to find and replace
+nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+
 " Mappings for navigate to the start and the end of the paragraph
 map <leader>F {j
 map <leader>f }k
