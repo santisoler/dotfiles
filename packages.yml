@@ -1,0 +1,120 @@
+basic packages:
+  - gnome-system-monitor
+  - xf86-input-synaptics
+  - icedtea-web
+  - grsync
+  - evince
+  - gnome-disk-utility
+  - deluge
+  - owncloud-client
+  - system-config-printer
+  - aspell-es
+  - firefox-i18n-es-ar
+  - gcolor3
+  - tilix
+  - ebook-tools
+  - gnome-font-viewer
+  - seahorse
+  - meld
+
+albert:
+  - albert
+  - muparser
+
+kupfer:
+  - kupfer
+
+term apps:
+  - bash-completion
+  - pwgen
+  - gvim
+  - xclip
+  - tree
+  - tmux
+  - wipe
+  - dos2unix
+  - gnupg
+  - speedtest-cli
+  - pdfpc
+  - screen
+
+skippy-xd:
+  - skippy-xd
+
+keepassxc:
+  - keepassxc
+
+fonts:
+  - noto-fonts-emoji
+  - ttf-dejavu
+  - ttf-font-awesome
+
+themes:
+  - matcha-gtk-theme
+  - adapta-maia-theme
+  - adapta-gtk-theme
+  - papirus-maia-icon-theme
+  - papirus-icon-theme
+  - capitaine-cursors
+  - manjaro-wallpapers-18.0
+
+nvim:
+  - neovim
+  - python-neovim
+  - python-jedi
+  - python-black
+  - python-flake8
+  - python-pylint
+
+yay:
+  - base-devel yay
+
+base-devel:
+  - base-devel
+
+whatsapp wrapper:
+  - whatsapp-online-jak
+
+texlive:
+  - texlive-core
+  - texlive-latexextra
+  - texlive-bibtexextra
+  - texlive-science
+  - git-latexdiff
+
+smplayer:
+  - smplayer
+
+lollypop and quodlibet:
+  - lollypop
+  - quodlibet
+
+graphics:
+  - darktable
+  - gthumb
+  - simple-scan
+  - inkscape
+  - pstoedit
+  - python2-lxml
+
+audio tools:
+  - sox
+  - audacity
+  - soundconverter
+
+telegram:
+  - telegram-desktop
+
+wxmaxima:
+  - wxmaxima
+  - gnuplot
+
+okular:
+  - okular
+
+gnucash:
+  - gnucash
+
+geany:
+ - geany
+ - geany-plugins
