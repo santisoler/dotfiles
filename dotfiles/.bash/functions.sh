@@ -5,11 +5,19 @@
 # Conda functions
 # ---------------
 condaon() {
-    export PATH=$CONDA_PREFIX/bin:$PATH
+    if [[ `which python` == "/usr/bin/python" ]]; then
+        export PATH=$CONDA_PREFIX/bin:$PATH
+    else
+        echo "Conda is already on"
+    fi
 }
 
 condaoff() {
-    export PATH=`echo $PATH | sed -n -e 's@'"$CONDA_PREFIX"'/bin:@@p'`
+    if [[ `which python` != "/usr/bin/python" ]]; then
+        export PATH=`echo $PATH | sed -n -e 's@'"$CONDA_PREFIX"'/bin:@@p'`
+    else
+        echo "Conda is already off"
+    fi
 }
 
 cenv() {
