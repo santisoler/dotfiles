@@ -38,3 +38,12 @@ from the `tilix` file:
 ```bash
 dconf load /com/gexperts/Tilix/ < tilix
 ```
+
+## How to install packages on conda_packages.txt
+
+Use `xargs` to pass the packages detailed on `conda_packages.txt` as arguments
+to conda:
+
+```
+xargs conda install -c conda-forge < conda_packages.txt
+```
