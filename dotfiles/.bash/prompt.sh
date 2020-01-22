@@ -32,9 +32,10 @@ set_prompt()
         PS1="$PS1 $normal_style($njobs)"
     fi
 
-    # Python env
-    local conda_env=`get_conda_env`
-    if [[ $conda_env != "" ]]; then
+    # Conda env
+    local which_python=`which python`
+    if [[ $which_python != "/usr/bin/python" ]]; then
+        local conda_env=`get_conda_env`
         PS1="$PS1 $python_style$conda_env"
     fi
 
