@@ -1,20 +1,46 @@
-basic packages:
-  - gnome-system-monitor
-  - xf86-input-synaptics
-  - icedtea-web
-  - grsync
-  - evince
-  - gnome-disk-utility
+default:
+  - extend xfce
   - deluge
-  - owncloud-client
-  - system-config-printer
+  - owncloud
+  - meld
+  - albert
+  - cli apps
+  - keepassxc
+  - fonts
+  - themes
+  - nvim
+  - yay
+  - whatsapp wrapper
+  - texlive
+  - smplayer
+  - lollypop and quodlibet
+  - graphics
+  - telegram
+  - gnucash
+
+extend xfce:
   - aspell-es
-  - firefox-i18n-es-ar
+  - evince
   - gcolor3
-  - tilix
-  - ebook-tools
+  - gnome-disk-utility
   - gnome-font-viewer
+  - gnome-system-monitor
+  - grsync
+  - icedtea-web
   - seahorse
+  - system-config-printer
+  - tilix
+
+deluge:
+  - deluge
+
+owncloud:
+  - owncloud-client
+
+synaptics touchpad:
+  - xf86-input-synaptics
+
+meld:
   - meld
 
 albert:
@@ -24,19 +50,20 @@ albert:
 kupfer:
   - kupfer
 
-term apps:
+cli apps:
   - bash-completion
-  - pwgen
-  - gvim
-  - xclip
-  - tree
-  - tmux
-  - wipe
   - dos2unix
+  - ebook-tools
   - gnupg
-  - speedtest-cli
+  - gvim
   - pdfpc
+  - pwgen
   - screen
+  - speedtest-cli
+  - tmux
+  - tree
+  - wipe
+  - xclip
 
 skippy-xd:
   - skippy-xd
@@ -67,10 +94,8 @@ nvim:
   - python-pylint
 
 yay:
-  - base-devel yay
-
-base-devel:
   - base-devel
+  - yay
 
 whatsapp wrapper:
   - whatsapp-online-jak
