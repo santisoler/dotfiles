@@ -32,6 +32,3 @@ if [ -f $CONDA_PREFIX/etc/profile.d/conda.sh ]; then
     source "$CONDA_PREFIX/etc/profile.d/conda.sh"
     conda activate
 fi
-
-# Activate my default environment to keep the base env clean
-cenv $HOME/environment.yml
