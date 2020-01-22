@@ -1,0 +1,145 @@
+default:
+  - extend xfce
+  - deluge
+  - owncloud
+  - meld
+  - albert
+  - cli apps
+  - keepassxc
+  - fonts
+  - themes
+  - nvim
+  - yay
+  - whatsapp wrapper
+  - texlive
+  - smplayer
+  - lollypop and quodlibet
+  - graphics
+  - telegram
+  - gnucash
+
+extend xfce:
+  - aspell-es
+  - evince
+  - gcolor3
+  - gnome-disk-utility
+  - gnome-font-viewer
+  - gnome-system-monitor
+  - grsync
+  - icedtea-web
+  - seahorse
+  - system-config-printer
+  - tilix
+
+deluge:
+  - deluge
+
+owncloud:
+  - owncloud-client
+
+synaptics touchpad:
+  - xf86-input-synaptics
+
+meld:
+  - meld
+
+albert:
+  - albert
+  - muparser
+
+kupfer:
+  - kupfer
+
+cli apps:
+  - bash-completion
+  - dos2unix
+  - ebook-tools
+  - gnupg
+  - gvim
+  - pdfpc
+  - pwgen
+  - screen
+  - speedtest-cli
+  - tmux
+  - tree
+  - wipe
+  - xclip
+
+skippy-xd:
+  - skippy-xd
+
+keepassxc:
+  - keepassxc
+
+fonts:
+  - noto-fonts-emoji
+  - ttf-dejavu
+  - ttf-font-awesome
+
+themes:
+  - matcha-gtk-theme
+  - adapta-maia-theme
+  - adapta-gtk-theme
+  - papirus-maia-icon-theme
+  - papirus-icon-theme
+  - capitaine-cursors
+  - manjaro-wallpapers-18.0
+
+nvim:
+  - neovim
+  - python-neovim
+  - python-jedi
+  - python-black
+  - python-flake8
+  - python-pylint
+
+yay:
+  - base-devel
+  - yay
+
+whatsapp wrapper:
+  - whatsapp-online-jak
+
+texlive:
+  - texlive-core
+  - texlive-latexextra
+  - texlive-bibtexextra
+  - texlive-science
+  - git-latexdiff
+
+smplayer:
+  - smplayer
+
+lollypop and quodlibet:
+  - lollypop
+  - quodlibet
+
+graphics:
+  - darktable
+  - gthumb
+  - simple-scan
+  - inkscape
+  - pstoedit
+  - python2-lxml
+
+audio tools:
+  - sox
+  - audacity
+  - soundconverter
+
+telegram:
+  - telegram-desktop
+
+wxmaxima:
+  - wxmaxima
+  - gnuplot
+
+okular:
+  - okular
+
+gnucash:
+  - gnucash
+
+geany:
+ - geany
+ - geany-plugins
