@@ -209,6 +209,7 @@ map <leader>f }k
 " -------------
 filetype plugin indent on
 let g:NERDSpaceDelims = 0
+let g:NERDDefaultAlign = 'left'
 
 " braceless.vim
 " -------------
