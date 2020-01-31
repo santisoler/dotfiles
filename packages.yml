@@ -76,6 +76,7 @@ fonts:
   - noto-fonts-emoji
   - ttf-dejavu
   - ttf-font-awesome
+  - otf-latin-modern
 
 themes:
   - matcha-gtk-theme
