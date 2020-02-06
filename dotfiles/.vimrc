@@ -24,6 +24,7 @@ Plug 'scrooloose/nerdcommenter' " improved comments
 Plug 'scrooloose/nerdtree'      " nerdtree
 Plug 'python/black'             " black
 
+Plug 'davidhalter/jedi-vim'
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'zchee/deoplete-jedi'
@@ -31,7 +32,6 @@ else
 	Plug 'Shougo/deoplete.nvim'
 	Plug 'roxma/nvim-yarp'
 	Plug 'roxma/vim-hug-neovim-rpc'
-	Plug 'davidhalter/jedi-vim'
 endif
 
 call plug#end()
