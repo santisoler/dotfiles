@@ -263,10 +263,8 @@ let g:vimtex_complete_close_braces=1
 
 " jedi-vim
 " --------
-"if has('nvim')
-    "" Prevent popup docstring on autocompletion
-    "autocmd FileType python setlocal completeopt-=preview
-"endif
+" Disable jedi-vim autocompletion because we use deoplete for completions
+let g:jedi#completions_enabled = 0
 
 " deoplete
 " --------
