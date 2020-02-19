@@ -119,16 +119,19 @@ if (empty($TMUX))
     endif
 endif
 
+" Change background color to match Matcha Sea theme
+" (must be before 'colorscheme onedark')
+let g:onedark_color_overrides = {
+\ "black": {"gui": "#1B2224", "cterm": "235", "cterm16": "0" },
+\}
+
 " Set colorscheme
 colorscheme onedark
 
-" Highlight Line number
+" Highlight CursorLine depending on mode (as airline onedark theme)
 set cursorline
 hi clear CursorLine
-highlight CursorLineNr gui=bold guifg=#282c34 guibg=#61afef
-
-" Change background color to match Matcha Sea theme
-highlight Normal guibg=#1B2224
+highlight CursorLineNr gui=bold guifg=#282c34 guibg=#98C379
 
 
 " ===========
@@ -225,7 +228,7 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_theme='tomorrow'
+let g:airline_theme='onedark'
 
 " syntastic
 " ---------
