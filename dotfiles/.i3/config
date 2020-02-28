@@ -266,6 +266,8 @@ mode "resize" {
 assign [class="Tilix"] $ws1
 assign [class="firefox"] $ws2
 assign [class="Thunar"] $ws3
+assign [class="Evince"] $ws8
+assign [class="Okular"] $ws8
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
