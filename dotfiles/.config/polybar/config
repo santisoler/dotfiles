@@ -288,19 +288,15 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %Y-%m-%d"
-
+date = %a %d %b
+date-alt = %A %d of %B %Y,
 time = %H:%M
-time-alt = %H:%M:%S
+time-alt = %H:%M
 
-format-prefix = 
-format-prefix-foreground = ${colors.foreground}
-format-underline = ${colors.background}
-
-label = %date% %time%
-
+label =  %date% %time%
 format-padding = 2
+label-padding = 2
+label-underline = ${colors.green}
 
 
 [module/pulseaudio]
@@ -433,7 +429,7 @@ type = custom/menu
 
 expand-right = false
 
-format-padding = 2
+format-padding = 0
 
 label-open = 
 ;label-open-foreground = ${colors.red}
