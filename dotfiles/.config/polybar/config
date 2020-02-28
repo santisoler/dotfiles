@@ -61,7 +61,7 @@ font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=9;2"
 
 modules-left = i3 xwindow
 modules-center =
-modules-right = mpd xbacklight cpu memory date powermenu
+modules-right = mpd xbacklight cpu memory filesystem date powermenu
 
 tray-position = right
 tray-padding = 1
@@ -95,11 +95,12 @@ label-indicator-underline = ${colors.red}
 type = internal/fs
 interval = 25
 
-mount-0 = /
+mount-0 = /home
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
+label-mounted-padding = 2
+label-mounted =  %free%
+label-mounted-underline = ${colors.green}
+
 
 [module/bspwm]
 type = internal/bspwm
@@ -190,9 +191,10 @@ label-song-ellipsis = true
 type = internal/xbacklight
 
 format = <label>
+format-padding = 2
 label =  %%percentage%
-label-padding = 3
-label-underline = ${colors.background}
+label-padding = 1
+label-underline = ${colors.green}
 
 bar-width = 10
 bar-indicator = |
@@ -204,6 +206,7 @@ bar-fill-foreground = #9f78e1
 bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
+
 
 [module/backlight-acpi]
 inherit = module/xbacklight
