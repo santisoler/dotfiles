@@ -1,6 +1,6 @@
 [/]
 app-title='${appName}'
-new-instance-mode='focus-window'
+new-instance-mode='new-session'
 prompt-on-close=true
 prompt-on-delete-profile=true
 quake-specific-monitor=0
