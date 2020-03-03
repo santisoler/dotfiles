@@ -145,3 +145,6 @@ gnucash:
 geany:
  - geany
  - geany-plugins
+
+kdenlive:
+  - kdenlive
