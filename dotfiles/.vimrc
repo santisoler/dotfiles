@@ -24,10 +24,14 @@ Plug 'scrooloose/nerdcommenter' " improved comments
 Plug 'scrooloose/nerdtree'      " nerdtree
 Plug 'python/black'             " black
 
+Plug 'davidhalter/jedi-vim'
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-jedi'
-    Plug 'davidhalter/jedi-vim'
+else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
 call plug#end()
@@ -48,12 +52,13 @@ set number
 " Enable mouse interaction inside vim (only on Visual and Normal mode)
 set mouse=vn
 
-" Change tabulations and indentation
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set autoindent
+" Set indentation to 4 characters (except for html and yml)
+set autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType python setlocal noautoindent  " indent python with braceless
+autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" Change configuration for cases
 set ignorecase
 set smartcase
 
@@ -68,12 +73,14 @@ set incsearch
 set showmatch
 set hlsearch
 
-" Set an 80 characters column
+" Set text width to 80 characters (88 for Python)
+set noai textwidth=79 colorcolumn=80
+autocmd FileType python setlocal textwidth=88 colorcolumn=89
+
+" Enable soft and hard wrapping
 set formatoptions=qrn1
 set wrap             " enable soft wrap
 set formatoptions+=t " enable hard wrap
-set textwidth=88
-set colorcolumn=89
 
 " Prevent dual spaces after period
 set nojoinspaces
@@ -112,16 +119,19 @@ if (empty($TMUX))
     endif
 endif
 
+" Change background color to match Matcha Sea theme
+" (must be before 'colorscheme onedark')
+let g:onedark_color_overrides = {
+\ "black": {"gui": "#1B2224", "cterm": "235", "cterm16": "0" },
+\}
+
 " Set colorscheme
 colorscheme onedark
 
-" Highlight Line number
+" Highlight CursorLine depending on mode (as airline onedark theme)
 set cursorline
 hi clear CursorLine
-highlight CursorLineNr gui=bold guifg=#282c34 guibg=#61afef
-
-" Change background color to match Matcha Sea theme
-highlight Normal guibg=#1B2224
+highlight CursorLineNr gui=bold guifg=#282c34 guibg=#98C379
 
 
 " ===========
@@ -173,17 +183,20 @@ nnoremap <leader><space> :noh<cr>
 " Try installing vim-gtk or gvim according to you distro
 vnoremap <C-c> "+y
 
-" Pressing \ss will toggle and untoggle spell checking
+" Pressing <leader>ss will toggle and untoggle spell checking
 map <leader>ss :call ToggleSpell()<cr>
-" Add word to dictionary (\sa)
+" Add word to dictionary (<leader>sa)
 map <leader>sa zg
-" Substitution option for marked word (\s?)
+" Substitution option for marked word (<leader>s?)
 map <leader>s? z=
 " Use ]s and [s to move down-up marked words
 
 " Map F2 to paste mode so that pasting in the terminal doesn't mess identation
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
+
+" Map <leader>s to find and replace
+nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " Mappings for navigate to the start and the end of the paragraph
 map <leader>F {j
@@ -199,6 +212,7 @@ map <leader>f }k
 " -------------
 filetype plugin indent on
 let g:NERDSpaceDelims = 0
+let g:NERDDefaultAlign = 'left'
 
 " braceless.vim
 " -------------
@@ -214,7 +228,7 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_theme='tomorrow'
+let g:airline_theme='onedark'
 
 " syntastic
 " ---------
@@ -224,7 +238,7 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
+let g:syntastic_check_on_wq = 0
 let g:syntastic_tex_checkers = ['lacheck', 'text/language_check']
 let g:syntastic_rst_checkers = ['text/language_check']
 let g:syntastic_python_checkers = ['flake8']
@@ -252,14 +266,17 @@ let g:vimtex_complete_close_braces=1
 
 " jedi-vim
 " --------
-if has('nvim')
-    " Prevent popup docstring on autocompletion
-    autocmd FileType python setlocal completeopt-=preview
-endif
+" Disable jedi-vim autocompletion because we use deoplete for completions
+let g:jedi#completions_enabled = 0
 
 " deoplete
 " --------
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#show_docstring = 1
+" Press Escape exit autocompletion, go to Normal mode
+inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
+" Close the docstring window when completion is finished
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " NERDTree
 " --------
