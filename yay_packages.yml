@@ -1,3 +1,8 @@
+fonts:
+  -ephifonts
+  - fontawesome.sty
+  - ttf-google-fonts-git
+
 jabref:
   - jabref
 
@@ -10,14 +15,8 @@ simplenote-electron-bin:
 google-earth-pro:
 - google-earth-pro
 
-fontawesome.sty:
-- fontawesome.sty
-
 pdftk:
 - pdftk
-
-ttf-google-fonts-git:
-- ttf-google-fonts-git
 
 audio-recorder:
 - audio-recorder
