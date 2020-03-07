@@ -1,7 +1,8 @@
 fonts:
-  -ephifonts
+  - ephifonts
   - fontawesome.sty
   - ttf-google-fonts-git
+  - ttf-ms-fonts
 
 jabref:
   - jabref

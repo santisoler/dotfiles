@@ -73,8 +73,13 @@ keepassxc:
   - keepassxc
 
 fonts:
+  - extra/gsfonts
   - noto-fonts-emoji
   - ttf-dejavu
+  - ttf-liberation
+  - ttf-linux-libertine
+  - font-bh-ttf
+  - gentium-plus-font
   - ttf-font-awesome
   - otf-latin-modern
 
