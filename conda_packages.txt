@@ -16,6 +16,8 @@ black
 verde
 pooch
 rockhound
+harmonica
+boule
 cookiecutter
 sphinx
 numba
