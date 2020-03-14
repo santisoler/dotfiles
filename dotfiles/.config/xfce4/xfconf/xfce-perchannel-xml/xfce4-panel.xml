@@ -29,7 +29,7 @@
   <property name="plugins" type="empty">
     <property name="plugin-4" type="string" value="pager">
       <property name="rows" type="uint" value="1"/>
-      <property name="miniature-view" type="bool" value="true"/>
+      <property name="miniature-view" type="bool" value="false"/>
     </property>
     <property name="plugin-6" type="string" value="systray">
       <property name="names-visible" type="array">
