@@ -15,6 +15,7 @@
         <value type="int" value="3"/>
         <value type="int" value="1"/>
         <value type="int" value="6"/>
+        <value type="int" value="10"/>
         <value type="int" value="9"/>
         <value type="int" value="5"/>
       </property>
@@ -108,6 +109,7 @@
       <property name="switch-workspace-on-unminimize" type="bool" value="false"/>
     </property>
     <property name="plugin-3" type="string" value="xfce4-timer-plugin"/>
+    <property name="plugin-10" type="string" value="notification-plugin"/>
   </property>
   <property name="configver" type="int" value="2"/>
 </channel>
