@@ -8,8 +8,8 @@ alias du="du -h -d 0"                    # disk usage with human readable and de
 alias open='xdg-open'
 alias xc='xclip -selection clipboard'    # copy to clipboard using xclip
 alias diceware-es='diceware -d " " --no-caps $DICEWARE_ES'
-alias jn='jupyter-notebook'
-alias jlab='jupyter-lab'
+alias lab='tmux new-session -d -s lab; tmux send-keys -t lab "jupyter-lab --no-browser" Enter'
+alias remotelab='tmux new-session -d -s ssh; tmux send-keys -t ssh "ssh -N -L localhost:9999:localhost:8888 santi@soler.unsj.edu.ar" Enter'
 alias ca='conda activate'
 alias cdtop='cd $(git rev-parse --show-toplevel)' # cd to toplevel of git repo
 
