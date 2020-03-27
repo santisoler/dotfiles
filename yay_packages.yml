@@ -11,34 +11,34 @@ diceware:
   - diceware
 
 simplenote-electron-bin:
-- simplenote-electron-bin
+  - simplenote-electron-bin
 
 google-earth-pro:
-- google-earth-pro
+  - google-earth-pro
 
 pdftk:
-- pdftk
+  - pdftk
 
 audio-recorder:
-- audio-recorder
+  - audio-recorder
 
 gplates:
-- gplates
+  - gplates
 
 spotify:
-- spotify
+  - spotify
 
 trello:
-- trello
+  - trello
 
 slack-desktop:
-- slack-desktop
+  - slack-desktop
 
 zoom:
-- zoom
+  - zoom
 
 hub-bin:
-- hub-bin
+  - hub-bin
 
 zotero:
   - zotero
