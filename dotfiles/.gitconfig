@@ -1,17 +1,17 @@
 [user]
-	name = Santiago Soler
-	email = santiago.r.soler@gmail.com
-	signingKey = EA3B1F911EAF1F87E6CC8CE36532CF53B68099E3
+    name = Santiago Soler
+    email = santiago.r.soler@gmail.com
+    signingKey = EA3B1F911EAF1F87E6CC8CE36532CF53B68099E3
 [core]
-	editor = nvim
+    editor = nvim
 [merge]
-	tool = meld
+    tool = meld
 [difftool.latex]
     cmd = latexdiff "$LOCAL" "$REMOTE"
 [alias]
     ldiff = difftool -y -t latex
 [commit]
-	gpgsign = true
+    gpgsign = true
 [tag]
-forceSignAnnotated = true
+    forceSignAnnotated = true
 
