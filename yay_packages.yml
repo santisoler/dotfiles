@@ -3,6 +3,7 @@ fonts:
   - fontawesome.sty
   - ttf-google-fonts-git
   - ttf-ms-fonts
+  - ttf-nunito
 
 jabref:
   - jabref
