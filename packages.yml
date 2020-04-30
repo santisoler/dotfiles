@@ -1,7 +1,7 @@
 default:
   - extend xfce
   - deluge
-  - owncloud
+  - nextcloud
   - meld
   - albert
   - cli apps
@@ -34,8 +34,8 @@ extend xfce:
 deluge:
   - deluge
 
-owncloud:
-  - owncloud-client
+nextcloud:
+  - nextcloud-client
 
 synaptics touchpad:
   - xf86-input-synaptics
