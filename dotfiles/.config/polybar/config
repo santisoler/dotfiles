@@ -59,9 +59,9 @@ font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=9;2"
 ; font-4 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
 ; font-5 = "Font Awesome 5 Brands:pixelsize=14;3"
 
-modules-left = i3 xwindow
-modules-center =
-modules-right = mpd xbacklight cpu memory filesystem date powermenu
+modules-left = i3
+modules-center = date
+modules-right = powermenu
 
 tray-position = right
 tray-padding = 1
@@ -151,7 +151,7 @@ label-mode-background = ${colors.background}
 ; focused = Active workspace on focused monitor
 ; label-focused = %index%
 ; label-focused-background = ${colors.background-alt}
-label-focused-underline = ${colors.green}
+label-focused-foreground = ${colors.green}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
@@ -161,7 +161,7 @@ label-unfocused-padding = 2
 ; visible = Active workspace on unfocused monitor
 ; label-visible = %index%
 label-visible-background = ${colors.background}
-label-visible-underline = ${colors.green}
+label-visible-foreground = ${colors.orange}
 label-visible-padding = 2
 
 ; urgent = Workspace with urgency hint set
@@ -293,10 +293,11 @@ date-alt = %A %d of %B %Y,
 time = %H:%M
 time-alt = %H:%M
 
-label =  %date% %time%
+/* label =  %date% %time% */
+label = %date% %time%
 format-padding = 2
 label-padding = 2
-label-underline = ${colors.green}
+/* label-underline = ${colors.green} */
 
 
 [module/pulseaudio]
