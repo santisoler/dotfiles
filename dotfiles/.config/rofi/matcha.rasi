@@ -1,0 +1,21 @@
+configuration {
+  display-drun: "Applications";
+  drun-display-format: "{name}";
+  hide-scrollbar: true;
+  bw: 0;
+  lines: 10;
+  line-padding: 10;
+  padding: 20;
+  width: 30;
+  /* xoffset: 27; */
+  /* yoffset: 60; */
+  /* location: 1; */
+  columns: 2;
+  show-icons: true;
+  icon-theme: "Papirus-Dark-Maia";
+  font: "DejaVu Sans 9";
+  color-window: "#222B2E,#222B2E,#222B2E";
+  color-normal: "#222B2E,#DFDFDF,#222B2E,#2EB398,#DFDFDF";
+  color-active: "#222B2E,#E5C07B,#222B2E,#E5C07B,#222B2E";
+  color-urgent: "#222B2E,#E06C75,#222B2E,#E06C75,#222B2E";
+}
