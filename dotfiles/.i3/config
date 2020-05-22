@@ -322,7 +322,7 @@ exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id owncloud
+exec --no-startup-id nextcloud
 exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 
