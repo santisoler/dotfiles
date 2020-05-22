@@ -1,5 +1,6 @@
 [/]
 app-title='${appName}'
+new-instance-mode='new-session'
 prompt-on-close=true
 prompt-on-delete-profile=true
 quake-specific-monitor=0
@@ -11,7 +12,7 @@ terminal-title-style='none'
 theme-variant='system'
 use-tabs=true
 warn-vte-config-issue=false
-window-style='disable-csd-hide-toolbar'
+window-style='borderless'
 
 [keybindings]
 session-add-down='<Primary><Shift>o'

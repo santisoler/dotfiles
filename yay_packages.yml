@@ -1,0 +1,54 @@
+fonts:
+  - ephifonts
+  - fontawesome.sty
+  - ttf-google-fonts-git
+  - ttf-ms-fonts
+  - ttf-nunito
+
+jabref:
+  - jabref
+
+diceware:
+  - diceware
+
+simplenote-electron-bin:
+  - simplenote-electron-bin
+
+google-earth-pro:
+  - google-earth-pro
+
+pdftk:
+  - pdftk
+
+audio-recorder:
+  - audio-recorder
+
+gplates:
+  - gplates
+
+spotify:
+  - spotify
+
+trello:
+  - trello
+
+slack-desktop:
+  - slack-desktop
+
+zoom:
+  - zoom
+
+github-cli:
+  - github-cli
+
+hub-bin:
+  - hub-bin
+
+zotero:
+  - zotero
+
+photofilmstrip:
+  - photofilmstrip
+
+inkscape-generate-palette:
+  - inkscape-generate-palette

@@ -1,7 +1,7 @@
 default:
   - extend xfce
   - deluge
-  - owncloud
+  - nextcloud
   - meld
   - albert
   - cli apps
@@ -34,8 +34,8 @@ extend xfce:
 deluge:
   - deluge
 
-owncloud:
-  - owncloud-client
+nextcloud:
+  - nextcloud-client
 
 synaptics touchpad:
   - xf86-input-synaptics
@@ -73,8 +73,14 @@ keepassxc:
   - keepassxc
 
 fonts:
+  - gsfonts
   - noto-fonts-emoji
   - ttf-dejavu
+  - ttf-liberation
+  - ttf-linux-libertine
+  - ttf-roboto
+  - font-bh-ttf
+  - gentium-plus-font
   - ttf-font-awesome
   - otf-latin-modern
 
@@ -145,3 +151,6 @@ gnucash:
 geany:
  - geany
  - geany-plugins
+
+kdenlive:
+  - kdenlive
