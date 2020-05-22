@@ -39,7 +39,7 @@ set $orange         #E5C07B
 set $red            #E06C75
 
 # class                 border      background      text            indic.   child_border
-client.focused          $background $background     $foreground     $green   $background
+client.focused          $background $background     $foreground     $green   $green
 client.focused_inactive $background $background     $foreground-alt $green   $background
 client.unfocused        $background $background-alt $foreground-alt $green   $background
 client.urgent           $background $background     $orange         $green   $background
@@ -47,11 +47,11 @@ client.urgent           $background $background     $orange         $green   $ba
 client.background       $background
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 0
-default_floating_border normal
+default_border pixel 2
+default_floating_border pixel 0
 
 # Hide borders
-hide_edge_borders none
+# hide_edge_borders none
 
 # Set inner/outer gaps
 gaps inner 8
