@@ -313,6 +313,10 @@ for_window [class="Xfce4-appfinder"] floating enable border normal
 # ----------------------
 # Autostart applications
 # ----------------------
+
+# Dual monitor configuration
+exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA1 --off --output VIRTUAL1 --off
+
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b -C -r 9
 exec --no-startup-id nm-applet
