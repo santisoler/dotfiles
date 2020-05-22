@@ -1,12 +1,11 @@
 i3-gaps pacakges:
   - thunar
   - firefox
-  - tilix
+  - xfce4-terminal
   - neovim
   - python-pynvim
   - pavucontrol
-  - xfce4-appfinder
-  - albert
   - ttf-font-awesome
   - polybar
   - bash-completion
+  - picom
