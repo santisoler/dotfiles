@@ -9,3 +9,4 @@ i3-gaps pacakges:
   - polybar
   - bash-completion
   - picom
+  - rofi
