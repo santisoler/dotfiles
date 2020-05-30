@@ -38,11 +38,11 @@ set $green          #2EB398
 set $orange         #E5C07B
 set $red            #E06C75
 
-# class                 border      background      text            indic.   child_border
-client.focused          $background $background     $foreground     $green   $green
-client.focused_inactive $background $background     $foreground-alt $green   $background
-client.unfocused        $background $background-alt $foreground-alt $green   $background
-client.urgent           $background $background     $orange         $green   $background
+# class                 border      background      text            indic.      child_border
+client.focused          $background $background     $foreground     $orange     $green
+client.focused_inactive $background $background     $foreground-alt $background $background
+client.unfocused        $background $background-alt $foreground-alt $background $background
+client.urgent           $background $background     $orange         $background $background
 
 client.background       $background
 
@@ -58,7 +58,7 @@ gaps inner 8
 gaps outer 0
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -91,10 +91,10 @@ bindsym $mod+z exec --no-startup-id morc_menu
 bindsym $mod+Shift+q kill
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+ntilde focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -103,10 +103,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+ntilde move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -115,7 +115,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split orientation
-bindsym $mod+g split h;exec notify-send 'tile horizontally'
+bindsym $mod+h split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'tile vertically'
 bindsym $mod+q split toggle
 
@@ -270,8 +270,8 @@ mode "resize" {
 # Applications
 # ------------
 # Open applications on specific workspaces
-assign [class="Xfce4-terminal"] $ws1
-assign [class="Tilix"] $ws1
+# assign [class="Xfce4-terminal"] $ws1
+# assign [class="Tilix"] $ws1
 assign [class="firefox"] $ws2
 assign [class="Thunar"] $ws3
 assign [class="Lollypop"] $ws6
@@ -308,6 +308,7 @@ for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="Xfce4-appfinder"] floating enable border normal
+for_window [class="Orage"] floating enable border normal
 
 
 # ----------------------
@@ -315,10 +316,13 @@ for_window [class="Xfce4-appfinder"] floating enable border normal
 # ----------------------
 
 # Dual monitor configuration
-exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA1 --off --output VIRTUAL1 --off
+# exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA1 --off --output VIRTUAL1 --off
+
+# External monitor only
+exec --no-startup-id xrandr --output LVDS1 --off --output DP1 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA1 --off --output VIRTUAL1 --off
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; picom -b -C -r 9
+exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -328,6 +332,7 @@ exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nextcloud
 exec --no-startup-id blueman-applet
+exec --no-startup-id orage
 # exec_always --no-startup-id sbxkb
 
 ################################################################################################
