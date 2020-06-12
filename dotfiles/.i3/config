@@ -19,7 +19,7 @@ for_window [urgent=latest] focus
 for_window [class="."] focus
 
 # workspace back and forth (with/without active container)
-workspace_auto_back_and_forth no
+workspace_auto_back_and_forth yes
 
 
 # ----------
@@ -58,7 +58,7 @@ gaps inner 8
 gaps outer 0
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-# smart_gaps on
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -77,6 +77,7 @@ set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
+set $ws9 9
 
 # -----------
 # Keybindings
@@ -131,6 +132,7 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -141,6 +143,7 @@ bindsym $mod+Ctrl+5 move container to workspace $ws5
 bindsym $mod+Ctrl+6 move container to workspace $ws6
 bindsym $mod+Ctrl+7 move container to workspace $ws7
 bindsym $mod+Ctrl+8 move container to workspace $ws8
+bindsym $mod+Ctrl+9 move container to workspace $ws9
 
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
@@ -151,6 +154,7 @@ bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
 # Moving workspaces between screens
 bindsym $mod+p move workspace to output right
@@ -172,7 +176,7 @@ bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 bindsym $mod+b workspace back_and_forth
-bindsym $mod1+Tab workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # change container layout (stacked, tabbed, toggle split)
@@ -208,9 +212,6 @@ bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-
-# Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
 
 # Pulseaudio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
@@ -272,12 +273,12 @@ mode "resize" {
 # Open applications on specific workspaces
 # assign [class="Xfce4-terminal"] $ws1
 # assign [class="Tilix"] $ws1
-assign [class="firefox"] $ws2
+# assign [class="firefox"] $ws2
 assign [class="Thunar"] $ws3
 assign [class="Lollypop"] $ws6
-assign [class="Pavucontrol"] $ws6
 assign [class="Evince"] $ws8
 assign [class="Okular"] $ws8
+assign [class="Pavucontrol"] $ws9
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -298,7 +299,6 @@ for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
 for_window [title="About Pale Moon"] floating enable
 for_window [class="Pamac-manager"] floating enable
-# for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal
@@ -309,6 +309,7 @@ for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="Xfce4-appfinder"] floating enable border normal
 for_window [class="Orage"] floating enable border normal
+for_window [class="Arandr"] floating enable border normal; resize shrink width 400px; resize shrink height 300px; resize grow width 400px; resize grow height 300px
 
 
 # ----------------------
