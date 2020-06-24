@@ -1,73 +1,57 @@
-default:
-  - extend xfce
-  - deluge
-  - nextcloud
-  - meld
-  - albert
-  - cli apps
-  - keepassxc
-  - fonts
-  - themes
-  - nvim
-  - yay
-  - whatsapp wrapper
-  - texlive
-  - smplayer
-  - lollypop and quodlibet
-  - graphics
-  - telegram
-  - gnucash
-
-extend xfce:
-  - aspell-es
+i3-gaps extra:
+  - thunar
+  - thunar-archive-plugin
+  - firefox
+  - xfce4-terminal
+  - neovim
+  - python-pynvim
+  - pavucontrol
+  - ttf-font-awesome
+  - polybar
+  - bash-completion
+  - picom
+  - rofi
+  - orage
   - evince
-  - gcolor3
-  - gnome-disk-utility
-  - gnome-font-viewer
-  - gnome-system-monitor
+  - file-roller
   - grsync
-  - icedtea-web
-  - seahorse
-  - system-config-printer
-  - tilix
-
-deluge:
-  - deluge
-
-nextcloud:
-  - nextcloud-client
-
-synaptics touchpad:
-  - xf86-input-synaptics
-
-meld:
-  - meld
-
-albert:
-  - albert
-  - muparser
-
-kupfer:
-  - kupfer
 
 cli apps:
   - bash-completion
   - dos2unix
   - ebook-tools
   - gnupg
-  - gvim
   - pandoc
   - pdfpc
-  - pwgen
-  - screen
-  - speedtest-cli
   - tmux
   - tree
+  - speedtest-cli
   - wipe
   - xclip
+  - unzip
 
-skippy-xd:
-  - skippy-xd
+synaptics touchpad:
+  - xf86-input-synaptics
+
+firefox extensions:
+  - firefox-ublock-origin
+  - firefox-extension-privacybadger
+  - firefox-extension-https-everywhere
+
+chromium:
+  - chromium
+
+yay:
+  - base-devel
+  - yay
+
+nvim:
+  - neovim
+  - python-neovim
+  - python-jedi
+  - python-black
+  - flake8
+  - python-pylint
 
 keepassxc:
   - keepassxc
@@ -83,42 +67,28 @@ fonts:
   - gentium-plus-font
   - ttf-font-awesome
   - otf-latin-modern
+  - ttf-font-awesome
 
 themes:
   - matcha-gtk-theme
-  - adapta-maia-theme
-  - adapta-gtk-theme
   - papirus-maia-icon-theme
-  - papirus-icon-theme
   - capitaine-cursors
   - manjaro-wallpapers-18.0
 
-nvim:
-  - neovim
-  - python-neovim
-  - python-jedi
-  - python-black
-  - python-flake8
-  - python-pylint
+libreoffice:
+  - libreoffice-fresh
+  - libreoffice-fresh-es
 
-yay:
-  - base-devel
-  - yay
+deluge:
+  - deluge-gtk
 
-whatsapp wrapper:
-  - whatsapp-online-jak
-
-texlive:
-  - texlive-core
-  - texlive-latexextra
-  - texlive-bibtexextra
-  - texlive-science
-  - git-latexdiff
+vlc:
+  - vlc
 
 smplayer:
   - smplayer
 
-lollypop and quodlibet:
+lollypop:
   - lollypop
   - quodlibet
 
@@ -129,8 +99,28 @@ graphics:
   - inkscape
   - pstoedit
   - python2-lxml
+  - gcolor3
 
-audio tools:
+steam:
+  - steam-manjaro
+
+play on linux:
+  - playonlinux
+
+nextcloud:
+  - nextcloud-client
+
+meld:
+  - meld
+
+texlive:
+  - texlive-core
+  - texlive-latexextra
+  - texlive-bibtexextra
+  - texlive-science
+  - git-latexdiff
+
+audio-tools:
   - sox
   - audacity
   - soundconverter
@@ -140,17 +130,9 @@ telegram:
 
 wxmaxima:
   - wxmaxima
-  - gnuplot
 
 okular:
   - okular
-
-gnucash:
-  - gnucash
-
-geany:
- - geany
- - geany-plugins
 
 kdenlive:
   - kdenlive
