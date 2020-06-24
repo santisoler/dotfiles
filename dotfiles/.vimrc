@@ -122,7 +122,7 @@ endif
 " Change background color to match Matcha Sea theme
 " (must be before 'colorscheme onedark')
 let g:onedark_color_overrides = {
-\ "black": {"gui": "#1B2224", "cterm": "235", "cterm16": "0" },
+\ "black": {"gui": "#141A1B", "cterm": "235", "cterm16": "0" },
 \}
 
 " Set colorscheme
