@@ -20,7 +20,7 @@
 ; https://github.com/Banbeucmas/Banbeucmas-Rice/tree/master/31%20-%207%20-%202018
 
 [colors]
-background = #1B2224
+background = #141A1B
 background-alt = #585858
 foreground = #DFDFDF
 foreground-alt = #A3ABA9
@@ -142,6 +142,7 @@ ws-icon-4 = 5;
 ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8;
+ws-icon-8 = 9;
 
 label-mode-padding = 2
 ;label-mode-underline = ${colors.green}
