@@ -290,6 +290,8 @@ bindsym $mod+shift+Z mode "$keyboard_layout"
 # assign [class="Tilix"] $ws1
 # assign [class="firefox"] $ws2
 assign [class="Thunar"] $ws3
+assign [class="Slack"] $ws4
+assign [class="TelegramDesktop"] $ws4
 assign [class="Lollypop"] $ws6
 assign [class="Evince"] $ws8
 assign [class="Okular"] $ws8
@@ -325,6 +327,7 @@ for_window [class="Xfburn"] floating enable
 for_window [class="Xfce4-appfinder"] floating enable border normal
 for_window [class="Orage"] floating enable border normal
 for_window [class="Arandr"] floating enable border normal; resize shrink width 400px; resize shrink height 300px; resize grow width 400px; resize grow height 300px
+for_window [class="Jitsi Meet"] floating enable border normal
 
 
 # ----------------------
