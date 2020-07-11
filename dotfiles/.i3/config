@@ -345,19 +345,21 @@ for_window [class="Jitsi Meet"] floating enable border normal
 # External monitor only
 # exec --no-startup-id xrandr --output LVDS1 --off --output DP1 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA1 --off --output VIRTUAL1 --off
 
+# Screen Locker
+# exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id light-locker
+exec --no-startup-id xfce4-power-manager
+
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
+exec --no-startup-id blueman-applet
 exec --no-startup-id pamac-tray
-exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id nextcloud
-exec --no-startup-id blueman-applet
 exec --no-startup-id orage
 exec_always --no-startup-id sleep 1; $HOME/.config/polybar/launch.sh
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
-# exec_always --no-startup-id sbxkb
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
