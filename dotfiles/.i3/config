@@ -278,6 +278,10 @@ set $keyboard_layout Keyboard Layout: (s) Spanish, (e) US English
     bindsym s exec --no-startup-id setxkbmap es; mode "default"
     bindsym e exec --no-startup-id setxkbmap us; mode "default"
 
+    # exit resize mode: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+
 }
 bindsym $mod+shift+Z mode "$keyboard_layout"
 
