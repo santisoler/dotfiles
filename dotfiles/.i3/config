@@ -294,9 +294,14 @@ bindsym $mod+shift+Z mode "$keyboard_layout"
 # assign [class="Tilix"] $ws1
 # assign [class="firefox"] $ws2
 assign [class="Thunar"] $ws3
+assign [class="Deluge"] $ws3
 assign [class="Slack"] $ws4
 assign [class="TelegramDesktop"] $ws4
+assign [class="Gimp"] $ws5
+assign [class="Inkscape"] $ws5
+assign [class="Darktable"] $ws5
 assign [class="Lollypop"] $ws6
+assign [class="Steam"] $ws6
 assign [class="zoom"] $ws7
 assign [class="Evince"] $ws8
 assign [class="Okular"] $ws8
