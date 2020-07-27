@@ -22,6 +22,7 @@ Plug 'lervag/vimtex'            " latex plugin
 Plug 'airblade/vim-gitgutter'   " git flags in the sign column
 Plug 'scrooloose/nerdcommenter' " improved comments
 Plug 'scrooloose/nerdtree'      " nerdtree
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'psf/black', { 'tag': '19.10b0' }
 
 Plug 'davidhalter/jedi-vim'
@@ -285,3 +286,4 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " --------
 " Open NERDTree with Ctrl-n
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen=1
