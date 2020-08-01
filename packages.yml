@@ -6,6 +6,7 @@ i3-gaps extra:
   - neovim
   - python-pynvim
   - pavucontrol
+  - playerctl
   - ttf-font-awesome
   - polybar
   - bash-completion
