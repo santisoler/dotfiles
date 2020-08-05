@@ -46,3 +46,8 @@ else
     eval `ssh-agent | tee ~/.ssh/agent.env`
     # ssh-add
 fi
+
+# Activate the conda default environment
+if [ -f $HOME/environment.yml ]; then
+    cenv $HOME/environment.yml
+fi

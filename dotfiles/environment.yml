@@ -1,0 +1,28 @@
+name: default
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - pip
+  - numpy
+  - scipy
+  - sympy
+  - jupyter
+  - jupyterlab
+  - nodejs # needed by jupyterlab
+  - jupytext
+  - ipython
+  - nb_conda
+  - matplotlib
+  - xarray
+  - netcdf4
+  - cartopy
+  - dask
+  - numba
+  # Fatiando
+  - pooch
+  - verde
+  - harmonica
+  - rockhound
+  - boule

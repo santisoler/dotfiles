@@ -22,12 +22,13 @@ Plug 'lervag/vimtex'            " latex plugin
 Plug 'airblade/vim-gitgutter'   " git flags in the sign column
 Plug 'scrooloose/nerdcommenter' " improved comments
 Plug 'scrooloose/nerdtree'      " nerdtree
-Plug 'python/black'             " black
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'psf/black', { 'tag': '19.10b0' }
 
 Plug 'davidhalter/jedi-vim'
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-jedi'
+    Plug 'deoplete-plugins/deoplete-jedi'
 else
     Plug 'Shougo/deoplete.nvim'
     Plug 'roxma/nvim-yarp'
@@ -109,6 +110,9 @@ autocmd BufNewFile,BufRead *.snake set syntax=snakemake
 "   :noautocmd w
 autocmd BufWritePre * :%s/\s\+$//e
 
+" Run black after saving Python files
+autocmd BufWritePre *.py Black
+
 
 " ============
 " Color scheme
@@ -122,7 +126,7 @@ endif
 " Change background color to match Matcha Sea theme
 " (must be before 'colorscheme onedark')
 let g:onedark_color_overrides = {
-\ "black": {"gui": "#1B2224", "cterm": "235", "cterm16": "0" },
+\ "black": {"gui": "#141A1B", "cterm": "235", "cterm16": "0" },
 \}
 
 " Set colorscheme
@@ -211,7 +215,7 @@ map <leader>f }k
 " nerdcommenter
 " -------------
 filetype plugin indent on
-let g:NERDSpaceDelims = 0
+let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 
 " braceless.vim
@@ -274,7 +278,7 @@ let g:jedi#completions_enabled = 0
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#show_docstring = 1
 " Press Escape exit autocompletion, go to Normal mode
-inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
+" inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
 " Close the docstring window when completion is finished
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
@@ -282,3 +286,4 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " --------
 " Open NERDTree with Ctrl-n
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen=1

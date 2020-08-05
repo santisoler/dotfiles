@@ -47,3 +47,7 @@ to conda:
 ```
 xargs conda install -c conda-forge < conda_packages.txt
 ```
+
+## Apply synaptics configuration
+
+Copy `70-synaptics.conf` to `/etc/X11/xorg.conf.d/`.
