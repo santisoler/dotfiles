@@ -57,6 +57,9 @@ nvim:
   - flake8
   - python-pylint
 
+vs code:
+  - code
+
 keepassxc:
   - keepassxc
 
