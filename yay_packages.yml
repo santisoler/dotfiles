@@ -15,9 +15,6 @@ simplenote-electron-bin:
 google-earth-pro:
   - google-earth-pro
 
-pdftk:
-  - pdftk
-
 audio-recorder:
   - audio-recorder
 

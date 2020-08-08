@@ -32,6 +32,7 @@ cli apps:
   - wipe
   - xclip
   - unzip
+  - pdftk
 
 synaptics touchpad:
   - xf86-input-synaptics
