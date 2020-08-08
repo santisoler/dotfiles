@@ -94,6 +94,8 @@ vlc:
 
 smplayer:
   - smplayer
+  - smplayer-themes
+  - smplayer-skins
 
 lollypop:
   - lollypop
