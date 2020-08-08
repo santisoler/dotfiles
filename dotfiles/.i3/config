@@ -39,7 +39,7 @@ set $orange         #E5C07B
 set $red            #E06C75
 
 # class                 border      background      text            indic.      child_border
-client.focused          $background $background     $foreground     $orange     $green
+client.focused          $background $background     $green          $orange     $green
 client.focused_inactive $background $background     $foreground-alt $background $background
 client.unfocused        $background $background-alt $foreground-alt $background $background
 client.urgent           $background $background     $orange         $background $background
