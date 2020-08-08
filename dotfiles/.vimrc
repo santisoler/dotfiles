@@ -263,6 +263,7 @@ nmap <Leader>hr <Plug>(GitGutterUndoHunk)
 
 " vimtex
 " ------
+let g:tex_flavor = 'latex'
 let g:vimtex_enabled=1
 let g:vimtex_compiler_enabled=0
 let g:vimtex_complete_enabled=1
