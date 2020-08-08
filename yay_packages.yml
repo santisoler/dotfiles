@@ -47,3 +47,6 @@ photofilmstrip:
 
 inkscape-generate-palette:
   - inkscape-generate-palette
+
+piper:
+  - piper-git
