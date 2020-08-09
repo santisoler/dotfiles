@@ -37,6 +37,9 @@ cli apps:
 synaptics touchpad (no longer works, use libinput instead):
   - xf86-input-synaptics
 
+xbacklight:
+  - xbacklight
+
 firefox extensions:
   - firefox-ublock-origin
   - firefox-extension-privacybadger
