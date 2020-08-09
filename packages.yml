@@ -34,7 +34,7 @@ cli apps:
   - unzip
   - pdftk
 
-synaptics touchpad:
+synaptics touchpad (no longer works, use libinput instead):
   - xf86-input-synaptics
 
 firefox extensions:
