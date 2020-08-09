@@ -2,7 +2,7 @@
 # ----------------
 export DICEWARE_ES="$HOME/.diceware/diceware-spanish.txt"
 export GEM_HOME=$HOME/.gem
-export CONDA_PREFIX=$HOME/.miniconda3
+export CONDA_PREFIX=$HOME/.anaconda3
 
 
 # Add directories to PATH
