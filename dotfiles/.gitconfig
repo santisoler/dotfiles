@@ -4,6 +4,7 @@
     signingKey = EA3B1F911EAF1F87E6CC8CE36532CF53B68099E3
 [core]
     editor = nvim
+	excludesFile = ~/.gitignore
 [merge]
     tool = meld
 [difftool.latex]
