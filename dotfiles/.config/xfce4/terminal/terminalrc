@@ -19,7 +19,7 @@ ScrollingLines=999999
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 BackgroundDarkness=0,700000
 ScrollingOnOutput=FALSE
-FontName=DejaVu Sans Mono 9
+FontName=Fira Code weight=450 9.5
 MiscBellUrgent=FALSE
 MiscMouseWheelZoom=TRUE
 MiscMiddleClickOpensUri=FALSE
@@ -39,3 +39,4 @@ ColorPalette=rgb(27,34,36);rgb(224,108,117);rgb(152,195,121);rgb(229,192,123);rg
 MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=FALSE
 TitleMode=TERMINAL_TITLE_HIDE
+
