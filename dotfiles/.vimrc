@@ -24,6 +24,7 @@ Plug 'scrooloose/nerdcommenter' " improved comments
 Plug 'scrooloose/nerdtree'      " nerdtree
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'psf/black', { 'tag': '19.10b0' }
+Plug 'mattn/emmet-vim'  " for HTML completion
 
 Plug 'davidhalter/jedi-vim'
 if has('nvim')
@@ -75,8 +76,8 @@ set showmatch
 set hlsearch
 
 " Set text width to 80 characters (88 for Python)
-set noai textwidth=79 colorcolumn=80
-autocmd FileType python setlocal textwidth=88 colorcolumn=89
+set noai textwidth=79
+autocmd FileType python setlocal textwidth=79
 
 " Enable soft and hard wrapping
 set formatoptions=qrn1
