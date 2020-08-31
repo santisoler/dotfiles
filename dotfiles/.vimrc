@@ -25,6 +25,8 @@ Plug 'scrooloose/nerdtree'      " nerdtree
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'mattn/emmet-vim'  " for HTML completion
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier'
 
 Plug 'davidhalter/jedi-vim'
 if has('nvim')
@@ -58,8 +60,8 @@ set mouse=vn
 set autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 autocmd FileType python setlocal noautoindent  " indent python with braceless
 autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
+" autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+"
 " Change configuration for cases
 set ignorecase
 set smartcase
@@ -83,6 +85,9 @@ autocmd FileType python setlocal textwidth=79
 set formatoptions=qrn1
 set wrap             " enable soft wrap
 set formatoptions+=t " enable hard wrap
+
+" Enable breakindent (soft-wrapped lines will follow indent)
+set breakindent
 
 " Prevent dual spaces after period
 set nojoinspaces
@@ -113,6 +118,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Run black after saving Python files
 autocmd BufWritePre *.py Black
+
+" Run prettier after saving html and css files
+autocmd BufWritePre *.html,*.css,*.less Prettier
 
 
 " ============
@@ -289,3 +297,7 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " Open NERDTree with Ctrl-n
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
+
+" Emmet
+" -----
+let g:user_emmet_leader_key='<C-Z>'
