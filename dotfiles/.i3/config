@@ -295,7 +295,7 @@ bindsym $mod+shift+Z mode "$keyboard_layout"
 # Applications
 # ------------
 # Open applications on specific workspaces
-assign [class="Xfce4-terminal"] $ws1
+# assign [class="Xfce4-terminal"] $ws1
 assign [class="firefox"] $ws2
 assign [class="Thunar"] $ws3
 assign [class="Deluge"] $ws3
