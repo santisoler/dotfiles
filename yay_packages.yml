@@ -3,6 +3,9 @@ fonts:
   - ttf-ms-fonts
   - ttf-nunito
 
+spaceship-zsh-prompt:
+  - spaceship-prompt-git
+
 jabref:
   - jabref
 
