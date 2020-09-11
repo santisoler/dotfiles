@@ -101,6 +101,8 @@ export LESS=-r
 autoload -U promptinit; promptinit
 prompt spaceship
 
+SPACESHIP_EXIT_CODE_SHOW=true
+
 
 # Plugins section: Enable fish style features
 # -------------------------------------------
