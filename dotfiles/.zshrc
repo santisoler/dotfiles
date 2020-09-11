@@ -1,26 +1,22 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Options section
 # ---------------
-setopt correct                                                  # Auto correct mistakes
-setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
-setopt nocaseglob                                               # Case insensitive globbing
-setopt rcexpandparam                                            # Array expension with parameters
-setopt nocheckjobs                                              # Don't warn about running processes when exiting
-setopt numericglobsort                                          # Sort filenames numerically when it makes sense
-setopt nobeep                                                   # No beep
-setopt appendhistory                                            # Immediately append history instead of overwriting
-setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
-setopt autocd                                                   # if only directory path is entered, cd there.
+setopt correct             # Auto correct mistakes
+setopt extendedglob        # Extended globbing. Allows using regular expressions with *
+setopt nocaseglob          # Case insensitive globbing
+setopt rcexpandparam       # Array expension with parameters
+setopt nocheckjobs         # Don't warn about running processes when exiting
+setopt numericglobsort     # Sort filenames numerically when it makes sense
+setopt nobeep              # No beep
+setopt appendhistory       # Immediately append history instead of overwriting
+setopt histignorealldups   # If a new command is a duplicate, remove the older one
+setopt autocd              # if only directory path is entered, cd there.
 
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
-zstyle ':completion:*' rehash true                              # automatically find new executables in path
+# Case insensitive tab completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# Colored completion (different colors for dirs/files/etc)
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# Automatically find new executables in path
+zstyle ':completion:*' rehash true
 # Speed up completions
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
@@ -30,38 +26,36 @@ HISTSIZE=1000
 SAVEHIST=500
 #export EDITOR=/usr/bin/nano
 #export VISUAL=/usr/bin/nano
-WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
+WORDCHARS=${WORDCHARS//\/[&.;]}   # Don't consider certain characters part of the word
 
 
 # Keybindings section
 # -------------------
 bindkey -e
-bindkey '^[[7~' beginning-of-line                               # Home key
-bindkey '^[[H' beginning-of-line                                # Home key
+bindkey '^[[7~' beginning-of-line                     # Home key
+bindkey '^[[H' beginning-of-line                      # Home key
 if [[ "${terminfo[khome]}" != "" ]]; then
-  bindkey "${terminfo[khome]}" beginning-of-line                # [Home] - Go to beginning of line
+  bindkey "${terminfo[khome]}" beginning-of-line      # [Home] - Go to beginning of line
 fi
-bindkey '^[[8~' end-of-line                                     # End key
-bindkey '^[[F' end-of-line                                     # End key
+bindkey '^[[8~' end-of-line                           # End key
+bindkey '^[[F' end-of-line                            # End key
 if [[ "${terminfo[kend]}" != "" ]]; then
-  bindkey "${terminfo[kend]}" end-of-line                       # [End] - Go to end of line
+  bindkey "${terminfo[kend]}" end-of-line             # [End] - Go to end of line
 fi
-bindkey '^[[2~' overwrite-mode                                  # Insert key
-bindkey '^[[3~' delete-char                                     # Delete key
-bindkey '^[[C'  forward-char                                    # Right key
-bindkey '^[[D'  backward-char                                   # Left key
-bindkey '^[[5~' history-beginning-search-backward               # Page up key
-bindkey '^[[6~' history-beginning-search-forward                # Page down key
-
+bindkey '^[[2~' overwrite-mode                        # Insert key
+bindkey '^[[3~' delete-char                           # Delete key
+bindkey '^[[C'  forward-char                          # Right key
+bindkey '^[[D'  backward-char                         # Left key
+bindkey '^[[5~' history-beginning-search-backward     # Page up key
+bindkey '^[[6~' history-beginning-search-forward      # Page down key
 
 # Navigate words with ctrl+arrow keys
-# -----------------------------------
-bindkey '^[Oc' forward-word                                     #
-bindkey '^[Od' backward-word                                    #
-bindkey '^[[1;5D' backward-word                                 #
-bindkey '^[[1;5C' forward-word                                  #
-bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
-bindkey '^[[Z' undo                                             # Shift+tab undo last action
+bindkey '^[Oc' forward-word                           #
+bindkey '^[Od' backward-word                          #
+bindkey '^[[1;5D' backward-word                       #
+bindkey '^[[1;5C' forward-word                        #
+bindkey '^H' backward-kill-word                       # delete previous word with ctrl+backspace
+bindkey '^[[Z' undo                                   # Shift+tab undo last action
 
 
 # Aliases
@@ -70,12 +64,12 @@ alias v="nvim"
 alias vim="nvim"
 alias cp="cp -i"                          # confirm before overwriting something
 alias ls='ls --color'
-alias ll="ls --color -lh"                        # ls in list and human readable
-alias du="du -h -d 0"                    # disk usage with human readable and depth 0
-alias df='df -h'                                                # Human-readable sizes
-alias free='free -m'                                            # Show sizes in MB
+alias ll="ls --color -lh"                 # ls in list and human readable
+alias du="du -h -d 0"                     # disk usage with human readable and depth 0
+alias df='df -h'                          # Human-readable sizes
+alias free='free -m'                      # Show sizes in MB
 alias open='xdg-open'
-alias xc='xclip -selection clipboard'    # copy to clipboard using xclip
+alias xc='xclip -selection clipboard'     # copy to clipboard using xclip
 alias diceware-es='diceware -d " " --no-caps $DICEWARE_ES'
 alias lab='tmux new-session -d -s lab; tmux send-keys -t lab "cd $HOME; jupyter-lab --no-browser" Enter'
 alias ta="tmux attach -t"
@@ -91,9 +85,7 @@ autoload -U compinit colors zcalc
 compinit -d
 colors
 
-
 # Color man pages
-# ---------------
 export LESS_TERMCAP_mb=$'\E[01;32m'
 export LESS_TERMCAP_md=$'\E[01;32m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -102,6 +94,12 @@ export LESS_TERMCAP_so=$'\E[01;47;34m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
+
+
+# Spaceship Prompt
+# ----------------
+autoload -U promptinit; promptinit
+prompt spaceship
 
 
 # Plugins section: Enable fish style features
@@ -124,21 +122,8 @@ if [[ -r /usr/share/doc/pkgfile/command-not-found.zsh ]]; then
 fi
 
 
-# Powerlevel10k
-# -------------
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs anaconda status)
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_jobs direnv asdf virtualenv pyenv goenv nodenv nvm nodeenv rbenv rvm fvm luaenv jenv plenv phpenv haskell_stack kubecontext terraform aws aws_eb_env azure gcloud google_app_cred context nordvpn ranger nnn vim_shell midnight_commander nix_shell vi_mode todo timewarrior taskwarrior)
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-POWERLEVEL9K_ANACONDA_VISUAL_IDENTIFIER_EXPANSION=""
-
-
-# Initialize conda
-# ----------------
+# Init conda
+# ----------
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/santi/.anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
@@ -151,13 +136,6 @@ else
     fi
 fi
 unset __conda_setup
-
-
-# Activate the conda default environment
-# --------------------------------------
-if [ -f $HOME/environment.yml ]; then
-    cenv $HOME/environment.yml
-fi
 
 
 # ---------------
@@ -179,7 +157,7 @@ condaoff() {
     fi
 }
 
-cenv() {
+cenv () {
 read -r -d '' CENV_HELP <<-'EOF'
 Usage: cenv [COMMAND] [FILE]
 
@@ -244,7 +222,7 @@ EOF
         conda deactivate;
     elif [[ $cmd == "update" ]]; then
         >&2 echo "Updating environment:" $envname;
-        conda activate "$envname";
+ changeps1: False       conda activate "$envname";
         conda env update -f "$envfile"
     elif [[ $cmd == "delete" ]]; then
         >&2 echo "Removing environment:" $envname;
@@ -254,3 +232,22 @@ EOF
 }
 
 
+# Activate the conda default environment
+# --------------------------------------
+if [ -f $HOME/environment.yml ]; then
+    cenv $HOME/environment.yml
+fi
+
+
+# Initialize ssh agent
+# --------------------
+if [ -f ~/.ssh/agent.env ] ; then
+    . ~/.ssh/agent.env > /dev/null
+    if ! kill -0 $SSH_AGENT_PID > /dev/null 2>&1; then
+        # echo "Stale agent file found. Spawning new agent… "
+        eval `ssh-agent | tee ~/.ssh/agent.env`
+    fi
+else
+    # echo "Starting ssh-agent"
+    eval `ssh-agent | tee ~/.ssh/agent.env`
+fi
