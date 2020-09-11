@@ -98,10 +98,12 @@ export LESS=-r
 
 # Spaceship Prompt
 # ----------------
+SPACESHIP_GIT_SYMBOL=""
+SPACESHIP_EXIT_CODE_SHOW=true
+
 autoload -U promptinit; promptinit
 prompt spaceship
 
-SPACESHIP_EXIT_CODE_SHOW=true
 
 
 # Plugins section: Enable fish style features
