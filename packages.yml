@@ -34,6 +34,11 @@ cli apps:
   - unzip
   - pdftk
 
+zsh:
+  - zsh
+  - zsh-theme-powerlevel10k
+  - powerline
+
 synaptics touchpad (no longer works, use libinput instead):
   - xf86-input-synaptics
 
