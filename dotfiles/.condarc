@@ -20,3 +20,6 @@ channels:
 # when using "conda create" for envs these packages will always be installed
 create_default_packages:
   - ipython
+
+# Disable conda prompt
+changeps1: False
