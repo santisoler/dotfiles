@@ -1,3 +1,13 @@
+# Enable Powerlevel10k instant prompt
+# -----------------------------------
+# These lines should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+
 # Options section
 # ---------------
 setopt correct             # Auto correct mistakes
@@ -14,7 +24,7 @@ setopt autocd              # if only directory path is entered, cd there.
 # Case insensitive tab completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # Colored completion (different colors for dirs/files/etc)
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # Automatically find new executables in path
 zstyle ':completion:*' rehash true
 # Speed up completions
@@ -90,26 +100,24 @@ export LESS_TERMCAP_mb=$'\E[01;32m'
 export LESS_TERMCAP_md=$'\E[01;32m'
 export LESS_TERMCAP_me=$'\E[0m'
 export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;47;34m'
+# export LESS_TERMCAP_so=$'\E[01;47;34m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
 
-# Spaceship Prompt
+# Powerlevel theme
 # ----------------
-SPACESHIP_GIT_SYMBOL=""
-SPACESHIP_EXIT_CODE_SHOW=true
-
-autoload -U promptinit; promptinit
-prompt spaceship
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
 
 # Plugins section: Enable fish style features
 # -------------------------------------------
 # Use syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Use history substring search
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 # bind UP and DOWN arrow keys to history substring search
@@ -255,3 +263,4 @@ else
     # echo "Starting ssh-agent"
     eval `ssh-agent | tee ~/.ssh/agent.env`
 fi
+
