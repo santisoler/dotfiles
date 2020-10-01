@@ -374,7 +374,7 @@ exec --no-startup-id nextcloud
 exec --no-startup-id orage
 exec_always --no-startup-id sleep 1; $HOME/.config/polybar/launch.sh
 exec --no-startup-id nitrogen --restore
-# exec --no-startup-id nitrogen --restore; sleep 1; picom -b
+exec --no-startup-id picom -b
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
