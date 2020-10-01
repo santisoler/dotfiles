@@ -265,10 +265,8 @@ let g:user_emmet_leader_key='<C-Z>'
 " neoformat
 " ---------
 let g:neoformat_enabled_python = ['black']
-" Run black after saving Python files
-autocmd BufWritePre *.py Neoformat
-" Run prettier after saving html and css files
-autocmd BufWritePre *.html,*.css,*.less Neoformat
+" Run neoformat after saving some chosen files
+autocmd BufWritePre *.py,*.html,*.css,*.less,*.yml Neoformat
 
 
 " -------------------------------------------------
