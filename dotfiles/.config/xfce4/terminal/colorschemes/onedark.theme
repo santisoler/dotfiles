@@ -4,6 +4,7 @@ ColorForeground=#ABB2BF
 ColorCursor=#ABB2BF
 ColorBackground=#282C34
 ColorSelection=#3B4451
+ColorSelectionBackground=#ABB2BF
 ColorSelectionUseDefault=FALSE
 ColorBold=#B9C0CB
 ColorBoldUseDefault=FALSE
