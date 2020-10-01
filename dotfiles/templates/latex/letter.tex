@@ -1,44 +1,41 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass{letter}
+\usepackage[hmargin=3.5cm, vmargin=4cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
-\usepackage[hmargin=3cm, vmargin=3cm]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
 \usepackage{setspace}
-\usepackage{parskip}
+
+\hypersetup{colorlinks,
+            citecolor=black,
+            filecolor=black,
+            linkcolor=black,
+            urlcolor=black,
+            pdftex}
+\urlstyle{same}
 
 \onehalfspacing
-\setlength{\parindent}{1em}
-\pagestyle{empty}
+\setlength{\parindent}{3em}
 
+\signature{
+    % Puedo añadir una firma
+    % \vspace{-3em} \includegraphics[height=6em]{firma.png}
+    \newline Licenciado Santiago Soler
+    \newline DNI 35.452.245
+    \newline email: santiago.r.soler@gmail.com
+}
 
 \begin{document}
 
-\begin{flushright}
-\today
-\end{flushright}
+\begin{letter}{}
 
-\noindent
-Departmento de \LaTeX \\
-Universidad de GNU \\
-Sr Director \\
-S/D
-\vspace{1em}
+\opening{\noindent A quien corresponda:}
 
-\noindent De nuestra mayor consideración:
+Cuerpo de la carta
 
-Cuerpo
+\closing{Atentamente,}
 
-\vspace{4em}
-
-\begin{minipage}{0.5\linewidth}
-    \begin{center}
-    Firma 1
-    \end{center}
-\end{minipage}
-~
-\begin{minipage}{0.5\linewidth}
-    \begin{center}
-    Firma 2
-    \end{center}
-\end{minipage}
+\end{letter}
 
 \end{document}
+

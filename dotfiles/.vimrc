@@ -17,23 +17,14 @@ Plug 'tpope/vim-fugitive'              " git wrapper
 Plug 'vim-syntastic/syntastic'         " syntax linter
 Plug 'vim-airline/vim-airline'         " airline (bottom bar)
 Plug 'vim-airline/vim-airline-themes'  " airline themes
-Plug 'tweekmonster/braceless.vim', {'for': ['python']}
-Plug 'lervag/vimtex'            " latex plugin
-Plug 'airblade/vim-gitgutter'   " git flags in the sign column
-Plug 'scrooloose/nerdcommenter' " improved comments
-Plug 'scrooloose/nerdtree'      " nerdtree
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'psf/black', { 'tag': '19.10b0' }
-
-Plug 'davidhalter/jedi-vim'
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'deoplete-plugins/deoplete-jedi'
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'lervag/vimtex'                   " latex plugin
+Plug 'airblade/vim-gitgutter'          " git flags in the sign column
+Plug 'scrooloose/nerdcommenter'        " improved comments
+Plug 'scrooloose/nerdtree'             " nerdtree
+Plug 'Xuyuanp/nerdtree-git-plugin'     " show git icons on nerdtree
+Plug 'mattn/emmet-vim'                 " for HTML completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
+Plug 'sbdchd/neoformat'                " formatter for multiple languages
 
 call plug#end()
 
@@ -55,9 +46,7 @@ set mouse=vn
 
 " Set indentation to 4 characters (except for html and yml)
 set autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-autocmd FileType python setlocal noautoindent  " indent python with braceless
-autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType html,yml,yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Change configuration for cases
 set ignorecase
@@ -67,7 +56,7 @@ set smartcase
 set undofile
 
 " Change updatetime for gitgutter
-set updatetime=100
+set updatetime=300
 
 " Configure searches
 set incsearch
@@ -75,13 +64,16 @@ set showmatch
 set hlsearch
 
 " Set text width to 80 characters (88 for Python)
-set noai textwidth=79 colorcolumn=80
-autocmd FileType python setlocal textwidth=88 colorcolumn=89
+set noai textwidth=79
+autocmd FileType python setlocal textwidth=79
 
 " Enable soft and hard wrapping
 set formatoptions=qrn1
 set wrap             " enable soft wrap
 set formatoptions+=t " enable hard wrap
+
+" Enable breakindent (soft-wrapped lines will follow indent)
+set breakindent
 
 " Prevent dual spaces after period
 set nojoinspaces
@@ -92,7 +84,7 @@ set splitbelow
 " Disable folding
 set nofoldenable
 
-" Configure Git commits and hub pull-requests
+" Configure Git commits
 autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd Filetype pullrequest setlocal spell textwidth=72
 
@@ -110,9 +102,6 @@ autocmd BufNewFile,BufRead *.snake set syntax=snakemake
 "   :noautocmd w
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Run black after saving Python files
-autocmd BufWritePre *.py Black
-
 
 " ============
 " Color scheme
@@ -125,9 +114,9 @@ endif
 
 " Change background color to match Matcha Sea theme
 " (must be before 'colorscheme onedark')
-let g:onedark_color_overrides = {
-\ "black": {"gui": "#141A1B", "cterm": "235", "cterm16": "0" },
-\}
+" let g:onedark_color_overrides = {
+" \ "black": {"gui": "#141A1B", "cterm": "235", "cterm16": "0" },
+" \}
 
 " Set colorscheme
 colorscheme onedark
@@ -162,7 +151,6 @@ endfunction
 " Spelling always on for some files
 " autocmd BufNewFile,BufRead *.ipy,*.py,*.md,*.tex,*.rst,*.c,*.h,Makefile setlocal spell
 autocmd BufNewFile,BufRead *.md,*.tex,*.rst setlocal spell
-
 
 " ========
 " Mappings
@@ -200,12 +188,11 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 
 " Map <leader>s to find and replace
-nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+nnoremap <leader>sed :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " Mappings for navigate to the start and the end of the paragraph
 map <leader>F {j
 map <leader>f }k
-
 
 
 " ====================
@@ -217,10 +204,6 @@ map <leader>f }k
 filetype plugin indent on
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
-
-" braceless.vim
-" -------------
-autocmd FileType python BracelessEnable +indent
 
 " vim-airline
 " -----------
@@ -269,22 +252,38 @@ let g:vimtex_compiler_enabled=0
 let g:vimtex_complete_enabled=1
 let g:vimtex_complete_close_braces=1
 
-" jedi-vim
-" --------
-" Disable jedi-vim autocompletion because we use deoplete for completions
-let g:jedi#completions_enabled = 0
-
-" deoplete
-" --------
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#show_docstring = 1
-" Press Escape exit autocompletion, go to Normal mode
-" inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
-" Close the docstring window when completion is finished
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
 " NERDTree
 " --------
 " Open NERDTree with Ctrl-n
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
+
+" Emmet
+" -----
+let g:user_emmet_leader_key='<C-Z>'
+
+" neoformat
+" ---------
+let g:neoformat_enabled_python = ['black']
+" Run neoformat after saving some chosen files
+autocmd BufWritePre *.py,*.html,*.css,*.less,*.yml Neoformat
+
+
+" -------------------------------------------------
+
+" coc-nvim
+" --------
+map <leader>r <Plug>(coc-rename)
+
+" Use Ctrl+K to show documentation in preview window.
+nnoremap <silent> <C-K> :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+    call CocAction('doHover')
+endfunction
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
