@@ -376,6 +376,10 @@ exec_always --no-startup-id sleep 1; $HOME/.config/polybar/launch.sh
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id picom -b
 
+exec --no-startup-id slack
+exec --no-startup-id telegram-desktop
+exec --no-startup-id firefox
+
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
