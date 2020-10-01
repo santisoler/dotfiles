@@ -1,0 +1,9 @@
+[Scheme]
+Name=Matcha-Dark-Sea-Onedark
+ColorCursor=#ABB2BF
+ColorForeground=#ABB2BF
+ColorBackground=#141a1b
+ColorSelection=#3B4451
+ColorPalette=rgb(27,34,36);rgb(224,108,117);rgb(152,195,121);rgb(229,192,123);rgb(97,175,239);rgb(198,120,221);rgb(86,182,194);rgb(171,178,191);rgb(62,68,82);rgb(224,108,117);rgb(152,195,121);rgb(229,192,123);rgb(97,175,239);rgb(198,120,221);rgb(86,182,194);rgb(92,99,112)
+ColorBold=#B9C0CB
+ColorBoldUseDefault=FALSE

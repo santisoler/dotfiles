@@ -5,8 +5,12 @@
 [core]
     editor = nvim
 	excludesFile = ~/.gitignore
+[init]
+	defaultBranch = main
 [merge]
     tool = meld
+[pull]
+	rebase = false
 [difftool.latex]
     cmd = latexdiff "$LOCAL" "$REMOTE"
 [alias]
@@ -15,6 +19,3 @@
     gpgsign = true
 [tag]
     forceSignAnnotated = true
-
-[pull]
-	rebase = false
