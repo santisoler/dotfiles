@@ -46,7 +46,7 @@ set mouse=vn
 
 " Set indentation to 4 characters (except for html and yml)
 set autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType html,yml,yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Change configuration for cases
 set ignorecase
