@@ -170,7 +170,6 @@ bindsym $mod+F5 exec i3-sensible-terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym $mod+n exec --no-startup-ud notify-send "DUNST_COMMAND_TOGGLE"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
@@ -375,12 +374,7 @@ exec --no-startup-id nextcloud
 exec --no-startup-id orage
 exec_always --no-startup-id sleep 1; $HOME/.config/polybar/launch.sh
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id picom -b
-
-exec --no-startup-id slack
-exec --no-startup-id telegram-desktop
-exec --no-startup-id firefox
-
+# exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 
 
 ################################################################################################
