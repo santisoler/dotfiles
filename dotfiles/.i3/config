@@ -58,7 +58,7 @@ gaps inner 6
 gaps outer 0
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -160,16 +160,17 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+p move workspace to output right
 
 # Start Applications
-bindsym $mod+Return exec xfce4-terminal
-bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Ctrl+b exec i3-sensible-terminal -e 'bmenu'
 bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec thunar
 bindsym $mod1+F2 exec xfce4-appfinder
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
-bindsym $mod+F5 exec terminal -e 'mocp'
+bindsym $mod+F5 exec i3-sensible-terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym $mod+n exec --no-startup-ud notify-send "DUNST_COMMAND_TOGGLE"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
@@ -304,6 +305,8 @@ assign [class="TelegramDesktop"] $ws4
 assign [class="Gimp"] $ws5
 assign [class="Inkscape"] $ws5
 assign [class="Darktable"] $ws5
+assign [class="smplayer"] $ws6
+assign [class="mpv"] $ws6
 assign [class="Lollypop"] $ws6
 assign [class="Steam"] $ws6
 assign [class="zoom"] $ws6
@@ -372,7 +375,13 @@ exec --no-startup-id nextcloud
 exec --no-startup-id orage
 exec_always --no-startup-id sleep 1; $HOME/.config/polybar/launch.sh
 exec --no-startup-id nitrogen --restore
-# exec --no-startup-id nitrogen --restore; sleep 1; picom -b
+exec --no-startup-id picom -b
+
+exec --no-startup-id slack
+exec --no-startup-id telegram-desktop
+exec --no-startup-id firefox
+
+
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##

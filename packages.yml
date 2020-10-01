@@ -2,7 +2,7 @@ i3-gaps extra:
   - thunar
   - thunar-archive-plugin
   - firefox
-  - xfce4-terminal
+  - alacritty
   - neovim
   - python-pynvim
   - pavucontrol
