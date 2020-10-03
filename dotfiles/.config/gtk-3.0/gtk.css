@@ -2,3 +2,9 @@
   box-shadow: none;
   margin: 0;
 }
+
+/* Add padding to xfce4-terminal */
+VteTerminal,
+vte-terminal {
+  padding: 16px;
+}
