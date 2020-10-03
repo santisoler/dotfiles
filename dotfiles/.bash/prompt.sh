@@ -3,13 +3,18 @@
 # Based on
 # https://github.com/leouieda/dotfiles/blob/7772b82dc35d8d58ff9504cded966ef518cc24ce/.bash/prompt.sh
 
+
 set_prompt()
 {
     # Set the PS1 configuration for the prompt
 
+    # Capture last exit code
+    local EXIT="$?"
+
     # Default values for the appearance of the prompt.
     local main_style="\[\e[1;32m\]"
     local path_style="\[\e[0m\]\[\e[1m\]"
+    local error_style="\[\e[1;31m\]"
     local normal_style="\[\e[0m\]"
     local git_style="\[\e[1;33m\]"
     local python_style="\[\e[0;35m\]"
@@ -103,7 +108,16 @@ set_prompt()
     # else
     #     local end="$main_style $ $normal_style"
     # fi
-    local end="\n$main_style> $normal_style"
+
+    # Change color of prompt symbol based on last exit code
+    local end="\n"
+    if [ $EXIT == 0 ]; then
+        end+="$main_style"
+    else
+        end+="$error_style"
+    fi
+    end+="> $normal_style"
+
     PS1="$PS1$end"
 
     # Append __vte_osc7 function in /etc/profile.d/vte.sh in order to make Tilix open
