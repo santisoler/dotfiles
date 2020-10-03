@@ -17,15 +17,16 @@ set_prompt()
     local behind="$git_style↓"
     local noupstream="$git_style!"
     local diverged="\[\e[1;31m\]↱$normal_style"
-    local changed="\[\e[1;31m\]✚"
+    local changed="\[\e[1;31m\]+"
     local staged="\[\e[1;32m\]•"
     local untracked="\[\e[0m\]\[\e[1m\]|"
     local conflict="\[\e[1;31m\]✖"
 
     # Basic first part of the PS1 prompt
     local host="$main_style`hostname`"
-    local path="$path_style\W"
-    PS1="$main_style[$host $path$main_style]"
+    local path="$path_style\w"
+    PROMPT_DIRTRIM=2
+    PS1="\n$main_style$USER$normal_style at $main_style$host$normal_style in $path$main_style"
 
     local njobs=`jobs | wc -l`
     if [[ $njobs -ne 0 ]]; then
@@ -97,11 +98,12 @@ set_prompt()
     fi
 
     # Finish off with the current directory and the end of the prompt
-    if [[ $conda_env == "" ]] && [[ $git == "" ]] && [[ $njobs -eq 0 ]]; then
-        local end="$main_style$ $normal_style"
-    else
-        local end="$main_style $ $normal_style"
-    fi
+    # if [[ $conda_env == "" ]] && [[ $git == "" ]] && [[ $njobs -eq 0 ]]; then
+    #     local end="$main_style$ $normal_style"
+    # else
+    #     local end="$main_style $ $normal_style"
+    # fi
+    local end="\n$main_style> $normal_style"
     PS1="$PS1$end"
 
     # Append __vte_osc7 function in /etc/profile.d/vte.sh in order to make Tilix open
