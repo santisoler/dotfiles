@@ -8,21 +8,21 @@
 PROMPT_DIRTRIM=2
 
 # Define font colors
-white="\e[0m"
-red="\e[31m"
-green="\e[32m"
-yellow="\e[33m"
-blue="\e[34m"
-purple="\e[35m"
-light_blue="\e[36m"
+white="\[\e[0m\]"
+red="\[\e[31m\]"
+green="\[\e[32m\]"
+yellow="\[\e[33m\]"
+blue="\[\e[34m\]"
+purple="\[\e[35m\]"
+light_blue="\[\e[36m\]"
 
-white_bold="\e[0m\e[1m"
-red_bold="\e[1;31m"
-green_bold="\e[1;32m"
-yellow_bold="\e[1;33m"
-blue_bold="\e[1;34m"
-purple_bold="\e[1;35m"
-light_blue_bold="\e[1;36m"
+white_bold="\[\e[0m\e[1m\]"
+red_bold="\[\e[1;31m\]"
+green_bold="\[\e[1;32m\]"
+yellow_bold="\[\e[1;33m\]"
+blue_bold="\[\e[1;34m\]"
+purple_bold="\[\e[1;35m\]"
+light_blue_bold="\[\e[1;36m\]"
 
 # Add Python and branch icons
 conda_icon="$purple "
