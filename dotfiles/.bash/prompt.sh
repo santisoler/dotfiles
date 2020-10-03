@@ -26,6 +26,7 @@ set_prompt()
     local staged="\[\e[1;32m\]•"
     local untracked="\[\e[0m\]\[\e[1m\]|"
     local conflict="\[\e[1;31m\]✖"
+    local stashed="\[\e[1;35m\]✹"
 
     # Basic first part of the PS1 prompt
     local host="$main_style`hostname`"
@@ -90,6 +91,11 @@ set_prompt()
         local files_conflict=`git diff --name-only --diff-filter=U | wc -l`
         if [[ $files_conflict -ne 0 ]]; then
             local files_status="$files_status$conflict$files_conflict"
+        fi
+
+        local files_stashed=`git stash list | wc -l`
+        if [[ $files_stashed -ne 0 ]]; then
+            local files_status="$files_status $stashed$files_stashed"
         fi
 
         if [[ -n $files_status ]]; then
