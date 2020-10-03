@@ -8,35 +8,38 @@
 PROMPT_DIRTRIM=2
 
 # Define font colors
-export WHITE="\e[0m"
-export RED="\e[31m"
-export GREEN="\e[32m"
-export YELLOW="\e[33m"
-export BLUE="\e[34m"
-export PURPLE="\e[35m"
-export LIGHT_BLUE="\e[36m"
+white="\e[0m"
+red="\e[31m"
+green="\e[32m"
+yellow="\e[33m"
+blue="\e[34m"
+purple="\e[35m"
+light_blue="\e[36m"
 
-export WHITE_BOLD="\e[0m\e[1m"
-export RED_BOLD="\e[1;31m"
-export GREEN_BOLD="\e[1;32m"
-export YELLOW_BOLD="\e[1;33m"
-export BLUE_BOLD="\e[1;34m"
-export PURPLE_BOLD="\e[1;35m"
-export LIGHT_BLUE_BOLD="\e[1;36m"
+white_bold="\e[0m\e[1m"
+red_bold="\e[1;31m"
+green_bold="\e[1;32m"
+yellow_bold="\e[1;33m"
+blue_bold="\e[1;34m"
+purple_bold="\e[1;35m"
+light_blue_bold="\e[1;36m"
 
+# Add Python and branch icons
+conda_icon="$purple "
+branch_icon="$yellow "
 
 # Define styles for git and conda information on prompt
-export CONDA_PROMPT_ENV=$PURPLE_BOLD
-export GIT_PROMPT_BRANCH=$YELLOW_BOLD
-export GIT_PROMPT_AHEAD="$YELLOW_BOLD↑"
-export GIT_PROMPT_BEHIND="$YELLOW_BOLD↓"
-export GIT_PROMPT_NOUPSTREAM="$YELLOW_BOLD!"
-export GIT_PROMPT_DIVERGED="$RED_BOLD↱"
-export GIT_PROMPT_CHANGED="$RED_BOLD+"
-export GIT_PROMPT_STAGED="$GREEN_BOLD•"
-export GIT_PROMPT_UNTRACKED="$WHITE_BOLD|"
-export GIT_PROMPT_CONFLICT="$RED_BOLD✖"
-export GIT_PROMPT_STASHED="$PULRPLE_BOLD✹"
+CONDA_PROMPT_ENV="$conda_icon$purple_bold"
+GIT_PROMPT_BRANCH="$branch_icon$yellow_bold"
+GIT_PROMPT_AHEAD="$yellow_bold↑"
+GIT_PROMPT_BEHIND="$yellow_bold↓"
+GIT_PROMPT_NOUPSTREAM="$yellow_bold!"
+GIT_PROMPT_DIVERGED="$red_bold↱"
+GIT_PROMPT_CHANGED="$red_bold+"
+GIT_PROMPT_STAGED="$green_bold•"
+GIT_PROMPT_UNTRACKED="$white_bold|"
+GIT_PROMPT_CONFLICT="$red_bold✖"
+GIT_PROMPT_STASHED="$purple_bold✹"
 
 
 set_prompt()
@@ -56,23 +59,24 @@ set_prompt()
     PS1+="\n"
 
     # Basic first part of the PS1 prompt
-    local user="$GREEN_BOLD$USER"
-    local host="$GREEN_BOLD`hostname`"
-    local path="$WHITE_BOLD\w"
-    local at_="${WHITE}at"
-    local on_="${WHITE}on"
-    local in_="${WHITE}in"
+    local user="$green_bold$USER"
+    local host="$green_bold`hostname`"
+    local path="$blue_bold\w"
+    local at_="${white}at"
+    local on_="${white}on"
+    local in_="${white}in"
+    local with_="${white}with"
     PS1+="$user $at_ $host $in_ $path"
 
 
     # Conda env
     if [[ `which python` != "/usr/bin/python" ]]; then
-        PS1+=" $CONDA_PROMPT_ENV`get_conda_env`"
+        PS1+=" $with_ $CONDA_PROMPT_ENV`get_conda_env`"
     fi
 
     # Add git information
     if inside_git_repo; then
-        PS1+=" `get_git_prompt`"
+        PS1+=" $on_ `get_git_prompt`"
     fi
 
     # Enable multiline
@@ -80,21 +84,21 @@ set_prompt()
 
     # Add number of background jobs to prompt
     if [[ $njobs -ne 0 ]]; then
-        PS1+="$WHITE($njobs) "
+        PS1+="$white($njobs) "
     fi
 
     # Add prompt symbol (color is set based on last exit code)
     local prompt_symbol=""
     if [ $EXIT == 0 ]; then
-        prompt_symbol+="$GREEN_BOLD"
+        prompt_symbol+="$green_bold"
     else
-        prompt_symbol+="$RED_BOLD"
+        prompt_symbol+="$red_bold"
     fi
     prompt_symbol+="> "
     PS1+="$prompt_symbol"
 
     # Reset color of prompt
-    PS1+="$WHITE"
+    PS1+="$white"
 }
 
 
