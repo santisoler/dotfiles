@@ -4,17 +4,14 @@
 # https://github.com/leouieda/dotfiles/blob/7772b82dc35d8d58ff9504cded966ef518cc24ce/.bash/prompt.sh
 
 
-# Make path shorter
-PROMPT_DIRTRIM=2
-
 # Define font colors
 white="\[\e[0m\]"
-red="\[\e[31m\]"
-green="\[\e[32m\]"
-yellow="\[\e[33m\]"
-blue="\[\e[34m\]"
-purple="\[\e[35m\]"
-light_blue="\[\e[36m\]"
+red="\[\e[0;31m\]"
+green="\[\e[0;32m\]"
+yellow="\[\e[0;33m\]"
+blue="\[\e[0;34m\]"
+purple="\[\e[0;35m\]"
+light_blue="\[\e[0;36m\]"
 
 white_bold="\[\e[0m\e[1m\]"
 red_bold="\[\e[1;31m\]"
@@ -24,13 +21,9 @@ blue_bold="\[\e[1;34m\]"
 purple_bold="\[\e[1;35m\]"
 light_blue_bold="\[\e[1;36m\]"
 
-# Add Python and branch icons
-conda_icon="$purple "
-branch_icon="$yellow "
-
 # Define styles for git and conda information on prompt
-CONDA_PROMPT_ENV="$conda_icon$purple_bold"
-GIT_PROMPT_BRANCH="$branch_icon$yellow_bold"
+CONDA_PROMPT_ENV="$purple_bold "
+GIT_PROMPT_BRANCH="$yellow_bold "
 GIT_PROMPT_AHEAD="$yellow_bold↑"
 GIT_PROMPT_BEHIND="$yellow_bold↓"
 GIT_PROMPT_NOUPSTREAM="$yellow_bold!"
@@ -40,6 +33,12 @@ GIT_PROMPT_STAGED="$green_bold•"
 GIT_PROMPT_UNTRACKED="$white_bold|"
 GIT_PROMPT_CONFLICT="$red_bold✖"
 GIT_PROMPT_STASHED="$purple_bold✹"
+
+# More configurations
+MULTILINE_PROMPT=1
+PROMPT_DIRTRIM=2  # make path shorter
+PROMPT_ICON="⮞"
+# PROMPT_ICON="❯"
 
 
 set_prompt()
@@ -69,22 +68,34 @@ set_prompt()
     PS1+="$user $at_ $host $in_ $path"
 
 
+    # Add git prompt (branch and remote status)
+    if inside_git_repo; then
+        PS1+=" $on_ `get_git_prompt`"
+    fi
+
     # Conda env
     if [[ `which python` != "/usr/bin/python" ]]; then
         PS1+=" $with_ $CONDA_PROMPT_ENV`get_conda_env`"
     fi
 
-    # Add git information
+    # Add git status
     if inside_git_repo; then
-        PS1+=" $on_ `get_git_prompt`"
+        local git_status=$(get_git_status)
+        if [[ $git_status != "" ]]; then
+            PS1+=" $white[`get_git_status`$white]"
+        fi
     fi
 
     # Enable multiline
-    PS1+="\n"
+    if [[ $MULTILINE_PROMPT -ne 0 ]]; then
+        PS1+="\n"
+    else
+        PS1+=" "
+    fi
 
     # Add number of background jobs to prompt
     if [[ $njobs -ne 0 ]]; then
-        PS1+="$white($njobs) "
+        PS1+="$red_bold($njobs) "
     fi
 
     # Add prompt symbol (color is set based on last exit code)
@@ -94,7 +105,7 @@ set_prompt()
     else
         prompt_symbol+="$red_bold"
     fi
-    prompt_symbol+="> "
+    prompt_symbol+="$PROMPT_ICON "
     PS1+="$prompt_symbol"
 
     # Reset color of prompt
@@ -105,9 +116,9 @@ set_prompt()
 PROMPT_COMMAND=set_prompt
 
 get_git_prompt() {
-    # Add git repo information to prompt
+    # Return current git branch and remote status
 
-    # Initialize git prompt
+    # Initialize git_prompt local variable
     local git_prompt=""
 
     # Add branch
@@ -128,43 +139,41 @@ get_git_prompt() {
         local remote=""
     fi
 
-    if [[ -n $remote ]]; then
-        git_prompt+=" $remote"
-    fi
+    echo $git_prompt
+}
+
+get_git_status() {
+    # Return git current status
 
     # Files status
-    local files_status=""
+    local git_status=""
 
     local files_staged=`git diff --cached --numstat | wc -l`
     if [[ $files_staged -ne 0 ]]; then
-        files_status+="$GIT_PROMPT_STAGED$files_staged"
+        git_status+="$GIT_PROMPT_STAGED$files_staged"
     fi
 
     local files_changed=`git diff --numstat | wc -l`
     if [[ $files_changed -ne 0 ]]; then
-        files_status+="$GIT_PROMPT_CHANGED$files_changed"
+        git_status+="$GIT_PROMPT_CHANGED$files_changed"
     fi
 
     local files_untracked=`git ls-files --others --exclude-standard "$(git rev-parse --show-toplevel)" | wc -l`
     if [[ $files_untracked -ne 0 ]]; then
-        files_status+="$GIT_PROMPT_UNTRACKED$files_untracked"
+        git_status+="$GIT_PROMPT_UNTRACKED$files_untracked"
     fi
 
     local files_conflict=`git diff --name-only --diff-filter=U | wc -l`
     if [[ $files_conflict -ne 0 ]]; then
-        files_status+="$GIT_PROMPT_CONFLICT$files_conflict"
+        git_status+="$GIT_PROMPT_CONFLICT$files_conflict"
     fi
 
     local files_stashed=`git stash list | wc -l`
     if [[ $files_stashed -ne 0 ]]; then
-        files_status+="$GIT_PROMPT_STASHED$files_stashed"
+        git_status+="$GIT_PROMPT_STASHED$files_stashed"
     fi
 
-    if [[ -n $files_status ]]; then
-        git_prompt+=" $files_status"
-    fi
-
-    echo $git_prompt
+    echo $git_status
 }
 
 
