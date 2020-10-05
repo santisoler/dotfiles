@@ -50,3 +50,6 @@ inkscape-generate-palette:
 
 piper:
   - piper-git
+
+subliminal:
+  - subliminal-git
