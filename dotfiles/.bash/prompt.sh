@@ -138,6 +138,9 @@ get_git_prompt() {
     else
         local remote=""
     fi
+    if [[ -n $remote ]]; then
+        git_prompt+=" $remote"
+    fi
 
     echo $git_prompt
 }
