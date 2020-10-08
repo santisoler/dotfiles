@@ -158,8 +158,8 @@ autocmd BufNewFile,BufRead *.md,*.tex,*.rst setlocal spell
 
 " Move to the next and previous buffer
 " Please check if airline has <let g:airline#extensions#tabline#enabled = 1>
-nmap <leader>bn :bnext!<CR>
-nmap <leader>bp :bprevious!<CR>
+nmap <leader>n :bnext!<CR>
+nmap <leader>p :bprevious!<CR>
 
 " Split keyboard shortcuts
 nnoremap <C-h> <C-w>h
