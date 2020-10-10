@@ -315,6 +315,7 @@ assign [class="code-oss"] $ws7
 assign [class="Evince"] $ws8
 assign [class="Okular"] $ws8
 assign [class="Pavucontrol"] $ws9
+assign [class="pamac-manager"] $ws9
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -349,6 +350,10 @@ for_window [class="Arandr"] floating enable border normal; resize shrink width 4
 for_window [class="Jitsi Meet"] floating enable border normal
 for_window [class="Gcolor3"] floating enable border none
 for_window [class="Pavucontrol"] floating enable
+
+# Switch focus when a new window of the following applications is opened
+for_window [class="firefox"] focus
+for_window [class="Deluge"] focus
 
 
 # ----------------------
