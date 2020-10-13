@@ -134,7 +134,10 @@ if [ -f $CONDA_PATH/etc/profile.d/conda.sh ]; then
     conda activate
 fi
 
-# Activate the conda default environment
-if [ -f $HOME/environment.yml ]; then
+# Activate the conda environment if environment.yml file exists on the current
+# directory. If not, activate the default environment.
+if [ -f environment.yml ]; then
+    cenv environment.yml
+elif [ -f $HOME/environment.yml ]; then
     cenv $HOME/environment.yml
 fi
