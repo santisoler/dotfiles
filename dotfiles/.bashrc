@@ -56,7 +56,7 @@ alias xc='xclip -selection clipboard' # copy to clipboard using xclip
 
 # Run commands in background using tmux
 alias ta="tmux attach -t"
-alias lab='tmux new-session -d -s lab; tmux send-keys -t lab "cd $HOME; jupyter-lab --no-browser" Enter'
+alias lab='tmux new-session -d -s lab; tmux send-keys -t lab "cd $HOME; cenv; jupyter-lab --no-browser" Enter'
 alias remotelab='tmux new-session -d -s remotelab; tmux send-keys -t remotelab "ssh -N -L localhost:9999:localhost:8888 santi@soler.unsj.edu.ar" Enter'
 alias serve='tmux new-session -d -s serve; tmux send-keys -t serve "livereload -p 8080 ." Enter'
 
@@ -134,10 +134,7 @@ if [ -f $CONDA_PATH/etc/profile.d/conda.sh ]; then
     conda activate
 fi
 
-# Activate the conda environment if environment.yml file exists on the current
-# directory. If not, activate the default environment.
-if [ -f environment.yml ]; then
-    cenv environment.yml
-elif [ -f $HOME/environment.yml ]; then
+# Activate the conda default environment
+if [ -f $HOME/environment.yml ]; then
     cenv $HOME/environment.yml
 fi
