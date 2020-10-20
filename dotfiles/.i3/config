@@ -39,7 +39,7 @@ set $orange         #E5C07B
 set $red            #E06C75
 
 # class                 border      background      text            indic.      child_border
-client.focused          $background $background     $green          $orange     $green
+client.focused          $background $background     $foreground     $orange     $background
 client.focused_inactive $background $background     $foreground-alt $background $background
 client.unfocused        $background $background-alt $foreground-alt $background $background
 client.urgent           $background $background     $orange         $background $background
@@ -350,6 +350,10 @@ for_window [class="Arandr"] floating enable border normal; resize shrink width 4
 for_window [class="Jitsi Meet"] floating enable border normal
 for_window [class="Gcolor3"] floating enable border none
 for_window [class="Pavucontrol"] floating enable
+
+
+
+for_window [class="Xfce4-terminal"] border none
 
 # Switch focus when a new window of the following applications is opened
 for_window [class="firefox"] focus
