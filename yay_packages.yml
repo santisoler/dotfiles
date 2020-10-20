@@ -2,6 +2,7 @@ fonts:
   - ttf-google-fonts-git
   - ttf-ms-fonts
   - ttf-nunito
+  - nerd-fonts-fira-code
 
 jabref:
   - jabref
