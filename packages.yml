@@ -1,15 +1,20 @@
+xfce extra:
+  - firefox
+  - thunar-archive-plugin
+  - neovim
+  - evince
+  - file-roller
+  - grsync
+  - tilix
+
 i3-gaps extra:
   - thunar
   - thunar-archive-plugin
   - firefox
   - xfce4-terminal
-  - neovim
-  - python-pynvim
   - pavucontrol
   - playerctl
-  - ttf-font-awesome
   - polybar
-  - bash-completion
   - picom
   - rofi
   - orage
@@ -54,7 +59,7 @@ yay:
 
 nvim:
   - neovim
-  - python-neovim
+  - python-pynvim
   - python-jedi
   - python-black
   - flake8
@@ -99,6 +104,9 @@ smplayer:
   - smplayer
   - smplayer-themes
   - smplayer-skins
+
+mvp:
+  - mvp
 
 lollypop:
   - lollypop
