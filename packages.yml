@@ -64,6 +64,7 @@ nvim:
   - python-black
   - flake8
   - python-pylint
+  - nodejs
 
 vs code:
   - code
