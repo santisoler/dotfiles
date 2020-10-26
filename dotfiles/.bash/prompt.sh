@@ -24,9 +24,9 @@ light_blue_bold="\[\e[1;36m\]"
 # Define styles for git and conda information on prompt
 CONDA_PROMPT_ENV="$purple_bold "
 GIT_PROMPT_BRANCH="$yellow_bold "
-GIT_PROMPT_AHEAD="$yellow_bold↑"
-GIT_PROMPT_BEHIND="$yellow_bold↓"
-GIT_PROMPT_NOUPSTREAM="$yellow_bold!"
+GIT_PROMPT_AHEAD="$red_bold↑"
+GIT_PROMPT_BEHIND="$red_bold↓"
+GIT_PROMPT_NOUPSTREAM="$red_bold!"
 GIT_PROMPT_DIVERGED="$red_bold↱"
 GIT_PROMPT_CHANGED="$red_bold+"
 GIT_PROMPT_STAGED="$green_bold•"
@@ -36,9 +36,11 @@ GIT_PROMPT_STASHED="$purple_bold✹"
 
 # More configurations
 MULTILINE_PROMPT=1
+SHOW_PYTHON_VERSION=1
 PROMPT_DIRTRIM=2  # make path shorter
 PROMPT_ICON="⮞"
 # PROMPT_ICON="❯"
+NO_WRITTABLE_ICON=""
 
 
 set_prompt()
@@ -60,7 +62,7 @@ set_prompt()
     # Basic first part of the PS1 prompt
     local user="$green_bold$USER"
     local host="$green_bold`hostname`"
-    local path="$blue_bold\w"
+    local path="$blue_bold$(is_writtable)\w"
     local at_="${white}at"
     local on_="${white}on"
     local in_="${white}in"
@@ -114,6 +116,17 @@ set_prompt()
 
 
 PROMPT_COMMAND=set_prompt
+
+
+is_writtable() {
+    # Return the NO_WRITTABLE_ICON if the directory has
+    # no writing permissions
+    if [ -w $(pwd) ]; then
+        echo ""
+    else
+        echo "$NO_WRITTABLE_ICON "
+    fi
+}
 
 get_git_prompt() {
     # Return current git branch and remote status
@@ -183,11 +196,21 @@ get_git_status() {
 get_conda_env()
 {
     # Determine active conda env details
-    local env_name=""
+    local conda=""
     if [[ ! -z $CONDA_DEFAULT_ENV ]]; then
-        local env_name="`basename \"$CONDA_DEFAULT_ENV\"`"
+        conda+="`basename \"$CONDA_DEFAULT_ENV\"`"
     fi
-    echo "$env_name"
+
+    if [[ $SHOW_PYTHON_VERSION -ne 0 ]]; then
+        conda+=" ($(get_python_version))"
+
+    fi
+    echo "$conda"
+}
+
+get_python_version ()
+{
+    echo "$(python -c 'from __future__ import print_function; import sys; print(".".join(map(str, sys.version_info[:2])))')"
 }
 
 
