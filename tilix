@@ -1,48 +1,35 @@
 [/]
 app-title='${appName}'
-new-instance-mode='new-session'
-prompt-on-close=true
-prompt-on-delete-profile=true
+enable-wide-handle=false
+new-instance-mode='focus-window'
 quake-specific-monitor=0
-session-name='Default'
-sidebar-on-right=false
-tab-position='top'
-terminal-title-show-when-single=true
+terminal-title-show-when-single=false
 terminal-title-style='none'
-theme-variant='system'
-use-tabs=true
-warn-vte-config-issue=false
-window-style='borderless'
-
-[keybindings]
-session-add-down='<Primary><Shift>o'
-session-add-right='<Primary><Shift>e'
-session-switch-to-next-terminal='disabled'
-session-switch-to-previous-terminal='disabled'
-terminal-close='disabled'
-win-reorder-next-session='<Primary><Shift>Page_Down'
-win-switch-to-next-session='<Ctrl>Tab'
-win-switch-to-previous-session='<Ctrl><Shift>Tab'
+use-overlay-scrollbar=true
+window-style='disable-csd-hide-toolbar'
 
 [profiles]
-list=['2b7c4080-0ddd-46c5-8f23-563fd3ba789d']
+default='c3886524-b65f-40f1-92ba-a5d359c2e1ef'
+list=['2b7c4080-0ddd-46c5-8f23-563fd3ba789d', 'c3886524-b65f-40f1-92ba-a5d359c2e1ef']
 
 [profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
-background-color='#1B2224'
-badge-color='#AC7EA8'
+visible-name='Default'
+
+[profiles/c3886524-b65f-40f1-92ba-a5d359c2e1ef]
+background-color='#27272C2C3434'
 badge-color-set=false
 bold-color-set=false
+cjk-utf8-ambiguous-width='narrow'
 cursor-colors-set=false
-default-size-columns=84
-default-size-rows=24
-dim-transparency-percent=19
-font='DejaVu Sans Mono 9'
+dim-transparency-percent=26
+font='FiraCode Nerd Font 9.5'
 foreground-color='#ABB2BF'
 highlight-colors-set=false
-login-shell=false
-palette=['#1B2224', '#E06C75', '#98C379', '#E5C07B', '#61AFEF', '#C678DD', '#56B6C2', '#ABB2BF', '#5C5C63637070', '#E06C75', '#98C379', '#E5C07B', '#61AFEF', '#C678DD', '#56B6C2', '#ABB2BF']
+login-shell=true
+palette=['#3E3E44445252', '#E06C75', '#98C379', '#E5C07B', '#61AFEF', '#C678DD', '#56B6C2', '#ABB2BF', '#3E3E44445252', '#E06C75', '#98C379', '#E5C07B', '#61AFEF', '#C678DD', '#56B6C2', '#ABB2BF']
+show-scrollbar=false
+terminal-bell='icon'
 terminal-title='${id}'
-use-custom-command=false
 use-system-font=false
 use-theme-colors=false
-visible-name='Predeterminado'
+visible-name='OneDark'
