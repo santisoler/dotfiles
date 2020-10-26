@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Find any window of the app:
+#   wmctrl lists all open windows
+#   transform to lowercase
+#   get only the line that matches the window of the passed app (grep and head)
+#   keep only the window id
+window_id=$(wmctrl -lx | sed -e 's/\(.*\)/\L\1/' | grep $1 | head -1 | cut -d " " -f 1)
+
+
+if [[ -n $window_id ]]; then
+    wmctrl -ia $window_id
+else
+    $1
+fi

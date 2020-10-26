@@ -1,10 +1,17 @@
-.window-frame {
-  box-shadow: none;
-  margin: 0;
-}
+/* .window-frame { */
+/*   box-shadow: none; */
+/*   margin: 0; */
+/* } */
 
-/* Add padding to xfce4-terminal */
+/* Add padding to terminals */
 VteTerminal,
 vte-terminal {
   padding: 16px;
+}
+
+/* Fix terminator separator color */
+separator {
+  background-color: #222b2e;
+  min-height: 1px;
+  min-width: 1px;
 }

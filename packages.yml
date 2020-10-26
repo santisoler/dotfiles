@@ -5,7 +5,7 @@ xfce extra:
   - evince
   - file-roller
   - grsync
-  - tilix
+  - terminator
 
 i3-gaps extra:
   - thunar
