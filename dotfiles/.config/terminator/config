@@ -1,7 +1,7 @@
 [global_config]
   handle_size = 0
   window_state = maximise
-  tab_position = hidden
+  extra_styling = False
   scroll_tabbar = True
   homogeneous_tabbar = False
   title_hide_sizetext = True
@@ -12,6 +12,8 @@
   title_inactive_bg_color = "#222b2e"
   inactive_color_offset = 1.0
 [keybindings]
+  next_tab = <Primary>Tab
+  prev_tab = <Primary><Shift>Tab
 [profiles]
   [[default]]
     background_color = "#272c34"
@@ -22,6 +24,7 @@
     foreground_color = "#abb2bf"
     show_titlebar = False
     scrollbar_position = hidden
+    scrollback_lines = 10000
     palette = "#272c34:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#abb2bf:#272c34:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#abb2bf"
     use_system_font = False
 [layouts]
