@@ -41,7 +41,7 @@ PROMPT_DIRTRIM=2  # make path shorter
 PROMPT_ICON="⮞"
 # PROMPT_ICON="❯"
 NO_WRITTABLE_ICON=""
-
+REMOTE_ICON=""
 
 set_prompt()
 {
@@ -61,7 +61,11 @@ set_prompt()
 
     # Basic first part of the PS1 prompt
     local user="$green_bold$USER"
-    local host="$green_bold`hostname`"
+    if [[ -n $(is_remote) ]]; then
+        local host="$yellow_bold$REMOTE_ICON `hostname`"
+    else
+        local host="$green_bold`hostname`"
+    fi
     local path="$blue_bold$(is_writtable)\w"
     local at_="${white}at"
     local on_="${white}on"
@@ -127,6 +131,19 @@ is_writtable() {
         echo "$NO_WRITTABLE_ICON "
     fi
 }
+
+
+is_remote ()
+{
+    # Check if the terminal is logged in to a remote computer or not
+    # See https://unix.stackexchange.com/questions/9605/how-can-i-detect-if-the-shell-is-controlled-from-ssh
+    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+        echo "true"
+    else
+        echo ""
+    fi
+}
+
 
 get_git_prompt() {
     # Return current git branch and remote status
@@ -257,3 +274,4 @@ inside_git_repo() {
     # Test if inside a git repository. Will fail is not.
     git rev-parse --is-inside-work-tree 2> /dev/null > /dev/null
 }
+
