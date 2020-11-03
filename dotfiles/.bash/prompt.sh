@@ -41,7 +41,7 @@ PROMPT_DIRTRIM=2  # make path shorter
 PROMPT_ICON="⮞"
 # PROMPT_ICON="❯"
 NO_WRITTABLE_ICON=""
-
+REMOTE=$yellow""
 
 set_prompt()
 {
@@ -58,6 +58,9 @@ set_prompt()
 
     # Add a linebreak before prompt
     PS1+="\n"
+
+    # Add remote icon if we are logged in through SSH
+    PS1+=$(remote_status)
 
     # Basic first part of the PS1 prompt
     local user="$green_bold$USER"
@@ -127,6 +130,19 @@ is_writtable() {
         echo "$NO_WRITTABLE_ICON "
     fi
 }
+
+
+remote_status ()
+{
+    # Check if the terminal is logged in to a remote computer or not
+    # See https://unix.stackexchange.com/questions/9605/how-can-i-detect-if-the-shell-is-controlled-from-ssh
+    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+        echo "$REMOTE "
+    else
+        echo ""
+    fi
+}
+
 
 get_git_prompt() {
     # Return current git branch and remote status
