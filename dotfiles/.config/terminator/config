@@ -25,14 +25,16 @@
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_lines = 10000
-    palette = "#272c34:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#abb2bf:#272c34:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#abb2bf"
+    palette = "#3e4452:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#abb2bf:#3e4452:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#abb2bf"
     use_system_font = False
 [layouts]
   [[default]]
     [[[window0]]]
       type = Window
       parent = ""
+      title = "Terminator"
     [[[child1]]]
       type = Terminal
       parent = window0
+      profile = default
 [plugins]
