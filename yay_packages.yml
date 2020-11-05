@@ -4,6 +4,9 @@ fonts:
   - ttf-nunito
   - nerd-fonts-fira-code
 
+edges:
+  - edges
+
 jabref:
   - jabref
 
