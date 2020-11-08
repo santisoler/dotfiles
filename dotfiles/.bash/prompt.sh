@@ -125,7 +125,7 @@ PROMPT_COMMAND=set_prompt
 is_writtable() {
     # Return the NO_WRITTABLE_ICON if the directory has
     # no writing permissions
-    if [ -w $(pwd) ]; then
+    if [ -w "$(pwd)" ]; then
         echo ""
     else
         echo "$NO_WRITTABLE_ICON "
