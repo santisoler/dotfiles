@@ -1,12 +1,15 @@
 xfce extra:
-  - xfce4-goodies
   - firefox
-  - thunar-archive-plugin
   - neovim
   - evince
   - file-roller
   - grsync
   - terminator
+  - plank
+  - skippy-xd
+  - wmctrl
+  - thunar-archive-plugin
+  - thunar-media-tags-plugin
 
 i3-gaps extra:
   - thunar
@@ -89,7 +92,6 @@ fonts:
 themes:
   - matcha-gtk-theme
   - papirus-maia-icon-theme
-  - capitaine-cursors
   - wallpapers-2018
 
 libreoffice:
@@ -107,8 +109,8 @@ smplayer:
   - smplayer-themes
   - smplayer-skins
 
-mvp:
-  - mvp
+mpv:
+  - mpv
 
 lollypop:
   - lollypop
