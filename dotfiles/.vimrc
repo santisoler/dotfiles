@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
 
 " Plugins are downloaded from Github (username/repo)
 Plug 'joshdick/onedark.vim'            " onedark colorscheme (from atom)
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'              " git wrapper
 Plug 'vim-syntastic/syntastic'         " syntax linter
 Plug 'vim-airline/vim-airline'         " airline (bottom bar)
@@ -112,14 +113,12 @@ if (empty($TMUX))
     endif
 endif
 
-" Change background color to match Matcha Sea theme
-" (must be before 'colorscheme onedark')
-" let g:onedark_color_overrides = {
-" \ "black": {"gui": "#141A1B", "cterm": "235", "cterm16": "0" },
-" \}
-
 " Set colorscheme
 colorscheme onedark
+
+" Or use the default colors of the terminal
+" set notermguicolors t_Co=16
+" set notermguicolors t_Co=256
 
 " Highlight CursorLine depending on mode (as airline onedark theme)
 set cursorline
