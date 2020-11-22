@@ -6,10 +6,12 @@ xfce extra:
   - grsync
   - terminator
   - plank
-  - skippy-xd
   - wmctrl
   - thunar-archive-plugin
   - thunar-media-tags-plugin
+
+skippy-xd:
+  - skippy-xd
 
 i3-gaps extra:
   - thunar
