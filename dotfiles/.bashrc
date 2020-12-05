@@ -61,7 +61,7 @@ alias fgrep='fgrep --colour=auto'
 alias du="du -h -d 0"
 alias open='xdg-open'
 alias xc='xclip -selection clipboard' # copy to clipboard using xclip
-alias subs='subliminal download -l es -s .'
+alias subs='subliminal download -l es -s'
 
 # Run commands in background using tmux
 alias ta="tmux attach -t"
