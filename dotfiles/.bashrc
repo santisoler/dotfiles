@@ -52,6 +52,7 @@ fi
 alias v="nvim"
 alias vim="nvim"
 alias cp="cp -i"
+alias mv="mv -i"
 alias ls="ls --group-directories-first --color=auto"
 alias ll="ls -lh --group-directories-first --color=auto"
 alias la="ls -lah --group-directories-first --color=auto"
