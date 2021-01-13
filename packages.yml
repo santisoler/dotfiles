@@ -59,6 +59,7 @@ nvim:
   - python-black
   - flake8
   - python-pylint
+  - prettier
 
 vs code:
   - code
