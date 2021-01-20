@@ -272,6 +272,10 @@ autocmd BufWritePre *.py,*.html,*.css,*.less,*.yml Neoformat
 
 " coc-nvim
 " --------
+"  List the coc extensions to install:
+"    coc-python
+"    coc-highlight
+
 map <leader>r <Plug>(coc-rename)
 
 " Use Ctrl+K to show documentation in preview window.
