@@ -275,6 +275,8 @@ autocmd BufWritePre *.py,*.html,*.css,*.less,*.yml Neoformat
 "  List the coc extensions to install:
 "    coc-python
 "    coc-highlight
+"    coc-html
+"    coc-eslint
 
 map <leader>r <Plug>(coc-rename)
 
