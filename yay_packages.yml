@@ -4,6 +4,12 @@ fonts:
   - ttf-nunito
   - nerd-fonts-fira-code
 
+xfce4-docklike-plugin:
+  - xfce4-docklike-plugin-git
+
+edges:
+  - edges
+
 jabref:
   - jabref
 

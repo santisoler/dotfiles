@@ -1,0 +1,40 @@
+[global_config]
+  handle_size = 0
+  window_state = maximise
+  extra_styling = False
+  scroll_tabbar = True
+  homogeneous_tabbar = False
+  title_hide_sizetext = True
+  title_transmit_fg_color = "#abb2bf"
+  title_transmit_bg_color = "#1b2224"
+  title_receive_bg_color = "#2eb398"
+  title_inactive_fg_color = "#44474b"
+  title_inactive_bg_color = "#222b2e"
+  inactive_color_offset = 1.0
+[keybindings]
+  next_tab = <Primary>Tab
+  prev_tab = <Primary><Shift>Tab
+[profiles]
+  [[default]]
+    background_color = "#272c34"
+    background_darkness = 1.0
+    background_type = transparent
+    cursor_color = "#ffffff"
+    font = FiraCode Nerd Font 9.5
+    foreground_color = "#abb2bf"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_lines = 10000
+    palette = "#3e4452:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#abb2bf:#3e4452:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#abb2bf"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+      title = "Terminator"
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]

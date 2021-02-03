@@ -1,15 +1,26 @@
+xfce extra:
+  - firefox
+  - neovim
+  - evince
+  - file-roller
+  - grsync
+  - terminator
+  - plank
+  - wmctrl
+  - thunar-archive-plugin
+  - thunar-media-tags-plugin
+
+skippy-xd:
+  - skippy-xd
+
 i3-gaps extra:
   - thunar
   - thunar-archive-plugin
   - firefox
   - xfce4-terminal
-  - neovim
-  - python-pynvim
   - pavucontrol
   - playerctl
-  - ttf-font-awesome
   - polybar
-  - bash-completion
   - picom
   - rofi
   - orage
@@ -54,11 +65,12 @@ yay:
 
 nvim:
   - neovim
-  - python-neovim
+  - python-pynvim
   - python-jedi
   - python-black
   - flake8
   - python-pylint
+  - nodejs
   - prettier
 
 vs code:
@@ -83,7 +95,6 @@ fonts:
 themes:
   - matcha-gtk-theme
   - papirus-maia-icon-theme
-  - capitaine-cursors
   - wallpapers-2018
 
 libreoffice:
@@ -100,6 +111,9 @@ smplayer:
   - smplayer
   - smplayer-themes
   - smplayer-skins
+
+mpv:
+  - mpv
 
 lollypop:
   - lollypop
