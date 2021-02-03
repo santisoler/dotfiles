@@ -71,6 +71,7 @@ nvim:
   - flake8
   - python-pylint
   - nodejs
+  - prettier
 
 vs code:
   - code

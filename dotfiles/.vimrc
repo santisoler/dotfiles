@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
 
 " Plugins are downloaded from Github (username/repo)
 Plug 'joshdick/onedark.vim'            " onedark colorscheme (from atom)
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'              " git wrapper
 Plug 'vim-syntastic/syntastic'         " syntax linter
 Plug 'vim-airline/vim-airline'         " airline (bottom bar)
@@ -112,14 +113,12 @@ if (empty($TMUX))
     endif
 endif
 
-" Change background color to match Matcha Sea theme
-" (must be before 'colorscheme onedark')
-" let g:onedark_color_overrides = {
-" \ "black": {"gui": "#141A1B", "cterm": "235", "cterm16": "0" },
-" \}
-
 " Set colorscheme
 colorscheme onedark
+
+" Or use the default colors of the terminal
+" set notermguicolors t_Co=16
+" set notermguicolors t_Co=256
 
 " Highlight CursorLine depending on mode (as airline onedark theme)
 set cursorline
@@ -273,6 +272,10 @@ autocmd BufWritePre *.py,*.html,*.css,*.less,*.yml Neoformat
 
 " coc-nvim
 " --------
+"  List the coc extensions to install
+let g:coc_global_extensions = ['coc-python', 'coc-highlight', 'coc-html', 'coc-eslint']
+
+" Assing a keymap to coc-rename
 map <leader>r <Plug>(coc-rename)
 
 " Use Ctrl+K to show documentation in preview window.
@@ -287,3 +290,11 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" Use the current conda environment
+if $CONDA_PREFIX == ""
+  let s:current_python_path=$CONDA_PYTHON_EXE
+else
+  let s:current_python_path=$CONDA_PREFIX.'/bin/python'
+endif
+call coc#config('python', {'pythonPath': s:current_python_path})

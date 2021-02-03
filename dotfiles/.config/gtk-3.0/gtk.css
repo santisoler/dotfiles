@@ -15,3 +15,8 @@ separator {
   min-height: 1px;
   min-width: 1px;
 }
+
+notebook,
+notebook header {
+  border-color: #1b2224;
+}
