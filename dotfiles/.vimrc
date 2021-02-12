@@ -26,6 +26,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'     " show git icons on nerdtree
 Plug 'mattn/emmet-vim'                 " for HTML completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
 Plug 'sbdchd/neoformat'                " formatter for multiple languages
+Plug 'tpope/vim-surround'              " surround highlighted text
 
 call plug#end()
 
