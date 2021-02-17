@@ -45,12 +45,19 @@ elif [[ -d $HOME/miniconda3 ]]; then
     export CONDA_PATH=$HOME/miniconda3
 fi
 
+if [[ -d $HOME/Documents/notes ]]; then
+    export NOTES=$HOME/Documents/notes
+elif [[ -d $HOME/documents/notes ]]; then
+    export NOTES=$HOME/documents/notes
+fi
+
 
 # -------
 # Aliases
 # -------
 alias v="nvim"
 alias vim="nvim"
+alias notes="nvim $NOTES"
 alias cp="cp -i"
 alias mv="mv -i"
 alias ls="ls --group-directories-first --color=auto"
