@@ -45,6 +45,12 @@ cli apps:
   - unzip
   - pdftk
 
+nextcloud:
+  - nextcloud-client
+
+syncthing:
+  - syncthing-gtk
+
 synaptics touchpad (no longer works, use libinput instead):
   - xf86-input-synaptics
 
@@ -133,9 +139,6 @@ steam:
 
 play on linux:
   - playonlinux
-
-nextcloud:
-  - nextcloud-client
 
 meld:
   - meld
