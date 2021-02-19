@@ -13,8 +13,8 @@ My files are divided in folders:
 
 I also keep a list of the packages I normally use in YAML files:
 
-- `packages.yml`:
-- `yay_packages.yml`:
+- `packages.yml`
+- `yay_packages.yml`
 
 These files can be used along [Settle](https://github.com/santisoler/settle)
 for a quick and interactive way of installing them.
