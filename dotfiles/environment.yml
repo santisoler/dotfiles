@@ -14,12 +14,14 @@ dependencies:
   - jupytext
   - ipython
   - nb_conda
-  - matplotlib
   - xarray
   - netcdf4
-  - cartopy
   - dask
   - numba
+  - matplotlib
+  - seaborn
+  - plotly
+  - cartopy
   # Fatiando
   - pooch
   - verde
