@@ -16,23 +16,23 @@
   prev_tab = <Primary><Shift>Tab
 [profiles]
   [[default]]
-    background_color = "#272c34"
+    background_color = "#282c34"
     background_darkness = 1.0
     background_type = transparent
-    cursor_color = "#ffffff"
+    cursor_color = "#dcdfe4"
     font = FiraCode Nerd Font 9.5
-    foreground_color = "#abb2bf"
+    foreground_color = "#dcdfe4"
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_lines = 10000
-    palette = "#3e4452:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#abb2bf:#3e4452:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#abb2bf"
+    palette = "#282c34:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#dcdfe4:#282c34:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#dcdfe4"
     use_system_font = False
 [layouts]
   [[default]]
     [[[window0]]]
       type = Window
       parent = ""
-      title = "Terminator"
+      title = Terminator
     [[[child1]]]
       type = Terminal
       parent = window0
