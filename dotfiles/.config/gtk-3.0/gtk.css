@@ -11,9 +11,9 @@ vte-terminal {
 
 /* Fix terminator separator color */
 separator {
-  background-color: #222b2e;
-  min-height: 1px;
-  min-width: 1px;
+  background-color: #313640;
+  min-height: 5;
+  min-width: 5;
 }
 
 notebook,
