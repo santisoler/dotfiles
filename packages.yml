@@ -121,6 +121,9 @@ smplayer:
 mpv:
   - mpv
 
+music on console:
+  - moc
+
 lollypop:
   - lollypop
   - quodlibet
