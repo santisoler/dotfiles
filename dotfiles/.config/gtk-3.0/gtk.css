@@ -10,10 +10,10 @@ vte-terminal {
 }
 
 /* Fix terminator separator color */
-separator {
+window paned separator {
   background-color: #313640;
-  min-height: 5;
-  min-width: 5;
+  min-height: 5px;
+  min-width: 5px;
 }
 
 notebook,
