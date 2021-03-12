@@ -56,7 +56,6 @@ fi
 # Aliases
 # -------
 alias v="nvim"
-alias vim="nvim"
 alias notes="nvim $NOTES"
 alias cp="cp -i"
 alias mv="mv -i"
