@@ -1,53 +1,61 @@
-# My confguration files
+# My configuration files
 
-## How yo install
+## What's in here?
+
+This repo contains my personal configuration files so I can easily and quickly
+set up any fresh-installed system with my favourite tools and appearance.
+
+My files are divided in folders:
+
+- `dotfiles/`: dotfiles for any DE or WM
+- `i3/`: dotfiles for i3-gaps WM
+- `others/`: other configuration files (unused or that need some update)
+
+I also keep a list of the packages I normally use in YAML files:
+
+- `packages.yml`
+- `yay_packages.yml`
+
+These files can be used along [Settle](https://github.com/santisoler/settle)
+for a quick and interactive way of installing them.
+For example:
+
+```
+settle packages.yml
+```
+
+and
+
+```
+settle -p yay yay_packages.yml
+```
+
+## How to copy them
 
 Clone the repo:
 
-    git clone https://www.github.com/santisoler/dotfiles
+```
+git clone https://www.github.com/santisoler/dotfiles
+```
 
 Enter into the cloned directory:
 
-    cd dotfiles
-
-And run the `copy.sh` script.
-Maybe you will need to give it permissions:
-
-    chmod 744 copy.sh
-    ./copy.sh
-
-The script will copy every file inside `dotfiles` into your home folder.
-It makes a numbered backup for every existing file that will be overwritten.
-The script allows arguments that will be passed to `cp` command.
-
-For example, if you want confirmation for every file that will be overwritten
-(recommended if this is your first time copying this dotfiles):
-
-    ./copy.sh -i
-
-If you don't want to make backups of existing files (use carefully!):
-
-    ./copy.sh --backup=none
-
-
-## Hot how to load Tilix configurations
-
-Tilix uses dconf to manage its configurations. Therefore you need to use it to load them
-from the `tilix` file:
-
-```bash
-dconf load /com/gexperts/Tilix/ < tilix
+```
+cd dotfiles
 ```
 
-## How to install packages on conda_packages.txt
-
-Use `xargs` to pass the packages detailed on `conda_packages.txt` as arguments
-to conda:
+Copy every file from the `dotfiles` folder to your `$HOME` using the `copy` script:
 
 ```
-xargs conda install -c conda-forge < conda_packages.txt
+bash copy
 ```
 
-## Apply synaptics configuration
+Alternatively, you can use `cp` to do it manually.
+You can add some extra arguments for backing up the original files and more.
+For example:
 
-Copy `70-synaptics.conf` to `/etc/X11/xorg.conf.d/`.
+```
+cp -r --backup=numbered i3/. -t ~
+```
+
+
