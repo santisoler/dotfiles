@@ -40,12 +40,6 @@ slack-desktop:
 zoom:
   - zoom
 
-github-cli:
-  - github-cli
-
-hub-bin:
-  - hub-bin
-
 zotero:
   - zotero
 
