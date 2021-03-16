@@ -137,13 +137,15 @@ fi
 # --------------------
 # Initialize ssh agent
 # --------------------
-if [ -f ~/.ssh/agent.env ] ; then
-    . ~/.ssh/agent.env > /dev/null
-    if ! kill -0 $SSH_AGENT_PID > /dev/null 2>&1; then
+if [ -d ~/.ssh ] ; then
+    if [ -f ~/.ssh/agent.env ] ; then
+        . ~/.ssh/agent.env > /dev/null
+        if ! kill -0 $SSH_AGENT_PID > /dev/null 2>&1; then
+            eval `ssh-agent | tee ~/.ssh/agent.env`
+        fi
+    else
         eval `ssh-agent | tee ~/.ssh/agent.env`
     fi
-else
-    eval `ssh-agent | tee ~/.ssh/agent.env`
 fi
 
 
