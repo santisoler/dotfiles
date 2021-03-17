@@ -58,8 +58,8 @@ synaptics touchpad (no longer works, use libinput instead):
 guvcview (configure webcam):
   - guvcview
 
-xbacklight:
-  - xbacklight
+xorg-xbacklight:
+  - xorg-xbacklight
 
 firefox extensions:
   - firefox-ublock-origin
