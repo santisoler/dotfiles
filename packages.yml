@@ -55,6 +55,9 @@ syncthing:
 synaptics touchpad (no longer works, use libinput instead):
   - xf86-input-synaptics
 
+guvcview (configure webcam):
+  - guvcview
+
 xbacklight:
   - xbacklight
 
