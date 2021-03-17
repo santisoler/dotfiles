@@ -46,6 +46,10 @@ cli apps:
   - pdftk
   - github-cli
 
+irssi and profanity (IRC and XMPP):
+  - irssi
+  - profanity
+
 nextcloud:
   - nextcloud-client
 
