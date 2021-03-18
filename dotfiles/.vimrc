@@ -28,6 +28,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
 Plug 'sbdchd/neoformat'                " formatter for multiple languages
 Plug 'tpope/vim-surround'              " surround highlighted text
 
+" coc-vim plugins
+" Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
+Plug 'fannheyward/coc-pyright'
+Plug 'neoclide/coc-highlight'
+Plug 'neoclide/coc-html'
+Plug 'neoclide/coc-eslint'
+
+
 call plug#end()
 
 
@@ -270,9 +278,6 @@ autocmd BufWritePre *.py,*.html,*.css,*.less,*.yml Neoformat
 
 " coc-nvim
 " --------
-"  List the coc extensions to install
-let g:coc_global_extensions = ['coc-python', 'coc-highlight', 'coc-html', 'coc-eslint']
-
 " Assing a keymap to coc-rename
 map <leader>r <Plug>(coc-rename)
 
