@@ -132,6 +132,9 @@ mpv:
 music on console:
   - moc
 
+gnome-podcasts:
+  - gnome-podcasts
+
 lollypop:
   - lollypop
   - quodlibet
