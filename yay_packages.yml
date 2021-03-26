@@ -7,6 +7,18 @@ fonts:
 xfce4-docklike-plugin:
   - xfce4-docklike-plugin-git
 
+slack-desktop:
+  - slack-desktop
+
+zoom:
+  - zoom
+
+zotero:
+  - zotero
+
+subliminal:
+  - subliminal-git
+
 edges:
   - edges
 
@@ -34,15 +46,6 @@ spotify:
 trello:
   - trello
 
-slack-desktop:
-  - slack-desktop
-
-zoom:
-  - zoom
-
-zotero:
-  - zotero
-
 photofilmstrip:
   - photofilmstrip
 
@@ -51,6 +54,3 @@ inkscape-generate-palette:
 
 piper:
   - piper-git
-
-subliminal:
-  - subliminal-git
