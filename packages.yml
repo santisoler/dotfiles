@@ -1,3 +1,16 @@
+default:
+  - cli apps
+  - syncthing
+  - firefox extensions
+  - yay
+  - nvim
+  - keepassxc
+  - fonts
+  - themes
+  - mpv
+  - music on console
+  - telegram
+
 xfce extra:
   - firefox
   - neovim
