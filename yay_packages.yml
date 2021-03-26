@@ -19,6 +19,9 @@ zotero:
 subliminal:
   - subliminal-git
 
+castero:
+  - castero
+
 edges:
   - edges
 
