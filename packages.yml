@@ -45,6 +45,7 @@ cli apps:
   - unzip
   - pdftk
   - github-cli
+  - youtube-dl
 
 irssi and profanity (IRC and XMPP):
   - irssi
