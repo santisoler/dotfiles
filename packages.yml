@@ -1,3 +1,16 @@
+default:
+  - cli apps
+  - syncthing
+  - firefox extensions
+  - yay
+  - nvim
+  - keepassxc
+  - fonts
+  - themes
+  - mpv
+  - music on console
+  - telegram
+
 xfce extra:
   - firefox
   - neovim
@@ -45,6 +58,7 @@ cli apps:
   - unzip
   - pdftk
   - github-cli
+  - youtube-dl
 
 irssi and profanity (IRC and XMPP):
   - irssi
@@ -131,6 +145,9 @@ mpv:
 
 music on console:
   - moc
+
+gnome-podcasts:
+  - gnome-podcasts
 
 lollypop:
   - lollypop

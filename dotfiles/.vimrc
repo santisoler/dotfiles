@@ -27,6 +27,7 @@ Plug 'mattn/emmet-vim'                 " for HTML completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
 Plug 'sbdchd/neoformat'                " formatter for multiple languages
 Plug 'tpope/vim-surround'              " surround highlighted text
+Plug 'ap/vim-css-color'
 
 " coc-vim plugins
 " Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
