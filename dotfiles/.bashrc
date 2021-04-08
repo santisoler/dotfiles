@@ -56,7 +56,8 @@ fi
 # Aliases
 # -------
 alias v="nvim"
-alias notes="nvim $NOTES"
+alias notes="cd $NOTES; nvim .; cd -"
+alias todo="cd $NOTES; nvim todo.md; cd -"
 alias cp="cp -i"
 alias mv="mv -i"
 alias ls="ls --group-directories-first --color=auto"
@@ -68,16 +69,19 @@ alias fgrep='fgrep --colour=auto'
 alias du="du -h -d 0"
 alias open='xdg-open'
 alias xc='xclip -selection clipboard' # copy to clipboard using xclip
+alias ytdlbest='youtube-dl -f bestvideo+bestaudio'
 alias subs='subliminal download -l es -s'
 alias monitor-mic='pactl load-module module-loopback latency_msec=1'
 alias monitor-stop='pactl unload-module module-loopback'
 
 # Run commands in background using tmux
 alias ta="tmux attach -t"
+alias tls="tmux list-sessions"
 alias lab='tmux new-session -d -s lab; tmux send-keys -t lab "cd $HOME; cenv; jupyter-lab --no-browser" Enter'
 alias remotelab='tmux new-session -d -s remotelab; tmux send-keys -t remotelab "ssh -N -L localhost:9999:localhost:8888 santi@soler.unsj.edu.ar" Enter'
 alias remotedask='tmux new-session -d -s remotedask; tmux send-keys -t remotedask "ssh -N -L localhost:9797:localhost:8787 santi@soler.unsj.edu.ar" Enter'
-alias serve='tmux new-session -d -s serve; tmux send-keys -t serve "livereload -p 8080 ." Enter'
+alias serve='tmux new-session -d -s serve; tmux send-keys -t serve "livereload -p 8989 ." Enter'
+alias futurock='tmux new-session -d -s futurock; tmux send-keys -t futurock "mplayer http://cdn2.instream.audio:8007/stream" Enter'
 
 # Conda aliases
 alias ca='conda activate'
@@ -126,6 +130,7 @@ if [ -f ~/.bash/prompt.sh ]; then
 fi
 
 
+
 # --------------------------
 # Load some useful functions
 # --------------------------
@@ -162,3 +167,4 @@ fi
 if [ -f $HOME/environment.yml ]; then
     cenv $HOME/environment.yml
 fi
+
