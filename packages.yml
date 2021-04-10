@@ -60,6 +60,11 @@ cli apps:
   - github-cli
   - youtube-dl
 
+thunderbird:
+  - thunderbird
+  - thunderbird-i18n-es-ar
+  - thunderbird-extension-enigmail
+
 irssi and profanity (IRC and XMPP):
   - irssi
   - profanity
