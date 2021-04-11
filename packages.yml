@@ -69,6 +69,11 @@ irssi and profanity (IRC and XMPP):
   - irssi
   - profanity
 
+gajim (xmpp):
+  - gajim
+  - python-axolotl
+  - python-qrcode
+
 nextcloud:
   - nextcloud-client
 
