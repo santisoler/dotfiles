@@ -47,7 +47,7 @@ set nocompatible
 set modelines=0
 
 " Map leader to -
-let mapleader = "-"
+let mapleader = ";"
 
 " Show line numbers
 set number
