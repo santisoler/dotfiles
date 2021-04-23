@@ -13,6 +13,7 @@ dependencies:
   - nodejs # needed by jupyterlab
   - jupytext
   - ipython
+  - nbdime
   - nb_conda
   - matplotlib
   - xarray
