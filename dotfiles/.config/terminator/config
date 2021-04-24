@@ -19,6 +19,7 @@
     background_color = "#282c34"
     background_darkness = 1.0
     background_type = transparent
+    cursor_blink = False
     cursor_color = "#dcdfe4"
     font = FiraCode Nerd Font 9.5
     foreground_color = "#dcdfe4"
@@ -27,6 +28,7 @@
     scrollback_lines = 10000
     palette = "#282c34:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#dcdfe4:#abb2bf:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#dcdfe4"
     use_system_font = False
+    bold_is_bright = True
 [layouts]
   [[default]]
     [[[window0]]]
