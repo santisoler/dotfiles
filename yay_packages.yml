@@ -19,6 +19,9 @@ zotero:
 subliminal:
   - subliminal-git
 
+cawbird:
+  - cawbird
+
 castero:
   - castero
 
