@@ -68,9 +68,12 @@ alias subs='subliminal download -l es -s'
 alias monitor-mic='pactl load-module module-loopback latency_msec=1'
 alias monitor-stop='pactl unload-module module-loopback'
 
-# Run commands in background using tmux
+# Define aliases for tmux
 alias ta="tmux attach -t"
 alias tls="tmux list-sessions"
+alias tns="tmux new-session -s"
+
+# Run commands in background using tmux
 alias lab='tmux new-session -d -s lab; tmux send-keys -t lab "cd $HOME; cenv; jupyter-lab --no-browser" Enter'
 alias remotelab='tmux new-session -d -s remotelab; tmux send-keys -t remotelab "ssh -N -L localhost:9999:localhost:8888 santi@soler.unsj.edu.ar" Enter'
 alias remotedask='tmux new-session -d -s remotedask; tmux send-keys -t remotedask "ssh -N -L localhost:9797:localhost:8787 santi@soler.unsj.edu.ar" Enter'
@@ -161,4 +164,3 @@ fi
 if [ -f $HOME/environment.yml ]; then
     cenv $HOME/environment.yml
 fi
-
