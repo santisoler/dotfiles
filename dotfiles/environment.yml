@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.8
+  - python
   - pip
   - numpy
   - scipy
@@ -13,14 +13,20 @@ dependencies:
   - nodejs # needed by jupyterlab
   - jupytext
   - ipython
-  - nbdime
   - nb_conda
+  - nbdime
   - matplotlib
   - xarray
   - netcdf4
   - cartopy
+  - pyproj
   - dask
+  - dask-labextension
   - numba
+  # Linting and style checking
+  - black>=20.8b1
+  - rope
+  - flake8
   # Fatiando
   - pooch
   - verde
