@@ -35,14 +35,8 @@ export PATH="$PATH:$(ruby -e 'print Gem.user_dir' 2> /dev/null)/bin"
 # Define variables
 # ----------------
 export GEM_HOME=$HOME/.gem
-if [[ -d $HOME/.anaconda3 ]]; then
-    export CONDA_PATH=$HOME/.anaconda3
-elif [[ -d $HOME/.miniconda3 ]]; then
-    export CONDA_PATH=$HOME/.miniconda3
-elif [[ -d $HOME/anaconda3 ]]; then
-    export CONDA_PATH=$HOME/anaconda3
-elif [[ -d $HOME/miniconda3 ]]; then
-    export CONDA_PATH=$HOME/miniconda3
+if [[ -d $HOME/.miniforge3 ]]; then
+    export CONDA_PATH=$HOME/.miniforge3
 fi
 
 if [[ -d $HOME/Documents/notes ]]; then
