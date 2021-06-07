@@ -12,7 +12,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugins are downloaded from Github (username/repo)
-Plug 'sonph/onehalf', { 'rtp': 'vim' } " onehalf colorscheme
+Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'              " git wrapper
 Plug 'vim-syntastic/syntastic'         " syntax linter
@@ -115,8 +115,12 @@ if (empty($TMUX))
     endif
 endif
 
+let g:onedark_color_overrides = {
+\ "white": {"gui": "#dcdfe4", "cterm": "145", "cterm16": "7" },
+\}
+
 " Set colorscheme
-colorscheme onehalfdark
+colorscheme onedark
 
 " Highlight CursorLine depending on mode (as airline onedark theme)
 set cursorline
@@ -212,7 +216,7 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_theme='onehalfdark'
+let g:airline_theme='onedark'
 
 " syntastic
 " ---------
