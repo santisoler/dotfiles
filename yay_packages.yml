@@ -7,6 +7,9 @@ fonts:
 xfce4-docklike-plugin:
   - xfce4-docklike-plugin-git
 
+spaceship-prompt:
+  - spaceship-prompt
+
 slack-desktop:
   - slack-desktop
 
