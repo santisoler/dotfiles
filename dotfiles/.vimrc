@@ -283,6 +283,7 @@ let g:coc_global_extensions = [
             \ 'coc-html',
             \ 'coc-css',
             \ 'coc-eslint',
+            \ 'coc-texlab',
             \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
