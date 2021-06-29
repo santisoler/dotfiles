@@ -116,7 +116,7 @@ if (empty($TMUX))
 endif
 
 let g:onedark_color_overrides = {
-\ "white": {"gui": "#dcdfe4", "cterm": "145", "cterm16": "7" },
+\ "white": {"gui": "#dcdfe4", "cterm": "235", "cterm16": "0" },
 \}
 
 " Set colorscheme
