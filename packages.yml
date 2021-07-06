@@ -60,6 +60,13 @@ cli apps:
   - github-cli
   - youtube-dl
 
+zsh:
+  - zsh
+  - zsh-history-substring-search
+  - zsh-completions
+  - zsh-autosuggestions
+  - zsh-syntax-highlighting
+
 thunderbird:
   - thunderbird
   - thunderbird-i18n-es-ar
