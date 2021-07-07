@@ -106,10 +106,9 @@ autoload -U promptinit; promptinit
 prompt spaceship
 
 # Load custom git_status section of spaceship-prompt
-if [[ git_status.zsh ]]; then
-    source git_status.zsh
+if [[ ~/.zsh/git_status.zsh ]]; then
+    source ~/.zsh/git_status.zsh
 fi
-
 
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stamps section
