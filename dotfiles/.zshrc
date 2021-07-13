@@ -72,6 +72,17 @@ bindkey '^H' backward-kill-word                    # delete previous word with c
 bindkey '^[[Z' undo                                # Shift+tab undo last action
 
 
+# ----------------
+# Define variables
+# ----------------
+# export GEM_HOME=$HOME/.gem
+if [[ -d $HOME/Documents/notes ]]; then
+    export NOTES=$HOME/Documents/notes
+elif [[ -d $HOME/documents/notes ]]; then
+    export NOTES=$HOME/documents/notes
+fi
+
+
 # -------
 # Aliases
 # -------
