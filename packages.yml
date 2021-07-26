@@ -156,8 +156,8 @@ mpv:
 music on console:
   - moc
 
-gnome-podcasts:
-  - gnome-podcasts
+gpodder:
+  - gpodder
 
 lollypop:
   - lollypop
