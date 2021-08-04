@@ -1,0 +1,25 @@
+#!/bin/bash
+
+
+if [[ $@ == "--help" ]]; then
+    echo "Usage: doi2bib [DOI]"
+    echo "Returns a BibTeX citation for the given doi."
+    echo "Pass a single doi number or a doi.org URL."
+    exit 0
+fi
+
+doi=$@
+
+if [[ $(echo $doi | wc -w) != 1 ]]; then
+    printf '%s\n' "A single doi must be given" >&2
+    exit 1
+fi
+
+if [[ ! -n "$(echo $doi | grep "doi.org")" ]]; then
+    doi="https://doi.org/$doi"
+fi
+
+bibtex=$(curl -LH 'Accept: application/x-bibtex' $doi | sed -e 's/%2F/\//')
+# bibtex=$(curl -LH 'Accept: application/x-bibtex' $doi)
+
+echo "$bibtex"
