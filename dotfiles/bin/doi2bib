@@ -1,5 +1,5 @@
 #!/bin/bash
-# Returns a BibTeX citation for the a particular doi
+# Returns a BibTeX citation for a particular doi
 #
 # Copyright © 2021 Santiago Soler <santiago.r.soler@gmail.com>
 #
