@@ -1,0 +1,11 @@
+! assign AltGr to Caps_Lock
+!
+keycode 66 = ISO_Level3_Shift Mode_switch
+
+! remove Lock = Caps_Lock
+! keycode 66 = ISO_Level3_Shift
+! clear mod5
+! remove Control = Control_R
+! keysym Control_R = Caps_Lock
+! add Lock = Caps_Lock
+! add Alt_R = Alt_R
