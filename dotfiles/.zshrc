@@ -45,7 +45,7 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 # -----------
 # Keybindings
 # -----------
-bindkey -e
+bindkey -e                                         # Use emacs keybindings
 bindkey '^[[7~' beginning-of-line                  # Home key
 bindkey '^[[H' beginning-of-line                   # Home key
 if [[ "${terminfo[khome]}" != "" ]]; then
