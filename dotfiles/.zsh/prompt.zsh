@@ -110,6 +110,12 @@ if [[ ~/.zsh/git_status.zsh ]]; then
     source ~/.zsh/git_status.zsh
 fi
 
+# Customize some options
+SPACESHIP_PROMPT_ADD_NEWLINE=true
+SPACESHIP_CONDA_SYMBOL=""
+SPACESHIP_GIT_BRANCH_PREFIX=""
+
+# Set order of elements
 SPACESHIP_PROMPT_ORDER=(
   # time          # Time stamps section
   user          # Username section
@@ -148,8 +154,4 @@ SPACESHIP_PROMPT_ORDER=(
   exit_code     # Exit code section
   char          # Prompt character
 )
-SPACESHIP_PROMPT_ADD_NEWLINE=true
-# SPACESHIP_USER_SHOW=always
-# SPACESHIP_HOST_SHOW=always
-SPACESHIP_CONDA_SYMBOL=" "
 
