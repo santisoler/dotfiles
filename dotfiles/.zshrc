@@ -45,7 +45,7 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 # -----------
 # Keybindings
 # -----------
-bindkey -e
+bindkey -e                                         # Use emacs keybindings
 bindkey '^[[7~' beginning-of-line                  # Home key
 bindkey '^[[H' beginning-of-line                   # Home key
 if [[ "${terminfo[khome]}" != "" ]]; then
@@ -126,6 +126,7 @@ alias cdtop='cd $(git rev-parse --show-toplevel)' # cd to toplevel of git repo
 alias gti="git"
 alias gi="git"
 alias gts="git status"
+alias "git-branches"="git branch -v --sort=committerdate"
 
 # Get bibtex citation from DOI
 # alias doi2bib="curl -LH 'Accept: application/x-bibtex'"
