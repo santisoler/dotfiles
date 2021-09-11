@@ -13,12 +13,10 @@ default:
 
 xfce extra:
   - firefox
-  - neovim
   - evince
   - file-roller
   - grsync
   - terminator
-  - plank
   - wmctrl
   - thunar-archive-plugin
   - thunar-media-tags-plugin
@@ -70,7 +68,6 @@ zsh:
 thunderbird:
   - thunderbird
   - thunderbird-i18n-es-ar
-  - thunderbird-extension-enigmail
 
 irssi and profanity (IRC and XMPP):
   - irssi
@@ -123,6 +120,9 @@ vs code:
 
 keepassxc:
   - keepassxc
+
+seahorse:
+  - seahorse
 
 fonts:
   - gsfonts
