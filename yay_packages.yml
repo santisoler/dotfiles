@@ -8,7 +8,7 @@ spaceship-prompt:
   - spaceship-prompt
 
 xfce4-docklike-plugin:
-  - xfce4-docklike-plugin-git
+  - xfce4-docklike-plugin
 
 slack-desktop:
   - slack-desktop
