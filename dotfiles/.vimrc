@@ -28,6 +28,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
 Plug 'sbdchd/neoformat'                " formatter for multiple languages
 Plug 'tpope/vim-surround'              " surround highlighted text
 Plug 'ap/vim-css-color'
+Plug 'junegunn/goyo.vim'               " distraction-free for writing prose
 
 call plug#end()
 
@@ -269,6 +270,18 @@ let g:user_emmet_leader_key='<C-Z>'
 let g:neoformat_enabled_python = ['black']
 " Run neoformat after saving some chosen files
 autocmd BufWritePre *.py,*.html,*.css,*.less,*.yml Neoformat
+
+
+" goyo
+" ----
+" Change default width of Goyo
+let g:goyo_width=88
+" Enable gitgutter on Goyo
+function! s:goyo_enter()
+    GitGutterEnable
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
 
 
 " -------------------------------------------------
