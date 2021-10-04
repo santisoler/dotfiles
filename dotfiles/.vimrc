@@ -69,7 +69,9 @@ set hlsearch
 
 " Set text width to 80 characters (88 for Python)
 set noai textwidth=79
-autocmd FileType python setlocal textwidth=79
+set colorcolumn=80
+autocmd FileType python setlocal textwidth=88
+autocmd FileType python setlocal colorcolumn=89
 
 " Enable soft and hard wrapping
 set formatoptions=qrn1
@@ -125,8 +127,6 @@ colorscheme onedark
 
 " Highlight CursorLine depending on mode (as airline onedark theme)
 set cursorline
-hi clear CursorLine
-highlight CursorLineNr gui=bold guifg=#282c34 guibg=#98C379
 
 
 " ===========
