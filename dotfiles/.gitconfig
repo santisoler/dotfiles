@@ -19,3 +19,6 @@
     gpgsign = true
 [tag]
     forceSignAnnotated = true
+[delta]
+    line-numbers = true
+    side-by-side = true

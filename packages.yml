@@ -56,6 +56,7 @@ cli apps:
   - unzip
   - pdftk
   - github-cli
+  - git-delta
   - youtube-dl
 
 zsh:
