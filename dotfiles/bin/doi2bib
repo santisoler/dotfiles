@@ -44,8 +44,14 @@ if [[ ! -n "$(echo $doi | grep "doi.org")" ]]; then
 fi
 
 # Download the BibTeX citation
-#    replace the %2F characters for a slash on the url tag
-bibtex=$(curl -LH 'Accept: application/x-bibtex' $doi | sed -e '/url/s/%2F/\//')
+#    the second line decodes the url replacing %?? characters with their
+#    corresponding decoded one.
+#    Reference:
+#    https://unix.stackexchange.com/questions/159253/decoding-url-encoding-percent-encoding
+bibtex=$(\
+    curl -LH 'Accept: application/x-bibtex' $doi \
+    | sed -e 's@+@ @g;s@%@\\x@g' | xargs -0 printf "%b" \
+)
 
 # Return the BibTeX citation to std output
 echo "$bibtex"
