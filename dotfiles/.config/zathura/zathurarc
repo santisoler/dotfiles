@@ -1,3 +1,13 @@
+# ----------------------
+# General configurations
+# ----------------------
+set font "FiraCode Nerd Font Regular 9"
+set selection-clipboard clipboard
+
+
+# -----------
+# Colorscheme
+# -----------
 set notification-error-bg       "#e06c75"
 set notification-error-fg       "#282c34"
 set notification-warning-bg     "#e5c07b"
