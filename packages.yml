@@ -70,6 +70,13 @@ thunderbird:
   - thunderbird
   - thunderbird-i18n-es-ar
 
+zathura:
+  - zathura
+  - zathura-cb
+  - zathura-djvu
+  - zathura-pdf-poppler
+  - zathura-ps
+
 irssi and profanity (IRC and XMPP):
   - irssi
   - profanity
