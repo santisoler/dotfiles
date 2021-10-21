@@ -47,6 +47,6 @@ set render-loading-fg           "#e5c07b"
 # Recolor book content's color
 set recolor-lightcolor          "#282c34"
 set recolor-darkcolor           "#dcdfe4"
-set recolor                     "true"
+set recolor                     "false"
 set recolor-keephue             "true"
 set recolor-reverse-video       "true"
