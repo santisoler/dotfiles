@@ -127,6 +127,8 @@ colorscheme onedark
 
 " Highlight CursorLine depending on mode (as airline onedark theme)
 set cursorline
+" hi clear CursorLine
+" highlight CursorLineNr gui=bold guifg=#282c34 guibg=#98C379
 
 
 " ===========
@@ -210,12 +212,12 @@ let g:NERDDefaultAlign = 'left'
 " vim-airline
 " -----------
 let g:airline_powerline_fonts = 1
-" let g:airline#extensions#branch#symbol = '⎇  '
-" let g:airline_left_sep = ''
-" let g:airline_right_sep = ''
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 let g:airline#extensions#syntastic#enabled = 1
+" let g:airline#extensions#branch#symbol = '⎇  '
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_theme='onedark'
@@ -331,9 +333,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)

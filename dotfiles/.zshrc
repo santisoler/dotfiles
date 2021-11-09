@@ -215,8 +215,13 @@ fi
 
 # Setup and activate the conda package manager
 if [ -f $CONDA_PATH/etc/profile.d/conda.sh ]; then
-    source "$CONDA_PATH/etc/profile.d/conda.sh"  # commented out by conda initialize
+    source "$CONDA_PATH/etc/profile.d/conda.sh"
     conda activate
+fi
+
+# Setup and activate the mamba package manager (conda is needed though)
+if [ -f "$CONDA_PATH/etc/profile.d/mamba.sh" ]; then
+    . "$CONDA_PATH/etc/profile.d/mamba.sh"
 fi
 
 # Activate the conda default environment
