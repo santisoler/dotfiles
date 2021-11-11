@@ -198,6 +198,22 @@ nnoremap <leader>sed :%s/\<<C-r><C-w>\>//g<Left><Left>
 map <leader>F {j
 map <leader>f }k
 
+" Yank until end of line (source: ThePrimeagen)
+nnoremap Y y$
+
+" Keep searches centered (source: ThePrimeagen)
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Keep cursor fixed when joining lines (source: ThePrimeagen)
+nnoremap J mzJ`z
+
+" Move text up and down without ddp (source: ThePrimeagen)
+nnoremap <leader>k :m .-2<CR>==
+nnoremap <leader>j :m .+1<CR>==
+vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
+
 
 " ====================
 " Plugin Configuration
@@ -351,7 +367,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Use Ctrl+K to show documentation in preview window.
-nnoremap <silent> <C-K> :call <SID>show_documentation()<CR>
+nnoremap <silent> <S-Tab> :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
