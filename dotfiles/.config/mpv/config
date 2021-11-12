@@ -1,3 +1,0 @@
-# sub-scale=0.7
-save-position-on-quit
-ytdl-format="best[height<=1080]"

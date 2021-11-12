@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# Dump audio stream to a file
-# Usage:
-#     grabar <url> <file>
-
-ffmpeg -reconnect 1 -i $1 -vn $2
-
