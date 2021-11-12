@@ -1,0 +1,57 @@
+#!/bin/bash
+# Returns a BibTeX citation for a particular doi
+#
+# Copyright © 2021 Santiago Soler <santiago.r.soler@gmail.com>
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the “Software”), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+# Show help
+if [[ $@ == "--help" ]]; then
+    echo "Usage: doi2bib [DOI]"
+    echo "Returns a BibTeX citation for the given doi."
+    echo "Pass a single doi number or a doi.org URL."
+    exit 0
+fi
+
+# Grab the doi from the input
+doi=$@
+
+# Raise error if more than one doi has been passed
+if [[ $(echo $doi | wc -w) != 1 ]]; then
+    printf '%s\n' "A single doi must be given" >&2
+    exit 1
+fi
+
+# Add the doi.org base url if only the doi number has been passed
+if [[ ! -n "$(echo $doi | grep "doi.org")" ]]; then
+    doi="https://doi.org/$doi"
+fi
+
+# Download the BibTeX citation
+#    the second line decodes the url replacing %?? characters with their
+#    corresponding decoded one.
+#    Reference:
+#    https://unix.stackexchange.com/questions/159253/decoding-url-encoding-percent-encoding
+bibtex=$(\
+    curl -LH 'Accept: application/x-bibtex' $doi \
+    | sed -e 's@+@ @g;s@%@\\x@g' | xargs -0 printf "%b" \
+)
+
+# Return the BibTeX citation to std output
+echo "$bibtex"

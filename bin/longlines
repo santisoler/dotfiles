@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Print lines longer than 80 chars
+grep -n '.\{80\}' $@
+

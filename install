@@ -1,0 +1,8 @@
+#!/bin/bash
+# Install every dotfile in your home directory
+
+for file in */; do
+  if [[ -d "$file" && ! -L "$file" ]]; then
+    echo "cp $file/*";
+  fi;
+done
