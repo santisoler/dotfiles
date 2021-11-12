@@ -1,0 +1,41 @@
+name: default
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - pip
+  - jupyter
+  - jupyterlab
+  - nodejs # needed by jupyterlab
+  - ipython
+  - nb_conda
+  - nbdime # git diffs for notebooks
+  - conda-lock # lock environments
+  - livereload
+  - pytest
+  # Scientific stack
+  - numba
+  - dask
+  - dask-labextension
+  - numpy
+  - matplotlib
+  - scipy
+  - sympy
+  - xarray
+  - pandas
+  # Geospatial and maps
+  - netcdf4
+  - cartopy
+  - pyproj
+  - pygmt
+  # Linting and style checking
+  - black>=20.8b1
+  - rope
+  - flake8
+  # Fatiando
+  - pooch
+  - verde
+  - harmonica
+  - rockhound
+  - boule
