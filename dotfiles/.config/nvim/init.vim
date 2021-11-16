@@ -41,6 +41,7 @@ Plug 'tpope/vim-surround'              " surround highlighted text
 Plug 'ap/vim-css-color'
 Plug 'nvim-lua/plenary.nvim'           " needed by telescope
 Plug 'nvim-telescope/telescope.nvim'   " fuzzy finder
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -54,12 +55,13 @@ if (empty($TMUX))
     endif
 endif
 
-let g:onedark_color_overrides = {
-\ "white": {"gui": "#dcdfe4", "cterm": "235", "cterm16": "0" },
-\}
+" let g:onedark_color_overrides = {
+" \ "white": {"gui": "#dcdfe4", "cterm": "235", "cterm16": "0" },
+" \}
 
 " Set colorscheme
-colorscheme onedark
+" colorscheme onedark
+colorscheme nord
 
 
 " ====================
@@ -83,7 +85,8 @@ let g:airline#extensions#syntastic#enabled = 1
 " let g:airline_right_sep = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_theme='onedark'
+" let g:airline_theme='onedark'
+let g:airline_theme='nord'
 
 " syntastic
 " ---------
