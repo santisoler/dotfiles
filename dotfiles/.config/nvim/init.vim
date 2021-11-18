@@ -229,10 +229,19 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Use the current conda environment
-if $CONDA_PREFIX == ""
-  let s:current_python_path=$CONDA_PYTHON_EXE
-else
-  let s:current_python_path=$CONDA_PREFIX.'/bin/python'
-endif
-" call coc#config('python', {'pythonPath': s:current_python_path})
+function Conda_current_env()
+    " Use the current conda environment when the function is called
+    if $CONDA_PREFIX == ""
+      let current_python_path=$CONDA_PYTHON_EXE
+    else
+      let current_python_path=$CONDA_PREFIX.'/bin/python'
+    endif
+    call coc#config('python', {'pythonPath': current_python_path})
+endfunction
+
+function CondaActivate(environment)
+    " Activate the chosen conda environment
+    call coc#config('python', {'pythonPath': $CONDA_PATH.'/envs/'.a:environment.'/bin/python'})
+endfunction
+
+call CondaActivate("default")
