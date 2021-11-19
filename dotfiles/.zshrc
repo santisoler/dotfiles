@@ -118,18 +118,15 @@ alias remotedask='tmux new-session -d -s remotedask; tmux send-keys -t remotedas
 alias serve='tmux new-session -d -s serve; tmux send-keys -t serve "livereload -p 8989 ." Enter'
 alias futurock='tmux new-session -d -s futurock; tmux send-keys -t futurock "mplayer http://cdn2.instream.audio:8007/stream" Enter'
 
-# Conda aliases
-alias ca='conda activate'
-alias cdtop='cd $(git rev-parse --show-toplevel)' # cd to toplevel of git repo
+# Mamba aliases
+alias ca='mamba activate'
 
 # Git aliases
 alias gti="git"
 alias gi="git"
 alias gts="git status"
 alias "git-branches"="git branch -v --sort=committerdate"
-
-# Get bibtex citation from DOI
-# alias doi2bib="curl -LH 'Accept: application/x-bibtex'"
+alias cdtop='cd $(git rev-parse --show-toplevel)' # cd to toplevel of git repo
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
