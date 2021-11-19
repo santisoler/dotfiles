@@ -241,7 +241,7 @@ endfunction
 
 function CondaActivate(environment)
     " Activate the chosen conda environment
-    call coc#config('python', {'pythonPath': $CONDA_PATH.'/envs/'.a:environment.'/bin/python'})
+    call coc#config('python', {'pythonPath': $MAMBA_PATH.'/envs/'.a:environment.'/bin/python'})
 endfunction
 
 call CondaActivate("default")

@@ -207,21 +207,19 @@ export PATH="$PATH:$(ruby -e 'print Gem.user_dir' 2> /dev/null)/bin"
 
 #
 # ------------
-# Set up conda
+# Set up mamba
 # ------------
-if [[ -d $HOME/.miniforge3 ]]; then
-    export CONDA_PATH=$HOME/.miniforge3
+if [[ -d $HOME/.mambaforge ]]; then
+    export MAMBA_PATH=$HOME/.mambaforge
 fi
 
-# Setup and activate the conda package manager
-if [ -f $CONDA_PATH/etc/profile.d/conda.sh ]; then
-    source "$CONDA_PATH/etc/profile.d/conda.sh"
+# Setup and activate the conda and mamaba package managerers
+if [ -f $MAMBA_PATH/etc/profile.d/conda.sh ]; then
+    source "$MAMBA_PATH/etc/profile.d/conda.sh"
     conda activate
 fi
-
-# Setup and activate the mamba package manager (conda is needed though)
-if [ -f "$CONDA_PATH/etc/profile.d/mamba.sh" ]; then
-    . "$CONDA_PATH/etc/profile.d/mamba.sh"
+if [ -f "$MAMBA_PATH/etc/profile.d/mamba.sh" ]; then
+    . "$MAMBA_PATH/etc/profile.d/mamba.sh"
 fi
 
 # Activate the conda default environment
