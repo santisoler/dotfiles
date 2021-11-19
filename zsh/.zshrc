@@ -118,18 +118,15 @@ alias remotedask='tmux new-session -d -s remotedask; tmux send-keys -t remotedas
 alias serve='tmux new-session -d -s serve; tmux send-keys -t serve "livereload -p 8989 ." Enter'
 alias futurock='tmux new-session -d -s futurock; tmux send-keys -t futurock "mplayer http://cdn2.instream.audio:8007/stream" Enter'
 
-# Conda aliases
-alias ca='conda activate'
-alias cdtop='cd $(git rev-parse --show-toplevel)' # cd to toplevel of git repo
+# Mamba aliases
+alias ca='mamba activate'
 
 # Git aliases
 alias gti="git"
 alias gi="git"
 alias gts="git status"
 alias "git-branches"="git branch -v --sort=committerdate"
-
-# Get bibtex citation from DOI
-# alias doi2bib="curl -LH 'Accept: application/x-bibtex'"
+alias cdtop='cd $(git rev-parse --show-toplevel)' # cd to toplevel of git repo
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -207,21 +204,19 @@ export PATH="$PATH:$(ruby -e 'print Gem.user_dir' 2> /dev/null)/bin"
 
 #
 # ------------
-# Set up conda
+# Set up mamba
 # ------------
-if [[ -d $HOME/.miniforge3 ]]; then
-    export CONDA_PATH=$HOME/.miniforge3
+if [[ -d $HOME/.mambaforge ]]; then
+    export MAMBA_PATH=$HOME/.mambaforge
 fi
 
-# Setup and activate the conda package manager
-if [ -f $CONDA_PATH/etc/profile.d/conda.sh ]; then
-    source "$CONDA_PATH/etc/profile.d/conda.sh"
+# Setup and activate the conda and mamaba package managerers
+if [ -f $MAMBA_PATH/etc/profile.d/conda.sh ]; then
+    source "$MAMBA_PATH/etc/profile.d/conda.sh"
     conda activate
 fi
-
-# Setup and activate the mamba package manager (conda is needed though)
-if [ -f "$CONDA_PATH/etc/profile.d/mamba.sh" ]; then
-    . "$CONDA_PATH/etc/profile.d/mamba.sh"
+if [ -f "$MAMBA_PATH/etc/profile.d/mamba.sh" ]; then
+    . "$MAMBA_PATH/etc/profile.d/mamba.sh"
 fi
 
 # Activate the conda default environment

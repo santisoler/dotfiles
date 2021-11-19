@@ -2,14 +2,14 @@
 
 
 # ---------------
-# Conda functions
+# Mamba functions
 # ---------------
-condaon() {
-    conda activate
+mambaon() {
+    mamba activate
 }
 
-condaoff() {
-    conda activate base; conda deactivate
+mambaoff() {
+    mamba activate base; mamba deactivate
 }
 
 cenv() {
@@ -72,17 +72,17 @@ EOF
 
     # Execute one of these actions: activate, update, delete
     if [[ $cmd == "activate" ]]; then
-        conda activate "$envname";
+        mamba activate "$envname";
     elif [[ $cmd == "deactivate" ]]; then
-        conda deactivate;
+        mamba deactivate;
     elif [[ $cmd == "update" ]]; then
         >&2 echo "Updating environment:" $envname;
-        conda activate "$envname";
-        conda env update -f "$envfile"
+        mamba activate "$envname";
+        mamba env update -f "$envfile"
     elif [[ $cmd == "delete" ]]; then
         >&2 echo "Removing environment:" $envname;
-        conda deactivate;
-        conda env remove --name "$envname";
+        mamba deactivate;
+        mamba env remove --name "$envname";
     fi
 }
 
