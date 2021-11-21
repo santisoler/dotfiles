@@ -8,4 +8,7 @@ export TERMINAL=/usr/bin/terminator
 export EDITOR=/usr/bin/nvim
 
 # Configura layout del teclado a US intl with altgr, usando caps lock como altgr
-setxkbmap -layout us -variant altgr-intl -option "lv3:caps_switch"
+# setxkbmap -layout us -variant altgr-intl -option "lv3:caps_switch"
+
+# Configure caps lock as an extra super key
+setxkbmap -layout us -variant altgr-intl -option "caps:super"
