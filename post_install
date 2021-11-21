@@ -52,25 +52,6 @@ echo "
 "
 
 
-# Update system
-echo
-if ask ":: Update packages?" Y; then
-    sudo pacman -Syu
-else
-    echo "Skipping..."
-fi
-
-# Install packages with hornero?
-echo
-if ask ":: Install packages with hornero?" Y; then
-    sudo pacman -S python-pip
-    pip install git+git://github.com/santisoler/hornero.git
-    hornero _packages/manjaro.yml
-    hornero -p yay _packages/yay.yml
-else
-    echo "Skipping..."
-fi
-
 # Copy dotfiles
 echo
 if ask ":: Copy the dotfiles to your home folder?" Y; then
