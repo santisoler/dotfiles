@@ -1,19 +1,5 @@
-default:
-  - cli apps
-  - syncthing
-  - firefox extensions
-  - yay
-  - nvim
-  - keepassxc
-  - fonts
-  - themes
-  - mpv
-  - music on console
-  - telegram
-
 xfce extra:
   - firefox
-  - evince
   - file-roller
   - grsync
   - terminator
@@ -21,36 +7,11 @@ xfce extra:
   - thunar-archive-plugin
   - thunar-media-tags-plugin
 
-skippy-xd:
-  - skippy-xd
-
-i3-gaps extra:
-  - thunar
-  - thunar-archive-plugin
-  - firefox
-  - xfce4-terminal
-  - pavucontrol
-  - playerctl
-  - polybar
-  - picom
-  - rofi
-  - orage
-  - evince
-  - file-roller
-  - grsync
-  - xfce4-power-manager
-  - light-locker
-
 cli apps:
-  - bash-completion
-  - dos2unix
-  - ebook-tools
   - gnupg
   - pandoc
-  - pdfpc
   - tmux
   - tree
-  - speedtest-cli
   - wipe
   - xclip
   - unzip
@@ -77,29 +38,14 @@ zathura:
   - zathura-pdf-mupdf
   - zathura-ps
 
-irssi and profanity (IRC and XMPP):
-  - irssi
-  - profanity
-
-gajim (xmpp):
-  - gajim
-  - python-axolotl
-  - python-qrcode
-
 nextcloud:
   - nextcloud-client
 
 syncthing:
   - syncthing-gtk
 
-synaptics touchpad (no longer works, use libinput instead):
-  - xf86-input-synaptics
-
 guvcview (configure webcam):
   - guvcview
-
-xorg-xbacklight:
-  - xorg-xbacklight
 
 firefox extensions:
   - firefox-ublock-origin
@@ -124,9 +70,6 @@ nvim:
   - prettier
   - vim-spell-en
   - vim-spell-es
-
-vs code:
-  - code
 
 keepassxc:
   - keepassxc
@@ -162,16 +105,8 @@ deluge:
 vlc:
   - vlc
 
-smplayer:
-  - smplayer
-  - smplayer-themes
-  - smplayer-skins
-
 mpv:
   - mpv
-
-music on console:
-  - moc
 
 gpodder:
   - gpodder

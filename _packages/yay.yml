@@ -22,23 +22,14 @@ zotero:
 subliminal:
   - subliminal-git
 
+inkscape-generate-palette:
+  - inkscape-generate-palette
+
+piper:
+  - piper-git
+
 cawbird:
   - cawbird
-
-castero:
-  - castero
-
-edges:
-  - edges
-
-jabref:
-  - jabref
-
-diceware:
-  - diceware
-
-simplenote-electron-bin:
-  - simplenote-electron-bin
 
 google-earth-pro:
   - google-earth-pro
@@ -46,20 +37,5 @@ google-earth-pro:
 audio-recorder:
   - audio-recorder
 
-gplates:
-  - gplates
-
-spotify:
-  - spotify
-
-trello:
-  - trello
-
 photofilmstrip:
   - photofilmstrip
-
-inkscape-generate-palette:
-  - inkscape-generate-palette
-
-piper:
-  - piper-git

@@ -51,12 +51,33 @@ echo "
 
 "
 
+
+# Update system
+echo
+if ask ":: Update packages?" Y; then
+    sudo pacman -Syu
+else
+    echo "Skipping..."
+fi
+
+# Install packages with hornero?
+echo
+if ask ":: Install packages with hornero?" Y; then
+    sudo pacman -S pip
+    pip install git+git://github.com/santisoler/hornero.git
+    hornero _packages/manjaro.yml
+    hornero -p yay _packages/yay.yml
+else
+    echo "Skipping..."
+fi
+
 # Copy dotfiles
 echo
 if ask ":: Copy the dotfiles to your home folder?" Y; then
     echo "Copying dotfiles [...]"
     # Copy every dotfile in your home directory
-    for directory in */; do
+    # (except dirs that start with an underscore)
+    for directory in [^_]*/; do
         cp -r ${directory%/}/. ~;
     done
 else
@@ -122,34 +143,34 @@ if ask ":: Customize XFCE appearance?" Y; then
     xfconf-query -c keyboards -p /Default/KeyRepeat/Delay -s 245
     xfconf-query -c keyboards -p /Default/KeyRepeat/Rate -s 35
     # Keybindings
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/commands/custom/<Alt>Print" -s "xfce4-screenshooter -w"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/commands/custom/Print" -s "xfce4-screenshooter"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/commands/custom/<Shift>Print" -s "xfce4-screenshooter -r"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/commands/custom/<Super>d" -s "xfce4-popup-whiskermenu"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/commands/custom/<Super>l" -s "xflock4"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/commands/custom/<Super>p" -s "pavucontrol"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Alt>Tab" -s "cycle_windows_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Alt><Shift>Tab" -s "cycle_reverse_windows_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Alt>space" -s "popup_menu_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Primary><Super>Down" -s "tile_down_left_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Primary><Super>Left" -s "tile_up_left_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Primary><Super>Right" -s "tile_up_right_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Primary><Super>Up" -s "tile_down_right_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Shift><Super>j" -s "move_window_left_workspace_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Shift><Super>k" -s "move_window_right_workspace_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Shift><Super>Page_Down" -s "move_window_next_workspace_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Shift><Super>Page_Up" -s "move_window_prev_workspace_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Shift><Super>Up" -s "maximize_window_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Super>Down" -s "tile_down_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Super>j" -s "left_workspace_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Super>k" -s "right_workspace_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Super>Left" -s "tile_left_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Super>Page_Down" -s "next_workspace_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Super>Page_Up" -s "prev_workspace_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Super>q" -s "close_window_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Super>Right" -s "tile_right_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Super>Tab" -s "switch_window_key"
-    xfconf-query -c xfce4-keyboard-shortcuts -c "/xfwm4/custom/<Super>Up" -s "tile_up_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Alt>Print" -s "xfce4-screenshooter -w"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/Print" -s "xfce4-screenshooter"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Shift>Print" -s "xfce4-screenshooter -r"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>d" -s "xfce4-popup-whiskermenu"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>l" -s "xflock4"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>p" -s "pavucontrol"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt>Tab" -s "cycle_windows_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt><Shift>Tab" -s "cycle_reverse_windows_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt>space" -s "popup_menu_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Super>Down" -s "tile_down_left_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Super>Left" -s "tile_up_left_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Super>Right" -s "tile_up_right_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Super>Up" -s "tile_down_right_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Shift><Super>j" -s "move_window_left_workspace_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Shift><Super>k" -s "move_window_right_workspace_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Shift><Super>Page_Down" -s "move_window_next_workspace_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Shift><Super>Page_Up" -s "move_window_prev_workspace_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Shift><Super>Up" -s "maximize_window_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Down" -s "tile_down_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>j" -s "left_workspace_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>k" -s "right_workspace_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Left" -s "tile_left_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Page_Down" -s "next_workspace_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Page_Up" -s "prev_workspace_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>q" -s "close_window_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Right" -s "tile_right_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Tab" -s "switch_window_key"
+    xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Up" -s "maximize_window_key"
 
 
 else
