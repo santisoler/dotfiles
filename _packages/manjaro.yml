@@ -70,6 +70,7 @@ nvim:
   - prettier
   - vim-spell-en
   - vim-spell-es
+  - npm # needed by CoC
 
 keepassxc:
   - keepassxc
