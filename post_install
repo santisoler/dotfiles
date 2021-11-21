@@ -63,7 +63,7 @@ fi
 # Install packages with hornero?
 echo
 if ask ":: Install packages with hornero?" Y; then
-    sudo pacman -S pip
+    sudo pacman -S python-pip
     pip install git+git://github.com/santisoler/hornero.git
     hornero _packages/manjaro.yml
     hornero -p yay _packages/yay.yml
