@@ -66,11 +66,13 @@ nvim:
   - python-black
   - flake8
   - python-pylint
-  - nodejs
   - prettier
   - vim-spell-en
   - vim-spell-es
-  - npm # needed by CoC
+  # needed by CoC
+  - nodejs
+  - npm
+  - yarn
 
 keepassxc:
   - keepassxc
