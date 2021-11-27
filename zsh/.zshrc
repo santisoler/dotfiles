@@ -24,8 +24,6 @@ setopt inc_append_history # save commands are added to the history immediately, 
 HISTFILE=~/.zhistory
 HISTSIZE=10000
 SAVEHIST=10000
-#export EDITOR=/usr/bin/nano
-#export VISUAL=/usr/bin/nano
 WORDCHARS=${WORDCHARS//\/[&.;]} # Don't consider certain characters part of the word
 
 
@@ -220,6 +218,8 @@ if [ -f "$MAMBA_PATH/etc/profile.d/mamba.sh" ]; then
 fi
 
 # Activate the conda default environment
-if [ -f $HOME/environment.yml ]; then
-    cenv $HOME/environment.yml
+if command -v conda &> /dev/null; then
+  if [ -f $HOME/environment.yml ]; then
+      cenv $HOME/environment.yml
+  fi
 fi
