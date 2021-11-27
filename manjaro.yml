@@ -1,0 +1,161 @@
+xfce extra:
+  - firefox
+  - file-roller
+  - grsync
+  - terminator
+  - wmctrl
+  - thunar-archive-plugin
+  - thunar-media-tags-plugin
+
+cli apps:
+  - gnupg
+  - pandoc
+  - tmux
+  - tree
+  - wipe
+  - xclip
+  - unzip
+  - pdftk
+  - github-cli
+  - git-delta
+  - youtube-dl
+
+zsh:
+  - zsh
+  - zsh-history-substring-search
+  - zsh-completions
+  - zsh-autosuggestions
+  - zsh-syntax-highlighting
+
+thunderbird:
+  - thunderbird
+  - thunderbird-i18n-es-ar
+
+zathura:
+  - zathura
+  - zathura-cb
+  - zathura-djvu
+  - zathura-pdf-mupdf
+  - zathura-ps
+
+nextcloud:
+  - nextcloud-client
+
+syncthing:
+  - syncthing-gtk
+
+guvcview (configure webcam):
+  - guvcview
+
+firefox extensions:
+  - firefox-ublock-origin
+  - firefox-extension-privacybadger
+  - firefox-extension-https-everywhere
+
+chromium:
+  - chromium
+
+yay:
+  - base-devel
+  - yay
+
+nvim:
+  - neovim
+  - python-pynvim
+  - python-jedi
+  - python-black
+  - flake8
+  - python-pylint
+  - prettier
+  - vim-spell-en
+  - vim-spell-es
+  # needed by CoC
+  - nodejs
+  - npm
+  - yarn
+
+keepassxc:
+  - keepassxc
+
+seahorse:
+  - seahorse
+
+fonts:
+  - gsfonts
+  - noto-fonts-emoji
+  - ttf-dejavu
+  - ttf-liberation
+  - ttf-linux-libertine
+  - ttf-roboto
+  - font-bh-ttf
+  - gentium-plus-font
+  - ttf-font-awesome
+  - otf-latin-modern
+  - ttf-font-awesome
+
+themes:
+  - matcha-gtk-theme
+  - papirus-maia-icon-theme
+  - wallpapers-2018
+
+libreoffice:
+  - libreoffice-fresh
+  - libreoffice-fresh-es
+
+deluge:
+  - deluge-gtk
+
+vlc:
+  - vlc
+
+mpv:
+  - mpv
+
+gpodder:
+  - gpodder
+
+lollypop:
+  - lollypop
+  - quodlibet
+
+graphics:
+  - darktable
+  - gthumb
+  - simple-scan
+  - inkscape
+  - pstoedit
+  - python2-lxml
+  - gcolor3
+
+steam:
+  - steam-manjaro
+
+play on linux:
+  - playonlinux
+
+meld:
+  - meld
+
+texlive:
+  - texlive-core
+  - texlive-latexextra
+  - texlive-bibtexextra
+  - texlive-science
+  - git-latexdiff
+
+audio-tools:
+  - sox
+  - audacity
+  - soundconverter
+
+telegram:
+  - telegram-desktop
+
+wxmaxima:
+  - wxmaxima
+
+okular:
+  - okular
+
+kdenlive:
+  - kdenlive

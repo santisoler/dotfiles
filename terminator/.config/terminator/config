@@ -1,0 +1,76 @@
+[global_config]
+  handle_size = 0
+  window_state = maximise
+  extra_styling = False
+  scroll_tabbar = True
+  homogeneous_tabbar = False
+  title_hide_sizetext = True
+  title_transmit_fg_color = "#2E3440"
+  title_transmit_bg_color = "#88C0D0"
+  title_receive_fg_color = "#2E3440"
+  title_receive_bg_color = "#8FBCBB"
+  title_inactive_fg_color = "#D8DEE9"
+  title_inactive_bg_color = "#4C566A"
+  inactive_color_offset = 1.0
+[keybindings]
+  go_up = <Alt>k
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_right = <Alt>l
+  next_tab = <Primary>Tab
+  prev_tab = <Primary><Shift>Tab
+  layout_launcher = ""
+[profiles]
+  [[default]]
+    background_color = "#2E3440"
+    background_darkness = 1.0
+    background_type = transparent
+    cursor_blink = False
+    cursor_color = "#D8DEE9"
+    font = FiraCode Nerd Font 9.5
+    foreground_color = "#D8DEE9"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_lines = 10000
+    palette = "#3B4252:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#b48ead:#88c0d0:#E5E9F0:#4C566A:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#b48ead:#88C0D0:#ECEFF4"
+    use_system_font = False
+    bold_is_bright = True
+  [[onedark]]
+    background_color = "#282c34"
+    background_darkness = 1.0
+    background_type = transparent
+    cursor_blink = False
+    cursor_color = "#dcdfe4"
+    font = FiraCode Nerd Font 9.5
+    foreground_color = "#dcdfe4"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_lines = 10000
+    palette = "#282c34:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#dcdfe4:#404754:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#dcdfe4"
+    use_system_font = False
+    bold_is_bright = True
+  [[nord]]
+    background_color = "#2E3440"
+    background_darkness = 1.0
+    background_type = transparent
+    cursor_blink = False
+    cursor_color = "#D8DEE9"
+    font = FiraCode Nerd Font 9.5
+    foreground_color = "#D8DEE9"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_lines = 10000
+    palette = "#3B4252:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#B48EAD:#88C0D0:#E5E9F0:#4C566A:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#B48EAD:#88C0D0:#ECEFF4"
+    use_system_font = False
+    bold_is_bright = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+      title = Terminator
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]

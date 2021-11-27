@@ -1,0 +1,41 @@
+fonts:
+  - ttf-google-fonts-git
+  - ttf-ms-fonts
+  - ttf-nunito
+  - nerd-fonts-fira-code
+
+spaceship-prompt:
+  - spaceship-prompt
+
+xfce4-docklike-plugin:
+  - xfce4-docklike-plugin
+
+slack-desktop:
+  - slack-desktop
+
+zoom:
+  - zoom
+
+zotero:
+  - zotero
+
+subliminal:
+  - subliminal-git
+
+inkscape-generate-palette:
+  - inkscape-generate-palette
+
+piper:
+  - piper-git
+
+cawbird:
+  - cawbird
+
+google-earth-pro:
+  - google-earth-pro
+
+audio-recorder:
+  - audio-recorder
+
+photofilmstrip:
+  - photofilmstrip

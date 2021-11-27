@@ -1,0 +1,15 @@
+[user]
+onlyDisplayVisible=false
+keyComboActive=true
+indicatorStyle=2
+indicatorColor=rgb(31,224,185)
+noWindowsListIfSingle=true
+pinned=/usr/share/applications/terminator.desktop;/usr/share/applications/firefox.desktop;/usr/share/applications/thunar.desktop;/usr/share/applications/thunderbird.desktop;/usr/share/applications/telegramdesktop.desktop;/usr/share/applications/slack.desktop;/usr/share/applications/org.gnome.Lollypop.desktop;
+keyAloneActive=true
+indicatorOrientation=1
+onlyDisplayScreen=false
+forceIconSize=false
+iconSize=16
+showWindowCount=false
+showPreviews=false
+inactiveColor=rgb(192,191,188)

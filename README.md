@@ -5,37 +5,47 @@
 This repo contains my personal configuration files so I can easily and quickly
 set up any fresh-installed system with my favourite tools and appearance.
 
-My files are divided in folders:
+The configuration files are divided in folders, one per application or software.
+This way is easy to copy only some configurations without the need to manually
+scrape through the full collection of dotfiles.
 
-- `dotfiles/`: dotfiles for any DE or WM
-- `i3/`: dotfiles for i3-gaps WM
-- `others/`: other configuration files (unused or that need some update)
-
-I also keep a list of the packages I normally use in YAML files:
-
-- `packages.yml`
-- `yay_packages.yml`
-
-These files can be used along [Settle](https://github.com/santisoler/settle)
-for a quick and interactive way of installing them.
 For example:
 
-```
-settle packages.yml
-```
+- `bin`: contains a `bin` folder that hosts some of my personal scripts.
+- `conda`: contains a `.condarc` file and an `environment.yml` for creating
+    a `default` conda environment.
+- `git`: contains global `.gitconfig` and `.gitignore` files.
+- `mpv`: configurations for the mpv video player.
+- `neovim`: contains configuration files for Neovim (and for VIM).
+- `terminator`: configuration for Terminator (terminal emulator with tiling
+    capabilities).
+- `xfce`: a few configurations for the XFCE desktop environment. The look and
+    feel of XFCE is changed through the `post_install` script.
+- `zathura`: configurations for the zathura document reader.
+- `zsh`: configurations for the zsh shell.
 
-and
+Besides, there are a few more files in this repo:
 
-```
-settle -p yay yay_packages.yml
-```
+- `post_install`: post install script for running some small tasks
+    automatically.
+- `manjaro.yml` and `yay.yml`: YAML files that contain list of packages grouped
+    in categories. These files are used as inputs for
+    [Hornero](https://github.com/santisoler/hornero).
+- `duckduckgo.json`: Custom theme for [](duckduckgo.com)
 
-## How to copy them
+
+## How to copy the files
 
 Clone the repo:
 
 ```
 git clone https://www.github.com/santisoler/dotfiles
+```
+
+or
+
+```
+git clone git@github.com:santisoler/dotfiles
 ```
 
 Enter into the cloned directory:
@@ -44,18 +54,17 @@ Enter into the cloned directory:
 cd dotfiles
 ```
 
-Copy every file from the `dotfiles` folder to your `$HOME` using the `copy` script:
+Run the `post_install` script and answer Yes to the first question:
 
 ```
-bash copy
+./post_install
 ```
 
-Alternatively, you can use `cp` to do it manually.
-You can add some extra arguments for backing up the original files and more.
-For example:
+Alternatively, you can use `cp` to manually copy the dotfiles for certain
+category.
+
+For example, to copy only the Neovim dotfiles:
 
 ```
-cp -r --backup=numbered i3/. -t ~
+cp -r neovim/. ~
 ```
-
-
