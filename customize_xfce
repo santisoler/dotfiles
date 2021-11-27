@@ -59,15 +59,10 @@ xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Right
 xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Tab" --type string -s "switch_window_key"
 xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Up" --type string -s "maximize_window_key"
 
-# Panel configuration
-xfconf-query -c xfce4-panel -p /panels/panel-0/autohide-behavior -s 0
-xfconf-query -c xfce4-panel -p /panels/panel-0/background-style -s 0
-xfconf-query -c xfce4-panel -p /panels/panel-0/disable-struts -s false
-xfconf-query -c xfce4-panel -p /panels/panel-0/icon-size -s 0
-xfconf-query -c xfce4-panel -p /panels/panel-0/length -s 100
-xfconf-query -c xfce4-panel -p /panels/panel-0/length-adjust -s true
-xfconf-query -c xfce4-panel -p /panels/panel-0/mode -s 0
-xfconf-query -c xfce4-panel -p /panels/panel-0/position -s p=6;x=960;y=19
-xfconf-query -c xfce4-panel -p /panels/panel-0/position-locked -s true
-xfconf-query -c xfce4-panel -p /panels/panel-0/size -s 24
 
+echo ""
+echo "Done! Remember to logout to see the changes."
+
+echo ""
+echo "TODO:"
+echo "- Check for autostart applications"
