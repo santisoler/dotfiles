@@ -116,13 +116,13 @@ if ask ":: Customize XFCE appearance and keyboard shortcuts?" Y; then
     xfconf-query -c xsettings -p /Gtk/ButtonImages -s false
 
     # xfwm4
-    xfconf-query -c xfwm4 -p /general/theme -s Matcha-dark-sea
-    xfconf-query -c xfwm4 -p /general/title_font -s Liberation Sans 9
+    xfconf-query -c xfwm4 -p /general/theme -s "Matcha-dark-sea"
+    xfconf-query -c xfwm4 -p /general/title_font -s "Liberation Sans 9"
     xfconf-query -c xfwm4 -p /general/activate_action -s switch
     xfconf-query -c xfwm4 -p /general/borderless_maximize -s true
     xfconf-query -c xfwm4 -p /general/box_move -s false
     xfconf-query -c xfwm4 -p /general/box_resize -s false
-    xfconf-query -c xfwm4 -p /general/button_layout -s |HMC
+    xfconf-query -c xfwm4 -p /general/button_layout -s "|HMC"
     xfconf-query -c xfwm4 -p /general/button_offset -s 0
     xfconf-query -c xfwm4 -p /general/button_spacing -s 0
     xfconf-query -c xfwm4 -p /general/click_to_focus -s true
@@ -135,7 +135,7 @@ if ask ":: Customize XFCE appearance and keyboard shortcuts?" Y; then
     xfconf-query -c xfwm4 -p /general/cycle_raise -s false
     xfconf-query -c xfwm4 -p /general/cycle_tabwin_mode -s 0
     xfconf-query -c xfwm4 -p /general/cycle_workspaces -s false
-    xfconf-query -c xfwm4 -p /general/double_click_action -s maximize
+    xfconf-query -c xfwm4 -p /general/double_click_action -s "maximize"
     xfconf-query -c xfwm4 -p /general/double_click_distance -s 5
     xfconf-query -c xfwm4 -p /general/double_click_time -s 250
     xfconf-query -c xfwm4 -p /general/easy_click -s Super
@@ -202,8 +202,8 @@ if ask ":: Customize XFCE appearance and keyboard shortcuts?" Y; then
     xfconf-query -c xfce4-desktop -p /desktop-icons/style -s 0
 
     # Keyboard
-    xfconf-query -c keyboards --create -p /Default/KeyRepeat/Delay -s 245
-    xfconf-query -c keyboards --create -p /Default/KeyRepeat/Rate -s 35
+    xfconf-query -c keyboards --create -p /Default/KeyRepeat/Delay --type int -s 245
+    xfconf-query -c keyboards --create -p /Default/KeyRepeat/Rate --type int -s 35
 
     # Keybindings
     # -----------
