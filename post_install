@@ -114,19 +114,91 @@ if ask ":: Customize XFCE appearance and keyboard shortcuts?" Y; then
     xfconf-query -c xsettings -p /Gtk/FontName -s "Liberation Sans Regular 10"
     xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "FiraCode Nerd Font Regular 10"
     xfconf-query -c xsettings -p /Gtk/ButtonImages -s false
-    xfconf-query -c xfwm4 -p /general/theme -s "Matcha-dark-sea"
-    xfconf-query -c xfwm4 -p /general/button_layout -s "|HMC"
+
+    # xfwm4
+    xfconf-query -c xfwm4 -p /general/theme -s Matcha-dark-sea
+    xfconf-query -c xfwm4 -p /general/title_font -s Liberation Sans 9
+    xfconf-query -c xfwm4 -p /general/activate_action -s switch
+    xfconf-query -c xfwm4 -p /general/borderless_maximize -s true
+    xfconf-query -c xfwm4 -p /general/box_move -s false
+    xfconf-query -c xfwm4 -p /general/box_resize -s false
+    xfconf-query -c xfwm4 -p /general/button_layout -s |HMC
+    xfconf-query -c xfwm4 -p /general/button_offset -s 0
+    xfconf-query -c xfwm4 -p /general/button_spacing -s 0
     xfconf-query -c xfwm4 -p /general/click_to_focus -s true
     xfconf-query -c xfwm4 -p /general/cycle_apps_only -s false
     xfconf-query -c xfwm4 -p /general/cycle_draw_frame -s true
     xfconf-query -c xfwm4 -p /general/cycle_hidden -s true
     xfconf-query -c xfwm4 -p /general/cycle_minimized -s false
-    xfconf-query -c xfwm4 -p /general/cycle_minimum -s true
+    xfconf-query -c xfwm4 -p /general/cycle_minimum -s false
     xfconf-query -c xfwm4 -p /general/cycle_preview -s false
     xfconf-query -c xfwm4 -p /general/cycle_raise -s false
     xfconf-query -c xfwm4 -p /general/cycle_tabwin_mode -s 0
     xfconf-query -c xfwm4 -p /general/cycle_workspaces -s false
+    xfconf-query -c xfwm4 -p /general/double_click_action -s maximize
+    xfconf-query -c xfwm4 -p /general/double_click_distance -s 5
+    xfconf-query -c xfwm4 -p /general/double_click_time -s 250
     xfconf-query -c xfwm4 -p /general/easy_click -s Super
+    xfconf-query -c xfwm4 -p /general/focus_delay -s 250
+    xfconf-query -c xfwm4 -p /general/focus_hint -s true
+    xfconf-query -c xfwm4 -p /general/focus_new -s true
+    xfconf-query -c xfwm4 -p /general/frame_border_top -s 0
+    xfconf-query -c xfwm4 -p /general/frame_opacity -s 100
+    xfconf-query -c xfwm4 -p /general/full_width_title -s true
+    xfconf-query -c xfwm4 -p /general/horiz_scroll_opacity -s false
+    xfconf-query -c xfwm4 -p /general/inactive_opacity -s 100
+    xfconf-query -c xfwm4 -p /general/maximized_offset -s 0
+    xfconf-query -c xfwm4 -p /general/mousewheel_rollup -s true
+    xfconf-query -c xfwm4 -p /general/move_opacity -s 100
+    xfconf-query -c xfwm4 -p /general/placement_mode -s center
+    xfconf-query -c xfwm4 -p /general/placement_ratio -s 60
+    xfconf-query -c xfwm4 -p /general/popup_opacity -s 100
+    xfconf-query -c xfwm4 -p /general/prevent_focus_stealing -s true
+    xfconf-query -c xfwm4 -p /general/raise_delay -s 250
+    xfconf-query -c xfwm4 -p /general/raise_on_click -s true
+    xfconf-query -c xfwm4 -p /general/raise_on_focus -s false
+    xfconf-query -c xfwm4 -p /general/raise_with_any_button -s true
+    xfconf-query -c xfwm4 -p /general/repeat_urgent_blink -s false
+    xfconf-query -c xfwm4 -p /general/resize_opacity -s 100
+    xfconf-query -c xfwm4 -p /general/restore_on_move -s true
+    xfconf-query -c xfwm4 -p /general/scroll_workspaces -s false
+    xfconf-query -c xfwm4 -p /general/shadow_delta_height -s 0
+    xfconf-query -c xfwm4 -p /general/shadow_delta_width -s 0
+    xfconf-query -c xfwm4 -p /general/shadow_delta_x -s 0
+    xfconf-query -c xfwm4 -p /general/shadow_delta_y -s -3
+    xfconf-query -c xfwm4 -p /general/shadow_opacity -s 50
+    xfconf-query -c xfwm4 -p /general/show_app_icon -s false
+    xfconf-query -c xfwm4 -p /general/show_dock_shadow -s true
+    xfconf-query -c xfwm4 -p /general/show_frame_shadow -s true
+    xfconf-query -c xfwm4 -p /general/show_popup_shadow -s true
+    xfconf-query -c xfwm4 -p /general/snap_resist -s false
+    xfconf-query -c xfwm4 -p /general/snap_to_border -s true
+    xfconf-query -c xfwm4 -p /general/snap_to_windows -s true
+    xfconf-query -c xfwm4 -p /general/snap_width -s 10
+    xfconf-query -c xfwm4 -p /general/sync_to_vblank -s true
+    xfconf-query -c xfwm4 -p /general/tile_on_move -s true
+    xfconf-query -c xfwm4 -p /general/title_alignment -s center
+    xfconf-query -c xfwm4 -p /general/title_horizontal_offset -s 0
+    xfconf-query -c xfwm4 -p /general/titleless_maximize -s false
+    xfconf-query -c xfwm4 -p /general/title_shadow_active -s false
+    xfconf-query -c xfwm4 -p /general/title_shadow_inactive -s false
+    xfconf-query -c xfwm4 -p /general/title_vertical_offset_active -s 0
+    xfconf-query -c xfwm4 -p /general/title_vertical_offset_inactive -s 0
+    xfconf-query -c xfwm4 -p /general/toggle_workspaces -s false
+    xfconf-query -c xfwm4 -p /general/unredirect_overlays -s true
+    xfconf-query -c xfwm4 -p /general/urgent_blink -s false
+    xfconf-query -c xfwm4 -p /general/use_compositing -s true
+    xfconf-query -c xfwm4 -p /general/vblank_mode -s auto
+    xfconf-query -c xfwm4 -p /general/workspace_count -s 5
+    xfconf-query -c xfwm4 -p /general/wrap_cycle -s true
+    xfconf-query -c xfwm4 -p /general/wrap_layout -s true
+    xfconf-query -c xfwm4 -p /general/wrap_resistance -s 10
+    xfconf-query -c xfwm4 -p /general/wrap_windows -s false
+    xfconf-query -c xfwm4 -p /general/wrap_workspaces -s false
+    xfconf-query -c xfwm4 -p /general/zoom_desktop -s true
+    xfconf-query -c xfwm4 -p /general/zoom_pointer -s true
+
+    # Desktop
     xfconf-query -c xfce4-desktop -p /desktop-icons/style -s 0
 
     # Keyboard
@@ -134,34 +206,41 @@ if ask ":: Customize XFCE appearance and keyboard shortcuts?" Y; then
     xfconf-query -c keyboards --create -p /Default/KeyRepeat/Rate -s 35
 
     # Keybindings
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Alt>Print" --type string -s "xfce4-screenshooter -w"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/Print" --type string -s "xfce4-screenshooter"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Shift>Print" --type string -s "xfce4-screenshooter -r"
+    # -----------
+    # Launch apps or actions
     xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>d" --type string -s "xfce4-popup-whiskermenu"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>l" --type string -s "xflock4"
     xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>p" --type string -s "pavucontrol"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Alt>Tab" --type string -s "cycle_windows_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Alt><Shift>Tab" --type string -s "cycle_reverse_windows_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Alt>space" --type string -s "popup_menu_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Primary><Super>Down" --type string -s "tile_down_left_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Primary><Super>Left" --type string -s "tile_up_left_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Primary><Super>Right" --type string -s "tile_up_right_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Primary><Super>Up" --type string -s "tile_down_right_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>j" --type string -s "move_window_left_workspace_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>k" --type string -s "move_window_right_workspace_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>Page_Down" --type string -s "move_window_next_workspace_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>Page_Up" --type string -s "move_window_prev_workspace_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>Up" --type string -s "maximize_window_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Down" --type string -s "tile_down_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>j" --type string -s "left_workspace_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>k" --type string -s "right_workspace_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Left" --type string -s "tile_left_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Page_Down" --type string -s "next_workspace_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Page_Up" --type string -s "prev_workspace_key"
     xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>q" --type string -s "close_window_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Right" --type string -s "tile_right_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Tab" --type string -s "switch_window_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Up" --type string -s "maximize_window_key"
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "commands/custom/<Super>Return" --type string -s switch_to_app terminator
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "commands/custom/<Super>w" -s --type string switch_to_app firefox
+
+    # Tiling and maximize windows
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>k" --type string -s maximize_window_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>h" --type string -s tile_left_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>l" --type string -s tile_right_key
+
+    # Worskapces
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "xfwm4/custom/<Super>comma" --type string -s left_workspace_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "xfwm4/custom/<Super>period" --type string -s right_workspace_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>greater" --type string -s move_window_right_workspace_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>less" --type string -s move_window_left_workspace_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Page_Down" --type string -s next_workspace_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Page_Up" --type string -s prev_workspace_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>Page_Down" --type string -s move_window_next_workspace_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>Page_Up" --type string -s move_window_prev_workspace_key
+
+    # Worskapces by numbers
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>1" --type string -s workspace_1_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>2" --type string -s workspace_2_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>3" --type string -s workspace_3_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>4" --type string -s workspace_4_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>5" --type string -s workspace_5_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>6" --type string -s workspace_6_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>exclam" --type string -s move_window_workspace_1_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>at" --type string -s move_window_workspace_2_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>numbersign" --type string -s move_window_workspace_3_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>dollar" --type string -s move_window_workspace_4_key
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>percent" --type string -s move_window_workspace_5_key
 
     echo ""
     echo "Done! Remember to logout to see the changes."
