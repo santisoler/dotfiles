@@ -127,10 +127,11 @@ if ask ":: Customize XFCE appearance and keyboard shortcuts?" Y; then
     xfconf-query -c xfwm4 -p /general/cycle_tabwin_mode -s 0
     xfconf-query -c xfwm4 -p /general/cycle_workspaces -s false
     xfconf-query -c xfwm4 -p /general/easy_click -s Super
+    xfconf-query -c xfce4-desktop -p /desktop-icons/style -s 0
 
     # Keyboard
-    xfconf-query -c keyboards -p /Default/KeyRepeat/Delay -s 245
-    xfconf-query -c keyboards -p /Default/KeyRepeat/Rate -s 35
+    xfconf-query -c keyboards --create -p /Default/KeyRepeat/Delay -s 245
+    xfconf-query -c keyboards --create -p /Default/KeyRepeat/Rate -s 35
 
     # Keybindings
     xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Alt>Print" --type string -s "xfce4-screenshooter -w"
