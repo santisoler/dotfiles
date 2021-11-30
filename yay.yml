@@ -4,6 +4,9 @@ fonts:
   - ttf-nunito
   - nerd-fonts-fira-code
 
+devilspie2:
+  - devilspie2
+
 spaceship-prompt:
   - spaceship-prompt
 
