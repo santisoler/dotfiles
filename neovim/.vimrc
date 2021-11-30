@@ -164,5 +164,5 @@ nnoremap J mzJ`z
 " Move text up and down without ddp (source: ThePrimeagen)
 nnoremap <leader>k :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
-vnoremap K :m '<-2<CR>gv=gv
-vnoremap J :m '>+1<CR>gv=gv
+vnoremap <leader>k :m '<-2<CR>gv=gv
+vnoremap <leader>j :m '>+1<CR>gv=gv
