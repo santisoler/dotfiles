@@ -136,7 +136,11 @@ let g:user_emmet_leader_key='<C-Z>'
 
 " neoformat
 " ---------
-let g:neoformat_enabled_python = ['black']
+" Don't stop when running the first formatter, run all
+let g:neoformat_run_all_formatters = 1
+" Configure isort and black autoformatters
+let g:neoformat_enabled_python = ['isort', 'black']
+let g:neoformat_python_isort = {'args': ['--profile black']}
 " Run neoformat after saving some chosen files
 autocmd BufWritePre *.py,*.html,*.css,*.less,*.yml Neoformat
 
