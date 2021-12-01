@@ -106,7 +106,7 @@ function! ToggleSpell()
 endfunction
 
 " Spelling always on for some files
-autocmd BufNewFile,BufRead *.md,*.tex,*.rst setlocal spell
+autocmd BufNewFile,BufRead *.md,*.tex,*.rst,*.py setlocal spell
 
 
 " ========
