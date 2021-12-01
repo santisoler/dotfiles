@@ -118,6 +118,9 @@ autocmd BufNewFile,BufRead *.md,*.tex,*.rst,*.py setlocal spell
 nmap <leader>n :bnext<CR>
 nmap <leader>p :bprevious<CR>
 
+" Delete current buffer
+nmap <leader>d :bd<CR>
+
 " Split keyboard shortcuts
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
