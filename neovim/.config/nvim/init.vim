@@ -101,7 +101,8 @@ let g:syntastic_tex_checkers = [''] " disable syntastic in latex file
 " let g:syntastic_tex_checkers = ['lacheck', 'text/language_check']
 let g:syntastic_rst_checkers = ['text/language_check']
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args="--max-line-length=88"
+" make flake8 compatible with black
+let g:syntastic_python_flake8_args="--max-line-length=88 --ignore=W503,E203"
 let g:syntastic_tex_lacheck_quiet_messages = {'regex': '\Vpossible unwanted space at'}
 map <leader>sy :call SyntasticToggleMode()<cr>
 
