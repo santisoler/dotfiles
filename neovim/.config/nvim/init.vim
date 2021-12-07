@@ -40,6 +40,7 @@ Plug 'vim-airline/vim-airline-themes'  " airline themes
 Plug 'nvim-telescope/telescope.nvim'   " fuzzy finder
 Plug 'nvim-lua/plenary.nvim'           " needed by telescope
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
