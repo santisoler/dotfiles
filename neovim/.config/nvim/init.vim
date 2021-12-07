@@ -23,25 +23,23 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugins are downloaded from Github (username/repo)
-Plug 'joshdick/onedark.vim'
-Plug 'sheerun/vim-polyglot'
+Plug 'airblade/vim-gitgutter'          " git flags in the sign column
 Plug 'tpope/vim-fugitive'              " git wrapper
 Plug 'vim-syntastic/syntastic'         " syntax linter
-Plug 'vim-airline/vim-airline'         " airline (bottom bar)
-Plug 'vim-airline/vim-airline-themes'  " airline themes
-Plug 'lervag/vimtex'                   " latex plugin
-Plug 'airblade/vim-gitgutter'          " git flags in the sign column
 Plug 'scrooloose/nerdcommenter'        " improved comments
 Plug 'scrooloose/nerdtree'             " nerdtree
 Plug 'Xuyuanp/nerdtree-git-plugin'     " show git icons on nerdtree
-Plug 'mattn/emmet-vim'                 " for HTML completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
-Plug 'sbdchd/neoformat'                " formatter for multiple languages
 Plug 'tpope/vim-surround'              " surround highlighted text
-Plug 'ap/vim-css-color'
-Plug 'nvim-lua/plenary.nvim'           " needed by telescope
+Plug 'lervag/vimtex'                   " latex plugin
+Plug 'ap/vim-css-color'                " highlight RGB colors
+Plug 'mattn/emmet-vim'                 " for HTML completion
+Plug 'sbdchd/neoformat'                " formatter for multiple languages
+Plug 'arcticicestudio/nord-vim'        " Nord theme for Neovim
+Plug 'vim-airline/vim-airline'         " airline (bottom bar)
+Plug 'vim-airline/vim-airline-themes'  " airline themes
 Plug 'nvim-telescope/telescope.nvim'   " fuzzy finder
-Plug 'arcticicestudio/nord-vim'
+Plug 'nvim-lua/plenary.nvim'           " needed by telescope
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
 
 call plug#end()
 
@@ -55,12 +53,7 @@ if (empty($TMUX))
     endif
 endif
 
-" let g:onedark_color_overrides = {
-" \ "white": {"gui": "#dcdfe4", "cterm": "235", "cterm16": "0" },
-" \}
-
 " Set colorscheme
-" colorscheme onedark
 colorscheme nord
 
 
@@ -80,13 +73,12 @@ let g:airline_powerline_fonts = 1
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_theme='nord'
 " let g:airline#extensions#branch#symbol = '⎇  '
 " let g:airline_left_sep = ''
 " let g:airline_right_sep = ''
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-" let g:airline_theme='onedark'
-let g:airline_theme='nord'
 
 " syntastic
 " ---------
