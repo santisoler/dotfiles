@@ -66,17 +66,6 @@ else
 fi
 
 echo
-if ask ":: Create symlinks for scripts in ~/bin?" Y; then
-    echo "Creating symlinks for any ~/bin/ to ~/local/bin [...]"
-    # Create symlinks to ~/bin/ files inside ~/.local/bin
-    for binfile in ~/bin/*; do
-        ln -s -i $binfile ~/.local/bin;
-    done
-else
-    echo "Skipping..."
-fi
-
-echo
 if ask ":: Change shell to zsh?" Y; then
     chsh -s /usr/bin/zsh
 else
