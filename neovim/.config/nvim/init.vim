@@ -41,6 +41,7 @@ Plug 'nvim-telescope/telescope.nvim'   " fuzzy finder
 Plug 'nvim-lua/plenary.nvim'           " needed by telescope
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
 Plug 'sheerun/vim-polyglot'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 call plug#end()
 
@@ -151,6 +152,12 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+" markdown-preview.nvim
+" ---------------------
+" set to 1, the nvim will auto close current preview window when change
+" from markdown buffer to another buffer
+let g:mkdp_auto_close = 0
 
 " coc-nvim
 " --------
