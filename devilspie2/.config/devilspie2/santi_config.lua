@@ -1,4 +1,4 @@
--- Assign Terminator and Firefox to workspace 1
+-- Assign Terminator workspace 1
 if (get_application_name() == "terminator") then
   set_window_workspace(1);
   change_workspace(1);
