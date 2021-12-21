@@ -1,7 +1,4 @@
-fonts:
-  - ttf-google-fonts-git
-  - ttf-ms-fonts
-  - ttf-nunito
+nerd-fira-font:
   - nerd-fonts-fira-code
 
 devilspie2:
@@ -21,6 +18,11 @@ zoom:
 
 zotero:
   - zotero
+
+fonts:
+  - ttf-google-fonts-git
+  - ttf-ms-fonts
+  - ttf-nunito
 
 subliminal:
   - subliminal-git
