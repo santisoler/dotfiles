@@ -6,6 +6,7 @@ xfce extra:
   - wmctrl
   - thunar-archive-plugin
   - thunar-media-tags-plugin
+  - ristretto
 
 cli apps:
   - gnupg
@@ -44,7 +45,7 @@ nextcloud:
   - nextcloud-client
 
 syncthing:
-  - syncthing-gtk
+  - syncthing
 
 guvcview (configure webcam):
   - guvcview
@@ -118,7 +119,6 @@ gpodder:
 
 lollypop:
   - lollypop
-  - quodlibet
 
 graphics:
   - darktable
@@ -126,7 +126,6 @@ graphics:
   - simple-scan
   - inkscape
   - pstoedit
-  - python2-lxml
   - gcolor3
 
 steam:
@@ -135,15 +134,11 @@ steam:
 play on linux:
   - playonlinux
 
-meld:
-  - meld
-
 texlive:
   - texlive-core
   - texlive-latexextra
   - texlive-bibtexextra
   - texlive-science
-  - git-latexdiff
 
 audio-tools:
   - sox
