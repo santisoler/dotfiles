@@ -197,40 +197,40 @@ if ask ":: Customize XFCE appearance and keyboard shortcuts?" Y; then
     # Keybindings
     # -----------
     # Launch apps or actions
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>d" --type string -s "xfce4-popup-whiskermenu"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>p" --type string -s "pavucontrol"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>o" --type string -s "xflock4"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "commands/custom/<Super>Return" --type string -s switch_to_app terminator
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "commands/custom/<Super>w" -s --type string switch_to_app firefox
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>q" --type string -s "close_window_key"
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>d" --type string -s "xfce4-popup-whiskermenu"
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>p" --type string -s "pavucontrol"
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>o" --type string -s "xflock4"
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "commands/custom/<Super>Return" --type string -s switch_to_app terminator
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "commands/custom/<Super>w" -s --type string switch_to_app firefox
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>q" --type string -s "close_window_key"
 
-    # Tiling and maximize windows
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>k" --type string -s maximize_window_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>h" --type string -s tile_left_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>l" --type string -s tile_right_key
+    # # Tiling and maximize windows
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>k" --type string -s maximize_window_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>h" --type string -s tile_left_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>l" --type string -s tile_right_key
 
-    # Worskapces
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "xfwm4/custom/<Super>comma" --type string -s left_workspace_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "xfwm4/custom/<Super>period" --type string -s right_workspace_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>greater" --type string -s move_window_right_workspace_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>less" --type string -s move_window_left_workspace_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Page_Down" --type string -s next_workspace_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Page_Up" --type string -s prev_workspace_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>Page_Down" --type string -s move_window_next_workspace_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>Page_Up" --type string -s move_window_prev_workspace_key
+    # # Worskapces
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "xfwm4/custom/<Super>comma" --type string -s left_workspace_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "xfwm4/custom/<Super>period" --type string -s right_workspace_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>greater" --type string -s move_window_right_workspace_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>less" --type string -s move_window_left_workspace_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Page_Down" --type string -s next_workspace_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Page_Up" --type string -s prev_workspace_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>Page_Down" --type string -s move_window_next_workspace_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>Page_Up" --type string -s move_window_prev_workspace_key
 
-    # Worskapces by numbers
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>1" --type string -s workspace_1_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>2" --type string -s workspace_2_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>3" --type string -s workspace_3_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>4" --type string -s workspace_4_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>5" --type string -s workspace_5_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>6" --type string -s workspace_6_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>exclam" --type string -s move_window_workspace_1_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>at" --type string -s move_window_workspace_2_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>numbersign" --type string -s move_window_workspace_3_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>dollar" --type string -s move_window_workspace_4_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>percent" --type string -s move_window_workspace_5_key
+    # # Worskapces by numbers
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>1" --type string -s workspace_1_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>2" --type string -s workspace_2_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>3" --type string -s workspace_3_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>4" --type string -s workspace_4_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>5" --type string -s workspace_5_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>6" --type string -s workspace_6_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>exclam" --type string -s move_window_workspace_1_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>at" --type string -s move_window_workspace_2_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>numbersign" --type string -s move_window_workspace_3_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>dollar" --type string -s move_window_workspace_4_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>percent" --type string -s move_window_workspace_5_key
 
     echo ""
     echo "Done! Remember to logout to see the changes."
