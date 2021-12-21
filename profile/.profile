@@ -7,6 +7,11 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export TERMINAL=/usr/bin/terminator
 export EDITOR=/usr/bin/nvim
 
+# Add ~/bin to PATH
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
 # Configura layout del teclado a US intl with altgr, usando caps lock como altgr
 # setxkbmap -layout us -variant altgr-intl -option "lv3:caps_switch"
 

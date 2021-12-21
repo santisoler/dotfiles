@@ -106,7 +106,7 @@ function! ToggleSpell()
 endfunction
 
 " Spelling always on for some files
-autocmd BufNewFile,BufRead *.md,*.tex,*.rst setlocal spell
+autocmd BufNewFile,BufRead *.md,*.tex,*.rst,*.py setlocal spell
 
 
 " ========
@@ -117,6 +117,9 @@ autocmd BufNewFile,BufRead *.md,*.tex,*.rst setlocal spell
 " Please check if airline has <let g:airline#extensions#tabline#enabled = 1>
 nmap <leader>n :bnext<CR>
 nmap <leader>p :bprevious<CR>
+
+" Delete current buffer
+nmap <leader>d :bd<CR>
 
 " Split keyboard shortcuts
 nnoremap <C-h> <C-w>h
@@ -164,5 +167,5 @@ nnoremap J mzJ`z
 " Move text up and down without ddp (source: ThePrimeagen)
 nnoremap <leader>k :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
-vnoremap K :m '<-2<CR>gv=gv
-vnoremap J :m '>+1<CR>gv=gv
+vnoremap <leader>k :m '<-2<CR>gv=gv
+vnoremap <leader>j :m '>+1<CR>gv=gv

@@ -19,6 +19,8 @@ cli apps:
   - github-cli
   - git-delta
   - youtube-dl
+  - ranger
+  - highlight
 
 zsh:
   - zsh
