@@ -233,7 +233,7 @@ if ask ":: Customize XFCE appearance and keyboard shortcuts?" Y; then
     # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>percent" --type string -s move_window_workspace_5_key
 
     echo ""
-    echo "Done! Remember to logout to see the changes."
+    echo "Done! Remember to restart to see the changes."
 
     echo ""
     echo "TODO:"
