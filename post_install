@@ -191,17 +191,18 @@ if ask ":: Customize XFCE appearance and keyboard shortcuts?" Y; then
     xfconf-query -c xfce4-desktop -p /desktop-icons/style -s 0
 
     # Keyboard
-    xfconf-query -c keyboards --create -p /Default/KeyRepeat/Delay --type int -s 245
-    xfconf-query -c keyboards --create -p /Default/KeyRepeat/Rate --type int -s 35
+    xfconf-query -c keyboards --create -p /Default/KeyRepeat/Delay --type int -s 200
+    xfconf-query -c keyboards --create -p /Default/KeyRepeat/Rate --type int -s 50
 
     # Keybindings
     # -----------
     # Launch apps or actions
     xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>d" --type string -s "xfce4-popup-whiskermenu"
     xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>p" --type string -s "pavucontrol"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>q" --type string -s "close_window_key"
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>o" --type string -s "xflock4"
     xfconf-query -c xfce4-keyboard-shortcuts --create -p "commands/custom/<Super>Return" --type string -s switch_to_app terminator
     xfconf-query -c xfce4-keyboard-shortcuts --create -p "commands/custom/<Super>w" -s --type string switch_to_app firefox
+    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>q" --type string -s "close_window_key"
 
     # Tiling and maximize windows
     xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>k" --type string -s maximize_window_key
@@ -237,6 +238,9 @@ if ask ":: Customize XFCE appearance and keyboard shortcuts?" Y; then
     echo ""
     echo "TODO:"
     echo "- Check for autostart applications"
+    echo "  * devilspie2"
+    echo "  * syncthing -m"
+    echo "  * disable xcape"
 else
     echo "Skipping..."
 fi
