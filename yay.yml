@@ -10,6 +10,9 @@ spaceship-prompt:
 xfce4-docklike-plugin:
   - xfce4-docklike-plugin
 
+xfce4-panel-profiles:
+  - xfce4-panel-profiles
+
 slack-desktop:
   - slack-desktop
 
