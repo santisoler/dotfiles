@@ -59,6 +59,8 @@
       <property name="&lt;Super&gt;w" type="string" value="switch_to_app firefox"/>
       <property name="&lt;Super&gt;p" type="string" value="pavucontrol"/>
       <property name="&lt;Super&gt;o" type="string" value="xflock4"/>
+      <property name="&lt;Super&gt;x" type="string" value="keepassxc"/>
+      <property name="&lt;Super&gt;space" type="string" value="playerctl play-pause"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
