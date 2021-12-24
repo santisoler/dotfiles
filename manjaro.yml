@@ -22,6 +22,7 @@ cli apps:
   - youtube-dl
   - ranger
   - highlight
+  - playerctl
 
 zsh:
   - zsh
