@@ -8,6 +8,10 @@ xfce extra:
   - thunar-media-tags-plugin
   - ristretto
 
+printer:
+  - manjaro-printer
+  - system-config-printer
+
 cli apps:
   - gnupg
   - pandoc

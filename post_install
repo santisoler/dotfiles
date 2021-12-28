@@ -89,6 +89,17 @@ else
     echo "Skipping..."
 fi
 
+echo
+if ask ":: Configure printing services?" Y; then
+    # Source: https://wiki.manjaro.org/index.php?title=Printing
+    sudo gpasswd -a $USER sys
+    sudo systemctl enable --now cups.service
+    sudo systemctl enable --now cups.socket
+    sudo systemctl enable --now cups.path
+else
+    echo "Skipping..."
+fi
+
 
 # ----------------------------
 # Customize XFCE look and feel
