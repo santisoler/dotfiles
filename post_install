@@ -100,6 +100,15 @@ else
     echo "Skipping..."
 fi
 
+echo
+if ask ":: Configure SSD TRIM?" Y; then
+    # Source: https://averagelinuxuser.com/manjaro-xfce-after-install/#10-enable-trim-for-ssd
+    sudo systemctl enable fstrim.timer
+    sudo systemctl start fstrim.timer
+else
+    echo "Skipping..."
+fi
+
 
 # ----------------------------
 # Customize XFCE look and feel
