@@ -8,6 +8,10 @@ xfce extra:
   - thunar-media-tags-plugin
   - ristretto
 
+printer:
+  - manjaro-printer
+  - system-config-printer
+
 cli apps:
   - gnupg
   - pandoc
@@ -22,6 +26,7 @@ cli apps:
   - youtube-dl
   - ranger
   - highlight
+  - playerctl
 
 zsh:
   - zsh
