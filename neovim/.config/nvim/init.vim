@@ -42,6 +42,7 @@ Plug 'nvim-lua/plenary.nvim'           " needed by telescope
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
 Plug 'sheerun/vim-polyglot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -158,6 +159,18 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " set to 1, the nvim will auto close current preview window when change
 " from markdown buffer to another buffer
 let g:mkdp_auto_close = 0
+
+" vimwiki
+" -------
+let g:vimwiki_list = [{
+	\ 'path': '~/documents/vimwiki',
+	\ 'template_path': '~/documents/vimwiki/templates/',
+	\ 'template_default': 'default',
+	\ 'syntax': 'markdown',
+	\ 'ext': '.md',
+	\ 'path_html': '~/documents/vimwiki/site_html/',
+	\ 'custom_wiki2html': 'vimwiki_markdown',
+	\ 'template_ext': '.tpl'}]
 
 " coc-nvim
 " --------
