@@ -27,6 +27,7 @@ cli apps:
   - ranger
   - highlight
   - playerctl
+  - timew
 
 zsh:
   - zsh
