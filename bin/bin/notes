@@ -13,8 +13,15 @@ if [[ ! -e $notes ]]; then
     echo "# Notes for $(date +%Y-%m)" > $notes
 fi
 
-# Create new entry for the day
-nvim -c "norm Go" \
-    -c "norm Go## $(date +%Y-%m-%d)" \
-    -c "norm zz" \
-    $notes
+# Get last date in the notes file
+last_date=$(cat $notes | grep "##" | tail -1 | sed 's/## //')
+
+# Start editing the notes file with Neovim
+if [[ "$last_date" == "$(date +%Y-%m-%d)" ]]; then
+    nvim -c "norm Go" -c "norm zz" $notes
+else
+    nvim -c "norm Go"
+        -c "norm Go## $(date +%Y-%m-%d)" \
+        -c "norm zz" \
+        $notes
+fi
