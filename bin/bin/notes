@@ -1,0 +1,20 @@
+#!/bin/bash
+
+journal=$HOME/documents/notes/journal
+notes=$journal/$(date +%Y-%m).md
+
+# Create journal_dir if missing
+if [[ ! -d $journal ]]; then
+    mkdir $journal
+fi
+
+# Create notes_file if missing
+if [[ ! -e $notes ]]; then
+    echo "# Notes for $(date +%Y-%m)" > $notes
+fi
+
+# Create new entry for the day
+nvim -c "norm Go" \
+    -c "norm Go## $(date +%Y-%m-%d)" \
+    -c "norm zz" \
+    $notes
