@@ -1,6 +1,5 @@
 [global_config]
   handle_size = 0
-  window_state = maximise
   extra_styling = False
   scroll_tabbar = True
   homogeneous_tabbar = False
@@ -17,14 +16,26 @@
   go_down = <Alt>j
   go_left = <Alt>h
   go_right = <Alt>l
+  rotate_cw = ""
+  rotate_ccw = ""
   next_tab = <Primary>Tab
   prev_tab = <Primary><Shift>Tab
+  switch_to_tab_1 = <Alt>1
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+  switch_to_tab_6 = <Alt>6
+  switch_to_tab_7 = <Alt>7
+  switch_to_tab_8 = <Alt>8
+  switch_to_tab_9 = <Alt>9
+  ungroup_all = ""
+  ungroup_tab = ""
   layout_launcher = ""
 [profiles]
   [[default]]
     background_color = "#2E3440"
     background_darkness = 1.0
-    background_type = transparent
     cursor_blink = False
     cursor_color = "#D8DEE9"
     font = FiraCode Nerd Font 9.5
@@ -32,7 +43,7 @@
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_lines = 10000
-    palette = "#3B4252:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#b48ead:#88c0d0:#E5E9F0:#4C566A:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#b48ead:#88C0D0:#ECEFF4"
+    palette = "#3b4252:#bf616a:#a3be8c:#ebcb8b:#81a1c1:#b48ead:#88c0d0:#e5e9f0:#4c566a:#bf616a:#a3be8c:#ebcb8b:#81a1c1:#b48ead:#88c0d0:#eceff4"
     use_system_font = False
     bold_is_bright = True
   [[onedark]]
