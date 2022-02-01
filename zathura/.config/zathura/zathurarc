@@ -4,6 +4,8 @@
 set font "FiraCode Nerd Font Regular 9"
 set selection-clipboard clipboard
 set scroll-step 100
+set window-height 1019
+set window-width 956
 
 
 # -----------
