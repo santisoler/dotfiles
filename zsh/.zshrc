@@ -85,7 +85,7 @@ fi
 # Aliases
 # -------
 alias v="nvim"
-alias notes="cd $NOTES; nvim .; cd -"
+# alias notes="cd $NOTES; nvim .; cd -"
 alias todo='nvim -c "norm Go" $NOTES/todo.md'
 alias cp="cp -i"
 alias mv="mv -i"
