@@ -8,19 +8,21 @@ if [[ ! -d $journal ]]; then
     mkdir $journal
 fi
 
-# Create notes_file if missing
-if [[ ! -e $notes ]]; then
+if [[ -e $notes ]]; then
+    # Get last date in the notes file
+    last_date=$(cat $notes | grep "^## " | tail -1 | sed 's/## //')
+else
+    # Create notes_file if missing
     echo "# Notes for $(date +%Y-%m)" > $notes
+    last_date=""
 fi
-
-# Get last date in the notes file
-last_date=$(cat $notes | grep "##" | tail -1 | sed 's/## //')
 
 # Start editing the notes file with Neovim
 if [[ "$last_date" == "$(date +%Y-%m-%d)" ]]; then
     nvim -c "norm Go" -c "norm zz" $notes
 else
-    nvim -c "norm Go"
+    nvim -c "norm Go" \
+        -c "norm Go" \
         -c "norm Go## $(date +%Y-%m-%d)" \
         -c "norm zz" \
         $notes
