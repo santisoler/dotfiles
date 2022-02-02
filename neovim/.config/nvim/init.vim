@@ -171,6 +171,7 @@ let g:vimwiki_list = [{
 	\ 'path_html': '~/documents/vimwiki/site_html/',
 	\ 'custom_wiki2html': 'vimwiki_markdown',
 	\ 'template_ext': '.tpl'}]
+let g:vimwiki_global_ext = 0
 
 " coc-nvim
 " --------
