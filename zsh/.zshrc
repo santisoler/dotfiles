@@ -198,7 +198,6 @@ fi
 # -----------------------
 # Add directories to PATH
 # -----------------------
-export PATH=$HOME/bin/:$PATH
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir' 2> /dev/null)/bin"
 
 #
