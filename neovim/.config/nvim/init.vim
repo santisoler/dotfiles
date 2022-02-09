@@ -48,6 +48,9 @@ Plug 'vimwiki/vimwiki'
 Plug 'neovim/nvim-lspconfig'           " configurations for built-in LSP client
 Plug 'hrsh7th/nvim-cmp'                " autocompletion plugin
 Plug 'hrsh7th/cmp-nvim-lsp'            " LSP source for nvim-cmp
+Plug 'hrsh7th/cmp-buffer'              " autocomplete with words from buffer
+Plug 'hrsh7th/cmp-path'                " autocomplete paths
+Plug 'hrsh7th/cmp-cmdline'             " autocompletion for vim's command line
 Plug 'saadparwaiz1/cmp_luasnip'        " Snippets source for nvim-cmp
 Plug 'L3MON4D3/LuaSnip'                " Snippets plugin
 
