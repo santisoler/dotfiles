@@ -69,8 +69,8 @@ cmp.setup({
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = 'buffer' },
-    { name = 'path' },
+    { name = 'buffer', keyword_length = 5},
+    { name = 'path', trailing_slasha = true},
     { name = 'cmdline' },
   },
 })
@@ -83,11 +83,11 @@ cmp.setup.cmdline('/', {
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
-})
+-- cmp.setup.cmdline(':', {
+--   sources = cmp.config.sources({
+--     { name = 'path' }
+--   }, {
+--     { name = 'cmdline' }
+--   })
+-- })
 
