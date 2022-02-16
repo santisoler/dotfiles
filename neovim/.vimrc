@@ -174,12 +174,15 @@ vnoremap <leader>j :m '>+1<CR>gv=gv
 " -------------------------------------
 " Load template when creating new files
 " -------------------------------------
-if !empty(glob("~/templates/README.md"))
-    autocmd BufNewFile README.md 0r ~/templates/README.md
-endif
-if !empty(glob("~/templates/letter.tex"))
-    autocmd BufNewFile letter.tex 0r ~/templates/letter.tex
-endif
-if !empty(glob("~/templates/environment.yml"))
-    autocmd BufNewFile environment.yml 0r ~/templates/environment.yml
-endif
+augroup templates
+    au!
+    if !empty(glob("~/templates/README.md"))
+        autocmd BufNewFile README.md 0r ~/templates/README.md
+    endif
+    if !empty(glob("~/templates/letter.tex"))
+        autocmd BufNewFile letter.tex 0r ~/templates/letter.tex
+    endif
+    if !empty(glob("~/templates/environment.yml"))
+        autocmd BufNewFile environment.yml 0r ~/templates/environment.yml
+    endif
+augroup END
