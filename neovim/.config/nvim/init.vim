@@ -23,25 +23,26 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugins are downloaded from Github (username/repo)
-Plug 'joshdick/onedark.vim'
-Plug 'sheerun/vim-polyglot'
+Plug 'airblade/vim-gitgutter'          " git flags in the sign column
 Plug 'tpope/vim-fugitive'              " git wrapper
 Plug 'vim-syntastic/syntastic'         " syntax linter
-Plug 'vim-airline/vim-airline'         " airline (bottom bar)
-Plug 'vim-airline/vim-airline-themes'  " airline themes
-Plug 'lervag/vimtex'                   " latex plugin
-Plug 'airblade/vim-gitgutter'          " git flags in the sign column
 Plug 'scrooloose/nerdcommenter'        " improved comments
 Plug 'scrooloose/nerdtree'             " nerdtree
 Plug 'Xuyuanp/nerdtree-git-plugin'     " show git icons on nerdtree
-Plug 'mattn/emmet-vim'                 " for HTML completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
-Plug 'sbdchd/neoformat'                " formatter for multiple languages
 Plug 'tpope/vim-surround'              " surround highlighted text
-Plug 'ap/vim-css-color'
-Plug 'nvim-lua/plenary.nvim'           " needed by telescope
+Plug 'lervag/vimtex'                   " latex plugin
+Plug 'ap/vim-css-color'                " highlight RGB colors
+Plug 'mattn/emmet-vim'                 " for HTML completion
+Plug 'sbdchd/neoformat'                " formatter for multiple languages
+Plug 'arcticicestudio/nord-vim'        " Nord theme for Neovim
+Plug 'vim-airline/vim-airline'         " airline (bottom bar)
+Plug 'vim-airline/vim-airline-themes'  " airline themes
 Plug 'nvim-telescope/telescope.nvim'   " fuzzy finder
-Plug 'arcticicestudio/nord-vim'
+Plug 'nvim-lua/plenary.nvim'           " needed by telescope
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
+Plug 'sheerun/vim-polyglot'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -55,12 +56,7 @@ if (empty($TMUX))
     endif
 endif
 
-" let g:onedark_color_overrides = {
-" \ "white": {"gui": "#dcdfe4", "cterm": "235", "cterm16": "0" },
-" \}
-
 " Set colorscheme
-" colorscheme onedark
 colorscheme nord
 
 
@@ -80,13 +76,12 @@ let g:airline_powerline_fonts = 1
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_theme='nord'
 " let g:airline#extensions#branch#symbol = '⎇  '
 " let g:airline_left_sep = ''
 " let g:airline_right_sep = ''
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-" let g:airline_theme='onedark'
-let g:airline_theme='nord'
 
 " syntastic
 " ---------
@@ -101,7 +96,8 @@ let g:syntastic_tex_checkers = [''] " disable syntastic in latex file
 " let g:syntastic_tex_checkers = ['lacheck', 'text/language_check']
 let g:syntastic_rst_checkers = ['text/language_check']
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args="--max-line-length=88"
+" make flake8 compatible with black
+let g:syntastic_python_flake8_args="--max-line-length=88 --ignore=W503,E203"
 let g:syntastic_tex_lacheck_quiet_messages = {'regex': '\Vpossible unwanted space at'}
 map <leader>sy :call SyntasticToggleMode()<cr>
 
@@ -157,6 +153,25 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+" markdown-preview.nvim
+" ---------------------
+" set to 1, the nvim will auto close current preview window when change
+" from markdown buffer to another buffer
+let g:mkdp_auto_close = 0
+
+" vimwiki
+" -------
+let g:vimwiki_list = [{
+	\ 'path': '~/documents/vimwiki',
+	\ 'template_path': '~/documents/vimwiki/templates/',
+	\ 'template_default': 'default',
+	\ 'syntax': 'markdown',
+	\ 'ext': '.md',
+	\ 'path_html': '~/documents/vimwiki/site_html/',
+	\ 'custom_wiki2html': 'vimwiki_markdown',
+	\ 'template_ext': '.tpl'}]
+let g:vimwiki_global_ext = 0
 
 " coc-nvim
 " --------

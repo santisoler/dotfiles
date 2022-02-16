@@ -66,17 +66,6 @@ else
 fi
 
 echo
-if ask ":: Create symlinks for scripts in ~/bin?" Y; then
-    echo "Creating symlinks for any ~/bin/ to ~/local/bin [...]"
-    # Create symlinks to ~/bin/ files inside ~/.local/bin
-    for binfile in ~/bin/*; do
-        ln -s -i $binfile ~/.local/bin;
-    done
-else
-    echo "Skipping..."
-fi
-
-echo
 if ask ":: Change shell to zsh?" Y; then
     chsh -s /usr/bin/zsh
 else
@@ -96,6 +85,33 @@ if ask ":: Download and install mambaforge?" Y; then
     echo "  ** Remember to install in ~/.mambaforge **"
     curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh
     bash Mambaforge-$(uname)-$(uname -m).sh
+else
+    echo "Skipping..."
+fi
+
+echo
+if ask ":: Configure printing services?" Y; then
+    # Source: https://wiki.manjaro.org/index.php?title=Printing
+    sudo gpasswd -a $USER sys
+    sudo systemctl enable --now cups.service
+    sudo systemctl enable --now cups.socket
+    sudo systemctl enable --now cups.path
+else
+    echo "Skipping..."
+fi
+
+echo
+if ask ":: Configure SSD TRIM?" Y; then
+    # Source: https://averagelinuxuser.com/manjaro-xfce-after-install/#10-enable-trim-for-ssd
+    sudo systemctl enable fstrim.timer
+    sudo systemctl start fstrim.timer
+else
+    echo "Skipping..."
+fi
+
+echo
+if ask ":: Lower swappiness to 5?" Y; then
+    sudo sysctl -w vm.swappiness=5
 else
     echo "Skipping..."
 fi
@@ -202,52 +218,56 @@ if ask ":: Customize XFCE appearance and keyboard shortcuts?" Y; then
     xfconf-query -c xfce4-desktop -p /desktop-icons/style -s 0
 
     # Keyboard
-    xfconf-query -c keyboards --create -p /Default/KeyRepeat/Delay --type int -s 245
-    xfconf-query -c keyboards --create -p /Default/KeyRepeat/Rate --type int -s 35
+    xfconf-query -c keyboards --create -p /Default/KeyRepeat/Delay --type int -s 200
+    xfconf-query -c keyboards --create -p /Default/KeyRepeat/Rate --type int -s 50
 
     # Keybindings
     # -----------
     # Launch apps or actions
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>d" --type string -s "xfce4-popup-whiskermenu"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>p" --type string -s "pavucontrol"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>q" --type string -s "close_window_key"
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "commands/custom/<Super>Return" --type string -s switch_to_app terminator
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "commands/custom/<Super>w" -s --type string switch_to_app firefox
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>d" --type string -s "xfce4-popup-whiskermenu"
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>p" --type string -s "pavucontrol"
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/commands/custom/<Super>o" --type string -s "xflock4"
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "commands/custom/<Super>Return" --type string -s switch_to_app terminator
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "commands/custom/<Super>w" -s --type string switch_to_app firefox
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>q" --type string -s "close_window_key"
 
-    # Tiling and maximize windows
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>k" --type string -s maximize_window_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>h" --type string -s tile_left_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>l" --type string -s tile_right_key
+    # # Tiling and maximize windows
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>k" --type string -s maximize_window_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>h" --type string -s tile_left_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>l" --type string -s tile_right_key
 
-    # Worskapces
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "xfwm4/custom/<Super>comma" --type string -s left_workspace_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "xfwm4/custom/<Super>period" --type string -s right_workspace_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>greater" --type string -s move_window_right_workspace_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>less" --type string -s move_window_left_workspace_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Page_Down" --type string -s next_workspace_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Page_Up" --type string -s prev_workspace_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>Page_Down" --type string -s move_window_next_workspace_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>Page_Up" --type string -s move_window_prev_workspace_key
+    # # Worskapces
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "xfwm4/custom/<Super>comma" --type string -s left_workspace_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "xfwm4/custom/<Super>period" --type string -s right_workspace_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>greater" --type string -s move_window_right_workspace_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>less" --type string -s move_window_left_workspace_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Page_Down" --type string -s next_workspace_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>Page_Up" --type string -s prev_workspace_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>Page_Down" --type string -s move_window_next_workspace_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>Page_Up" --type string -s move_window_prev_workspace_key
 
-    # Worskapces by numbers
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>1" --type string -s workspace_1_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>2" --type string -s workspace_2_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>3" --type string -s workspace_3_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>4" --type string -s workspace_4_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>5" --type string -s workspace_5_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>6" --type string -s workspace_6_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>exclam" --type string -s move_window_workspace_1_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>at" --type string -s move_window_workspace_2_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>numbersign" --type string -s move_window_workspace_3_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>dollar" --type string -s move_window_workspace_4_key
-    xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>percent" --type string -s move_window_workspace_5_key
+    # # Worskapces by numbers
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>1" --type string -s workspace_1_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>2" --type string -s workspace_2_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>3" --type string -s workspace_3_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>4" --type string -s workspace_4_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>5" --type string -s workspace_5_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Super>6" --type string -s workspace_6_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>exclam" --type string -s move_window_workspace_1_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>at" --type string -s move_window_workspace_2_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>numbersign" --type string -s move_window_workspace_3_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>dollar" --type string -s move_window_workspace_4_key
+    # xfconf-query -c xfce4-keyboard-shortcuts --create -p "/xfwm4/custom/<Shift><Super>percent" --type string -s move_window_workspace_5_key
 
     echo ""
-    echo "Done! Remember to logout to see the changes."
+    echo "Done! Remember to restart to see the changes."
 
     echo ""
     echo "TODO:"
     echo "- Check for autostart applications"
+    echo "  * devilspie2"
+    echo "  * syncthing -m"
+    echo "  * disable xcape"
 else
     echo "Skipping..."
 fi

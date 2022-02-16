@@ -1,8 +1,11 @@
-fonts:
-  - ttf-google-fonts-git
-  - ttf-ms-fonts
-  - ttf-nunito
+nerd-fira-font:
   - nerd-fonts-fira-code
+
+ms-fonts:
+  - ttf-ms-fonts
+
+devilspie2:
+  - devilspie2
 
 spaceship-prompt:
   - spaceship-prompt
@@ -18,6 +21,10 @@ zoom:
 
 zotero:
   - zotero
+
+fonts:
+  - ttf-google-fonts-git
+  - ttf-nunito
 
 subliminal:
   - subliminal-git
