@@ -7,6 +7,10 @@ xfce extra:
   - thunar-archive-plugin
   - thunar-media-tags-plugin
   - ristretto
+  # needed by move-to-next-monitor
+  - xorg-xwininfo
+  - xdotool
+  - wmctrl
 
 printer:
   - manjaro-printer
@@ -23,7 +27,7 @@ cli apps:
   - pdftk
   - github-cli
   - git-delta
-  - youtube-dl
+  - yt-dlp
   - ranger
   - highlight
   - playerctl
