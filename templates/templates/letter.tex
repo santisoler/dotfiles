@@ -21,6 +21,37 @@
 % \longindentation=20pt % configure indentation of signature
 
 
+% --------------------
+% Configure letterhead
+% --------------------
+\usepackage{fancyhdr} % use only if adding a head
+
+\fancypagestyle{fancy}{
+    \fancyhf{}  % clear current head and footer
+    \fancyhead[C]{
+        My nice letterhead \\
+        With a lot of information \\
+        About this institution
+    }
+}
+
+% Configure rule
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand\headrule{%
+    \vspace{0.4em}
+    \hrulefill
+}
+
+% Set default pagestyle
+\pagestyle{fancy}
+
+% This needs to be run to apply plain pagestyle to the letter
+\makeatletter
+\let\ps@empty\ps@fancy
+\let\ps@firstpage\ps@fancy
+\makeatother
+
+
 % --------------------------------
 % Address, signature and recipient
 % --------------------------------
