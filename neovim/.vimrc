@@ -14,10 +14,6 @@ set relativenumber
 " Enable mouse interaction inside vim (only on Visual and Normal mode)
 set mouse=vn
 
-" Set indentation to 4 characters (except for html and yml)
-set autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-autocmd FileType html,yml,yaml setlocal ts=2 sts=2 sw=2 expandtab
-
 " Change configuration for cases
 set ignorecase
 set smartcase
@@ -42,7 +38,19 @@ set hidden
 " Set text width to 80 characters
 set noai textwidth=79
 set colorcolumn=80
-autocmd FileType python setlocal colorcolumn=89
+
+" Custom styles on augroup
+augroup custom_style
+    autocmd!
+    " Change text last column for Python files
+    autocmd FileType python setlocal colorcolumn=89
+    " Set indentation to 4 characters (except for html and yml)
+    set autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+    autocmd FileType html,yml,yaml setlocal ts=2 sts=2 sw=2 expandtab
+    " Configure Git commits
+    autocmd Filetype gitcommit setlocal spell textwidth=72
+    autocmd Filetype pullrequest setlocal spell textwidth=72
+augroup END
 
 " Enable soft and hard wrapping
 set formatoptions=qrn1
@@ -67,21 +75,23 @@ set cursorline
 " Set number of context lines when scrolling
 set scrolloff=10
 
-" Configure Git commits
-autocmd Filetype gitcommit setlocal spell textwidth=72
-autocmd Filetype pullrequest setlocal spell textwidth=72
-
 " Syntax highlightning
 syntax on
-autocmd BufNewFile,BufRead *.ipy set filetype=python
-autocmd BufNewFile,BufRead *.pyx set filetype=python
-autocmd BufNewFile,BufRead SConstruct set filetype=python
-autocmd BufNewFile,BufRead *.md set filetype=markdown
-autocmd BufNewFile,BufRead Snakefile set syntax=snakemake
-autocmd BufNewFile,BufRead *.snake set syntax=snakemake
+augroup syntax
+    au!
+    autocmd BufNewFile,BufRead *.ipy set filetype=python
+    autocmd BufNewFile,BufRead *.pyx set filetype=python
+    autocmd BufNewFile,BufRead SConstruct set filetype=python
+    autocmd BufNewFile,BufRead *.md set filetype=markdown
+    autocmd BufNewFile,BufRead Snakefile set syntax=snakemake
+    autocmd BufNewFile,BufRead *.snake set syntax=snakemake
+augroup END
 
 " Remove trailing spaces on save
-autocmd BufWritePre * :%s/\s\+$//e
+augroup trailing_spaces
+    au!
+    autocmd BufWritePre * :%s/\s\+$//e
+augroup END
 
 
 " ===========
@@ -106,7 +116,10 @@ function! ToggleSpell()
 endfunction
 
 " Spelling always on for some files
-autocmd BufNewFile,BufRead *.md,*.tex,*.rst,*.py setlocal spell
+augroup spelling
+    au!
+    autocmd BufNewFile,BufRead *.md,*.tex,*.rst,*.py setlocal spell
+augroup END
 
 
 " ========

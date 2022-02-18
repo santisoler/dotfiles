@@ -137,8 +137,12 @@ let g:neoformat_run_all_formatters = 1
 " Configure isort and black autoformatters
 let g:neoformat_enabled_python = ['isort', 'black']
 let g:neoformat_python_isort = {'args': ['--profile black']}
+
 " Run neoformat after saving some chosen files
-autocmd BufWritePre *.py,*.html,*.css,*.less,*.yml Neoformat
+augroup neoformat
+    au!
+    autocmd BufWritePre *.py,*.html,*.css,*.less,*.yml Neoformat
+augroup END
 
 " telescope
 " ---------
