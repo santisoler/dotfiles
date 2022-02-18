@@ -109,6 +109,13 @@ else
     echo "Skipping..."
 fi
 
+echo
+if ask ":: Lower swappiness to 5?" Y; then
+    sudo sysctl -w vm.swappiness=5
+else
+    echo "Skipping..."
+fi
+
 
 # ----------------------------
 # Customize XFCE look and feel
