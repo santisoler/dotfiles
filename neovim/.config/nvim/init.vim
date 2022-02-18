@@ -39,20 +39,20 @@ Plug 'vim-airline/vim-airline'         " airline (bottom bar)
 Plug 'vim-airline/vim-airline-themes'  " airline themes
 Plug 'nvim-telescope/telescope.nvim'   " fuzzy finder
 Plug 'nvim-lua/plenary.nvim'           " needed by telescope
-" Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
-Plug 'sheerun/vim-polyglot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'vimwiki/vimwiki'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'           " configurations for built-in LSP client
-Plug 'hrsh7th/nvim-cmp'                " autocompletion plugin
-Plug 'hrsh7th/cmp-nvim-lsp'            " LSP source for nvim-cmp
-Plug 'hrsh7th/cmp-buffer'              " autocomplete with words from buffer
-Plug 'hrsh7th/cmp-path'                " autocomplete paths
-Plug 'hrsh7th/cmp-cmdline'             " autocompletion for vim's command line
-Plug 'saadparwaiz1/cmp_luasnip'        " Snippets source for nvim-cmp
-Plug 'L3MON4D3/LuaSnip'                " Snippets plugin
+
+" LSP autocompletion
+" Plug 'hrsh7th/nvim-cmp'                " autocompletion plugin
+" Plug 'hrsh7th/cmp-nvim-lsp'            " LSP source for nvim-cmp
+" Plug 'hrsh7th/cmp-buffer'              " autocomplete with words from buffer
+" Plug 'hrsh7th/cmp-path'                " autocomplete paths
+" Plug 'hrsh7th/cmp-cmdline'             " autocompletion for vim's command line
+" Plug 'saadparwaiz1/cmp_luasnip'        " Snippets source for nvim-cmp
+" Plug 'L3MON4D3/LuaSnip'                " Snippets plugin
 
 call plug#end()
 
@@ -147,8 +147,12 @@ let g:neoformat_run_all_formatters = 1
 " Configure isort and black autoformatters
 let g:neoformat_enabled_python = ['isort', 'black']
 let g:neoformat_python_isort = {'args': ['--profile black']}
+
 " Run neoformat after saving some chosen files
-autocmd BufWritePre *.py,*.html,*.css,*.less,*.yml Neoformat
+augroup neoformat
+    au!
+    autocmd BufWritePre *.py,*.html,*.css,*.less,*.yml Neoformat
+augroup END
 
 " telescope
 " ---------
@@ -187,10 +191,33 @@ let g:vimwiki_global_ext = 0
 
 " lsp
 " ---
-"
-lua require("lsp")
+" Configure LSP with the default configuration for lsp-config
+" Some keybindings are defined inside the lua sources
+lua require("lsp-default")
 
-nnoremap K <cmd>lua vim.lsp.buf.hover()<cr>
-nnoremap gd <cmd>lua vim.lsp.buf.definition()<cr>
-nnoremap gD <cmd>lua vim.lsp.buf.declaration()<cr>
-nnoremap gi <cmd>lua vim.lsp.buf.implementation()<cr>
+" Create a function that makes it possible to complete with Tab and Shift+Tab
+function! InsertTabWrapper()
+  if pumvisible()
+    return "\<c-n>"
+  endif
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-x>\<c-o>"
+  endif
+endfunction
+
+inoremap <expr><tab> InsertTabWrapper()
+inoremap <expr><s-tab> pumvisible()?"\<c-p>":"\<c-d>"
+
+" ----------------------------------
+" These configurations are for lsp + autocompletion (not compatible with the
+" previous ones)
+
+" lua require("lsp-cmp")
+" nnoremap K <cmd>lua vim.lsp.buf.hover()<cr>
+" nnoremap gd <cmd>lua vim.lsp.buf.definition()<cr>
+" nnoremap gD <cmd>lua vim.lsp.buf.declaration()<cr>
+" nnoremap gi <cmd>lua vim.lsp.buf.implementation()<cr>
+" ----------------------------------
