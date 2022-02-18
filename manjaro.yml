@@ -27,7 +27,7 @@ cli apps:
   - pdftk
   - github-cli
   - git-delta
-  - youtube-dl
+  - yt-dlp
   - ranger
   - highlight
   - playerctl

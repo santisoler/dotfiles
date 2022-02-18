@@ -1,0 +1,97 @@
+\documentclass[a4paper]{letter}
+\usepackage[vmargin=3cm, hmargin=3cm]{geometry}
+\usepackage[utf8]{inputenc}
+% \usepackage[spanish]{babel} % change to spanish
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{setspace}
+
+% Configure hyperref
+\hypersetup{colorlinks,
+            citecolor=black,
+            filecolor=black,
+            linkcolor=black,
+            urlcolor=black,
+            pdftex}
+\urlstyle{same}
+
+% Configure spacing and paragraph indentation
+\onehalfspacing
+\setlength{\parindent}{3em}
+% \longindentation=20pt % configure indentation of signature
+
+
+% --------------------
+% Configure letterhead
+% --------------------
+\usepackage{fancyhdr} % use only if adding a head
+
+\fancypagestyle{fancy}{
+    \fancyhf{}  % clear current head and footer
+    \fancyhead[C]{
+        My nice letterhead \\
+        With a lot of information \\
+        About this institution
+    }
+}
+
+% Configure rule
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand\headrule{%
+    \vspace{0.4em}
+    \hrulefill
+}
+
+% Set default pagestyle
+\pagestyle{fancy}
+
+% This needs to be run to apply plain pagestyle to the letter
+\makeatletter
+\let\ps@empty\ps@fancy
+\let\ps@firstpage\ps@fancy
+\makeatother
+
+% If you want to move the position of the head, uncomment these lines and play
+% with the head of the header
+\setlength{\headheight}{5cm}
+\addtolength{\headsep}{-\headheight}
+
+
+% --------------------------------
+% Address, signature and recipient
+% --------------------------------
+\address{%
+    % Sender's address
+    Avenida Siempreviva 123
+}
+\signature{%
+    % include a picture of the signature if needed
+    % \vspace{-3em} \includegraphics[height=6em}{signature.png} \\
+    Dr. Santiago Soler \\
+    \mbox{\href{mailto:santiago.r.soler@gmail.com}{santiago.r.soler@gmail.com}}
+}
+\newcommand{\recipient}{%
+    % information about the recipient
+    Head of the Department of Things \\
+    Unversity of Bla
+}
+
+
+% --------
+% Document
+% --------
+
+\begin{document}
+
+\begin{letter}{\recipient}
+
+\opening{Dear John,}
+
+Body of the letter
+
+\closing{Kind regards,}
+
+\end{letter}
+
+\end{document}
+
