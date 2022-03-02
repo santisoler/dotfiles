@@ -1,0 +1,4 @@
+configuration {
+    monitor: "primary";
+}
+@theme "~/.config/rofi/themes/nord.rasi"
