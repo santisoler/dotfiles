@@ -7,6 +7,7 @@ xfce extra:
   - thunar-archive-plugin
   - thunar-media-tags-plugin
   - ristretto
+  - rofi
   # needed by move-to-next-monitor
   - xorg-xwininfo
   - xdotool
