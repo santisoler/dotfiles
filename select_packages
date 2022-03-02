@@ -1,0 +1,154 @@
+#!/usr/bin/env python
+"""
+Interactive selection of packages through a dialog
+
+Requirements:
+- click
+- pyyaml
+- pythondialog
+"""
+import sys
+import click
+from dialog import Dialog
+import yaml
+
+
+@click.command()
+@click.argument("packages_yml")
+@click.argument("outfile")
+def cli(packages_yml, outfile):
+    """
+    CLI for interactive selection of packages
+    """
+    # Parse the packages YAML file
+    packages = get_packages(read_yaml(packages_yml))
+
+    # Select which categories should be installed
+    categories = interactive_dialog(packages.keys())
+    click.clear()
+
+    # Dump packages to the outfile
+    packages_selection = select_packages(packages, categories)
+    with open(outfile, "w") as f:
+        f.write(" ".join(packages_selection))
+
+    # Finish with installation instructions
+    click.echo("Install the selected packages running:")
+    click.echo(f"  cat {outfile} | xargs -to sudo pacman -S --needed")
+
+    return
+
+
+def interactive_dialog(categories):
+    """
+    Ask questions through dialog
+    """
+    dialog = Dialog(dialog="dialog")
+    defaults = [False] * len(categories)
+    while True:
+        # Ask for categories selection
+        code, selected_categories = dialog.checklist(
+            "Choose categories of packages to be installed",
+            choices=[
+                (category, "", default)
+                for category, default in zip(categories, defaults)
+            ],
+            height=40,
+            width=60,
+        )
+        # If cancel, ask the user if they want to quit
+        if code == dialog.CANCEL:
+            quit = dialog.yesno("Do you want to quit?")
+            if quit == dialog.OK:
+                sys.exit()
+            else:
+                continue
+        # Update the defaults in case the user wants to edit their selection
+        defaults = [category in selected_categories for category in categories]
+        # Ask if the user wants to proceed with the installation
+        proceed = dialog.yesno(
+            "The following categories have been selected:\n\n"
+            + "\n".join(selected_categories)
+            + "\n\nDo you want to dump their packages to the outfile?",
+            width=60,
+            height=30,
+        )
+        if proceed == dialog.OK:
+            break
+    return selected_categories
+
+
+def get_packages(packages_raw):
+    """
+    Build a dict with categories and their packages
+
+    Parameters
+    ----------
+    packages_raw : dict
+        Dictionary with the content of the packages YAML file.
+
+    Returns
+    -------
+    packages : dict
+        Dictionary with the categories and their corresponding packages as
+        lists.
+    """
+    packages = {category: [] for category in packages_raw}
+    for category, packages_list in packages_raw.items():
+        for package in packages_list:
+            check_package(package)
+            packages[category].append(package.strip())
+    return packages
+
+
+def select_packages(packages, categories):
+    """
+    Select packages inside the chosen categories
+
+    Parameters
+    ----------
+    packages : dict
+        Dictionary with categories and their corresponding packages as lists.
+    categories : list
+        List containing the chosen categories
+
+    Returns
+    -------
+    packages_selection : list
+        List of packages that belong to the chosen categories
+    """
+    packages_selection = []
+    for category in categories:
+        packages_selection.extend(packages[category])
+    return packages_selection
+
+
+def read_yaml(yaml_file):
+    """
+    Read a YAML file
+
+    Parameters
+    ----------
+    yaml_file : str or PathLike
+        Path to the YAML file.
+
+    Returns
+    -------
+    content : dict
+        Dictionary with the content of the YAML file.
+    """
+    with open(yaml_file, "r") as f:
+        content = yaml.load(f, Loader=yaml.FullLoader)
+    return content
+
+
+def check_package(package):
+    """
+    Check validity of package
+    """
+    if len(package.split()) > 1:
+        raise ValueError(f"Invalid package '{package}' found.")
+
+
+if __name__ == "__main__":
+    cli()
