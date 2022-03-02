@@ -86,7 +86,7 @@ fi
 # -------
 alias v="nvim"
 # alias notes="cd $NOTES; nvim .; cd -"
-alias todo='nvim -c "norm Go" $NOTES/todo.md'
+alias todo='nvim -c "norm G" $NOTES/todo.md'
 alias draft="nvim ~/tmp/draft.md"
 alias cp="cp -i"
 alias mv="mv -i"
@@ -111,7 +111,7 @@ alias tls="tmux list-sessions"
 alias tns="tmux new-session -s"
 
 # Run commands in background using tmux
-alias lab='tmux new-session -d -s lab; tmux send-keys -t lab "cd $HOME; cenv; jupyter-lab --no-browser" Enter'
+alias lab='tmux new-session -d -s lab; tmux send-keys -t lab "cd $HOME; cenv; jupyter-lab" Enter'
 alias remotelab='tmux new-session -d -s remotelab; tmux send-keys -t remotelab "ssh -N -L localhost:9999:localhost:8888 santi@soler.unsj.edu.ar" Enter'
 alias remotedask='tmux new-session -d -s remotedask; tmux send-keys -t remotedask "ssh -N -L localhost:9797:localhost:8787 santi@soler.unsj.edu.ar" Enter'
 alias serve='tmux new-session -d -s serve; tmux send-keys -t serve "livereload -p 8989 ." Enter'
@@ -198,7 +198,6 @@ fi
 # -----------------------
 # Add directories to PATH
 # -----------------------
-export PATH=$HOME/bin/:$PATH
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir' 2> /dev/null)/bin"
 
 #

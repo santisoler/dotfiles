@@ -17,3 +17,8 @@ fi
 
 # Configure caps lock as an extra super key
 setxkbmap -layout us -variant altgr-intl -option "caps:super"
+
+# Add bin to the PATH
+if [[ -d $HOME/bin ]]; then
+    export PATH=$HOME/bin:$PATH;
+fi

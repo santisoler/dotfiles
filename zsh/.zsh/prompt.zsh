@@ -100,8 +100,36 @@ add-zsh-hook precmd mzc_termsupport_precmd
 add-zsh-hook preexec mzc_termsupport_preexec
 
 
+# ----------------
 # Spaceship Prompt
 # ----------------
+# We will install spaceship-prompt in ~/.zsh/spaceship-prompt
+# Then, we need to add a symlink to a FPATH directory.
+# We will create a new ~/.zfunctions directory and add it to the FPATH.
+
+# Download spaceship-prompt
+spaceship_dir="${HOME}/.zsh/spaceship-prompt"
+if [[ ! -d $spaceship_dir ]]; then
+    git clone \
+        https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1 \
+        $spaceship_dir
+fi
+
+# Create symlink to spaceship.zsh in ~/.zfunctions
+zfunctions_dir="${HOME}/.zfunctions"
+spaceship_link="$zfunctions_dir/prompt_spaceship_setup"
+if [[ ! -f $spaceship_link ]]; then
+    # Create ~/.zfunctions dir if it doesn't exists
+    if [[ ! -d $zfunctions_dir ]]; then
+        mkdir -p $zfunctions_dir
+    fi
+    ln -sf "$spaceship_dir/spaceship.zsh" "$spaceship_link"
+fi
+
+# Add ~/.zfunctions to FPATH
+fpath=( "$zfunctions_dir" $fpath )
+
+# Load spaceship
 autoload -U promptinit; promptinit
 prompt spaceship
 
