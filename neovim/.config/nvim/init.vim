@@ -35,14 +35,16 @@ Plug 'ap/vim-css-color'                " highlight RGB colors
 Plug 'mattn/emmet-vim'                 " for HTML completion
 Plug 'sbdchd/neoformat'                " formatter for multiple languages
 Plug 'arcticicestudio/nord-vim'        " Nord theme for Neovim
-Plug 'vim-airline/vim-airline'         " airline (bottom bar)
-Plug 'vim-airline/vim-airline-themes'  " airline themes
 Plug 'nvim-telescope/telescope.nvim'   " fuzzy finder
 Plug 'nvim-lua/plenary.nvim'           " needed by telescope
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
 Plug 'sheerun/vim-polyglot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'vimwiki/vimwiki'
+
+" Airline
+Plug 'vim-airline/vim-airline'         " airline (bottom bar)
+Plug 'vim-airline/vim-airline-themes'  " airline themes
 
 call plug#end()
 
@@ -75,13 +77,16 @@ let g:NERDDefaultAlign = 'left'
 let g:airline_powerline_fonts = 1
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
-let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#syntastic#enabled = 1
+
+" Nord theme
 let g:airline_theme='nord'
-" let g:airline#extensions#branch#symbol = '⎇  '
-" let g:airline_left_sep = ''
-" let g:airline_right_sep = ''
+
+" Custom icons for separators
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " syntastic
 " ---------
