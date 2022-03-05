@@ -26,7 +26,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'          " git flags in the sign column
 Plug 'tpope/vim-fugitive'              " git wrapper
 Plug 'vim-syntastic/syntastic'         " syntax linter
-Plug 'scrooloose/nerdcommenter'        " improved comments
 Plug 'tpope/vim-surround'              " surround highlighted text
 Plug 'lervag/vimtex'                   " latex plugin
 Plug 'ap/vim-css-color'                " highlight RGB colors
@@ -39,6 +38,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
 Plug 'sheerun/vim-polyglot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'vimwiki/vimwiki'
+
+" Comment.nvim
+Plug 'numToStr/Comment.nvim'
 
 " nvim-tree
 Plug 'kyazdani42/nvim-tree.lua'
@@ -67,11 +69,9 @@ colorscheme nord
 " Plugin Configuration
 " ====================
 
-" nerdcommenter
-" -------------
-filetype plugin indent on
-let g:NERDSpaceDelims = 1
-let g:NERDDefaultAlign = 'left'
+" Comment.nvim
+" ------------
+lua require('Comment').setup()
 
 " vim-airline
 " -----------
