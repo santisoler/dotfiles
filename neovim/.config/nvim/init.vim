@@ -40,6 +40,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'vimwiki/vimwiki'
 
+" Comment.nvim
+Plug 'numToStr/Comment.nvim'
+
 " nvim-tree
 Plug 'kyazdani42/nvim-tree.lua'
 
@@ -69,9 +72,13 @@ colorscheme nord
 
 " nerdcommenter
 " -------------
-filetype plugin indent on
-let g:NERDSpaceDelims = 1
-let g:NERDDefaultAlign = 'left'
+" filetype plugin indent on
+" let g:NERDSpaceDelims = 1
+" let g:NERDDefaultAlign = 'left'
+
+" Comment.nvim
+" ------------
+lua require('Comment').setup()
 
 " vim-airline
 " -----------
