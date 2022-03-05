@@ -27,8 +27,6 @@ Plug 'airblade/vim-gitgutter'          " git flags in the sign column
 Plug 'tpope/vim-fugitive'              " git wrapper
 Plug 'vim-syntastic/syntastic'         " syntax linter
 Plug 'scrooloose/nerdcommenter'        " improved comments
-Plug 'scrooloose/nerdtree'             " nerdtree
-Plug 'Xuyuanp/nerdtree-git-plugin'     " show git icons on nerdtree
 Plug 'tpope/vim-surround'              " surround highlighted text
 Plug 'lervag/vimtex'                   " latex plugin
 Plug 'ap/vim-css-color'                " highlight RGB colors
@@ -41,6 +39,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
 Plug 'sheerun/vim-polyglot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'vimwiki/vimwiki'
+
+" nvim-tree
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-web-devicons'    " for file icons
 
 " Airline
 Plug 'vim-airline/vim-airline'         " airline (bottom bar)
@@ -130,11 +132,10 @@ let g:vimtex_compiler_tectonic = {'build_dir' : '_output'}
 let g:vimtex_complete_enabled=1
 let g:vimtex_complete_close_braces=1
 
-" NERDTree
-" --------
-" Open NERDTree with Ctrl-n
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeQuitOnOpen=1
+" nvim-tree
+" ---------
+lua require'nvim-tree'.setup()
+nnoremap <C-n> :NvimTreeToggle<CR>
 
 " Emmet
 " -----
