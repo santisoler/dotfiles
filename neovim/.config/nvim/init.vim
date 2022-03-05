@@ -32,8 +32,6 @@ Plug 'ap/vim-css-color'                " highlight RGB colors
 Plug 'mattn/emmet-vim'                 " for HTML completion
 Plug 'sbdchd/neoformat'                " formatter for multiple languages
 Plug 'arcticicestudio/nord-vim'        " Nord theme for Neovim
-Plug 'nvim-telescope/telescope.nvim'   " fuzzy finder
-Plug 'nvim-lua/plenary.nvim'           " needed by telescope
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
 Plug 'sheerun/vim-polyglot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
@@ -41,6 +39,10 @@ Plug 'vimwiki/vimwiki'
 
 " Comment.nvim
 Plug 'numToStr/Comment.nvim'
+
+" telescope
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/plenary.nvim'
 
 " nvim-tree
 Plug 'kyazdani42/nvim-tree.lua'
