@@ -26,19 +26,24 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'          " git flags in the sign column
 Plug 'tpope/vim-fugitive'              " git wrapper
 Plug 'vim-syntastic/syntastic'         " syntax linter
-Plug 'scrooloose/nerdcommenter'        " improved comments
-Plug 'scrooloose/nerdtree'             " nerdtree
-Plug 'Xuyuanp/nerdtree-git-plugin'     " show git icons on nerdtree
 Plug 'tpope/vim-surround'              " surround highlighted text
 Plug 'lervag/vimtex'                   " latex plugin
 Plug 'ap/vim-css-color'                " highlight RGB colors
 Plug 'mattn/emmet-vim'                 " for HTML completion
 Plug 'sbdchd/neoformat'                " formatter for multiple languages
 Plug 'arcticicestudio/nord-vim'        " Nord theme for Neovim
-Plug 'nvim-telescope/telescope.nvim'   " fuzzy finder
-Plug 'nvim-lua/plenary.nvim'           " needed by telescope
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'vimwiki/vimwiki'
+
+" Comment.nvim
+Plug 'numToStr/Comment.nvim'
+
+" telescope
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/plenary.nvim'
+
+" nvim-tree
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Airline
 Plug 'vim-airline/vim-airline'         " airline (bottom bar)
@@ -67,11 +72,9 @@ colorscheme nord
 " Plugin Configuration
 " ====================
 
-" nerdcommenter
-" -------------
-filetype plugin indent on
-let g:NERDSpaceDelims = 1
-let g:NERDDefaultAlign = 'left'
+" Comment.nvim
+" ------------
+lua require('Comment').setup()
 
 " vim-airline
 " -----------
@@ -131,11 +134,11 @@ let g:vimtex_compiler_tectonic = {'build_dir' : '_output'}
 let g:vimtex_complete_enabled=1
 let g:vimtex_complete_close_braces=1
 
-" NERDTree
-" --------
-" Open NERDTree with Ctrl-n
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeQuitOnOpen=1
+" nvim-tree
+" ---------
+lua require'nvim-tree'.setup()
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
 
 " Emmet
 " -----
@@ -178,14 +181,14 @@ let g:mkdp_auto_close = 0
 " vimwiki
 " -------
 let g:vimwiki_list = [{
-	\ 'path': '~/documents/vimwiki',
-	\ 'template_path': '~/documents/vimwiki/templates/',
-	\ 'template_default': 'default',
-	\ 'syntax': 'markdown',
-	\ 'ext': '.md',
-	\ 'path_html': '~/documents/vimwiki/site_html/',
-	\ 'custom_wiki2html': 'vimwiki_markdown',
-	\ 'template_ext': '.tpl'}]
+    \ 'path': '~/documents/vimwiki',
+    \ 'template_path': '~/documents/vimwiki/templates/',
+    \ 'template_default': 'default',
+    \ 'syntax': 'markdown',
+    \ 'ext': '.md',
+    \ 'path_html': '~/documents/vimwiki/site_html/',
+    \ 'custom_wiki2html': 'vimwiki_markdown',
+    \ 'template_ext': '.tpl'}]
 let g:vimwiki_global_ext = 0
 
 
