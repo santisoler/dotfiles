@@ -135,6 +135,7 @@ let g:vimtex_complete_close_braces=1
 " ---------
 lua require'nvim-tree'.setup()
 nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
 
 " Emmet
 " -----
