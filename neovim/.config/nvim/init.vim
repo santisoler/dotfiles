@@ -42,7 +42,6 @@ Plug 'vimwiki/vimwiki'
 
 " nvim-tree
 Plug 'kyazdani42/nvim-tree.lua'
-Plug 'kyazdani42/nvim-web-devicons'    " for file icons
 
 " Airline
 Plug 'vim-airline/vim-airline'         " airline (bottom bar)
