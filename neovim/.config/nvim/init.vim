@@ -47,15 +47,6 @@ Plug 'vim-airline/vim-airline-themes'  " airline themes
 " LSP
 Plug 'neovim/nvim-lspconfig'           " configurations for built-in LSP client
 
-" LSP autocompletion
-" Plug 'hrsh7th/nvim-cmp'                " autocompletion plugin
-" Plug 'hrsh7th/cmp-nvim-lsp'            " LSP source for nvim-cmp
-" Plug 'hrsh7th/cmp-buffer'              " autocomplete with words from buffer
-" Plug 'hrsh7th/cmp-path'                " autocomplete paths
-" Plug 'hrsh7th/cmp-cmdline'             " autocompletion for vim's command line
-" Plug 'saadparwaiz1/cmp_luasnip'        " Snippets source for nvim-cmp
-" Plug 'L3MON4D3/LuaSnip'                " Snippets plugin
-
 call plug#end()
 
 
@@ -220,14 +211,3 @@ endfunction
 
 inoremap <expr><tab> InsertTabWrapper()
 inoremap <expr><s-tab> pumvisible()?"\<c-p>":"\<c-d>"
-
-" ----------------------------------
-" These configurations are for lsp + autocompletion (not compatible with the
-" previous ones)
-
-" lua require("lsp-cmp")
-" nnoremap K <cmd>lua vim.lsp.buf.hover()<cr>
-" nnoremap gd <cmd>lua vim.lsp.buf.definition()<cr>
-" nnoremap gD <cmd>lua vim.lsp.buf.declaration()<cr>
-" nnoremap gi <cmd>lua vim.lsp.buf.implementation()<cr>
-" ----------------------------------
