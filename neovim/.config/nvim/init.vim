@@ -44,6 +44,9 @@ Plug 'numToStr/Comment.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/plenary.nvim'
 
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " nvim-tree
 Plug 'kyazdani42/nvim-tree.lua'
 
