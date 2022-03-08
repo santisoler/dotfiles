@@ -32,8 +32,6 @@ Plug 'ap/vim-css-color'                " highlight RGB colors
 Plug 'mattn/emmet-vim'                 " for HTML completion
 Plug 'sbdchd/neoformat'                " formatter for multiple languages
 Plug 'arcticicestudio/nord-vim'        " Nord theme for Neovim
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " smart autocompletion
-Plug 'sheerun/vim-polyglot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'vimwiki/vimwiki'
 
@@ -53,6 +51,9 @@ Plug 'kyazdani42/nvim-tree.lua'
 " Airline
 Plug 'vim-airline/vim-airline'         " airline (bottom bar)
 Plug 'vim-airline/vim-airline-themes'  " airline themes
+
+" LSP
+Plug 'neovim/nvim-lspconfig'           " configurations for built-in LSP client
 
 call plug#end()
 
@@ -193,94 +194,30 @@ let g:vimwiki_list = [{
     \ 'template_ext': '.tpl'}]
 let g:vimwiki_global_ext = 0
 
-" coc-nvim
-" --------
+" lsp
+" ---
+" Configure LSP with the default configuration for lsp-config
+" Some keybindings are defined inside the lua sources
+lua require("lsp-default")
 
-" Install extensions
-let g:coc_global_extensions = [
-            \ 'coc-pyright',
-            \ 'coc-highlight',
-            \ 'coc-html',
-            \ 'coc-css',
-            \ 'coc-eslint',
-            \ 'coc-texlab',
-            \ 'coc-emoji',
-            \ ]
+" Create some keybindings (see :help vim.diagnostic.* for docs)
+nmap <leader>e <cmd>lua vim.diagnostic.open_float()<CR>
+nmap [d <cmd>lua vim.diagnostic.goto_prev()<CR>
+nmap ]d <cmd>lua vim.diagnostic.goto_next()<CR>
+nmap <leader>q <cmd>lua vim.diagnostic.setloclist()<CR>
 
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
+" Create a function that makes it possible to complete with Tab and Shift+Tab
+function! InsertTabWrapper()
+  if pumvisible()
+    return "\<c-n>"
+  endif
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
   else
-    execute '!' . &keywordprg . " " . expand('<cword>')
+    return "\<c-x>\<c-o>"
   endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Use Ctrl+K to show documentation in preview window.
-nnoremap <silent> <S-Tab> :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
-function Conda_current_env()
-    " Use the current conda environment when the function is called
-    if $CONDA_PREFIX == ""
-      let current_python_path=$CONDA_PYTHON_EXE
-    else
-      let current_python_path=$CONDA_PREFIX.'/bin/python'
-    endif
-    call coc#config('python', {'pythonPath': current_python_path})
-endfunction
-
-function CondaActivate(environment)
-    " Activate the chosen conda environment
-    call coc#config('python', {'pythonPath': $MAMBA_PATH.'/envs/'.a:environment.'/bin/python'})
-endfunction
-
-call CondaActivate("default")
+inoremap <expr><tab> InsertTabWrapper()
+inoremap <expr><s-tab> pumvisible()?"\<c-p>":"\<c-d>"

@@ -83,10 +83,8 @@ nvim:
   - prettier
   - vim-spell-en
   - vim-spell-es
-  # needed by CoC
-  - nodejs
-  - npm
-  - yarn
+  - yarn # needed to install some plug packages
+  - pyright # python language server
 
 keepassxc:
   - keepassxc
