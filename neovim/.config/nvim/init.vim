@@ -194,13 +194,17 @@ let g:vimwiki_list = [{
     \ 'template_ext': '.tpl'}]
 let g:vimwiki_global_ext = 0
 
-
-
 " lsp
 " ---
 " Configure LSP with the default configuration for lsp-config
 " Some keybindings are defined inside the lua sources
 lua require("lsp-default")
+
+" Create some keybindings (see :help vim.diagnostic.* for docs)
+nmap <leader>e <cmd>lua vim.diagnostic.open_float()<CR>
+nmap [d <cmd>lua vim.diagnostic.goto_prev()<CR>
+nmap ]d <cmd>lua vim.diagnostic.goto_next()<CR>
+nmap <leader>q <cmd>lua vim.diagnostic.setloclist()<CR>
 
 " Create a function that makes it possible to complete with Tab and Shift+Tab
 function! InsertTabWrapper()
