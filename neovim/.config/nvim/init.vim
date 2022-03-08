@@ -25,7 +25,6 @@ call plug#begin('~/.vim/plugged')
 " Plugins are downloaded from Github (username/repo)
 Plug 'airblade/vim-gitgutter'          " git flags in the sign column
 Plug 'tpope/vim-fugitive'              " git wrapper
-Plug 'vim-syntastic/syntastic'         " syntax linter
 Plug 'tpope/vim-surround'              " surround highlighted text
 Plug 'lervag/vimtex'                   " latex plugin
 Plug 'ap/vim-css-color'                " highlight RGB colors
@@ -38,22 +37,31 @@ Plug 'vimwiki/vimwiki'
 " Comment.nvim
 Plug 'numToStr/Comment.nvim'
 
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " telescope
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/plenary.nvim'
 
-" Treesitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
 " nvim-tree
 Plug 'kyazdani42/nvim-tree.lua'
 
-" Airline
-Plug 'vim-airline/vim-airline'         " airline (bottom bar)
-Plug 'vim-airline/vim-airline-themes'  " airline themes
+" lualine.nvim
+Plug 'nvim-lualine/lualine.nvim'
+
+" bufferline
+Plug 'akinsho/bufferline.nvim'
+
+" nvim-lint
+" Plug 'mfussenegger/nvim-lint'
+Plug 'santisoler/nvim-lint', {'branch': 'lacheck'}
 
 " LSP
-Plug 'neovim/nvim-lspconfig'           " configurations for built-in LSP client
+Plug 'neovim/nvim-lspconfig'
+
+" toggle lsp diagnostics
+Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 
 call plug#end()
 
@@ -75,51 +83,80 @@ colorscheme nord
 " Plugin Configuration
 " ====================
 
+" Toggle lsp diagnostics
+" ----------------------
+lua <<EOF
+require'toggle_lsp_diagnostics'.init()
+EOF
+
+nmap <leader>tlu <Plug>(toggle-lsp-diag-underline)
+nmap <leader>tls <Plug>(toggle-lsp-diag-signs)
+nmap <leader>tlv <Plug>(toggle-lsp-diag-vtext)
+nmap <leader>tlp <Plug>(toggle-lsp-diag-update_in_insert)
+
+nmap <leader>tld  <Plug>(toggle-lsp-diag)
+nmap <leader>tldd <Plug>(toggle-lsp-diag-default)
+nmap <leader>tldo <Plug>(toggle-lsp-diag-off)
+nmap <leader>tldf <Plug>(toggle-lsp-diag-on)
+
 " Comment.nvim
 " ------------
 lua require('Comment').setup()
 
-" vim-airline
-" -----------
-let g:airline_powerline_fonts = 1
-let g:airline_detect_modified=1
-let g:airline_detect_paste=1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
+" lualine
+" -------
+lua require('lualine').setup()
 
-" Nord theme
-let g:airline_theme='nord'
+" bufferline
+" ----------
+lua << EOF
+require('bufferline').setup{
+  options = {
+    offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "center"}},
+    separator_style = "thin",
+    always_show_bufferline = false,
+    show_close_icon = false,
+  }
+}
+EOF
 
-" Custom icons for separators
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = '|'
-
-" syntastic
+" nvim-lint
 " ---------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_tex_checkers = [''] " disable syntastic in latex file
-" let g:syntastic_tex_checkers = ['lacheck', 'text/language_check']
-let g:syntastic_rst_checkers = ['text/language_check']
-let g:syntastic_python_checkers = ['flake8']
-" make flake8 compatible with black
-let g:syntastic_python_flake8_args="--max-line-length=88 --ignore=W503,E203"
-let g:syntastic_tex_lacheck_quiet_messages = {'regex': '\Vpossible unwanted space at'}
-map <leader>sy :call SyntasticToggleMode()<cr>
+lua << EOF
+-- local pattern = '[^:]+, line (%d+):(.+)'
+-- local groups = { 'lnum', 'message' }
+--
+-- require('lint').linters.lacheck = {
+--   cmd = 'lacheck',
+--   stdin = false, -- lacheck cannot get input from stdin
+--   args = {},
+--   stream = stdout, -- lacheck prints strings to stdout
+--   ignore_exitcode = false, -- set this to true if the linter exits with a code != 0 and that's considered normal.
+--   env = nil, -- custom environment table to use with the external process. Note that this replaces the *entire* environment, it is not additive.
+--   parser = require('lint.parser').from_pattern(pattern, groups, nil, {
+--     ["source"] = "lacheck",
+--     ['severity'] = vim.diagnostic.severity.WARN,
+--   }),
+-- }
+
+require('lint').linters_by_ft = {
+  python = {'flake8',},
+  tex = {'chktex', 'lacheck'},
+}
+EOF
+
+" Autorun linter on read and write
+augroup linter_auto
+    autocmd!
+    au BufReadPost <buffer> lua require('lint').try_lint()
+    au BufWritePost <buffer> lua require('lint').try_lint()
+augroup END
 
 " gitgutter
 " ---------
-" Existing mappings:
-"   <Leader>hu : Undo hunk
 nmap <leader>hv <Plug>(GitGutterPreviewHunk)
-nmap <leader>hn <Plug>(GitGutterNextHunk)
-nmap <leader>hp <Plug>(GitGutterPrevHunk)
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
 " Stage and reset hunks
 nmap <leader>ha <Plug>(GitGutterStageHunk)
 nmap <leader>hr <Plug>(GitGutterUndoHunk)
@@ -168,12 +205,6 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-" Using Lua functions
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " markdown-preview.nvim
 " ---------------------

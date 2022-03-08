@@ -127,9 +127,10 @@ augroup END
 " ========
 
 " Move to the next and previous buffer
-" Please check if airline has <let g:airline#extensions#tabline#enabled = 1>
 nmap <leader>n :bnext<CR>
 nmap <leader>p :bprevious<CR>
+nmap ]b :bnext<CR>
+nmap [b :bprevious<CR>
 
 " Delete current buffer
 nmap <leader>d :bd<CR>
