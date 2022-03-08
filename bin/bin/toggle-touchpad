@@ -1,6 +1,6 @@
 #!/bin/bash
 
-device_index=$(xinput | grep Glide | cut -f 2 | sed 's/id=//')
+device_index=$(xinput | grep Touchpad | cut -f 2 | sed 's/id=//')
 status=$(xinput list-props $device_index | grep "Device Enabled" | cut -f 3)
 
 if [ $status == 1 ]
