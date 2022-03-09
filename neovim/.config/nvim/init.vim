@@ -127,7 +127,7 @@ require('lualine').setup {
     component_separators = ''
   },
   sections = {
-    lualine_y = {getWords},
+    lualine_y = {getWords, 'progress'},
   },
 }
 EOF
