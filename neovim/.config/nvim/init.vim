@@ -105,7 +105,32 @@ lua require('Comment').setup()
 
 " lualine
 " -------
-lua require('lualine').setup()
+lua << EOF
+-- Define function for counting words in document
+local function getWords()
+  if vim.bo.filetype == "tex" or vim.bo.filetype == "txt" or vim.bo.filetype == "markdown" then
+    if vim.fn.wordcount().visual_words == 1 then
+      return tostring(vim.fn.wordcount().visual_words) .. " word"
+    elseif not (vim.fn.wordcount().visual_words == nil) then
+      return tostring(vim.fn.wordcount().visual_words) .. " words"
+    else
+      return tostring(vim.fn.wordcount().words) .. " words"
+    end
+  else
+    return ""
+  end
+end
+
+require('lualine').setup {
+  options = {
+    section_separators = '',
+    component_separators = ''
+  },
+  sections = {
+    lualine_y = {getWords},
+  },
+}
+EOF
 
 " bufferline
 " ----------
