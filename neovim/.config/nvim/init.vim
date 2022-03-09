@@ -23,14 +23,29 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugins are downloaded from Github (username/repo)
-Plug 'airblade/vim-gitgutter'          " git flags in the sign column
-Plug 'tpope/vim-fugitive'              " git wrapper
-Plug 'tpope/vim-surround'              " surround highlighted text
+
+
+" Nord theme
+Plug 'arcticicestudio/nord-vim'
+
+" Git
+Plug 'airblade/vim-gitgutter' " git flags in the sign column
+Plug 'tpope/vim-fugitive'     " git wrapper
+
+" Surrounding characters
+Plug 'tpope/vim-surround'     " surround highlighted text
+
+" LaTeX
 Plug 'lervag/vimtex'                   " latex plugin
+
+" Webdev
 Plug 'ap/vim-css-color'                " highlight RGB colors
 Plug 'mattn/emmet-vim'                 " for HTML completion
+
+" Autoformat files
 Plug 'sbdchd/neoformat'                " formatter for multiple languages
-Plug 'arcticicestudio/nord-vim'        " Nord theme for Neovim
+
+" Vimwiki and markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'vimwiki/vimwiki'
 
@@ -148,22 +163,6 @@ EOF
 " nvim-lint
 " ---------
 lua << EOF
--- local pattern = '[^:]+, line (%d+):(.+)'
--- local groups = { 'lnum', 'message' }
---
--- require('lint').linters.lacheck = {
---   cmd = 'lacheck',
---   stdin = false, -- lacheck cannot get input from stdin
---   args = {},
---   stream = stdout, -- lacheck prints strings to stdout
---   ignore_exitcode = false, -- set this to true if the linter exits with a code != 0 and that's considered normal.
---   env = nil, -- custom environment table to use with the external process. Note that this replaces the *entire* environment, it is not additive.
---   parser = require('lint.parser').from_pattern(pattern, groups, nil, {
---     ["source"] = "lacheck",
---     ['severity'] = vim.diagnostic.severity.WARN,
---   }),
--- }
-
 require('lint').linters_by_ft = {
   python = {'flake8',},
   tex = {'chktex', 'lacheck'},
