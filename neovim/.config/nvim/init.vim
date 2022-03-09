@@ -20,10 +20,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged')
-
 " Plugins are downloaded from Github (username/repo)
-
+call plug#begin('~/.vim/plugged')
 
 " Nord theme
 Plug 'arcticicestudio/nord-vim'
@@ -200,7 +198,11 @@ let g:vimtex_complete_close_braces=1
 
 " nvim-tree
 " ---------
-lua require'nvim-tree'.setup()
+lua << EOF
+require'nvim-tree'.setup {
+    filters = {dotfiles = true},
+}
+EOF
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 
