@@ -67,8 +67,7 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim'
 
 " nvim-lint
-" Plug 'mfussenegger/nvim-lint'
-Plug 'santisoler/nvim-lint', {'branch': 'lacheck'}
+Plug 'mfussenegger/nvim-lint'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
