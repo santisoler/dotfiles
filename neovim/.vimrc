@@ -46,7 +46,7 @@ augroup custom_style
     autocmd FileType python setlocal colorcolumn=89
     " Set indentation to 4 characters (except for html and yml)
     set autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-    autocmd FileType html,yml,yaml setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd FileType html,htmldjango,yml,yaml setlocal ts=2 sts=2 sw=2 expandtab
     " Configure Git commits
     autocmd Filetype gitcommit setlocal spell textwidth=72
     autocmd Filetype pullrequest setlocal spell textwidth=72
