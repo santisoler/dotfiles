@@ -7,22 +7,10 @@ ms-fonts:
 devilspie2:
   - devilspie2
 
-spaceship-prompt:
-  - spaceship-prompt
-
 xfce4-docklike-plugin:
   - xfce4-docklike-plugin
 
-slack-desktop:
-  - slack-desktop
-
-zoom:
-  - zoom
-
-zotero:
-  - zotero
-
-fonts:
+more-fonts:
   - ttf-google-fonts-git
   - ttf-nunito
 
@@ -34,15 +22,3 @@ inkscape-generate-palette:
 
 piper:
   - piper-git
-
-cawbird:
-  - cawbird
-
-google-earth-pro:
-  - google-earth-pro
-
-audio-recorder:
-  - audio-recorder
-
-photofilmstrip:
-  - photofilmstrip

@@ -1,0 +1,11 @@
+slack:
+  - com.slack.Slack
+
+zoom:
+  - us.zoom.Zoom
+
+zotero:
+  - org.zotero.Zotero
+
+matcha-dark-sea:
+  - org.gtk.Gtk3theme.Matcha-dark-sea
