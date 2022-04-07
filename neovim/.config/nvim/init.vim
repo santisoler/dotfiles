@@ -200,6 +200,7 @@ let g:vimtex_complete_close_braces=1
 lua << EOF
 require'nvim-tree'.setup {
     filters = {dotfiles = true},
+    git = {ignore = false},
 }
 EOF
 nnoremap <C-n> :NvimTreeToggle<CR>
