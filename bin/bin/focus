@@ -29,10 +29,7 @@ if [[ -n "${switch_to}" ]]
     then
         (wmctrl -ia "$switch_to") &
     else
-        if [[ -n "$2" ]]
-            then
-                ($2) &
-        fi
+        $1
 fi
 
 
