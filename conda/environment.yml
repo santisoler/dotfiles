@@ -30,10 +30,11 @@ dependencies:
   - pyproj
   - pygmt
   # Linting and style checking
-  - black>=20.8b1
+  - black>=22.3
   - rope
   - flake8
   # Fatiando
+  - ensaio
   - pooch
   - verde
   - harmonica
