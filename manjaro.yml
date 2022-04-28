@@ -84,7 +84,7 @@ nvim:
   - vim-spell-en
   - vim-spell-es
   - yarn # needed to install some plug packages
-  - pyright # python language server
+  - python-language-server
 
 keepassxc:
   - keepassxc
