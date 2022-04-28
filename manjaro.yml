@@ -83,7 +83,10 @@ nvim:
   - vim-spell-en
   - vim-spell-es
   - yarn # needed to install some plug packages
+  # Language servers
+  - bash-language-server
   - python-language-server
+  - texlab
 
 keepassxc:
   - keepassxc
