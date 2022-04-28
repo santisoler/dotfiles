@@ -112,10 +112,8 @@ alias tns="tmux new-session -s"
 
 # Run commands in background using tmux
 alias lab='tmux new-session -d -s lab; tmux send-keys -t lab "cd $HOME; cenv; jupyter-lab" Enter'
-alias remotelab='tmux new-session -d -s remotelab; tmux send-keys -t remotelab "ssh -N -L localhost:9999:localhost:8888 santi@soler.unsj.edu.ar" Enter'
-alias remotedask='tmux new-session -d -s remotedask; tmux send-keys -t remotedask "ssh -N -L localhost:9797:localhost:8787 santi@soler.unsj.edu.ar" Enter'
 alias serve='tmux new-session -d -s serve; tmux send-keys -t serve "livereload -p 8989 ." Enter'
-alias futurock='tmux new-session -d -s futurock; tmux send-keys -t futurock "mplayer http://cdn2.instream.audio:8007/stream" Enter'
+alias futurock='tmux new-session -d -s futurock; tmux send-keys -t futurock "mpv https://mdstrm.com/audio/5d9d019112cbbb45d6a50960/live.m3u8" Enter'
 
 # Mamba aliases
 alias ca='mamba activate'

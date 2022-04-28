@@ -33,8 +33,10 @@ def cli(packages_yml, outfile):
         f.write(" ".join(packages_selection))
 
     # Finish with installation instructions
-    click.echo("Install the selected packages running:")
+    click.echo("Install the selected packages running either:")
     click.echo(f"  cat {outfile} | xargs -to sudo pacman -S --needed")
+    click.echo(f"  cat {outfile} | xargs -to yay -S --needed")
+    click.echo(f"  cat {outfile} | xargs -to flatpak install flathub")
 
     return
 

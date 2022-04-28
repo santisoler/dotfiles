@@ -28,8 +28,9 @@ Besides, there are a few more files in this repo:
 
 - `post_install`: post install script for running some small tasks
     automatically.
-- `manjaro.yml` and `yay.yml`: YAML files that contain list of packages grouped
-    in categories. These files are used as inputs for `select_packages`.
+- `manjaro.yml`, `yay.yml` and `flatpak.yml`: YAML files that contain list of
+  packages grouped in categories. These files are used as inputs for
+  `select_packages`.
 - `duckduckgo.json`: Custom theme for [](duckduckgo.com)
 
 
