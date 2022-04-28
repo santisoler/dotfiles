@@ -50,10 +50,6 @@ Plug 'vimwiki/vimwiki'
 " Comment.nvim
 Plug 'numToStr/Comment.nvim'
 
-" telescope
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-lua/plenary.nvim'
-
 " nvim-tree
 Plug 'kyazdani42/nvim-tree.lua'
 
@@ -220,14 +216,6 @@ augroup neoformat
     au!
     autocmd BufWritePre *.py,*.html,*.css,*.less,*.yml Neoformat
 augroup END
-
-" telescope
-" ---------
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " markdown-preview.nvim
 " ---------------------
