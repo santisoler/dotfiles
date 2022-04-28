@@ -172,8 +172,8 @@ EOF
 " Autorun linter on read and write
 augroup linter_auto
     autocmd!
-    au BufReadPost <buffer> lua require('lint').try_lint()
-    au BufWritePost <buffer> lua require('lint').try_lint()
+    au BufReadPost * lua require('lint').try_lint()
+    au BufWritePost * lua require('lint').try_lint()
 augroup END
 
 " gitgutter
