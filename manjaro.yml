@@ -85,7 +85,7 @@ nvim:
   - yarn # needed to install some plug packages
   # Language servers
   - bash-language-server
-  - python-lsp-server
+  - pyright
   - texlab
 
 keepassxc:
