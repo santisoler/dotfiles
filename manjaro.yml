@@ -79,7 +79,6 @@ nvim:
   - python-jedi
   - python-black
   - flake8
-  - python-pylint
   - prettier
   - vim-spell-en
   - vim-spell-es
