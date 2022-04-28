@@ -69,11 +69,6 @@ bindkey '^[[1;5C' forward-word                     #
 bindkey '^H' backward-kill-word                    # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo                                # Shift+tab undo last action
 
-bindkey '^n' forward-word                          # Ctrl+n moves to next word
-bindkey '^b' backward-word                         # Ctrl+b moves to previous word
-bindkey '^u' undo                                  # Ctrl+u undo last action
-
-
 
 # ----------------
 # Define variables
@@ -179,6 +174,8 @@ fi
 # Enable autosuggestions
 if [[ -r ${plugins}/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
     source ${plugins}/zsh-autosuggestions/zsh-autosuggestions.zsh
+    # use Ctrl+n to accept suggestion
+    bindkey '^n' autosuggest-accept
 fi
 
 
