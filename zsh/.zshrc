@@ -171,13 +171,6 @@ if [[ -r ${plugins}/zsh-history-substring-search/zsh-history-substring-search.zs
     bindkey '^[[B' history-substring-search-down
 fi
 
-# Enable autosuggestions
-if [[ -r ${plugins}/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
-    source ${plugins}/zsh-autosuggestions/zsh-autosuggestions.zsh
-    # use Ctrl+n to accept suggestion
-    bindkey '^n' autosuggest-accept
-fi
-
 
 # ------------
 # Prompt theme
