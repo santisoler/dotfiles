@@ -50,9 +50,6 @@ Plug 'vimwiki/vimwiki'
 " Comment.nvim
 Plug 'numToStr/Comment.nvim'
 
-" Treesitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
 " telescope
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/plenary.nvim'
