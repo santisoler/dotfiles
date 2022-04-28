@@ -126,12 +126,22 @@ local function getWords()
   end
 end
 
+-- Define function for getting conda environment
+local function getCondaEnv()
+    local conda_env = os.getenv("CONDA_DEFAULT_ENV")
+    if conda_env == "" then
+        return ""
+    end
+    return " " .. conda_env
+end
+
 require('lualine').setup {
   options = {
     section_separators = '',
     component_separators = ''
   },
   sections = {
+    lualine_b = {'branch', 'diff', getCondaEnv, 'diagnostics'},
     lualine_y = {getWords, 'progress'},
   },
 }
