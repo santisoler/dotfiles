@@ -69,6 +69,11 @@ bindkey '^[[1;5C' forward-word                     #
 bindkey '^H' backward-kill-word                    # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo                                # Shift+tab undo last action
 
+bindkey '^n' forward-word                          # Ctrl+n moves to next word
+bindkey '^b' backward-word                         # Ctrl+b moves to previous word
+bindkey '^u' undo                                  # Ctrl+u undo last action
+
+
 
 # ----------------
 # Define variables
