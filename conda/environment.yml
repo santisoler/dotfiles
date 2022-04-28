@@ -9,7 +9,7 @@ dependencies:
   - ipython
   - jupyter
   - jupyterlab
-  - jupyterlab-vim
+  - jupyterlab_vim
   - nb_conda
   - nbdime # git diffs for notebooks
   - nodejs # needed by jupyterlab
