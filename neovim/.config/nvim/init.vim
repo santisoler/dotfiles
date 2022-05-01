@@ -166,6 +166,7 @@ lua << EOF
 require('lint').linters_by_ft = {
   python = {'flake8',},
   tex = {'chktex', 'lacheck'},
+  sh = {'shellcheck'},
 }
 EOF
 

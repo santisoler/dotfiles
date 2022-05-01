@@ -77,12 +77,14 @@ nvim:
   - neovim
   - python-pynvim
   - python-jedi
-  - python-black
-  - flake8
-  - prettier
   - vim-spell-en
   - vim-spell-es
   - yarn # needed to install some plug packages
+  # Linters and autostyle
+  - shellcheck
+  - flake8
+  - python-black
+  - prettier
   # Language servers
   - bash-language-server
   - pyright
