@@ -1,6 +1,5 @@
 xfce extra:
   - firefox
-  - file-roller
   - grsync
   - terminator
   - wmctrl
