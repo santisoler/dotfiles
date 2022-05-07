@@ -42,5 +42,5 @@ nmap ]d <cmd>lua vim.diagnostic.goto_next()<CR>
 nmap <leader>q <cmd>lua vim.diagnostic.setloclist()<CR>
 
 " Complete with Tab (need InsertTabWrapper function)
-inoremap <expr><tab> InsertTabWrapper()
-inoremap <expr><s-tab> pumvisible()?"\<c-p>":"\<c-d>"
+" inoremap <expr><tab> InsertTabWrapper()
+" inoremap <expr><s-tab> pumvisible()?"\<c-p>":"\<c-d>"
