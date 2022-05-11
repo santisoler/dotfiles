@@ -5,4 +5,4 @@ source <sfile>:h/vim/mappings.vim
 source <sfile>:h/vim/autocmd.vim
 source <sfile>:h/vim/plugins.vim
 
-lua require("mappings")
+" lua require("mappings")
