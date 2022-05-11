@@ -86,6 +86,22 @@ lua require("conf.nvim-tree")
 lua require("conf.toggle_lsp_diagnostics")
 
 
+" lsp
+" ---
+" Create a function that makes it possible to complete with Tab and Shift+Tab
+function! InsertTabWrapper()
+  if pumvisible()
+    return "\<c-n>"
+  endif
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-x>\<c-o>"
+  endif
+endfunction
+
+
 " vimtex
 " ------
 filetype plugin indent on
