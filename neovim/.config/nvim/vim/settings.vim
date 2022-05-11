@@ -18,7 +18,8 @@ set breakindent
 set textwidth=79
 set formatoptions=t  " auto-wrap text using textwidth
 set formatoptions+=q  " format comments with `gq`
-" set formatoptions+=r  " insert comment char after hitting enter in Insert mode
+set formatoptions+=r  " insert comment char after hitting enter in Insert mode
+set formatoptions-=o  " don't insert comment char on new line in Normal mode
 set formatoptions+=n  " recognize numbered lists when formatting text
 set formatoptions+=1  " don't break a like after a one-letter word
 
