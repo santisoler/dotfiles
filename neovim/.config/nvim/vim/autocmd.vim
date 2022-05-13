@@ -30,8 +30,8 @@ augroup END
 " Autorun linter on read and write (requires nvim-lint)
 augroup linter_auto
     autocmd!
-    au BufReadPost * "lua require('lint').try_lint()"
-    au BufWritePost * "lua require('lint').try_lint()"
+    au BufReadPost * lua require('lint').try_lint()
+    au BufWritePost * lua require('lint').try_lint()
 augroup END
 
 " Run neoformat after saving some chosen files (requires neoformat)
