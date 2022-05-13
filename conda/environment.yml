@@ -15,11 +15,19 @@ dependencies:
   - nodejs # needed by jupyterlab
   - conda-lock # lock environments
   # Software Development
+  - livereload
   - pytest
   - black>=22.3
+  - isort
   - rope
   - flake8
-  - livereload
+  - flake8-bugbear
+  - flake8-builtins
+  - flake8-functions
+  - flake8-mutable
+  - flake8-rst-docstrings
+  - flake8-simplify
+  - pep8-naming
   # Scientific stack
   - numba
   - dask

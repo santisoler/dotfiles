@@ -76,14 +76,18 @@ nvim:
   - neovim
   - python-pynvim
   - python-jedi
-  - python-black
-  - flake8
-  - python-pylint
-  - prettier
   - vim-spell-en
   - vim-spell-es
   - yarn # needed to install some plug packages
-  - pyright # python language server
+  # Linters and autostyle
+  - shellcheck
+  - flake8
+  - python-black
+  - prettier
+  # Language servers
+  - bash-language-server
+  - python-lsp-server
+  - texlab
 
 keepassxc:
   - keepassxc
