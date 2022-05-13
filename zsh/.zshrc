@@ -152,28 +152,23 @@ export LESS=-R
 # Plugins
 # -------
 #
-# Enable fish style features
+# plugins="/usr/share/zsh/plugins"
+plugins="$HOME/.zsh/plugins"
 
 # Use syntax highlighting
-if [[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ -r ${plugins}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source ${plugins}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # Use history substring search
-if [[ -r /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh ]]; then
-    source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+if [[ -r ${plugins}/zsh-history-substring-search/zsh-history-substring-search.zsh ]]; then
+    source ${plugins}/zsh-history-substring-search/zsh-history-substring-search.zsh
     # bind UP and DOWN arrow keys to history substring search
     zmodload zsh/terminfo
     bindkey "$terminfo[kcuu1]" history-substring-search-up
     bindkey "$terminfo[kcud1]" history-substring-search-down
     bindkey '^[[A' history-substring-search-up
     bindkey '^[[B' history-substring-search-down
-fi
-
-# Offer to install missing package if command is not found
-if [[ -r /usr/share/zsh/functions/command-not-found.zsh ]]; then
-    source /usr/share/zsh/functions/command-not-found.zsh
-    export PKGFILE_PROMPT_INSTALL_MISSING=1
 fi
 
 
