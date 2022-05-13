@@ -38,27 +38,21 @@ require('lspconfig').bashls.setup {
   on_attach = on_attach,
 }
 
--- Pyright
-require('lspconfig').pyright.setup {
+-- Pylsp
+require('lspconfig').pylsp.setup {
   on_attach = on_attach,
+  settings = {
+    -- configure plugins in pylsp
+    pylsp = {
+      plugins = {
+        pyflakes = {enabled = false},
+        pylint = {enabled = false},
+        flake8 = {enabled = false},
+        pycodestyle = {enabled = false},
+      },
+    },
+  },
 }
--- require('lspconfig').jedi_language_server.setup {
---   on_attach = on_attach,
--- }
--- require('lspconfig').pylsp.setup {
---   on_attach = on_attach,
---   settings = {
---     -- configure plugins in pylsp
---     pylsp = {
---       plugins = {
---         pyflakes = {enabled = false},
---         pylint = {enabled = false},
---         flake8 = {enabled = false},
---         pycodestyle = {enabled = false},
---       },
---     },
---   },
--- }
 
 -- Texlab
 require('lspconfig').texlab.setup {
