@@ -54,6 +54,13 @@ call plug#begin('~/.vim/plugged')
     " LSP
     Plug 'neovim/nvim-lspconfig'
 
+    " cmp
+    Plug 'hrsh7th/nvim-cmp'         " Autocompletion plugin
+    Plug 'hrsh7th/cmp-nvim-lsp'     " LSP source for nvim-cmp
+    Plug 'saadparwaiz1/cmp_luasnip' " Snippets source for nvim-cmp
+    Plug 'hrsh7th/cmp-path'         " complete paths with nvim-cmp
+    Plug 'L3MON4D3/LuaSnip'         " Snippets plugin
+
     " toggle lsp diagnostics
     Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 
@@ -80,26 +87,11 @@ lua require("conf.bufferline")
 lua require("conf.comment")
 lua require("conf.git-signs")
 lua require("conf.lspconfig")
+lua require("conf.cmp")
 lua require("conf.lualine")
 lua require("conf.nvim-lint")
 lua require("conf.nvim-tree")
 lua require("conf.toggle_lsp_diagnostics")
-
-
-" lsp
-" ---
-" Create a function that makes it possible to complete with Tab and Shift+Tab
-function! InsertTabWrapper()
-  if pumvisible()
-    return "\<c-n>"
-  endif
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-x>\<c-o>"
-  endif
-endfunction
 
 
 " vimtex
