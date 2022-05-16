@@ -64,6 +64,10 @@ call plug#begin('~/.vim/plugged')
     " toggle lsp diagnostics
     Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 
+    " Tree-sitter
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'lewis6991/spellsitter.nvim'
+
 call plug#end()
 
 
@@ -79,6 +83,7 @@ if (empty($TMUX))
         set termguicolors
     endif
 endif
+
 colorscheme nord
 
 " Load plugins configurations from lua files
@@ -92,6 +97,7 @@ lua require("conf.lualine")
 lua require("conf.nvim-lint")
 lua require("conf.nvim-tree")
 lua require("conf.toggle_lsp_diagnostics")
+lua require("conf.treesitter")
 
 
 " vimtex
