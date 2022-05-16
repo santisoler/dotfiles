@@ -38,6 +38,12 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 -- Configure language servers
 -- ==========================
 
+-- C language server
+require('lspconfig').ccls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 -- Bash language server
 require('lspconfig').bashls.setup {
   on_attach = on_attach,

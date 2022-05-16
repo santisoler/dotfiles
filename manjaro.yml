@@ -80,11 +80,13 @@ nvim:
   - vim-spell-es
   - yarn # needed to install some plug packages
   # Linters and autostyle
+  - cppcheck
   - shellcheck
   - flake8
   - python-black
   - prettier
   # Language servers
+  - ccls
   - bash-language-server
   - python-lsp-server
   - texlab
