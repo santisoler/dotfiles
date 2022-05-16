@@ -32,6 +32,7 @@ cli apps:
   - highlight
   - playerctl
   - timew
+  - termdown
 
 zsh:
   - zsh
