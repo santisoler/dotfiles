@@ -20,13 +20,15 @@ augroup trailing_spaces
     autocmd BufWritePre * :%s/\s\+$//e
 augroup END
 
-" Show cursor line only in active window
+" Show cursor line and set relativenumber only in active window
+" (don't change relativenumber on NvimTree window)
 augroup cursorline_active_window
     autocmd!
     autocmd WinEnter * set cursorline
-    autocmd WinEnter * set relativenumber
+    autocmd WinEnter * if bufname() != 'NvimTree_' . tabpagenr() | set relativenumber | endif
     autocmd WinLeave * set nocursorline
-    autocmd WinLeave * set norelativenumber
+    autocmd WinLeave * if bufname() != 'NvimTree_' . tabpagenr() | set norelativenumber | endif
+>>>>>>> Stashed changes
 augroup END
 
 " Autorun linter on read and write (requires nvim-lint)
