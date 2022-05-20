@@ -4,12 +4,12 @@
 # ---------------
 # Mamba functions
 # ---------------
-mambaon() {
-    mamba activate
+condaon() {
+    conda activate
 }
 
-mambaoff() {
-    mamba activate base; mamba deactivate
+condaoff() {
+    conda activate base; conda deactivate
 }
 
 cenv() {
