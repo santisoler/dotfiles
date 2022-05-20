@@ -24,7 +24,9 @@ augroup END
 augroup cursorline_active_window
     autocmd!
     autocmd WinEnter * set cursorline
+    autocmd WinEnter * set relativenumber
     autocmd WinLeave * set nocursorline
+    autocmd WinLeave * set norelativenumber
 augroup END
 
 " Autorun linter on read and write (requires nvim-lint)
