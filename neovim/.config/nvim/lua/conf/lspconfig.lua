@@ -48,6 +48,7 @@ require('lspconfig').ccls.setup {
 require('lspconfig').bashls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+}
 
 -- Pylsp
 require('lspconfig').pylsp.setup {
