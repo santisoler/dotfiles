@@ -61,9 +61,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'hrsh7th/cmp-path'         " complete paths with nvim-cmp
     Plug 'L3MON4D3/LuaSnip'         " Snippets plugin
 
-    " toggle lsp diagnostics
-    Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
-
     " Tree-sitter
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'lewis6991/spellsitter.nvim'
