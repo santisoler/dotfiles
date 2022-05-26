@@ -20,11 +20,21 @@ augroup trailing_spaces
     autocmd BufWritePre * :%s/\s\+$//e
 augroup END
 
-" Show cursor line only in active window
+" Enable spellcheck by default on some filetypes
+augroup spelling
+    au!
+    autocmd Filetype html,markdown,python,tex set spell
+    autocmd Filetype html,markdown,python,tex set spelllang=en
+augroup END
+
+" Show cursor line and set relativenumber only in active window
+" (don't change relativenumber on NvimTree window)
 augroup cursorline_active_window
     autocmd!
     autocmd WinEnter * set cursorline
+    autocmd WinEnter * if bufname() != 'NvimTree_' . tabpagenr() | set relativenumber | endif
     autocmd WinLeave * set nocursorline
+    autocmd WinLeave * if bufname() != 'NvimTree_' . tabpagenr() | set norelativenumber | endif
 augroup END
 
 " Autorun linter on read and write (requires nvim-lint)

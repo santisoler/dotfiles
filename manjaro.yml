@@ -32,6 +32,7 @@ cli apps:
   - highlight
   - playerctl
   - timew
+  - termdown
 
 zsh:
   - zsh
@@ -39,38 +40,6 @@ zsh:
   - zsh-completions
   - zsh-autosuggestions
   - zsh-syntax-highlighting
-
-thunderbird:
-  - thunderbird
-  - thunderbird-i18n-es-ar
-
-zathura:
-  - zathura
-  - zathura-cb
-  - zathura-djvu
-  - zathura-pdf-mupdf
-  - zathura-ps
-
-nextcloud:
-  - nextcloud-client
-
-syncthing:
-  - syncthing
-
-guvcview (configure webcam):
-  - guvcview
-
-firefox extensions:
-  - firefox-ublock-origin
-  - firefox-extension-privacybadger
-  - firefox-extension-https-everywhere
-
-chromium:
-  - chromium
-
-yay:
-  - base-devel
-  - yay
 
 nvim:
   - neovim
@@ -91,11 +60,34 @@ nvim:
   - python-lsp-server
   - texlab
 
+firefox extensions:
+  - firefox-ublock-origin
+  - firefox-extension-privacybadger
+  - firefox-extension-https-everywhere
+
+thunderbird:
+  - thunderbird
+  - thunderbird-i18n-es-ar
+
+chromium:
+  - chromium
+
+zathura:
+  - zathura
+  - zathura-cb
+  - zathura-djvu
+  - zathura-pdf-mupdf
+  - zathura-ps
+
 keepassxc:
   - keepassxc
 
-seahorse:
-  - seahorse
+nextcloud:
+  - nextcloud-client
+
+yay:
+  - base-devel
+  - yay
 
 fonts:
   - gsfonts
@@ -119,14 +111,23 @@ libreoffice:
   - libreoffice-fresh
   - libreoffice-fresh-es
 
+syncthing:
+  - syncthing
+
+guvcview (configure webcam):
+  - guvcview
+
+seahorse:
+  - seahorse
+
 deluge:
   - deluge-gtk
 
-vlc:
-  - vlc
-
 mpv:
   - mpv
+
+vlc:
+  - vlc
 
 gpodder:
   - gpodder
@@ -145,8 +146,8 @@ graphics:
 steam:
   - steam-manjaro
 
-play on linux:
-  - playonlinux
+tectonic:
+  - tectonic
 
 texlive:
   - texlive-core
@@ -161,9 +162,6 @@ audio-tools:
 
 telegram:
   - telegram-desktop
-
-wxmaxima:
-  - wxmaxima
 
 okular:
   - okular

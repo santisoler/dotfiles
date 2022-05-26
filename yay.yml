@@ -14,9 +14,6 @@ more-fonts:
   - ttf-google-fonts-git
   - ttf-nunito
 
-subliminal:
-  - subliminal-git
-
 inkscape-generate-palette:
   - inkscape-generate-palette
 
