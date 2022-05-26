@@ -143,6 +143,9 @@ steam:
 play on linux:
   - playonlinux
 
+tectonic:
+  - tectonic
+
 texlive:
   - texlive-core
   - texlive-latexextra
