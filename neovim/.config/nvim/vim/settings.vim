@@ -54,7 +54,3 @@ set undofile
 
 " Set number of context lines when scrolling
 set scrolloff=10
-
-" Enable spellcheck by default
-set spell
-set spelllang=es,en

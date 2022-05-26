@@ -20,6 +20,13 @@ augroup trailing_spaces
     autocmd BufWritePre * :%s/\s\+$//e
 augroup END
 
+" Enable spellcheck by default on some filetypes
+augroup spelling
+    au!
+    autocmd Filetype html,markdown,python,tex set spell
+    autocmd Filetype html,markdown,python,tex set spelllang=en
+augroup END
+
 " Show cursor line and set relativenumber only in active window
 " (don't change relativenumber on NvimTree window)
 augroup cursorline_active_window
