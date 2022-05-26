@@ -35,7 +35,6 @@ augroup cursorline_active_window
     autocmd WinEnter * if bufname() != 'NvimTree_' . tabpagenr() | set relativenumber | endif
     autocmd WinLeave * set nocursorline
     autocmd WinLeave * if bufname() != 'NvimTree_' . tabpagenr() | set norelativenumber | endif
->>>>>>> Stashed changes
 augroup END
 
 " Autorun linter on read and write (requires nvim-lint)
