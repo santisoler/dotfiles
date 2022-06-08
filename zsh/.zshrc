@@ -74,19 +74,12 @@ bindkey '^[[Z' undo                                # Shift+tab undo last action
 # Define variables
 # ----------------
 # export GEM_HOME=$HOME/.gem
-if [[ -d $HOME/Documents/notes ]]; then
-    export NOTES=$HOME/Documents/notes
-elif [[ -d $HOME/documents/notes ]]; then
-    export NOTES=$HOME/documents/notes
-fi
-
 
 # -------
 # Aliases
 # -------
 alias v="nvim"
-# alias notes="cd $NOTES; nvim .; cd -"
-alias todo='nvim -c "norm G" $NOTES/todo.md'
+alias todo='nvim -c "norm G" ~/documents/notes/todo.md'
 alias draft="nvim ~/tmp/draft.md"
 alias cp="cp -i"
 alias mv="mv -i"
