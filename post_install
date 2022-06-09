@@ -73,6 +73,14 @@ else
 fi
 
 echo
+if ask ":: Configure keyboard to 'us altgr-intl caps:super'?" Y; then
+    echo "Configuring keyboard [...]"
+    localectl set-x11-keymap us "" altgr-intl caps:super
+else
+    echo "Skipping..."
+fi
+
+echo
 if ask ":: Install Neovim plugins?" Y; then
     nvim -c "PlugInstall"
 else
