@@ -9,7 +9,7 @@ if [[ $DOCUMENTS_DIR == "" ]]; then
     DOCUMENTS_DIR=$HOME
 fi
 
-MAIN_DIR="$DOCUMENTS_DIR/tm"
+MAIN_DIR="$DOCUMENTS_DIR/notes"
 TASKS_DIR="$MAIN_DIR/tasks"
 JOURNAL_DIR="$MAIN_DIR/journal"
 TODO_FILE="$MAIN_DIR/todo.md"
