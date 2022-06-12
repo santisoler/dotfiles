@@ -126,6 +126,9 @@ function get_year_dir () {
 # ===========================================================================
 
 # Change directory to MAIN_DIR
+if [[ ! -d $MAIN_DIR ]]; then
+    mkdir -p "$MAIN_DIR"
+fi
 cd "$MAIN_DIR" || exit
 
 case "$1" in
