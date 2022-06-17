@@ -1,6 +1,0 @@
-#!/bin/bash
-
-notes_dir="$HOME/documents/notes"
-
-cd "$notes_dir" || exit
-nvim -c NvimTreeToggle
