@@ -8,11 +8,6 @@ export TERMINAL=/usr/bin/terminator
 export EDITOR=/usr/bin/nvim
 
 # Add ~/bin to PATH
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-# Add bin to the PATH
 if [[ -d $HOME/bin ]]; then
     export PATH=$HOME/bin:$PATH;
 fi
