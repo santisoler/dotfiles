@@ -74,20 +74,12 @@ bindkey '^[[Z' undo                                # Shift+tab undo last action
 # Define variables
 # ----------------
 # export GEM_HOME=$HOME/.gem
-if [[ -d $HOME/Documents/notes ]]; then
-    export NOTES=$HOME/Documents/notes
-elif [[ -d $HOME/documents/notes ]]; then
-    export NOTES=$HOME/documents/notes
-fi
-
 
 # -------
 # Aliases
 # -------
+# Aliases for daily used tools
 alias v="nvim"
-# alias notes="cd $NOTES; nvim .; cd -"
-alias todo='nvim -c "norm G" $NOTES/todo.md'
-alias draft="nvim ~/tmp/draft.md"
 alias cp="cp -i"
 alias mv="mv -i"
 alias ls="ls --group-directories-first --color=auto"
@@ -104,6 +96,11 @@ alias subs='subliminal download -l es -s'
 alias presentation-toggle='xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -T'
 alias monitor-mic='pactl load-module module-loopback latency_msec=1'
 alias monitor-stop='pactl unload-module module-loopback'
+
+# Aliases for taking notes
+alias notes="cd ~/documents/notes && nvim ."
+alias draft="nvim ~/tmp/draft.md"
+alias wiki="cd ~/documents/notes/vimwiki && nvim index.md"
 
 # Define aliases for tmux
 alias ta="tmux attach -t"
@@ -201,11 +198,19 @@ if [[ -d $HOME/.mambaforge ]]; then
     export MAMBA_PATH=$HOME/.mambaforge
 fi
 
-# Setup and activate the conda and mamaba package managerers
-if [ -f $MAMBA_PATH/etc/profile.d/conda.sh ]; then
-    source "$MAMBA_PATH/etc/profile.d/conda.sh"
-    conda activate
+# # Setup and activate the conda and mamba package managers
+__conda_setup="$('${MAMBA_PATH}/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "$MAMBA_PATH/etc/profile.d/conda.sh" ]; then
+        . "$MAMBA_PATH/etc/profile.d/conda.sh"
+    else
+        export PATH="$MAMBA_PATH/bin:$PATH"
+    fi
 fi
+unset __conda_setup
+
 if [ -f "$MAMBA_PATH/etc/profile.d/mamba.sh" ]; then
     . "$MAMBA_PATH/etc/profile.d/mamba.sh"
 fi
@@ -216,3 +221,4 @@ if command -v conda &> /dev/null; then
       cenv $HOME/environment.yml
   fi
 fi
+

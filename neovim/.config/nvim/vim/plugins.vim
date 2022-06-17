@@ -154,12 +154,12 @@ let g:mkdp_auto_close = 0
 " vimwiki
 " -------
 let g:vimwiki_list = [{
-    \ 'path': '~/documents/vimwiki',
-    \ 'template_path': '~/documents/vimwiki/templates/',
+    \ 'path': '~/documents/notes/vimwiki',
+    \ 'template_path': '~/documents/notes/vimwiki/templates/',
     \ 'template_default': 'default',
     \ 'syntax': 'markdown',
     \ 'ext': '.md',
-    \ 'path_html': '~/documents/vimwiki/site_html/',
+    \ 'path_html': '~/documents/notes/vimwiki/site_html/',
     \ 'custom_wiki2html': 'vimwiki_markdown',
     \ 'template_ext': '.tpl'}]
 let g:vimwiki_global_ext = 0

@@ -1,4 +1,23 @@
 configuration {
     monitor: "primary";
+    modi: [drun, run, window, combi, ssh];
+    combi-modi: [window, drun];
+    font: "FiraCode Nerd Font 12";
+    icon-theme: "Papirus";
+    show-icons: true;
+    drun-display-format: "{name}";
+    combi-display-format: "{text}";
+
+    // The display name of this browser
+    display-ssh:                   " ";
+    // The display name of this browser
+    display-run:                    " ";
+    // The display name of this browser
+    display-drun:                   " ";
+    // The display name of this browser
+    display-window:                 " ";
+    display-combi:                  " ";
 }
+
 @theme "~/.config/rofi/themes/nord.rasi"
+
