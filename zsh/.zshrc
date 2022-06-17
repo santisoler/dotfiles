@@ -78,9 +78,8 @@ bindkey '^[[Z' undo                                # Shift+tab undo last action
 # -------
 # Aliases
 # -------
+# Aliases for daily used tools
 alias v="nvim"
-alias todo='nvim -c "norm G" ~/documents/notes/todo.md'
-alias draft="nvim ~/tmp/draft.md"
 alias cp="cp -i"
 alias mv="mv -i"
 alias ls="ls --group-directories-first --color=auto"
@@ -97,6 +96,11 @@ alias subs='subliminal download -l es -s'
 alias presentation-toggle='xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -T'
 alias monitor-mic='pactl load-module module-loopback latency_msec=1'
 alias monitor-stop='pactl unload-module module-loopback'
+
+# Aliases for taking notes
+alias notes="cd ~/documents/notes && nvim ."
+alias draft="nvim ~/tmp/draft.md"
+alias wiki="cd ~/documents/notes/vimwiki && nvim index.md"
 
 # Define aliases for tmux
 alias ta="tmux attach -t"
