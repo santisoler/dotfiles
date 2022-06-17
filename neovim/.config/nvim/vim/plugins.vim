@@ -54,6 +54,17 @@ call plug#begin('~/.vim/plugged')
     " LSP
     Plug 'neovim/nvim-lspconfig'
 
+    " cmp
+    Plug 'hrsh7th/nvim-cmp'         " Autocompletion plugin
+    Plug 'hrsh7th/cmp-nvim-lsp'     " LSP source for nvim-cmp
+    Plug 'saadparwaiz1/cmp_luasnip' " Snippets source for nvim-cmp
+    Plug 'hrsh7th/cmp-path'         " complete paths with nvim-cmp
+    Plug 'L3MON4D3/LuaSnip'         " Snippets plugin
+
+    " Tree-sitter
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'lewis6991/spellsitter.nvim'
+
     " toggle lsp diagnostics
     Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 
@@ -72,6 +83,7 @@ if (empty($TMUX))
         set termguicolors
     endif
 endif
+
 colorscheme nord
 
 " Load plugins configurations from lua files
@@ -80,10 +92,12 @@ lua require("conf.bufferline")
 lua require("conf.comment")
 lua require("conf.git-signs")
 lua require("conf.lspconfig")
+lua require("conf.cmp")
 lua require("conf.lualine")
 lua require("conf.nvim-lint")
 lua require("conf.nvim-tree")
 lua require("conf.toggle_lsp_diagnostics")
+lua require("conf.treesitter")
 
 
 " lsp

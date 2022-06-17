@@ -29,18 +29,31 @@ local on_attach = function(client, bufnr)
 end
 
 
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+
 -- ==========================
 -- Configure language servers
 -- ==========================
 
+-- C language server
+require('lspconfig').ccls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 -- Bash language server
 require('lspconfig').bashls.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 -- Pylsp
 require('lspconfig').pylsp.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     -- configure plugins in pylsp
     pylsp = {
@@ -57,4 +70,5 @@ require('lspconfig').pylsp.setup {
 -- Texlab
 require('lspconfig').texlab.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
 }
