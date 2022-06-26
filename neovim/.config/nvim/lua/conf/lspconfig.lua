@@ -39,19 +39,19 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 -- ==========================
 
 -- C language server
-require('lspconfig').ccls.setup {
+require('lspconfig')["ccls"].setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
 
 -- Bash language server
-require('lspconfig').bashls.setup {
+require('lspconfig')["bashls"].setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
 
 -- Pylsp
-require('lspconfig').pylsp.setup {
+require('lspconfig')["pylsp"].setup {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -68,7 +68,7 @@ require('lspconfig').pylsp.setup {
 }
 
 -- Texlab
-require('lspconfig').texlab.setup {
+require('lspconfig')["texlab"].setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
