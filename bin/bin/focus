@@ -17,14 +17,15 @@ fi
 # Get list of windows that belong to the target app
 win_list=$(wmctrl -lx | grep -i "$target_app" | tr -s " " )
 
+# Run application if win_list is empty
+if [[ $win_list == "" ]]; then
+    $target_app
+    exit
+fi
+
 # Remove active window from the list
 if [[ $active_win_id != "" ]]; then
     win_list=$(echo "$win_list" | grep -v "$active_win_id")
-fi
-
-# Exit if win_list is empty
-if [[ $win_list == "" ]]; then
-    exit
 fi
 
 # Choose the first window in the list as the target window
