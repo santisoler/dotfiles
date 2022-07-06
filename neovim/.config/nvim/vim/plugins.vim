@@ -68,6 +68,10 @@ call plug#begin('~/.vim/plugged')
     " toggle lsp diagnostics
     Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 
+    " telescope
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+
 call plug#end()
 
 
@@ -147,3 +151,11 @@ let g:vimwiki_list = [{
     \ 'custom_wiki2html': 'vimwiki_markdown',
     \ 'template_ext': '.tpl'}]
 let g:vimwiki_global_ext = 0
+
+" telescope
+" ---------
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>

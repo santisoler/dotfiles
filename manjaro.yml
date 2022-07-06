@@ -48,6 +48,9 @@ nvim:
   - vim-spell-en
   - vim-spell-es
   - yarn # needed to install some plug packages
+  # Packages required by telescope
+  - ripgrep
+  - fd
   # Linters and autostyle
   - cppcheck
   - shellcheck
