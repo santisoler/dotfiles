@@ -40,6 +40,3 @@ nmap <leader>e <cmd>lua vim.diagnostic.open_float()<CR>
 nmap [d <cmd>lua vim.diagnostic.goto_prev()<CR>
 nmap ]d <cmd>lua vim.diagnostic.goto_next()<CR>
 nmap <leader>q <cmd>lua vim.diagnostic.setloclist()<CR>
-
-" Map Esc to exit Terminal mode (in terminal)
-tnoremap <Esc> <C-\><C-n>
