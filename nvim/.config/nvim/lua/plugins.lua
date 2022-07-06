@@ -40,7 +40,7 @@ return require('packer').startup(function()
   }
 
   -- Surrounding characters
-  use 'tpope/vim-surround'      -- surround highlighted text
+  use 'tpope/vim-surround'
 
   -- LaTeX
   use {
@@ -49,9 +49,9 @@ return require('packer').startup(function()
   }
 
   -- Webdev
-  use 'ap/vim-css-color'                -- highlight RGB colors
+  use 'ap/vim-css-color'
   use {
-    'mattn/emmet-vim',                 -- for HTML completion
+    'mattn/emmet-vim',
      config = function()
          vim.g.user_emmet_leader_key = '<C-Z>'
      end
@@ -137,6 +137,5 @@ return require('packer').startup(function()
     requires = 'nvim-lua/plenary.nvim',
     config = function() require('plugins.telescope') end,
   }
-
 
 end)
