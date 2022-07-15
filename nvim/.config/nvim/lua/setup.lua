@@ -66,3 +66,6 @@ set.undofile = true
 
 -- Set number of context lines when scrolling
 set.scrolloff = 10
+
+-- Use global statusline
+set.laststatus = 3
