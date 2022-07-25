@@ -89,6 +89,9 @@ yay:
   - base-devel
   - yay
 
+flatpak:
+  - flatpak
+
 fonts:
   - gsfonts
   - noto-fonts-emoji
