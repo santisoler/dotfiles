@@ -138,4 +138,9 @@ return require('packer').startup(function()
     config = function() require('plugins.telescope') end,
   }
 
+  -- vim-python-pep8-indent
+  use {
+    'Vimjas/vim-python-pep8-indent',
+  }
+
 end)
