@@ -93,6 +93,12 @@ return require('packer').startup(function()
     config = function() require('plugins.bufferline') end,
   }
 
+  -- nvim-autopairs
+  use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
+
   -- nvim-lint
   use {
     'mfussenegger/nvim-lint',
