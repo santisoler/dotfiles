@@ -137,6 +137,12 @@ return require('packer').startup(function()
     config = function() require('plugins.toggle-lsp-diagnostics') end,
   }
 
+  -- trouble.nvim (show list of diagnostics)
+  use {
+    "folke/trouble.nvim",
+    config = function() require('plugins.trouble') end,
+  }
+
   -- telescope
   use {
     'nvim-telescope/telescope.nvim',
