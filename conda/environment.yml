@@ -50,3 +50,6 @@ dependencies:
   - harmonica
   - rockhound
   - boule
+  # SimPEG
+  - simpeg
+  - discretize
