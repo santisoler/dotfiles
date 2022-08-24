@@ -82,7 +82,7 @@ fi
 
 echo
 if ask ":: Install Neovim plugins?" Y; then
-    nvim -c "PlugInstall"
+    nvim -c "PackerSync"
 else
     echo "Skipping..."
 fi
