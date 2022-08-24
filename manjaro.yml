@@ -67,11 +67,6 @@ nvim:
   - python-lsp-server
   - texlab
 
-firefox extensions:
-  - firefox-ublock-origin
-  - firefox-extension-privacybadger
-  - firefox-extension-https-everywhere
-
 thunderbird:
   - thunderbird
   - thunderbird-i18n-es-ar
