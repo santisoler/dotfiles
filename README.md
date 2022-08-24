@@ -16,7 +16,7 @@ For example:
     a `default` conda environment.
 - `git`: contains global `.gitconfig` and `.gitignore` files.
 - `mpv`: configurations for the mpv video player.
-- `neovim`: contains configuration files for Neovim (and for VIM).
+- `nvim`: contains configuration files for Neovim (and for VIM).
 - `terminator`: configuration for Terminator (terminal emulator with tiling
     capabilities).
 - `xfce`: a few configurations for the XFCE desktop environment. The look and
@@ -66,5 +66,5 @@ category.
 For example, to copy only the Neovim dotfiles:
 
 ```
-cp -r neovim/. ~
+cp -r nvim/. ~
 ```
