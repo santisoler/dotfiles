@@ -168,6 +168,9 @@ audio-tools:
 telegram:
   - telegram-desktop
 
+element:
+  - element-desktop
+
 okular:
   - okular
 
