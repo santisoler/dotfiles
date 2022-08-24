@@ -9,7 +9,6 @@ dependencies:
   - ipython
   - jupyter
   - jupyterlab
-  - jupyterlab_vim
   - nb_conda
   - nbdime # git diffs for notebooks
   - nodejs # needed by jupyterlab
@@ -51,3 +50,6 @@ dependencies:
   - harmonica
   - rockhound
   - boule
+  # SimPEG
+  - simpeg
+  - discretize

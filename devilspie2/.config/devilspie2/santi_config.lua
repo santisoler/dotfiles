@@ -4,8 +4,14 @@ if (get_application_name() == "terminator") then
   change_workspace(1);
 end
 
--- Assign Firefox to workspace 2
+-- Assign Firefox to workspace 1
 if (get_application_name() == "Firefox") then
+  set_window_workspace(1);
+  change_workspace(1);
+end
+
+-- Assign Thunar to workspace 2
+if (get_application_name() == "Thunar") then
   set_window_workspace(2);
   change_workspace(2);
 end

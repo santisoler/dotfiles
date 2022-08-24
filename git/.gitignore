@@ -1,2 +1,4 @@
 .vscode
 .vim
+.ipynb_checkpoints
+__pycache__
