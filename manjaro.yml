@@ -12,6 +12,13 @@ xfce extra:
   - xdotool
   - wmctrl
 
+cinnamon extra:
+  - firefox
+  - grsync
+  - terminator
+  - blueman
+  - gnome-system-monitor
+
 printer:
   - manjaro-printer
   - system-config-printer
