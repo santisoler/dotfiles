@@ -196,6 +196,8 @@ export PATH="$PATH:$(ruby -e 'print Gem.user_dir' 2> /dev/null)/bin"
 # ------------
 if [[ -d $HOME/.mambaforge ]]; then
     export MAMBA_PATH=$HOME/.mambaforge
+elif [[ -d /opt/mambaforge ]]; then
+    export MAMBA_PATH=/opt/mambaforge
 fi
 
 # # Setup and activate the conda and mamba package managers
