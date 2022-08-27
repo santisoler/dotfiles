@@ -72,8 +72,9 @@ function get_month_file () {
 
     # Add subheading for today if needed
     local today_weekday
+    today=$(date '+%Y-%m-%d')
     today_weekday=$(date '+%Y-%m-%d %A')
-    if [[ $last_date != "$today_weekday" ]]; then
+    if [[ $last_date != "$today" ]]; then
         echo "" >> "$file"
         echo "$today_weekday" >> "$file"
         # Add a line full of minus signs
@@ -89,12 +90,12 @@ function get_month_file () {
 
 
 function get_last_date() {
-    # Prints the last date present in a month file
+    # Prints the last date present in a month file as in %Y-%m-%d
     local file=$1
     # Get last date in the file
-    #   regex finds every line that matches a today_weekday
+    #   regex finds every line that matches "%Y-%m-%d %A"
     #   tail gets the last one of those lines
-    grep -E "^[0-9]{4}-[0-9]{2}-[0-9]{2} \w+$" "$file" | sort -g | tail -n 1
+    grep -E "^[0-9]{4}-[0-9]{2}-[0-9]{2} \w+$" "$file" | sort -g | tail -n 1 | cut -f 1 -d  " "
 }
 
 
