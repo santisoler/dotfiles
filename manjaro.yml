@@ -18,6 +18,7 @@ cinnamon extra:
   - terminator
   - blueman
   - gnome-system-monitor
+  - nemo-fileroller
 
 printer:
   - manjaro-printer
