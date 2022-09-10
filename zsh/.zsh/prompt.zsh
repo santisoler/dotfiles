@@ -111,7 +111,9 @@ add-zsh-hook preexec mzc_termsupport_preexec
 spaceship_dir="${HOME}/.zsh/spaceship-prompt"
 if [[ ! -d $spaceship_dir ]]; then
     git clone \
-        https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1 \
+        https://github.com/spaceship-prompt/spaceship-prompt.git \
+        --depth=1 \
+        --branch v3.16.7 \
         $spaceship_dir
 fi
 
