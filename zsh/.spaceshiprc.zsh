@@ -31,7 +31,7 @@ SPACESHIP_PROMPT_ORDER=(
   # aws           # Amazon Web Services section
   # gcloud        # Google Cloud Platform section
   # venv          # virtualenv section
-  # conda         # conda virtualenv section
+  conda         # conda virtualenv section
   # dotnet        # .NET section
   # kubectl       # Kubectl context section
   # terraform     # Terraform workspace section
