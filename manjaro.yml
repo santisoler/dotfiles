@@ -19,6 +19,7 @@ cinnamon extra:
   - blueman
   - gnome-system-monitor
   - nemo-fileroller
+  - gnome-screenshot
 
 printer:
   - manjaro-printer
