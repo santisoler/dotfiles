@@ -21,14 +21,21 @@ cmp.setup {
     end,
   },
 
-  -- Disable autocompletion (must be manually triggered)
+  -- Configure autocompletion
   completion = {
-      autocomplete = false,
+      autocomplete = true,
   },
 
   -- Define keybindings
   mapping = cmp.mapping.preset.insert({
 
+    -- Some default keybindings
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+
+    -- Autocomplete with tab
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
