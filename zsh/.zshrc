@@ -171,6 +171,14 @@ if [[ -r ${plugins}/zsh-history-substring-search/zsh-history-substring-search.zs
 fi
 
 
+# --------------
+# Terminal title
+# --------------
+if [[ -r ~/.zsh/terminal-title.zsh ]]; then
+    source ~/.zsh/terminal-title.zsh
+fi
+
+
 # ----------------
 # Spaceship Prompt
 # ----------------
