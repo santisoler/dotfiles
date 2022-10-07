@@ -5,7 +5,7 @@
 require('lint').linters_by_ft = {
   c= {'cppcheck'},
   python = {'flake8'},
-  tex = {'chktex', 'lacheck'},
+  tex = {'chktex'},
   sh = {'shellcheck'},
 }
 
