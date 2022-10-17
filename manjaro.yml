@@ -69,6 +69,7 @@ nvim:
   - bash-language-server
   - python-lsp-server
   - texlab
+  - rust-analyzer
 
 thunderbird:
   - thunderbird
@@ -90,6 +91,9 @@ keepassxc:
 nextcloud:
   - nextcloud-client
 
+rust:
+  - rustup
+
 yay:
   - base-devel
   - yay
@@ -97,6 +101,7 @@ yay:
 flatpak:
   - flatpak
   - libpamac-flatpak-plugin
+
 fonts:
   - gsfonts
   - noto-fonts-emoji

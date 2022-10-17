@@ -79,3 +79,9 @@ require('lspconfig')["texlab"].setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
+
+-- Rust Analyzer
+require('lspconfig')['rust_analyzer'].setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
