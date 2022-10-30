@@ -171,12 +171,30 @@ if [[ -r ${plugins}/zsh-history-substring-search/zsh-history-substring-search.zs
 fi
 
 
-# ------------
-# Prompt theme
-# ------------
-if [[ -r ~/.zsh/prompt.zsh ]]; then
-    source ~/.zsh/prompt.zsh
+# --------------
+# Terminal title
+# --------------
+if [[ -r ~/.zsh/terminal-title.zsh ]]; then
+    source ~/.zsh/terminal-title.zsh
 fi
+
+
+# ----------------
+# Spaceship Prompt
+# ----------------
+# We will install spaceship-prompt in ~/.zsh/spaceship-prompt
+# The configuration file for spaceship is located in ~/.spaceshiprc.zsh
+
+# Download spaceship-prompt
+spaceship_dir="${HOME}/.zsh/spaceship-prompt"
+if [[ ! -d $spaceship_dir ]]; then
+    git clone \
+        https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1 \
+        $spaceship_dir
+fi
+
+# Source the ~/.zsh/spaceship-prompt/spaceship.zsh file
+source "${spaceship_dir}/spaceship.zsh"
 
 
 # --------------
