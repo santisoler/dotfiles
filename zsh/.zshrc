@@ -109,9 +109,9 @@ alias tns="tmux new-session -s"
 
 # Run commands in background using tmux
 alias lab='tmux new-session -d -s lab; tmux send-keys -t lab "cd $HOME; cenv; jupyter-lab" Enter'
-alias remotelab-tera37='tmux new-session -d -s remotelab-tera37; tmux send-keys -t remotelab-tera37 "ssh -N -L 8837:localhost:8888 tera37" Enter'
-alias remotelab-tera39='tmux new-session -d -s remotelab-tera39; tmux send-keys -t remotelab-tera39 "ssh -N -L 8839:localhost:8888 tera39" Enter'
-alias remotelab-tera40='tmux new-session -d -s remotelab-tera40; tmux send-keys -t remotelab-tera40 "ssh -N -L 8840:localhost:8888 tera40" Enter'
+alias remotelab-tera37='tmux new-session -d -s remotelab-tera37; tmux send-keys -t remotelab-tera37 "ssh -N -L 8837:localhost:8888 tera37.eos.ubc.ca" Enter'
+alias remotelab-tera39='tmux new-session -d -s remotelab-tera39; tmux send-keys -t remotelab-tera39 "ssh -N -L 8839:localhost:8888 tera39.eos.ubc.ca" Enter'
+alias remotelab-tera40='tmux new-session -d -s remotelab-tera40; tmux send-keys -t remotelab-tera40 "ssh -N -L 8840:localhost:8888 tera40.eos.ubc.ca" Enter'
 alias serve='tmux new-session -d -s serve; tmux send-keys -t serve "livereload -p 8989 ." Enter'
 
 # Mamba aliases

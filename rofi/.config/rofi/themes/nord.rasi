@@ -44,8 +44,8 @@
     selected-urgent-foreground: var(background);
 }
 element {
-    padding: 0px 0px 0px 7px;
-    spacing: 5px;
+    padding: 5px 0px 5px 7px;
+    spacing: 10px;
     border:  0;
     cursor:  pointer;
 }

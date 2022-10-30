@@ -1,7 +1,7 @@
 [user]
     name = Santiago Soler
-    email = santiago.r.soler@gmail.com
-    signingKey = EA3B1F911EAF1F87E6CC8CE36532CF53B68099E3
+    email = santisoler@fastmail.com
+    signingKey = E41CAA9E5A2F51689B0E21EB394E6BD97C8F1C0D
 [core]
     editor = nvim
     excludesFile = ~/.gitignore

@@ -2,7 +2,8 @@ configuration {
     monitor: "primary";
     modi: [drun, run, window, combi, ssh];
     combi-modi: [window, drun];
-    font: "FiraCode Nerd Font 12";
+    /* font: "FiraCode Nerd Font 12"; */
+    font: "Cantarell Regular 12";
     icon-theme: "Papirus";
     show-icons: true;
     drun-display-format: "{name}";
@@ -20,4 +21,3 @@ configuration {
 }
 
 @theme "~/.config/rofi/themes/nord.rasi"
-
