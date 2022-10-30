@@ -155,4 +155,10 @@ return require('packer').startup(function()
     'Vimjas/vim-python-pep8-indent',
   }
 
+  -- iron.nvim (send lines to a REPL)
+  use {
+    'hkupty/iron.nvim',
+    config = function() require('plugins.iron') end,
+  }
+
 end)
