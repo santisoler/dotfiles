@@ -44,7 +44,7 @@ vim.api.nvim_create_augroup("spelling", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
     group = "spelling",
     pattern = { "html", "markdown", "python", "tex" },
-    command = "set spell | set spelllang=en",
+    command = "setlocal spell | set spelllang=en",
 })
 
 
