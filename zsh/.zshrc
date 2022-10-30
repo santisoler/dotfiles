@@ -109,8 +109,10 @@ alias tns="tmux new-session -s"
 
 # Run commands in background using tmux
 alias lab='tmux new-session -d -s lab; tmux send-keys -t lab "cd $HOME; cenv; jupyter-lab" Enter'
+alias remotelab-tera37='tmux new-session -d -s remotelab-tera37; tmux send-keys -t remotelab-tera37 "ssh -N -L 8837:localhost:8888 tera37.eos.ubc.ca" Enter'
+alias remotelab-tera39='tmux new-session -d -s remotelab-tera39; tmux send-keys -t remotelab-tera39 "ssh -N -L 8839:localhost:8888 tera39.eos.ubc.ca" Enter'
+alias remotelab-tera40='tmux new-session -d -s remotelab-tera40; tmux send-keys -t remotelab-tera40 "ssh -N -L 8840:localhost:8888 tera40.eos.ubc.ca" Enter'
 alias serve='tmux new-session -d -s serve; tmux send-keys -t serve "livereload -p 8989 ." Enter'
-alias futurock='tmux new-session -d -s futurock; tmux send-keys -t futurock "mpv https://mdstrm.com/audio/5d9d019112cbbb45d6a50960/live.m3u8" Enter'
 
 # Mamba aliases
 alias ca='mamba activate'
@@ -169,12 +171,30 @@ if [[ -r ${plugins}/zsh-history-substring-search/zsh-history-substring-search.zs
 fi
 
 
-# ------------
-# Prompt theme
-# ------------
-if [[ -r ~/.zsh/prompt.zsh ]]; then
-    source ~/.zsh/prompt.zsh
+# --------------
+# Terminal title
+# --------------
+if [[ -r ~/.zsh/terminal-title.zsh ]]; then
+    source ~/.zsh/terminal-title.zsh
 fi
+
+
+# ----------------
+# Spaceship Prompt
+# ----------------
+# We will install spaceship-prompt in ~/.zsh/spaceship-prompt
+# The configuration file for spaceship is located in ~/.spaceshiprc.zsh
+
+# Download spaceship-prompt
+spaceship_dir="${HOME}/.zsh/spaceship-prompt"
+if [[ ! -d $spaceship_dir ]]; then
+    git clone \
+        https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1 \
+        $spaceship_dir
+fi
+
+# Source the ~/.zsh/spaceship-prompt/spaceship.zsh file
+source "${spaceship_dir}/spaceship.zsh"
 
 
 # --------------
