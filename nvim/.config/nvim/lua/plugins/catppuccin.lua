@@ -2,7 +2,7 @@
 -- Configure catpuccin theme
 -- =========================
 require("catppuccin").setup({
-    no_italic = false, -- Force no italic
+    no_italic = true, -- Force no italic
 })
 
 -- setup must be called before loading
