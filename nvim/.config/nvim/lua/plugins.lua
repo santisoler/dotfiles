@@ -29,8 +29,12 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- Nord theme
-  use 'arcticicestudio/nord-vim'
+  -- Catpuccin theme
+  use {
+    "catppuccin/nvim",
+    as = "catppuccin" ,
+    config = function() require('plugins.catppuccin') end,
+  }
 
   -- Git
   use 'tpope/vim-fugitive'

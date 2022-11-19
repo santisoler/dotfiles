@@ -11,6 +11,9 @@ vim.g.mapleader = " "
 -- Configure Python host
 vim.g.python3_host_prog = '/usr/bin/python'
 
+-- Allow termguicolors
+vim.opt.termguicolors = true
+
 -- Configure indentations
 set.expandtab = true
 set.tabstop = 4

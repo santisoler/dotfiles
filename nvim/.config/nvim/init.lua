@@ -9,6 +9,3 @@ require('autocmd')
 
 -- Download and configure plugins using packer.nvim
 require('plugins')
-
--- Load themes
-require('themes')
