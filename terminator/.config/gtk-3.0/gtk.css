@@ -6,9 +6,7 @@
 /* Add padding to terminals */
 VteTerminal,
 vte-terminal {
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-bottom: 8px;
+  padding: 0px 2px;
 }
 
 /* Fix terminator separator color */
