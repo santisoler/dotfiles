@@ -1,5 +1,6 @@
 [global_config]
   handle_size = 0
+  window_state = maximise
   extra_styling = False
   scroll_tabbar = True
   homogeneous_tabbar = False
@@ -34,16 +35,17 @@
   layout_launcher = ""
 [profiles]
   [[default]]
-    background_color = "#2E3440"
+    background_color = "#24273a"
+    cursor_color = "#cdd6f4"
+    foreground_color = "#cdd6f4"
+    palette = "#45475a:#f38ba8:#a6e3a1:#f9e2af:#89b4fa:#f5c2e7:#94e2d5:#bac2de:#585b70:#f38ba8:#a6e3a1:#f9e2af:#89b4fa:#f5c2e7:#94e2d5:#a6adc8"
+    background_image = None
     background_darkness = 1.0
     cursor_blink = False
-    cursor_color = "#D8DEE9"
-    font = FiraCode Nerd Font 9.5
-    foreground_color = "#D8DEE9"
+    font = FiraCode Nerd Font 10
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_lines = 10000
-    palette = "#3b4252:#bf616a:#a3be8c:#ebcb8b:#81a1c1:#b48ead:#88c0d0:#e5e9f0:#4c566a:#bf616a:#a3be8c:#ebcb8b:#81a1c1:#b48ead:#88c0d0:#eceff4"
     use_system_font = False
     bold_is_bright = True
   [[onedark]]
@@ -74,6 +76,24 @@
     palette = "#3B4252:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#B48EAD:#88C0D0:#E5E9F0:#4C566A:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#B48EAD:#88C0D0:#ECEFF4"
     use_system_font = False
     bold_is_bright = True
+  [[Catppuccin_Latte]]
+    background_color = "#eff1f5"
+    cursor_color = "#dc8a78"
+    foreground_color = "#4c4f69"
+    palette = "#5c5f77:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#acb0be:#6c6f85:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#bcc0cc"
+    background_image = None
+  [[Catppuccin_Frappe]]
+    background_color = "#303446"
+    cursor_color = "#f2d5cf"
+    foreground_color = "#c6d0f5"
+    palette = "#51576d:#e78284:#a6d189:#e5c890:#8caaee:#f4b8e4:#81c8be:#b5bfe2:#626880:#e78284:#a6d189:#e5c890:#8caaee:#f4b8e4:#81c8be:#a5adce"
+    background_image = None
+  [[Catppuccin_Macchiato]]
+    background_color = "#1e1e2e"
+    cursor_color = "#cdd6f4"
+    foreground_color = "#cdd6f4"
+    palette = "#45475a:#f38ba8:#a6e3a1:#f9e2af:#89b4fa:#f5c2e7:#94e2d5:#bac2de:#585b70:#f38ba8:#a6e3a1:#f9e2af:#89b4fa:#f5c2e7:#94e2d5:#a6adc8"
+    background_image = None
 [layouts]
   [[default]]
     [[[window0]]]
