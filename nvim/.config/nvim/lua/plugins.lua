@@ -42,6 +42,14 @@ return require('packer').startup(function()
     'lewis6991/gitsigns.nvim',
     config = function() require('plugins.gitsigns') end,
   }
+  use {
+    'sindrets/diffview.nvim',
+    requires = 'nvim-lua/plenary.nvim'
+  }
+  use {
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim'
+  }
 
   -- Surrounding characters
   use 'tpope/vim-surround'
