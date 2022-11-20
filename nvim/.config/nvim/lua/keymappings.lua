@@ -11,6 +11,7 @@ vim.keymap.set('n', '<C-l>', '<C-w>l')
 -- Move to the next and previous buffer
 vim.keymap.set('n', '<leader>n', ':bnext<CR>')
 vim.keymap.set('n', '<leader>p', ':bprevious<CR>')
+vim.keymap.set('n', '<leader>d', ':bd<CR>')
 vim.keymap.set('n', ']b', ':bnext<CR>')
 vim.keymap.set('n', '[b', ':bprevious<CR>')
 
