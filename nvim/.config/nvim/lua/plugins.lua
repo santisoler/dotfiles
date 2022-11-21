@@ -102,6 +102,7 @@ return require('packer').startup(function()
   -- bufferline
   use {
     'akinsho/bufferline.nvim',
+    after="catppuccin",
     config = function() require('plugins.bufferline') end,
   }
 
