@@ -49,8 +49,8 @@ set.colorcolumn = "80"
 set.number = true
 set.relativenumber = true
 
--- Add signcolumn (automatic control width)
-set.signcolumn = "auto:3"
+-- Add signcolumn
+set.signcolumn = "yes"
 
 -- Highlight cursorline
 set.cursorline = true
