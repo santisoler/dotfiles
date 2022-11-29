@@ -167,6 +167,8 @@ texlive:
   - texlive-latexextra
   - texlive-bibtexextra
   - texlive-science
+  # To account for missing libcrypt.so.1 error
+  - libxcrypt-compat
 
 audio-tools:
   - sox
