@@ -33,11 +33,5 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 -- Keep cursor fixed when joining lines (source: ThePrimeagen)
 vim.keymap.set('n', 'J', 'mzJ`z')
 
--- Create some keybindings for diagnostics (see :help vim.diagnostic.* for docs)
-vim.keymap.set('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>')
-vim.keymap.set('n', '[d <cmd>lua', 'vim.diagnostic.goto_prev()<CR>')
-vim.keymap.set('n', ']d <cmd>lua', 'vim.diagnostic.goto_next()<CR>')
-vim.keymap.set('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>')
-
 -- Map Esc to exit Terminal mode (in terminal)
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
