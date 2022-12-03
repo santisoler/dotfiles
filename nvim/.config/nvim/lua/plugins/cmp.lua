@@ -21,10 +21,12 @@ cmp.setup {
     end,
   },
 
-  -- Configure autocompletion
-  completion = {
-      autocomplete = true,
-  },
+  -- Disable autocompletion
+  -- (if you want to enable autocompletion comment out this lines, don't set
+  -- `autocomplete = true)
+  -- completion = {
+  --     autocomplete = true,
+  -- },
 
   -- Define keybindings
   mapping = cmp.mapping.preset.insert({
