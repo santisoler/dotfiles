@@ -74,3 +74,26 @@ cmp.setup {
     { name = 'path' },
   },
 }
+
+-- Define function to toggle autocompletion
+function set_autocompletion(mode)
+  if mode then
+    cmp.setup({
+      completion = {
+        autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged }
+      }
+    })
+  else
+    cmp.setup({
+      completion = {
+        autocomplete = false
+      }
+    })
+  end
+end
+
+-- enable automatic completion popup on typing
+vim.cmd('command EnableAutocompletion lua set_autocompletion(true)')
+
+-- disable automatic competion popup on typing
+vim.cmd('command DisableAutocompletion lua set_autocompletion(false)')
