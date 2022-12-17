@@ -40,6 +40,6 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz')
 -- Map Esc to exit Terminal mode (in terminal)
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
--- Leader p to paste replacing but not overriding the register
+-- Leader v to paste replacing but not overriding the register
 -- (source: ThePrimeagen)
-vim.keymap.set('x', '<leader>p', "\"_dP")
+vim.keymap.set('x', '<leader>v', [["_dP]])
