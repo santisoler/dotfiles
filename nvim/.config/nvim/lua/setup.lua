@@ -55,8 +55,9 @@ set.signcolumn = "yes"
 -- Highlight cursorline
 set.cursorline = true
 
--- Split new windows below
+-- Split new windows below and right (vsplit)
 set.splitbelow = true
+set.splitright = true
 
 -- Disable folding
 set.foldenable = false
