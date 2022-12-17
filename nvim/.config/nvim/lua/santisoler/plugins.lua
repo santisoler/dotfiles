@@ -33,14 +33,14 @@ return require('packer').startup(function()
   use {
     "catppuccin/nvim",
     as = "catppuccin" ,
-    config = function() require('plugins.catppuccin') end,
+    config = function() require('santisoler.plugins.catppuccin') end,
   }
 
   -- Git
   use 'tpope/vim-fugitive'
   use {
     'lewis6991/gitsigns.nvim',
-    config = function() require('plugins.gitsigns') end,
+    config = function() require('santisoler.plugins.gitsigns') end,
   }
   use {
     'sindrets/diffview.nvim',
@@ -57,7 +57,7 @@ return require('packer').startup(function()
   -- LaTeX
   use {
     'lervag/vimtex',
-    config = function() require('plugins.vimtex') end,
+    config = function() require('santisoler.plugins.vimtex') end,
   }
 
   -- Webdev
@@ -72,62 +72,62 @@ return require('packer').startup(function()
   -- Autoformat files
   use {
     'sbdchd/neoformat',
-    config = function() require('plugins.neoformat') end,
+    config = function() require('santisoler.plugins.neoformat') end,
   }
 
   -- Vimwiki
   use {
     'vimwiki/vimwiki',
-    config = function() require('plugins.vimwiki') end,
+    config = function() require('santisoler.plugins.vimwiki') end,
   }
 
   -- Comment.nvim
   use {
     'numToStr/Comment.nvim',
-    config = function() require('plugins.comment') end,
+    config = function() require('santisoler.plugins.comment') end,
   }
 
   -- nvim-tree
   use {
     'kyazdani42/nvim-tree.lua',
-    config = function() require('plugins.nvim-tree') end,
+    config = function() require('santisoler.plugins.nvim-tree') end,
   }
 
   -- lualine.nvim
   use {
     'nvim-lualine/lualine.nvim',
-    config = function() require('plugins.lualine') end,
+    config = function() require('santisoler.plugins.lualine') end,
   }
 
   -- bufferline
-  use {
-    'akinsho/bufferline.nvim',
-    after="catppuccin",
-    config = function() require('plugins.bufferline') end,
-  }
+  -- use {
+  --   'akinsho/bufferline.nvim',
+  --   after="catppuccin",
+  --   config = function() require('plugins.bufferline') end,
+  -- }
 
-  -- nvim-autopairs
-  use {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  }
+  -- -- nvim-autopairs
+  -- use {
+  --   "windwp/nvim-autopairs",
+  --   config = function() require("nvim-autopairs").setup {} end
+  -- }
 
   -- nvim-lint
   use {
     'mfussenegger/nvim-lint',
-    config = function() require('plugins.nvim-lint') end,
+    config = function() require('santisoler.plugins.nvim-lint') end,
   }
 
   -- LSP
   use {
     'neovim/nvim-lspconfig',
-    config = function() require('plugins.lspconfig') end,
+    config = function() require('santisoler.plugins.lspconfig') end,
   }
 
   -- cmp
   use {
     'hrsh7th/nvim-cmp',
-    config = function() require('plugins.cmp') end,
+    config = function() require('santisoler.plugins.cmp') end,
     requires = {
       'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
       'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
@@ -140,21 +140,21 @@ return require('packer').startup(function()
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    config = function() require('plugins.treesitter') end,
+    config = function() require('santisoler.plugins.treesitter') end,
     requires = 'lewis6991/spellsitter.nvim',
   }
 
   -- toggle lsp diagnostics
   use {
     'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
-    config = function() require('plugins.toggle-lsp-diagnostics') end,
+    config = function() require('santisoler.plugins.toggle-lsp-diagnostics') end,
   }
 
   -- telescope
   use {
     'nvim-telescope/telescope.nvim',
     requires = 'nvim-lua/plenary.nvim',
-    config = function() require('plugins.telescope') end,
+    config = function() require('santisoler.plugins.telescope') end,
   }
 
   -- vim-python-pep8-indent
@@ -165,7 +165,7 @@ return require('packer').startup(function()
   -- iron.nvim (send lines to a REPL)
   use {
     'hkupty/iron.nvim',
-    config = function() require('plugins.iron') end,
+    config = function() require('santisoler.plugins.iron') end,
   }
 
 end)
