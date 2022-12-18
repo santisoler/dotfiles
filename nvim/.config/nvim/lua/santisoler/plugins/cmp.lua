@@ -26,6 +26,9 @@ cmp.setup {
   -- Define keybindings
   mapping = cmp.mapping.preset.insert({
 
+    -- Start completion
+    ['<C-Space>'] = cmp.mapping.complete(),
+
     -- Confirm completion
     ['<CR>'] = cmp.mapping.confirm({select = false}),
 
