@@ -93,17 +93,17 @@ require('lspconfig')['rust_analyzer'].setup{
 -- Customize diagnostics
 -- ---------------------
 vim.diagnostic.config({
-  virtual_text = false,
-  signs = true,
+  virtual_text = true,
+  signs = false,
   update_in_insert = false,
   underline = true,
   severity_sort = true,
   float = {
     focusable = false,
-    style = 'minimal',
+    -- style = 'minimal',
     border = 'rounded',
     source = 'always',
-    header = '',
-    prefix = '',
+    -- header = '',
+    -- prefix = '',
   },
 })
