@@ -11,6 +11,9 @@ vim.g.mapleader = " "
 -- Configure Python host
 vim.g.python3_host_prog = '/usr/bin/python'
 
+-- Allow termguicolors
+vim.opt.termguicolors = true
+
 -- Configure indentations
 set.expandtab = true
 set.tabstop = 4
@@ -52,8 +55,9 @@ set.signcolumn = "yes"
 -- Highlight cursorline
 set.cursorline = true
 
--- Split new windows below
+-- Split new windows below and right (vsplit)
 set.splitbelow = true
+set.splitright = true
 
 -- Disable folding
 set.foldenable = false

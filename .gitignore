@@ -1,3 +1,4 @@
 .*~
 .*.swp
 */.config/nvim/plugin
+nvim/.config/nvim/spell/*.spl
