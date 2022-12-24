@@ -51,15 +51,20 @@ echo "
 
 "
 
+# Define dotfiels dirs that won't be copied but linked (stow) instead
+STOW_DIRS="nvim"
 
 # Copy dotfiles
 echo
 if ask ":: Copy the dotfiles to your home folder?" Y; then
     echo "Copying dotfiles [...]"
     # Copy every dotfile in your home directory
-    # (except dirs that start with an underscore)
+    # (except dirs that start with an underscore or dirs that are listed in
+    # STOW_DIRS)
     for directory in [^_]*/; do
-        cp -r ${directory%/}/. ~;
+        if ! echo "$STOW_DIRS" | grep -qw "${directory%/}"; then
+            cp -r "${directory%/}"/. ~;
+        fi
     done
 else
     echo "Skipping..."
