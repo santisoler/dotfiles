@@ -93,10 +93,12 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 -- Autorun linter on read and write (requires nvim-lint)
 -- -----------------------------------------------------
 vim.api.nvim_create_augroup("linter", { clear = true })
-vim.api.nvim_create_autocmd({"BufNewFile", "BufEnter", "BufWritePost"}, {
+vim.api.nvim_create_autocmd({"BufNewFile", "BufWritePost"}, {
     group = "linter",
     pattern = { "*" },
-    command = "lua require('lint').try_lint()",
+    callback = function()
+        require("lint").try_lint()
+    end,
 })
 
 
