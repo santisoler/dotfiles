@@ -81,9 +81,9 @@ else
 fi
 
 echo
-if ask ":: Configure keyboard to 'us altgr-intl caps:swapescape'?" Y; then
+if ask ":: Configure keyboard to 'us altgr-intl caps:escape'?" Y; then
     echo "Configuring keyboard [...]"
-    localectl set-x11-keymap us "" altgr-intl caps:swapescape
+    localectl set-x11-keymap us "" altgr-intl caps:escape
 else
     echo "Skipping..."
 fi
