@@ -66,6 +66,9 @@ if ask ":: Copy the dotfiles to your home folder?" Y; then
             cp -r "${directory%/}"/. ~;
         fi
     done
+    for directory in "$STOW_DIRS"; do
+        stow "${directory%/}"
+    done
 else
     echo "Skipping..."
 fi

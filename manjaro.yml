@@ -43,6 +43,7 @@ cli apps:
   - playerctl
   - timew
   - termdown
+  - stow
 
 zsh:
   - zsh
