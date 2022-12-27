@@ -12,6 +12,12 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = { "python" },
     command = "setlocal colorcolumn=89",
 })
+-- Change text last column for Rust files
+vim.api.nvim_create_autocmd("FileType", {
+    group = "custom_style",
+    pattern = { "rust" },
+    command = "setlocal colorcolumn=99",
+})
 -- Set indentation to 2 characters for html, yml and lua files
 vim.api.nvim_create_autocmd("FileType", {
     group = "custom_style",
