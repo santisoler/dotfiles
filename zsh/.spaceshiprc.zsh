@@ -1,5 +1,6 @@
 # Customize some options
-SPACESHIP_PROMPT_ASYNC=false
+SPACESHIP_TIME_SHOW=false
+SPACESHIP_PROMPT_ASYNC=true
 SPACESHIP_PROMPT_ADD_NEWLINE=true
 SPACESHIP_CONDA_SYMBOL=""
 SPACESHIP_GIT_BRANCH_PREFIX=""
@@ -8,9 +9,9 @@ SPACESHIP_GIT_SYMBOL=""
 # Set order of elements
 SPACESHIP_PROMPT_ORDER=(
   # time          # Time stampts section
-  user          # Username section
+  # user          # Username section
   dir           # Current directory section
-  host          # Hostname section
+  # host          # Hostname section
   git           # Git section (git_branch + git_status)
   # hg            # Mercurial section (hg_branch  + hg_status)
   # package       # Package version
@@ -36,8 +37,8 @@ SPACESHIP_PROMPT_ORDER=(
   # kubectl       # Kubectl context section
   # terraform     # Terraform workspace section
   # ibmcloud      # IBM Cloud section
-  # exec_time     # Execution time
-  async         # Async jobs indicator
+  exec_time     # Execution time
+  # async         # Async jobs indicator
   line_sep      # Line break
   # battery       # Battery level and status
   jobs          # Background jobs indicator

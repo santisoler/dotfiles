@@ -187,9 +187,12 @@ fi
 
 # Download spaceship-prompt
 spaceship_dir="${HOME}/.zsh/spaceship-prompt"
+spaceship_version="v4.12.0"
 if [[ ! -d $spaceship_dir ]]; then
     git clone \
-        https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1 \
+        --depth=1 \
+        --branch $spaceship_version \
+        https://github.com/spaceship-prompt/spaceship-prompt.git \
         $spaceship_dir
 fi
 
