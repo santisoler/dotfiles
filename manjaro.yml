@@ -8,6 +8,7 @@ xfce extra:
   - ristretto
   - rofi
   - rofi-emoji
+  - redshift
   # needed by move-to-next-monitor
   - xorg-xwininfo
   - xdotool
