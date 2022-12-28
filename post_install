@@ -138,3 +138,13 @@ if ask ":: Disable Bluetooth at startup" Y; then
 else
     echo "Skipping..."
 fi
+
+echo
+if ask ":: Configure zsa-wally?" Y; then
+    sudo cp _zsa-wally/50-zsa.rules /etc/udev/rules.d/50-zsa.rules
+    sudo groupadd plugdev
+    sudo usermod -aG plugdev "$USER"
+    echo "Remember to logout or reboot for these changes to work."
+else
+    echo "Skipping..."
+fi
