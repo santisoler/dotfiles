@@ -131,3 +131,10 @@ if ask ":: Lower swappiness to 5?" Y; then
 else
     echo "Skipping..."
 fi
+
+echo
+if ask ":: Disable Bluetooth at startup" Y; then
+    sudo sed -s -i 's/^#AutoEnable=true$/AutoEnable=false' /etc/bluetooth/main.conf
+else
+    echo "Skipping..."
+fi
