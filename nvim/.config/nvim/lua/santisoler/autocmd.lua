@@ -114,6 +114,6 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufWritePost"}, {
 vim.api.nvim_create_augroup("neoformat", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
     group = "neoformat",
-    pattern = { "*.py", "*.html", "*.css", "*.less", "*.yml" },
+    pattern = { "*.py", "*.html", "*.css", "*.less", "*.yml", "*.rs" },
     command = "Neoformat",
 })
