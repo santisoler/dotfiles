@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
     group = "custom_style",
     pattern = { "rust" },
-    command = "setlocal colorcolumn=99",
+    command = "setlocal colorcolumn=100",
 })
 -- Set indentation to 2 characters for html, yml and lua files
 vim.api.nvim_create_autocmd("FileType", {
