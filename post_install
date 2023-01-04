@@ -66,6 +66,9 @@ if ask ":: Copy the dotfiles to your home folder?" Y; then
             cp -r "${directory%/}"/. ~;
         fi
     done
+    for directory in "$STOW_DIRS"; do
+        stow "${directory%/}"
+    done
 else
     echo "Skipping..."
 fi
@@ -78,9 +81,9 @@ else
 fi
 
 echo
-if ask ":: Configure keyboard to 'us altgr-intl caps:swapescape'?" Y; then
+if ask ":: Configure keyboard to 'us altgr-intl caps:escape'?" Y; then
     echo "Configuring keyboard [...]"
-    localectl set-x11-keymap us "" altgr-intl caps:swapescape
+    localectl set-x11-keymap us "" altgr-intl caps:escape
 else
     echo "Skipping..."
 fi
@@ -125,6 +128,23 @@ fi
 echo
 if ask ":: Lower swappiness to 5?" Y; then
     sudo sysctl -w vm.swappiness=5
+else
+    echo "Skipping..."
+fi
+
+echo
+if ask ":: Disable Bluetooth at startup" Y; then
+    sudo sed -s -i 's/^#AutoEnable=true$/AutoEnable=false' /etc/bluetooth/main.conf
+else
+    echo "Skipping..."
+fi
+
+echo
+if ask ":: Configure zsa-wally?" Y; then
+    sudo cp _zsa-wally/50-zsa.rules /etc/udev/rules.d/50-zsa.rules
+    sudo groupadd plugdev
+    sudo usermod -aG plugdev "$USER"
+    echo "Remember to logout or reboot for these changes to work."
 else
     echo "Skipping..."
 fi
