@@ -15,7 +15,7 @@ syntax on
 
 " Show line numbers
 set number
-set relativenumber
+" set relativenumber
 
 " Enable mouse interaction inside vim (only on Visual and Normal mode)
 set mouse=vn
@@ -121,3 +121,38 @@ nnoremap N Nzzzv
 
 " Keep cursor fixed when joining lines (source: ThePrimeagen)
 nnoremap J mzJ`z
+
+
+" ==================================
+" Plugin Installation using vim-plug
+" ==================================
+
+" Automatically download and install vim-plug if it's not installed
+"
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !wget -p ~/.vim/autoload/
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Plugins are downloaded from Github (username/repo)
+" Use :PlugInstall to install them
+call plug#begin('~/.vim/plugged')
+
+" Git
+Plug 'airblade/vim-gitgutter'  " git flags in the sign column
+Plug 'tpope/vim-fugitive'      " git wrapper
+
+" Comments
+Plug 'tpope/vim-commentary'
+
+call plug#end()
+
+" Configure gitgutter
+" -------------------
+set signcolumn=yes
+highlight SignColumn ctermbg=NONE
+highlight GitGutterAdd    ctermfg=2
+highlight GitGutterChange ctermfg=3
+highlight GitGutterDelete ctermfg=1
+nmap ]c <Plug>(GitGutterNextHunk)
+nmap [c <Plug>(GitGutterPrevHunk)
