@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
     group = "custom_style",
     pattern = { "rust" },
-    command = "setlocal colorcolumn=99",
+    command = "setlocal colorcolumn=100",
 })
 -- Set indentation to 2 characters for html, yml and lua files
 vim.api.nvim_create_autocmd("FileType", {
@@ -99,10 +99,12 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 -- Autorun linter on read and write (requires nvim-lint)
 -- -----------------------------------------------------
 vim.api.nvim_create_augroup("linter", { clear = true })
-vim.api.nvim_create_autocmd({"BufNewFile", "BufEnter", "BufWritePost"}, {
+vim.api.nvim_create_autocmd({"BufNewFile", "BufWritePost"}, {
     group = "linter",
     pattern = { "*" },
-    command = "lua require('lint').try_lint()",
+    callback = function()
+        require("lint").try_lint()
+    end,
 })
 
 
@@ -112,6 +114,6 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufEnter", "BufWritePost"}, {
 vim.api.nvim_create_augroup("neoformat", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
     group = "neoformat",
-    pattern = { "*.py", "*.html", "*.css", "*.less", "*.yml" },
+    pattern = { "*.py", "*.html", "*.css", "*.less", "*.yml", "*.rs" },
     command = "Neoformat",
 })

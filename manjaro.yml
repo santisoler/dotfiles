@@ -7,6 +7,8 @@ xfce extra:
   - thunar-media-tags-plugin
   - ristretto
   - rofi
+  - rofi-emoji
+  - redshift
   # needed by move-to-next-monitor
   - xorg-xwininfo
   - xdotool
@@ -43,6 +45,7 @@ cli apps:
   - playerctl
   - timew
   - termdown
+  - stow
 
 zsh:
   - zsh
@@ -71,6 +74,9 @@ nvim:
   - python-lsp-server
   - texlab
   - rust-analyzer
+
+zsa-wally:
+  - zsa-wally
 
 thunderbird:
   - thunderbird
@@ -110,7 +116,6 @@ fonts:
   - ttf-liberation
   - ttf-linux-libertine
   - ttf-roboto
-  - font-bh-ttf
   - gentium-plus-font
   - ttf-font-awesome
   - otf-latin-modern
