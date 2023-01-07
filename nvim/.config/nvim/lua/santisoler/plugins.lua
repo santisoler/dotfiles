@@ -37,18 +37,13 @@ return require('packer').startup(function()
   }
 
   -- Git
-  use 'tpope/vim-fugitive'
+  use {
+    'tpope/vim-fugitive',
+    config = function() require('santisoler.plugins.fugitive') end,
+  }
   use {
     'lewis6991/gitsigns.nvim',
     config = function() require('santisoler.plugins.gitsigns') end,
-  }
-  use {
-    'sindrets/diffview.nvim',
-    requires = 'nvim-lua/plenary.nvim'
-  }
-  use {
-    'TimUntersberger/neogit',
-    requires = 'nvim-lua/plenary.nvim'
   }
 
   -- Surrounding characters
