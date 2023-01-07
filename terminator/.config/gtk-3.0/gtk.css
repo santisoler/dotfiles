@@ -10,11 +10,10 @@ vte-terminal {
 }
 
 /* Fix terminator separator color */
-/* notebook, */
-/* notebook header { */
-/*   /* border-color: #1b2224; */ */
-/*   border-color: #14191b; /* solves issue with Matcha Dark Theme */ */
-/* } */
+notebook,
+notebook header {
+  border-color: #303030; /* solves issue of transparent borders in terminator */
+}
 /* separator { */
 /*   background-color: #4c566a; /* solves transparent separator in Cinnamon */ */
 /* } */
