@@ -13,8 +13,8 @@ iron.setup {
         command = {"zsh"}
       }
     },
-    -- Open the REPL in a vertical split window
-    repl_open_cmd = view.split.vertical.botright(80)
+    -- Open the REPL in a split window
+    repl_open_cmd = view.split("30%")
   },
   -- Iron doesn't set keymaps by default anymore.
   -- You can set them here or manually add keymaps to the functions in iron.core
