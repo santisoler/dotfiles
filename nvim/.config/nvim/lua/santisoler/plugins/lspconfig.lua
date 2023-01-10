@@ -76,6 +76,12 @@ require('lspconfig')["pylsp"].setup {
   },
 }
 
+-- Pyright
+require('lspconfig')["pyright"].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 -- Texlab
 require('lspconfig')["texlab"].setup {
   on_attach = on_attach,
