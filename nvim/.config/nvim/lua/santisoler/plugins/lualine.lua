@@ -15,6 +15,9 @@ end
 
 -- Define function for getting conda environment
 local function getCondaEnv()
+    if vim.bo.filetype ~= "python" then
+      return ""
+    end
     local conda_env = os.getenv("CONDA_DEFAULT_ENV")
     if conda_env == "" then
         return ""
