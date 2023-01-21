@@ -37,6 +37,6 @@ require('lualine').setup {
         path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
       }
     },
-    lualine_y = {getWords, 'progress'},
+    lualine_y = {getWords}, -- use only getWords and remove 'progress'
   },
 }
