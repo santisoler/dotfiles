@@ -163,4 +163,14 @@ return require('packer').startup(function()
     config = function() require('santisoler.plugins.iron') end,
   }
 
+  use {
+    "danymat/neogen",
+    config = function()
+        require('santisoler.plugins.neogen')
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
+    -- Uncomment next line if you want to follow only stable versions
+    tag = "*"
+  }
+
 end)
