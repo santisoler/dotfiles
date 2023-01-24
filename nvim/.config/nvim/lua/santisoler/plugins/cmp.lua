@@ -3,13 +3,10 @@
 local luasnip = require 'luasnip'
 local cmp = require 'cmp'
 
-local check_back_space = function()
-  local col = vim.fn.col('.') - 1
-  if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-    return true
-  else
-    return false
-  end
+local has_words_before = function()
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
 -- -------------
@@ -40,28 +37,30 @@ cmp.setup {
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
 
-    -- when menu is visible, navigate to next item
-    -- when line is empty, insert a tab character
-    -- else, activate completion
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item(select_opts)
-      elseif check_back_space() then
-        fallback()
-      else
+    -- Smart tab
+    ["<Tab>"] = cmp.mapping(function(fallback)
+    if cmp.visible() then
+      cmp.select_next_item()
+      -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+      -- they way you will only jump inside the snippet region
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
         cmp.complete()
-      end
-    end, {'i', 's'}),
-
-    -- when menu is visible, navigate to previous item on list
-    -- else, revert to default behavior
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item(select_opts)
       else
         fallback()
       end
-    end, {'i', 's'}),
+    end, { "i", "s" }),
+
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
   }),
 
   -- Configure sources
