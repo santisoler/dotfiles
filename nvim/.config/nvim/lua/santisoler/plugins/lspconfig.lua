@@ -85,7 +85,6 @@ require('lspconfig')["pyright"].setup {
   root_dir = function()
     return vim.fn.getcwd()
   end,
-  flags = lsp_flags,
 }
 
 -- Texlab
