@@ -80,6 +80,11 @@ require('lspconfig')["pylsp"].setup {
 require('lspconfig')["pyright"].setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  -- avoid running pyright running on the entire home directory
+  -- (https://github.com/microsoft/pyright/issues/4176)
+  root_dir = function()
+    return vim.fn.getcwd()
+  end,
 }
 
 -- Texlab
