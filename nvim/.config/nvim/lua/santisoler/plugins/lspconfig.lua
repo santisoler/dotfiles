@@ -17,7 +17,11 @@ local on_attach = function(client, bufnr)
   vim.opt.formatexpr = ""
 
   -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  -- (don't enable it on latex files, otherwise we cannot complete cites)
+  -- (related issue: https://github.com/hrsh7th/nvim-cmp/issues/833)
+  if filetype ~= "tex" then
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  end
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
