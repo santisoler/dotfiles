@@ -95,22 +95,6 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 })
 
 
--- -----------------------------------------------------
--- Autorun linter on read and write (requires nvim-lint)
--- -----------------------------------------------------
-vim.api.nvim_create_augroup("linter", { clear = true })
-vim.api.nvim_create_autocmd({"BufNewFile", "BufEnter", "BufWritePost"}, {
-    group = "linter",
-    pattern = { "*" },
-    callback = function()
-      filetype = vim.bo.filetype
-      if filetype == "python" or filetype == "c" or filetype == "tex" or filetype == "sh" then
-        require("lint").try_lint()
-      end
-    end,
-})
-
-
 -- -----------------------------------------------------------------
 -- Run neoformat after saving some chosen files (requires neoformat)
 -- -----------------------------------------------------------------
