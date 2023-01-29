@@ -20,3 +20,14 @@ flake8.args = {
   '-',
 }
 
+-- Autorun linter on read and write
+vim.api.nvim_create_augroup("linter", { clear = true })
+vim.api.nvim_create_autocmd({"BufNewFile", "BufEnter", "BufWritePost"}, {
+    group = "linter",
+    pattern = { "*" },
+    callback = function()
+      require("lint").try_lint()
+    end,
+})
+
+
