@@ -93,14 +93,3 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     pattern = { "*" },
     command = "set formatoptions-=o",
 })
-
-
--- -----------------------------------------------------------------
--- Run neoformat after saving some chosen files (requires neoformat)
--- -----------------------------------------------------------------
-vim.api.nvim_create_augroup("neoformat", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "neoformat",
-    pattern = { "*.py", "*.html", "*.css", "*.less", "*.yml", "*.rs" },
-    command = "Neoformat",
-})
