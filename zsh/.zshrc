@@ -88,7 +88,7 @@ alias la="ls -lah --group-directories-first --color=auto"
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
-alias du="du -h -d 0"
+alias size="du -sh"
 alias open='xdg-open'
 alias xc='xclip -selection clipboard' # copy to clipboard using xclip
 alias ytdlbest='youtube-dl -f bestvideo+bestaudio'
