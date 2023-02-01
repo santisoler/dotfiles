@@ -84,6 +84,16 @@ require('lspconfig')["pylsp"].setup {
 require('lspconfig')["pyright"].setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  -- change default settings to make it run faster
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = "openFilesOnly", -- default to "workspace"
+        useLibraryCodeForTypes = true
+      }
+    }
+  },
   -- avoid running pyright running on the entire home directory
   -- (https://github.com/microsoft/pyright/issues/4176)
   root_dir = function()
