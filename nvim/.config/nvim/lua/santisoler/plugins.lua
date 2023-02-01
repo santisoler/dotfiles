@@ -125,9 +125,9 @@ return require('packer').startup(function()
     config = function() require('santisoler.plugins.cmp') end,
     requires = {
       'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
-      'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
       'hrsh7th/cmp-path',         -- complete paths with nvim-cmp
-      'L3MON4D3/LuaSnip',         -- Snippets plugin
+      'hrsh7th/vim-vsnip',        -- Snippets plugin
+      'hrsh7th/cmp-vsnip',
     }
   }
 
