@@ -11,3 +11,11 @@ vim.keymap.set('n', '<leader>fs', builtin.git_status, {})
 vim.keymap.set('n', '<leader>fd', builtin.diagnostics, {})
 vim.keymap.set('n', '<leader>fr', builtin.oldfiles, {})
 vim.keymap.set('n', '<leader>fe', builtin.resume, {})
+
+-- Configure layout of telescope
+require('telescope').setup({
+  defaults = {
+    layout_strategy = "vertical",
+    layout_config = { height = 0.95 },
+    },
+})
