@@ -63,43 +63,46 @@ require('lspconfig')["bashls"].setup {
   capabilities = capabilities,
 }
 
--- Pylsp
-require('lspconfig')["pylsp"].setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    -- configure plugins in pylsp
-    pylsp = {
-      plugins = {
-        pyflakes = {enabled = false},
-        pylint = {enabled = false},
-        flake8 = {enabled = false},
-        pycodestyle = {enabled = false},
+-- Define which python lsp to use
+python_lsp = "pyright"
+
+if python_lsp == "pyright" then
+  require('lspconfig')["pyright"].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    -- change default settings to make it run faster
+    settings = {
+      python = {
+        analysis = {
+          autoSearchPaths = true,
+          diagnosticMode = "openFilesOnly", -- default to "workspace"
+          useLibraryCodeForTypes = true
+        }
+      }
+    },
+    -- avoid running pyright running on the entire home directory
+    -- (https://github.com/microsoft/pyright/issues/4176)
+    root_dir = function()
+      return vim.fn.getcwd()
+    end,
+  }
+else
+  require('lspconfig')["pylsp"].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      -- configure plugins in pylsp
+      pylsp = {
+        plugins = {
+          pyflakes = {enabled = false},
+          pylint = {enabled = false},
+          flake8 = {enabled = false},
+          pycodestyle = {enabled = false},
+        },
       },
     },
-  },
-}
-
--- Pyright
-require('lspconfig')["pyright"].setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  -- change default settings to make it run faster
-  settings = {
-    python = {
-      analysis = {
-        autoSearchPaths = true,
-        diagnosticMode = "openFilesOnly", -- default to "workspace"
-        useLibraryCodeForTypes = true
-      }
-    }
-  },
-  -- avoid running pyright running on the entire home directory
-  -- (https://github.com/microsoft/pyright/issues/4176)
-  root_dir = function()
-    return vim.fn.getcwd()
-  end,
-}
+  }
+end
 
 -- Texlab
 require('lspconfig')["texlab"].setup {
