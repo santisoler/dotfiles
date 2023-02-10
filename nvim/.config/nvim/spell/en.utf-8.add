@@ -8,3 +8,5 @@ SimPEG
 petrophysical
 petrophysics
 tesseroids
+interpolators
+gridding
