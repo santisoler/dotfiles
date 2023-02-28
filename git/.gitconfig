@@ -7,8 +7,6 @@
     excludesFile = ~/.gitignore
 [init]
     defaultBranch = main
-[merge]
-    tool = meld
 [pull]
     rebase = false
 [difftool.latex]
@@ -22,3 +20,8 @@
 [delta]
     line-numbers = true
     side-by-side = true
+# Use Neovim and vim-fugitive as mergetool
+[merge]
+  tool = nvim
+[mergetool "nvim"]
+  cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
