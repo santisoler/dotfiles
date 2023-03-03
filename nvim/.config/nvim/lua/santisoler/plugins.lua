@@ -95,11 +95,11 @@ return require('packer').startup(function()
   }
 
   -- bufferline
-  -- use {
-  --   'akinsho/bufferline.nvim',
-  --   after="catppuccin",
-  --   config = function() require('plugins.bufferline') end,
-  -- }
+  use {
+    'akinsho/bufferline.nvim',
+    after="catppuccin",
+    config = function() require('santisoler.plugins.bufferline') end,
+  }
 
   -- -- nvim-autopairs
   -- use {
