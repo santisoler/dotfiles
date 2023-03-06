@@ -164,6 +164,15 @@ return require('packer').startup(function()
   }
 
   use {
+    'mfussenegger/nvim-dap',
+    requires = {
+      'mfussenegger/nvim-dap-python',
+      'rcarriga/nvim-dap-ui',
+    },
+    config = function() require('santisoler.plugins.debugger') end,
+  }
+
+  use {
     "danymat/neogen",
     config = function()
         require('santisoler.plugins.neogen')
