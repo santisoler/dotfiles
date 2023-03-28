@@ -5,9 +5,9 @@
 require('lint').linters_by_ft = {
   c= {'cppcheck'},
   python = {'flake8'},
-  tex = {'chktex'},
+  tex = {'chktex', 'proselint'},
   sh = {'shellcheck'},
-  markdown = {'markdownlint'},
+  markdown = {'markdownlint', 'proselint'},
 }
 
 -- Modify flake8 options
