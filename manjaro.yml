@@ -73,6 +73,7 @@ nvim:
   - ccls
   - bash-language-server
   - python-lsp-server
+  - pyright
   - texlab
   - rust-analyzer
 
