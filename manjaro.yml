@@ -68,6 +68,7 @@ nvim:
   - flake8
   - python-black
   - prettier
+  - rstcheck
   # Language servers
   - ccls
   - bash-language-server
