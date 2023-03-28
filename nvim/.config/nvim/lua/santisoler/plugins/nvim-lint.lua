@@ -7,6 +7,7 @@ require('lint').linters_by_ft = {
   python = {'flake8'},
   tex = {'chktex'},
   sh = {'shellcheck'},
+  markdown = {'markdownlint'},
 }
 
 -- Modify flake8 options
