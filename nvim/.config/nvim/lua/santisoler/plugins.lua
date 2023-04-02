@@ -163,6 +163,7 @@ return require('packer').startup(function()
     config = function() require('santisoler.plugins.iron') end,
   }
 
+  -- neogen (autogenerate docstrings)
   use {
     "danymat/neogen",
     config = function()
@@ -171,6 +172,11 @@ return require('packer').startup(function()
     requires = "nvim-treesitter/nvim-treesitter",
     -- Uncomment next line if you want to follow only stable versions
     tag = "*"
+  }
+
+  -- undotree
+  use {
+    'mbbill/undotree',
   }
 
 end)
