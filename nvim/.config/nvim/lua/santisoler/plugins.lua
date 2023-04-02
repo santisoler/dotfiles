@@ -131,12 +131,19 @@ return require('packer').startup(function()
     }
   }
 
-  -- Tree-sitter and spellsitter (don't spellcheck variables)
+  -- Tree-sitter and:
+  --   * spellsitter (don't spellcheck variables)
+  --   * treesitter-context
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    config = function() require('santisoler.plugins.treesitter') end,
-    requires = 'lewis6991/spellsitter.nvim',
+    config = function()
+      require('santisoler.plugins.treesitter')
+    end,
+    requires = {
+      'lewis6991/spellsitter.nvim',
+      'nvim-treesitter/nvim-treesitter-context'
+    },
   }
 
   -- toggle lsp diagnostics
