@@ -73,3 +73,30 @@ set.scrolloff = 10
 
 -- Use global statusline
 set.laststatus = 3
+
+-- Define function to customize diagnostics
+-- ----------------------------------------
+-- Patch: I had to run this function on BufEnter with an autocmd because for
+-- some reason it gets ovewritten at some point.
+configure_diagnostic = function()
+  vim.diagnostic.config({
+    virtual_text = true,
+    signs = false,
+    update_in_insert = false,
+    underline = true,
+    severity_sort = true,
+    float = {
+      focusable = false,
+      border = 'rounded',
+      source = 'always',
+      prefix = function(diagnostic)
+          -- Function to show error code in diagnostics
+          -- Idea got from docs (:h diagnostic-quickstart)
+          if diagnostic.code then
+            return "[" .. diagnostic.code .. "] "
+          end
+      end,
+      header = '',
+    },
+  })
+end
