@@ -64,7 +64,7 @@ require('lspconfig')["bashls"].setup {
 }
 
 -- Define which python lsp to use
-python_lsp = "pyright"
+python_lsp = "pylsp"
 
 if python_lsp == "pyright" then
   require('lspconfig')["pyright"].setup {
@@ -103,6 +103,20 @@ else
     },
   }
 end
+
+-- Ruff (python linter as lsp)
+-- Configure `ruff-lsp`.
+-- See: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
+-- For the default config, along with instructions on how to customize the settings
+require('lspconfig').ruff_lsp.setup {
+  on_attach = on_attach,
+  init_options = {
+    settings = {
+      -- Any extra CLI arguments for `ruff` go here.
+      args = {},
+    }
+  }
+}
 
 -- Texlab
 require('lspconfig')["texlab"].setup {
