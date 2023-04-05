@@ -64,7 +64,7 @@ require('lspconfig')["bashls"].setup {
 }
 
 -- Define which python lsp to use
-python_lsp = "pylsp"
+python_lsp = "pyright"
 
 if python_lsp == "pyright" then
   require('lspconfig')["pyright"].setup {
