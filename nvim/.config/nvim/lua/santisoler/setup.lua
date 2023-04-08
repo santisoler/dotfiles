@@ -86,13 +86,14 @@ configure_diagnostic = function()
     underline = true,
     severity_sort = true,
     float = {
-      focusable = false,
+      focusable = true,
       border = 'rounded',
       source = 'always',
+      suffix = '',
       prefix = function(diagnostic)
           -- Function to show error code in diagnostics
           -- Idea got from docs (:h diagnostic-quickstart)
-          if diagnostic.code then
+          if diagnostic.source == "flake8" or diagnostic.source == "Ruff" then
             return "[" .. diagnostic.code .. "] "
           end
       end,
