@@ -73,6 +73,7 @@ nvim:
   # Language servers
   - ccls
   - bash-language-server
+  - lua-language-server
   - python-lsp-server
   - pyright
   - texlab
