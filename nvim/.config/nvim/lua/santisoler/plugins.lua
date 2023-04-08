@@ -29,6 +29,13 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- Mason (package manager for LSPs)
+  use {
+    "williamboman/mason.nvim",
+    run = ":MasonUpdate", -- :MasonUpdate updates registry contents
+    config = function() require('santisoler.plugins.mason') end,
+  }
+
   -- Catpuccin theme
   use {
     "catppuccin/nvim",
