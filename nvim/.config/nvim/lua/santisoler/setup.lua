@@ -74,30 +74,27 @@ set.scrolloff = 10
 -- Use global statusline
 set.laststatus = 3
 
--- Define function to customize diagnostics
--- ----------------------------------------
--- Patch: I had to run this function on BufEnter with an autocmd because for
--- some reason it gets ovewritten at some point.
-configure_diagnostic = function()
-  vim.diagnostic.config({
-    virtual_text = true,
-    signs = false,
-    update_in_insert = false,
-    underline = true,
-    severity_sort = true,
-    float = {
-      focusable = true,
-      border = 'rounded',
-      source = 'always',
-      suffix = '',
-      prefix = function(diagnostic)
-          -- Function to show error code in diagnostics
-          -- Idea got from docs (:h diagnostic-quickstart)
-          if diagnostic.source == "flake8" or diagnostic.source == "Ruff" then
-            return "[" .. diagnostic.code .. "] "
-          end
-      end,
-      header = '',
-    },
-  })
-end
+
+-- Configure diagnostics
+-- ---------------------
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = false,
+  update_in_insert = false,
+  underline = true,
+  severity_sort = true,
+  float = {
+    focusable = true,
+    border = 'rounded',
+    source = 'always',
+    suffix = '',
+    prefix = function(diagnostic)
+        -- Function to show error code in diagnostics
+        -- Idea got from docs (:h diagnostic-quickstart)
+        if diagnostic.source == "flake8" or diagnostic.source == "Ruff" then
+          return "[" .. diagnostic.code .. "] "
+        end
+    end,
+    header = '',
+  },
+})

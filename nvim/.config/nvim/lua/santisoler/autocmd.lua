@@ -99,15 +99,3 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     pattern = { "*" },
     command = "set formatoptions-=o",
 })
-
-
--- ---------------------------------
--- Configure diagnostics on bufenter
--- ---------------------------------
--- Override any configuration that has been previously applied
-vim.api.nvim_create_augroup("diagnostic", { clear = true })
-vim.api.nvim_create_autocmd("BufEnter", {
-    group = "diagnostic",
-    pattern = { "*" },
-    callback = configure_diagnostic,
-})

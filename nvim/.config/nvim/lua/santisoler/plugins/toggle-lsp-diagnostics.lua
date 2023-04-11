@@ -1,5 +1,7 @@
 -- Configure toggle_lsp_diagnostics
-require'toggle_lsp_diagnostics'.init()
+require('toggle_lsp_diagnostics').init(
+  vim.diagnostic.config()  -- presever current diagnostic configuration
+)
 
 
 -- Configure some keybindings
