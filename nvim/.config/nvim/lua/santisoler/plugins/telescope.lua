@@ -16,7 +16,6 @@ function live_git_grep()
     local vimgrep_arguments = {
       "git",
        "grep",
-       "--full-name",
        "--line-number",
        "--column",
        "--extended-regexp",
