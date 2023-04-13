@@ -151,12 +151,6 @@ return require('packer').startup(function()
     },
   }
 
-  -- toggle lsp diagnostics
-  use {
-    'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
-    config = function() require('santisoler.plugins.toggle-lsp-diagnostics') end,
-  }
-
   -- telescope
   use {
     'nvim-telescope/telescope.nvim',

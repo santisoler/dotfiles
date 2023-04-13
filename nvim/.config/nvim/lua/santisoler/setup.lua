@@ -98,3 +98,7 @@ vim.diagnostic.config({
     header = '',
   },
 })
+
+-- Define commands to enable/disable diagnostics
+vim.cmd('command DisableDiagnostics lua vim.diagnostic.disable()')
+vim.cmd('command EnableDiagnostics lua vim.diagnostic.enable()')
