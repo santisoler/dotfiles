@@ -43,3 +43,7 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 -- Leader v to paste replacing but not overriding the register
 -- (source: ThePrimeagen)
 vim.keymap.set('x', '<leader>v', [["_dP]])
+
+-- Enable/disable diagnostic
+vim.keymap.set('n', '<leader>dd', vim.diagnostic.disable)
+vim.keymap.set('n', '<leader>de', vim.diagnostic.enable)
