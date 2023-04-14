@@ -165,7 +165,7 @@ return require('packer').startup(function()
 
   -- iron.nvim (send lines to a REPL)
   use {
-    'hkupty/iron.nvim',
+    'Vigemus/iron.nvim',
     config = function() require('santisoler.plugins.iron') end,
   }
 
