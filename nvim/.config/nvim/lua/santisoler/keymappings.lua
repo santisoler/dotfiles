@@ -45,5 +45,5 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 vim.keymap.set('x', '<leader>v', [["_dP]])
 
 -- Enable/disable diagnostic
-vim.keymap.set('n', '<leader>dd', vim.diagnostic.disable)
-vim.keymap.set('n', '<leader>de', vim.diagnostic.enable)
+vim.keymap.set('n', '<leader>td', vim.diagnostic.disable)
+vim.keymap.set('n', '<leader>te', vim.diagnostic.enable)
