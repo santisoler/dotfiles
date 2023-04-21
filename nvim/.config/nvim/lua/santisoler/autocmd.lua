@@ -55,7 +55,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.api.nvim_create_augroup("spelling", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
     group = "spelling",
-    pattern = { "html", "markdown", "python", "tex" },
+    pattern = { "html", "markdown", "python", "tex", "rst" },
     command = "setlocal spell | set spelllang=en",
 })
 
