@@ -9,3 +9,6 @@ zotero:
 
 matcha-dark-sea:
   - org.gtk.Gtk3theme.Matcha-dark-sea
+
+whatsapp:
+  - eneshecan.WhatsAppForLinux
