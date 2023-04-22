@@ -26,6 +26,10 @@ vim.keymap.set('v', '<C-c>', '"+y')
 -- Yank until end of line (source: ThePrimeagen)
 vim.keymap.set('n', 'Y', 'y$')
 
+-- Don't overwride the register when pasting over selection
+-- (in visual mode this is done with P)
+vim.keymap.set('v', 'p', 'P')
+
 -- Keep searches centered (source: ThePrimeagen)
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
