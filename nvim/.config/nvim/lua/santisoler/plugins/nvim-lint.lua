@@ -9,6 +9,8 @@ require('lint').linters_by_ft = {
   sh = {'shellcheck'},
   markdown = {'markdownlint', 'proselint'},
   rst = {'rstcheck'},
+  html = {'tidy'},
+  htmldjango = {'tidy'},
 }
 
 -- Modify flake8 options

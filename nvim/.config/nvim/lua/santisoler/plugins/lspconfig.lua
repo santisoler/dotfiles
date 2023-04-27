@@ -136,3 +136,8 @@ require('lspconfig')["lua_ls"].setup {
   capabilities = capabilities,
 }
 
+-- html lsp
+require('lspconfig')["html"].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
