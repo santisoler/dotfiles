@@ -1,5 +1,5 @@
 configuration {
-    monitor: "primary";
+    // monitor: "primary";
     modi: [drun, run, window, combi, ssh];
     combi-modi: [window, drun];
     /* font: "FiraCode Nerd Font 12"; */
