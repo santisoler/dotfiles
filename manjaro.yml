@@ -70,6 +70,7 @@ nvim:
   - prettier
   - rstcheck
   - ruff
+  - stylelint
   - tidy
   # Language servers
   - ccls
@@ -80,6 +81,7 @@ nvim:
   - texlab
   - rust-analyzer
   - ruff-lsp
+  - vscode-css-languageserver
   - vscode-html-languageserver
 
 languagetool:

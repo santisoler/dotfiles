@@ -11,6 +11,7 @@ require('lint').linters_by_ft = {
   rst = {'rstcheck'},
   html = {'tidy'},
   htmldjango = {'tidy'},
+  css = {'stylelint'},
 }
 
 -- Modify flake8 options

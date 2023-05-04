@@ -51,6 +51,10 @@ end
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+--Enable (broadcasting) snippet capability for completion (only for vscode ls)
+local vscode_capabilities = vim.lsp.protocol.make_client_capabilities()
+vscode_capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 -- C language server
 require('lspconfig')["ccls"].setup {
   on_attach = on_attach,
@@ -64,7 +68,7 @@ require('lspconfig')["bashls"].setup {
 }
 
 -- Define which python lsp to use
-python_lsp = "pyright"
+local python_lsp = "pyright"
 
 if python_lsp == "pyright" then
   require('lspconfig')["pyright"].setup {
@@ -139,5 +143,11 @@ require('lspconfig')["lua_ls"].setup {
 -- html lsp
 require('lspconfig')["html"].setup {
   on_attach = on_attach,
-  capabilities = capabilities,
+  capabilities = vscode_capabilities,
+}
+
+-- css lsp
+require('lspconfig')["cssls"].setup {
+  on_attach = on_attach,
+  capabilities = vscode_capabilities,
 }
