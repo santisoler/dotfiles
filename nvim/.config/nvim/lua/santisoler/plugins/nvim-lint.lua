@@ -25,6 +25,14 @@ flake8.args = {
   '-',
 }
 
+-- Modify markdownlint options
+local markdownlint = require('lint.linters.markdownlint')
+markdownlint.args = {
+  '--disable',
+  'MD012',
+  '--',
+}
+
 -- Autorun linter on read and write
 vim.api.nvim_create_augroup("linter", { clear = true })
 vim.api.nvim_create_autocmd({"BufNewFile", "BufEnter", "BufWritePost"}, {

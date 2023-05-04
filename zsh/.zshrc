@@ -98,9 +98,9 @@ alias monitor-mic='pactl load-module module-loopback latency_msec=1'
 alias monitor-stop='pactl unload-module module-loopback'
 
 # Aliases for taking notes
-alias notes="cd ~/documents/notes && nvim ."
+alias notes="cd ~/Documents/notes && nvim ."
 alias draft="nvim ~/tmp/draft.md"
-alias wiki="cd ~/documents/notes/vimwiki && nvim index.md"
+alias wiki="cd ~/Documents/notes/vimwiki && nvim index.md"
 
 # Define aliases for tmux
 alias ta="tmux attach -t"
