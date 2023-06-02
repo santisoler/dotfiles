@@ -189,48 +189,67 @@ if [[ -r ~/.zsh/terminal-title.zsh ]]; then
 fi
 
 
-# ----------------
-# Spaceship Prompt
-# ----------------
-# The configuration file for spaceship is located in ~/.spaceshiprc.zsh
-
-# Download plugin
-spaceship_dir="${HOME}/.zsh/spaceship-prompt"
-spaceship_version="v4.12.0"
-if [[ ! -d $spaceship_dir ]]; then
-    git clone \
-        --depth=1 \
-        --branch $spaceship_version \
-        https://github.com/spaceship-prompt/spaceship-prompt.git \
-        $spaceship_dir
-fi
-
-# Source the spaceship.zsh file
-source "${spaceship_dir}/spaceship.zsh"
-
-
 # -----------
 # zsh vi mode
 # -----------
-
 # Download plugin
-zsh_vi_mode_dir="${HOME}/.zsh/zsh-vi-mode"
-zsh_vi_mode_version="v0.9.0"
-if [[ ! -d $zsh_vi_mode_dir ]]; then
+plugin_dir="${HOME}/.zsh/zsh-vi-mode"
+plugin_version="v0.9.0"
+plugin_repo="https://github.com/jeffreytse/zsh-vi-mode.git"
+if [[ ! -d $plugin_dir ]]; then
     git clone \
         --depth=1 \
-        --branch $zsh_vi_mode_version \
-        https://github.com/jeffreytse/zsh-vi-mode.git \
-        $zsh_vi_mode_dir
+        --branch $plugin_version \
+        $plugin_repo \
+        $plugin_dir
 fi
 
-# Source the zsh-vi-mode.plugin.zsh file
-source "${zsh_vi_mode_dir}/zsh-vi-mode.zsh"
+# Source the zsh-vi-mode.zsh file
+source "${plugin_dir}/zsh-vi-mode.zsh"
 
 # Configure highlight colors
 ZVM_VI_HIGHLIGHT_FOREGROUND=#cad3f5
 ZVM_VI_HIGHLIGHT_BACKGROUND=#494d64
 ZVM_VI_HIGHLIGHT_EXTRASTYLE=bold
+# Disable the cursor style feature
+ZVM_CURSOR_STYLE_ENABLED=false
+
+
+# ----------------
+# Spaceship Prompt
+# ----------------
+# The configuration file for spaceship is located in ~/.spaceshiprc.zsh
+
+plugin_dir="${HOME}/.zsh/spaceship-vi-mode"
+plugin_version="v1.0.2"
+plugin_repo="https://github.com/spaceship-prompt/spaceship-vi-mode"
+if [[ ! -d $plugin_dir ]]; then
+    git clone \
+        --depth=1 \
+        --branch $plugin_version \
+        $plugin_repo \
+        $plugin_dir
+fi
+
+# Source the plugin file
+source "${plugin_dir}/spaceship-vi-mode.plugin.zsh"
+
+plugin_dir="${HOME}/.zsh/spaceship-prompt"
+plugin_version="v4.12.0"
+plugin_repo="https://github.com/spaceship-prompt/spaceship-prompt.git"
+if [[ ! -d $plugin_dir ]]; then
+    git clone \
+        --depth=1 \
+        --branch $plugin_version \
+        $plugin_repo \
+        $plugin_dir
+fi
+
+# Source the spaceship.zsh file
+source "${plugin_dir}/spaceship.zsh"
+
+# Enable vi_mode
+spaceship_vi_mode_enable
 
 
 # --------------
