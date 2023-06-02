@@ -208,8 +208,8 @@ fi
 source "${plugin_dir}/zsh-vi-mode.zsh"
 
 # Configure highlight colors
-ZVM_VI_HIGHLIGHT_FOREGROUND=#cad3f5
-ZVM_VI_HIGHLIGHT_BACKGROUND=#494d64
+ZVM_VI_HIGHLIGHT_FOREGROUND=white
+ZVM_VI_HIGHLIGHT_BACKGROUND=black
 ZVM_VI_HIGHLIGHT_EXTRASTYLE=bold
 # Disable the cursor style feature
 ZVM_CURSOR_STYLE_ENABLED=false
@@ -247,6 +247,10 @@ fi
 
 # Source the spaceship.zsh file
 source "${plugin_dir}/spaceship.zsh"
+
+SPACESHIP_VI_MODE_INSERT="%F{green}[I]"
+SPACESHIP_VI_MODE_NORMAL="%F{red}[N]"
+SPACESHIP_VI_MODE_COLOR=""
 
 # Enable vi_mode
 spaceship_vi_mode_enable
