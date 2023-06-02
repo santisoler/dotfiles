@@ -248,9 +248,9 @@ fi
 # Source the spaceship.zsh file
 source "${plugin_dir}/spaceship.zsh"
 
-SPACESHIP_VI_MODE_INSERT="%F{green}[I]"
+# Override indicators
+SPACESHIP_VI_MODE_INSERT=""
 SPACESHIP_VI_MODE_NORMAL="%F{red}[N]"
-SPACESHIP_VI_MODE_COLOR=""
 
 # Enable vi_mode
 spaceship_vi_mode_enable
