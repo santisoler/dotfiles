@@ -48,7 +48,7 @@ bindkey -M menuselect '^[[Z' reverse-menu-complete
 # Keybindings
 # -----------
 # bindkey -e                                         # Use emacs keybindings
-bindkey -v                                         # Use vim keybindings
+# bindkey -v                                         # Use vim keybindings
 bindkey '^[[7~' beginning-of-line                  # Home key
 bindkey '^[[H' beginning-of-line                   # Home key
 if [[ "${terminfo[khome]}" != "" ]]; then
@@ -175,6 +175,9 @@ if [[ -r ${plugins}/zsh-history-substring-search/zsh-history-substring-search.zs
     bindkey "$terminfo[kcud1]" history-substring-search-down
     bindkey '^[[A' history-substring-search-up
     bindkey '^[[B' history-substring-search-down
+    # Use jk in vim mode
+    bindkey -M vicmd 'k' history-substring-search-up
+    bindkey -M vicmd 'j' history-substring-search-down
 fi
 
 
@@ -189,10 +192,9 @@ fi
 # ----------------
 # Spaceship Prompt
 # ----------------
-# We will install spaceship-prompt in ~/.zsh/spaceship-prompt
 # The configuration file for spaceship is located in ~/.spaceshiprc.zsh
 
-# Download spaceship-prompt
+# Download plugin
 spaceship_dir="${HOME}/.zsh/spaceship-prompt"
 spaceship_version="v4.12.0"
 if [[ ! -d $spaceship_dir ]]; then
@@ -203,8 +205,32 @@ if [[ ! -d $spaceship_dir ]]; then
         $spaceship_dir
 fi
 
-# Source the ~/.zsh/spaceship-prompt/spaceship.zsh file
+# Source the spaceship.zsh file
 source "${spaceship_dir}/spaceship.zsh"
+
+
+# -----------
+# zsh vi mode
+# -----------
+
+# Download plugin
+zsh_vi_mode_dir="${HOME}/.zsh/zsh-vi-mode"
+zsh_vi_mode_version="v0.9.0"
+if [[ ! -d $zsh_vi_mode_dir ]]; then
+    git clone \
+        --depth=1 \
+        --branch $zsh_vi_mode_version \
+        https://github.com/jeffreytse/zsh-vi-mode.git \
+        $zsh_vi_mode_dir
+fi
+
+# Source the zsh-vi-mode.plugin.zsh file
+source "${zsh_vi_mode_dir}/zsh-vi-mode.zsh"
+
+# Configure highlight colors
+ZVM_VI_HIGHLIGHT_FOREGROUND=#cad3f5
+ZVM_VI_HIGHLIGHT_BACKGROUND=#494d64
+ZVM_VI_HIGHLIGHT_EXTRASTYLE=bold
 
 
 # --------------
