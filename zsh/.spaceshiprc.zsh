@@ -39,6 +39,7 @@ SPACESHIP_PROMPT_ORDER=(
   # ibmcloud      # IBM Cloud section
   exec_time     # Execution time
   # async         # Async jobs indicator
+  vi_mode       # require spaceship-vi-mode plugin
   line_sep      # Line break
   # battery       # Battery level and status
   jobs          # Background jobs indicator
