@@ -158,7 +158,6 @@ export LESS=-R
 # Plugins
 # -------
 #
-# plugins="/usr/share/zsh/plugins"
 plugins="$HOME/.zsh/plugins"
 
 # Use syntax highlighting
@@ -269,37 +268,35 @@ fi
 # -----------------------
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir' 2> /dev/null)/bin"
 
-#
+
 # ------------
 # Set up mamba
 # ------------
 if [[ -d $HOME/.mambaforge ]]; then
+
+    # Define path for Mambaforge
     export MAMBA_PATH=$HOME/.mambaforge
-elif [[ -d /opt/mambaforge ]]; then
-    export MAMBA_PATH=/opt/mambaforge
-fi
 
-# # Setup and activate the conda and mamba package managers
-__conda_setup="$('${MAMBA_PATH}/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "$MAMBA_PATH/etc/profile.d/conda.sh" ]; then
-        . "$MAMBA_PATH/etc/profile.d/conda.sh"
+    # Setup and activate the conda and mamba package managers
+    __conda_setup="$('${MAMBA_PATH}/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
     else
-        export PATH="$MAMBA_PATH/bin:$PATH"
+        if [ -f "$MAMBA_PATH/etc/profile.d/conda.sh" ]; then
+            . "$MAMBA_PATH/etc/profile.d/conda.sh"
+        else
+            export PATH="$MAMBA_PATH/bin:$PATH"
+        fi
     fi
-fi
-unset __conda_setup
+    unset __conda_setup
 
-if [ -f "$MAMBA_PATH/etc/profile.d/mamba.sh" ]; then
-    . "$MAMBA_PATH/etc/profile.d/mamba.sh"
-fi
+    if [ -f "$MAMBA_PATH/etc/profile.d/mamba.sh" ]; then
+        . "$MAMBA_PATH/etc/profile.d/mamba.sh"
+    fi
 
-# Activate the conda default environment
-if command -v conda &> /dev/null; then
-  if [ -f $HOME/environment.yml ]; then
-      cenv $HOME/environment.yml
-  fi
-fi
+    # Activate the conda default environment
+    if [ -f $HOME/environment.yml ]; then
+        cenv $HOME/environment.yml
+    fi
 
+fi
