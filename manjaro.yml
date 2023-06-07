@@ -66,6 +66,9 @@ nvim:
   - cppcheck
   - shellcheck
   - flake8
+  - mypy
+  - mccabe
+  - python-rope
   - python-black
   - prettier
   - rstcheck
