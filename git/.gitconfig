@@ -2,26 +2,38 @@
     name = Santiago Soler
     email = santisoler@fastmail.com
     signingKey = E41CAA9E5A2F51689B0E21EB394E6BD97C8F1C0D
+
 [core]
     editor = nvim
     excludesFile = ~/.gitignore
+
 [init]
     defaultBranch = main
+
 [pull]
     rebase = false
+
 [difftool.latex]
     cmd = latexdiff "$LOCAL" "$REMOTE"
+
 [alias]
     ldiff = difftool -y -t latex
+
 [commit]
     gpgsign = true
+
 [tag]
     forceSignAnnotated = true
+
 [delta]
     line-numbers = true
     side-by-side = true
+
+
 # Use Neovim and vim-fugitive as mergetool
+
 [merge]
   tool = nvim
+
 [mergetool "nvim"]
   cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
