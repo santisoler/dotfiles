@@ -18,6 +18,9 @@ vim.keymap.set('n', '[b', ':bprevious<CR>')
 -- Remove search highlight
 vim.keymap.set('n', '<leader><space>', ':noh<cr>')
 
+-- Easier colon
+vim.keymap.set('n', '<leader>;', ':')
+
 -- Map "+y in order to copy to clipboard
 -- In order to work, :echo has('clipboard') must return 1
 -- Try installing xclip
