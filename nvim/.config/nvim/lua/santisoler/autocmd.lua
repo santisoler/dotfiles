@@ -18,10 +18,10 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = { "rust" },
     command = "setlocal colorcolumn=100",
 })
--- Set indentation to 2 characters for html, yml and lua files
+-- Set indentation to 2 characters for html, yml, markdown and lua files
 vim.api.nvim_create_autocmd("FileType", {
     group = "custom_style",
-    pattern = { "html", "htmldjango", "yml", "lua" },
+    pattern = { "html", "htmldjango", "yml", "lua", "markdown" },
     command = "setlocal ts=2 sts=2 sw=2 expandtab",
 })
 -- Set indentation to 3 characters for rst files
