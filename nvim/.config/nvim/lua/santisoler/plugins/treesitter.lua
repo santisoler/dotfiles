@@ -21,4 +21,30 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     -- additional_vim_regex_highlighting = false,
   },
+
+  -- Configure nvim-yati (alternative indentation for treesitter)
+  yati = {
+    enable = true,
+
+    -- Disable by languages, see `Supported languages`
+    -- disable = { "python" },
+
+    -- Whether to enable lazy mode (recommend to enable this if bad indent happens frequently)
+    default_lazy = true,
+
+    -- Determine the fallback method used when we cannot calculate indent by tree-sitter
+    --   "auto": fallback to vim auto indent
+    --   "asis": use current indent as-is
+    --   "cindent": see `:h cindent()`
+    -- Or a custom function return the final indent result.
+    default_fallback = "auto"
+  },
+
+  indent = {
+    enable = false -- disable builtin indent module (needed by yati)
+  }
+
+}
+
+require("nvim-treesitter.configs").setup {
 }

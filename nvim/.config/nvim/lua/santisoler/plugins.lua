@@ -147,7 +147,8 @@ return require('packer').startup(function()
       require('santisoler.plugins.treesitter')
     end,
     requires = {
-      'nvim-treesitter/nvim-treesitter-context'
+      'nvim-treesitter/nvim-treesitter-context',
+      {'yioneko/nvim-yati', tag='*'},
     },
   }
 
