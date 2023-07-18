@@ -1,7 +1,6 @@
 name: default
 channels:
   - conda-forge
-  - defaults
 dependencies:
   - python
   - pip
@@ -10,6 +9,7 @@ dependencies:
   - jupyter
   - jupyterlab
   - nb_conda
+  - jupyterlab_vim # vim keybindings in jupyterlab
   - nbdime # git diffs for notebooks
   - nodejs # needed by jupyterlab
   - conda-lock # lock environments
