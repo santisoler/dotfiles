@@ -4,15 +4,17 @@ channels:
 dependencies:
   - python
   - pip
+  - conda-lock # lock environments
   # IPython and Jupyter
   - ipython
   - jupyter
   - jupyterlab
   - nb_conda
-  - jupyterlab_vim # vim keybindings in jupyterlab
   - nbdime # git diffs for notebooks
   - nodejs # needed by jupyterlab
-  - conda-lock # lock environments
+  # Jupyterlab extensions
+  - jupyterlab_vim # vim keybindings in jupyterlab
+  - jupyterlab_execute_time
   # Software Development
   - livereload
   - pytest
