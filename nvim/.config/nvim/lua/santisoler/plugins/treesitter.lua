@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require("nvim-treesitter.configs").setup {
   -- A list of parser names, or "all"
   ensure_installed = { "python", "lua", "latex", "c", "rust" },
 
@@ -46,5 +46,6 @@ require'nvim-treesitter.configs'.setup {
 
 }
 
-require("nvim-treesitter.configs").setup {
+require('treesitter-context').setup{
+  multiline_threshold = 5, -- Maximum number of lines to show for a single context
 }
