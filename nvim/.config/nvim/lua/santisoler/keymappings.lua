@@ -54,3 +54,6 @@ vim.keymap.set('x', '<leader>v', [["_dP]])
 -- Enable/disable diagnostic
 vim.keymap.set('n', '<leader>tdd', vim.diagnostic.disable)
 vim.keymap.set('n', '<leader>tde', vim.diagnostic.enable)
+
+-- Search selected text
+vim.keymap.set("v", "//", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
