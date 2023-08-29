@@ -49,3 +49,7 @@ require("nvim-treesitter.configs").setup {
 require('treesitter-context').setup{
   multiline_threshold = 1, -- Maximum number of lines to show for a single context
 }
+
+vim.keymap.set("n", "[n", function()
+  require("treesitter-context").go_to_context()
+end, { silent = true })
