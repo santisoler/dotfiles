@@ -1,6 +1,9 @@
 -- General setup
 require('santisoler.setup')
 
+-- Custom functions
+require('santisoler.functions')
+
 -- Configure keymappings
 require('santisoler.keymappings')
 

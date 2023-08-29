@@ -45,7 +45,7 @@ vim.api.nvim_create_augroup("trailing_spaces", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
     group = "trailing_spaces",
     pattern = { "*" },
-    command = [[:%s/\s\+$//e]],
+    callback = trim_trailing_whitespaces,
 })
 
 
