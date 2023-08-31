@@ -27,7 +27,7 @@ require("nvim-treesitter.configs").setup {
     enable = true,
 
     -- Disable by languages, see `Supported languages`
-    -- disable = { "python" },
+    disable = { "python" },
 
     -- Whether to enable lazy mode (recommend to enable this if bad indent happens frequently)
     default_lazy = true,
