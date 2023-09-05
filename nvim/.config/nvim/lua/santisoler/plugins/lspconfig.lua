@@ -73,7 +73,16 @@ local python_lsp = "pyright"
 if python_lsp == "pyright" then
   require('lspconfig')["pyright"].setup {
     on_attach = on_attach,
-    capabilities = capabilities,
+    -- Use the following capabilities to disable pyright diagnostics
+    capabilities = {
+      textDocument = {
+        publishDiagnostics = {
+          tagSupport = {
+            valueSet = { 2 },
+          },
+        },
+      },
+    },
     -- change default settings to make it run faster
     settings = {
       python = {
