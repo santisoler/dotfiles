@@ -148,7 +148,6 @@ return require('packer').startup(function()
     end,
     requires = {
       'nvim-treesitter/nvim-treesitter-context',
-      {'yioneko/nvim-yati', tag='*'},
     },
   }
 
@@ -157,11 +156,6 @@ return require('packer').startup(function()
     'nvim-telescope/telescope.nvim',
     requires = 'nvim-lua/plenary.nvim',
     config = function() require('santisoler.plugins.telescope') end,
-  }
-
-  -- vim-python-pep8-indent
-  use {
-    'Vimjas/vim-python-pep8-indent',
   }
 
   -- iron.nvim (send lines to a REPL)
