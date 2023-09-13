@@ -36,6 +36,8 @@ local markdownlint = require('lint.linters.markdownlint')
 markdownlint.args = {
   '--disable',
   'MD012',
+  'MD034',
+  'MD041',
   '--',
 }
 
