@@ -180,4 +180,19 @@ return require('packer').startup(function()
     'mbbill/undotree',
   }
 
+  -- nvim-coverage
+  use({
+    "andythigpen/nvim-coverage",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("coverage").setup({
+          signs = {
+            -- use your own highlight groups or text markers
+            covered = { hl = "CoverageCovered", text = "✓" },
+            uncovered = { hl = "CoverageUncovered", text = "!" },
+          },
+      })
+    end,
+  })
+
 end)
