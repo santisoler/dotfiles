@@ -189,7 +189,8 @@ return require('packer').startup(function()
           signs = {
             -- use your own highlight groups or text markers
             covered = { hl = "CoverageCovered", text = "✓" },
-            uncovered = { hl = "CoverageUncovered", text = "!" },
+            uncovered = { hl = "CoverageUncovered", text = "✗" },
+            partial = { hl = "CoveragePartial", text = "!" },
           },
       })
     end,
