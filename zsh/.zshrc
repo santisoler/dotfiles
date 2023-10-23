@@ -199,7 +199,7 @@ fi
 # zsh vi mode
 # -----------
 # Download plugin
-plugin_dir="${HOME}/.zsh/zsh-vi-mode"
+plugin_dir="$plugins/zsh-vi-mode"
 plugin_version="v0.9.0"
 plugin_repo="https://github.com/jeffreytse/zsh-vi-mode.git"
 if [[ ! -d $plugin_dir ]]; then
@@ -226,7 +226,7 @@ ZVM_CURSOR_STYLE_ENABLED=false
 # ----------------
 # The configuration file for spaceship is located in ~/.spaceshiprc.zsh
 
-plugin_dir="${HOME}/.zsh/spaceship-vi-mode"
+plugin_dir="$plugins/spaceship-vi-mode"
 plugin_version="v1.0.2"
 plugin_repo="https://github.com/spaceship-prompt/spaceship-vi-mode"
 if [[ ! -d $plugin_dir ]]; then
@@ -240,7 +240,7 @@ fi
 # Source the plugin file
 source "${plugin_dir}/spaceship-vi-mode.plugin.zsh"
 
-plugin_dir="${HOME}/.zsh/spaceship-prompt"
+plugin_dir="$plugins/spaceship-prompt"
 plugin_version="v4.12.0"
 plugin_repo="https://github.com/spaceship-prompt/spaceship-prompt.git"
 if [[ ! -d $plugin_dir ]]; then
