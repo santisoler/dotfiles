@@ -6,6 +6,9 @@
 #
 #
 
+# Source ~/.profile
+source ~/.profile
+
 # -------
 # Options
 # -------
