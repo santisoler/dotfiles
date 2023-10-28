@@ -5,9 +5,10 @@
 # Based on Manjaro zsh configuration files
 #
 #
+# Define default TERMINAL and EDITOR
+export TERMINAL=/usr/bin/terminator
+export EDITOR=/usr/local/bin/nvim
 
-# Source ~/.profile
-source ~/.profile
 
 # -------
 # Options
@@ -276,7 +277,15 @@ fi
 # -----------------------
 # Add directories to PATH
 # -----------------------
-export PATH="$PATH:$(ruby -e 'print Gem.user_dir' 2> /dev/null)/bin"
+# Add ~/bin to PATH
+if [[ -d "$HOME/bin" ]]; then
+    export PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
 
 # ------------
