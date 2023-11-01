@@ -52,7 +52,7 @@ bindkey -M menuselect '^[[Z' reverse-menu-complete
 # Keybindings
 # -----------
 # bindkey -e                                         # Use emacs keybindings
-# bindkey -v                                         # Use vim keybindings
+bindkey -v                                         # Use vim keybindings
 bindkey '^[[7~' beginning-of-line                  # Home key
 bindkey '^[[H' beginning-of-line                   # Home key
 if [[ "${terminfo[khome]}" != "" ]]; then
