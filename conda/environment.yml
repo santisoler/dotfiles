@@ -30,6 +30,8 @@ dependencies:
   - flake8-rst-docstrings
   - flake8-simplify
   - pep8-naming
+  # Utils
+  - tqdm
   # Scientific stack
   - numba
   - dask
