@@ -5,6 +5,10 @@
 # Based on Manjaro zsh configuration files
 #
 #
+# Define default TERMINAL and EDITOR
+export TERMINAL=/usr/bin/terminator
+export EDITOR=/usr/local/bin/nvim
+
 
 # -------
 # Options
@@ -48,7 +52,7 @@ bindkey -M menuselect '^[[Z' reverse-menu-complete
 # Keybindings
 # -----------
 # bindkey -e                                         # Use emacs keybindings
-# bindkey -v                                         # Use vim keybindings
+bindkey -v                                         # Use vim keybindings
 bindkey '^[[7~' beginning-of-line                  # Home key
 bindkey '^[[H' beginning-of-line                   # Home key
 if [[ "${terminfo[khome]}" != "" ]]; then
@@ -199,7 +203,7 @@ fi
 # zsh vi mode
 # -----------
 # Download plugin
-plugin_dir="${HOME}/.zsh/zsh-vi-mode"
+plugin_dir="$plugins/zsh-vi-mode"
 plugin_version="v0.9.0"
 plugin_repo="https://github.com/jeffreytse/zsh-vi-mode.git"
 if [[ ! -d $plugin_dir ]]; then
@@ -226,7 +230,7 @@ ZVM_CURSOR_STYLE_ENABLED=false
 # ----------------
 # The configuration file for spaceship is located in ~/.spaceshiprc.zsh
 
-plugin_dir="${HOME}/.zsh/spaceship-vi-mode"
+plugin_dir="$plugins/spaceship-vi-mode"
 plugin_version="v1.0.2"
 plugin_repo="https://github.com/spaceship-prompt/spaceship-vi-mode"
 if [[ ! -d $plugin_dir ]]; then
@@ -240,7 +244,7 @@ fi
 # Source the plugin file
 source "${plugin_dir}/spaceship-vi-mode.plugin.zsh"
 
-plugin_dir="${HOME}/.zsh/spaceship-prompt"
+plugin_dir="$plugins/spaceship-prompt"
 plugin_version="v4.12.0"
 plugin_repo="https://github.com/spaceship-prompt/spaceship-prompt.git"
 if [[ ! -d $plugin_dir ]]; then
@@ -273,7 +277,15 @@ fi
 # -----------------------
 # Add directories to PATH
 # -----------------------
-export PATH="$PATH:$(ruby -e 'print Gem.user_dir' 2> /dev/null)/bin"
+# Add ~/bin to PATH
+if [[ -d "$HOME/bin" ]]; then
+    export PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
 
 # ------------

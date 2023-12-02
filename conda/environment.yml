@@ -9,7 +9,7 @@ dependencies:
   - ipython
   - jupyter
   - jupyterlab
-  - nb_conda
+  - nb_conda_kernels
   - nbdime # git diffs for notebooks
   - nodejs # needed by jupyterlab
   # Jupyterlab extensions
@@ -30,6 +30,8 @@ dependencies:
   - flake8-rst-docstrings
   - flake8-simplify
   - pep8-naming
+  # Utils
+  - tqdm
   # Scientific stack
   - numba
   - dask

@@ -2,3 +2,5 @@
 .*.swp
 */.config/nvim/plugin
 nvim/.config/nvim/spell/*.spl
+zsh/.zsh/cache
+zsh/.zsh/plugins
