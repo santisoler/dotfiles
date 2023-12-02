@@ -19,19 +19,8 @@ For example:
 - `nvim`: contains configuration files for Neovim (and for VIM).
 - `terminator`: configuration for Terminator (terminal emulator with tiling
     capabilities).
-- `xfce`: a few configurations for the XFCE desktop environment. The look and
-    feel of XFCE is changed through the `post_install` script.
 - `zathura`: configurations for the zathura document reader.
 - `zsh`: configurations for the zsh shell.
-
-Besides, there are a few more files in this repo:
-
-- `post_install`: post install script for running some small tasks
-    automatically.
-- `manjaro.yml`, `yay.yml` and `flatpak.yml`: YAML files that contain list of
-  packages grouped in categories. These files are used as inputs for
-  `select_packages`.
-- `duckduckgo.json`: Custom theme for [](duckduckgo.com)
 
 
 ## How to copy the files
@@ -54,13 +43,7 @@ Enter into the cloned directory:
 cd dotfiles
 ```
 
-Run the `post_install` script and answer Yes to the first question:
-
-```
-./post_install
-```
-
-Alternatively, you can use `cp` to manually copy the dotfiles for certain
+Use `cp` to manually copy the dotfiles for certain
 category.
 
 For example, to copy only the Neovim dotfiles:
