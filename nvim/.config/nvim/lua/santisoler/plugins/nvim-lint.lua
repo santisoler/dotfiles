@@ -25,12 +25,6 @@ flake8.args = {
   '-',
 }
 
--- Modify mypy options
-local mypy = require('lint.linters.mypy')
-mypy.args = {
-  '--ignore-missing-imports',
-}
-
 -- Modify markdownlint options
 local markdownlint = require('lint.linters.markdownlint')
 markdownlint.args = {
