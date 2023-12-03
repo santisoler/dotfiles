@@ -99,6 +99,21 @@ vim.diagnostic.config({
   },
 })
 
+-- Add border to LSP floating windows
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover,
+  {
+    border = "rounded"
+  }
+)
+vim.lsp.handlers["textDocument/signatureHelp"] =
+  vim.lsp.with(
+  vim.lsp.handlers.signature_help,
+  {
+    border = "rounded"
+  }
+)
+
 -- Define commands to enable/disable diagnostics
 vim.cmd('command DisableDiagnostics lua vim.diagnostic.disable()')
 vim.cmd('command EnableDiagnostics lua vim.diagnostic.enable()')
