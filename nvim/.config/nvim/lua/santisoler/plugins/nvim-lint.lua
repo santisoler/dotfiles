@@ -5,7 +5,7 @@
 require('lint').linters_by_ft = {
   c= {'cppcheck'},
   python = {'flake8', 'mypy'},
-  tex = {'chktex', 'proselint'},
+  tex = {'proselint'},
   sh = {'shellcheck'},
   markdown = {'markdownlint', 'proselint'},
   rst = {'rstcheck'},
