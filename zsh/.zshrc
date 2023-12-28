@@ -5,8 +5,7 @@
 # Based on Manjaro zsh configuration files
 #
 #
-# Define default TERMINAL and EDITOR
-export TERMINAL=/usr/bin/terminator
+# Define default EDITOR
 export EDITOR=/usr/local/bin/nvim
 
 
