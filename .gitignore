@@ -4,3 +4,5 @@
 nvim/.config/nvim/spell/*.spl
 zsh/.zsh/cache
 zsh/.zsh/plugins
+fonts/.fonts/**/.uuid
+ipython/.ipython/profile_default/
