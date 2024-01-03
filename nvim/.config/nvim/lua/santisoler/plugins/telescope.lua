@@ -1,4 +1,5 @@
 -- Configure telescope
+--
 -- -------------------
 function is_git_repo()
   -- Check if we are inside a git repo
@@ -49,6 +50,7 @@ end
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', find_files, {})
 vim.keymap.set('n', '<leader>fg', live_git_grep, {})
+vim.keymap.set('n', '<leader>fl', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fs', builtin.git_status, {})
 vim.keymap.set('n', '<leader>fd', builtin.diagnostics, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
