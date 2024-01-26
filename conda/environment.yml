@@ -15,6 +15,7 @@ dependencies:
   # Jupyterlab extensions
   - jupyterlab_vim # vim keybindings in jupyterlab
   - jupyterlab_execute_time
+  - jupyterlab-git>=0.50
   - nbqa
   # Software Development
   - livereload
