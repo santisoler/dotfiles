@@ -36,6 +36,21 @@ markdownlint.args = {
   '--',
 }
 
+-- Make mypy use the active environment
+local mypy = require('lint.linters.mypy')
+local environment = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX") or "/usr"
+mypy.args = {
+  '--show-column-numbers',
+  '--show-error-end',
+  '--hide-error-codes',
+  '--hide-error-context',
+  '--no-color-output',
+  '--no-error-summary',
+  '--no-pretty',
+  '--python-executable',
+  environment .. '/bin/python',
+}
+
 -- Autorun linter on read and write
 vim.api.nvim_create_augroup("linter", { clear = true })
 vim.api.nvim_create_autocmd({"BufNewFile", "BufEnter", "BufWritePost"}, {
