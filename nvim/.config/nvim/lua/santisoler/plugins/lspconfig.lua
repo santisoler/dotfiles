@@ -116,6 +116,13 @@ lspconfig.cssls.setup {
   capabilities = vscode_capabilities,
 }
 
+-- ltex-ls
+lspconfig.ltex.setup {
+ cmd = { "ltex-ls" },
+ filetypes = { "markdown", "tex" },
+ flags = { debounce_text_changes = 300 },
+ capabilities = vscode_capabilities,
+}
 
 
 -- Global mappings.
