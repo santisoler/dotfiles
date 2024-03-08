@@ -8,6 +8,7 @@ require('lint').linters_by_ft = {
   tex = {'proselint'},
   sh = {'shellcheck'},
   markdown = {'markdownlint', 'proselint'},
+  gitcommit = {'markdownlint', 'proselint'},
   rst = {'rstcheck'},
   html = {'tidy'},
   htmldjango = {'tidy'},
