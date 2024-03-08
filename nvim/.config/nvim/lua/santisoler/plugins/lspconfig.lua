@@ -119,7 +119,7 @@ lspconfig.cssls.setup {
 -- ltex-ls
 lspconfig.ltex.setup {
  cmd = { "ltex-ls" },
- filetypes = { "markdown", "tex" },
+ filetypes = { "markdown", "tex", "gitcommit" },
  flags = { debounce_text_changes = 300 },
  capabilities = vscode_capabilities,
 }
