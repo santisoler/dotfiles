@@ -18,7 +18,7 @@ TODO_FILE="$MAIN_DIR/todo.md"
 EDITOR_ARGS=()  # no extra arguments for the EDITOR by default
 editor_name=$(echo "$EDITOR" | rev | cut -d "/" -f 1 | rev)
 if [[ $editor_name == "vim" || $editor_name == "nvim" ]]; then
-    EDITOR_ARGS=(-c "windo set nospell" -c "wincmd h" -c "norm G" -c "norm zz" -c "lua vim.diagnostic.disable()" -O)  # extra arguments for the EDITOR
+    EDITOR_ARGS=(-c "windo set nospell" -c "norm G" -c "norm zz" -c "lua vim.diagnostic.disable()")  # extra arguments for the EDITOR
 fi
 
 
