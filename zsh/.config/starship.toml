@@ -1,0 +1,13 @@
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[➜](bold red)'
+vimcmd_symbol = '[N](bold red)'
+
+[conda]
+symbol = ""
+
+[python]
+symbol = ""
+
+[git_branch]
+symbol = ""

@@ -225,46 +225,17 @@ ZVM_VI_HIGHLIGHT_EXTRASTYLE=bold
 ZVM_CURSOR_STYLE_ENABLED=false
 
 
-# ----------------
-# Spaceship Prompt
-# ----------------
-# The configuration file for spaceship is located in ~/.spaceshiprc.zsh
-
-plugin_dir="$plugins/spaceship-vi-mode"
-plugin_version="v1.0.2"
-plugin_repo="https://github.com/spaceship-prompt/spaceship-vi-mode"
-if [[ ! -d $plugin_dir ]]; then
-    git clone \
-        --depth=1 \
-        --branch $plugin_version \
-        $plugin_repo \
-        $plugin_dir
+# ---------------
+# Starship Prompt
+# ---------------
+# Install starship if missing
+if ! command -v starship &> /dev/null; then
+    echo "Installing starship"
+    curl -sS https://starship.rs/install.sh | sh
 fi
 
-# Source the plugin file
-source "${plugin_dir}/spaceship-vi-mode.plugin.zsh"
-
-plugin_dir="$plugins/spaceship-prompt"
-plugin_version="v4.12.0"
-plugin_repo="https://github.com/spaceship-prompt/spaceship-prompt.git"
-if [[ ! -d $plugin_dir ]]; then
-    git clone \
-        --depth=1 \
-        --branch $plugin_version \
-        $plugin_repo \
-        $plugin_dir
-fi
-
-# Source the spaceship.zsh file
-source "${plugin_dir}/spaceship.zsh"
-
-# Override indicators
-SPACESHIP_VI_MODE_INSERT=""
-SPACESHIP_VI_MODE_NORMAL="%F{red}[N]"
-
-# Enable vi_mode
-spaceship_vi_mode_enable
-
+# Source starship
+eval "$(starship init zsh)"
 
 # --------------
 # Load functions
