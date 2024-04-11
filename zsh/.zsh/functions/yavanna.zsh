@@ -115,3 +115,17 @@ EOF
         mamba env remove --name "$envname";
     fi
 }
+
+# -----------------------------------------------------------------------------
+
+# Activate environment if environment.yml exists in cwd
+function activate_env() {
+    envfile="environment.yml"
+    if [[ -f $envfile ]]; then
+        current_env=$CONDA_DEFAULT_ENV
+        envname=$(grep "name: *" $envfile | sed -n -e 's/name: //p')
+        if [[ $current_env != $envname ]]; then
+            yavanna
+        fi
+    fi
+}

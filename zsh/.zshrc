@@ -290,9 +290,10 @@ if [[ -d $HOME/.mambaforge ]]; then
         . "$MAMBA_PATH/etc/profile.d/mamba.sh"
     fi
 
+    # Activate environment after running cd
+    add-zsh-hook chpwd activate_env
+
     # Activate the conda default environment
-    if [ -f $HOME/environment.yml ]; then
-        cenv $HOME/environment.yml
-    fi
+    activate_env
 
 fi
