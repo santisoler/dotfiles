@@ -240,9 +240,9 @@ eval "$(starship init zsh)"
 # --------------
 # Load functions
 # --------------
-if [[ -r ~/.zsh/functions.zsh ]]; then
-    source ~/.zsh/functions.zsh
-fi
+for script in ~/.zsh/functions/*.zsh; do
+    source $script
+done
 
 
 # -----------------------
