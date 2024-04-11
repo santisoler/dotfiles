@@ -96,8 +96,10 @@ EOF
 
     # Run the command for each action
     if [[ $cmd == "activate" ]]; then
-        conda deactivate;
-        conda activate "$envname";
+        if [[ $CONDA_DEFAULT_ENV != $envname ]]; then
+            conda deactivate;
+            conda activate "$envname";
+        fi
 
     elif [[ $cmd == "create" ]]; then
         >&2 echo "Creating environment:" $envname;
@@ -122,10 +124,6 @@ EOF
 function activate_env() {
     envfile="environment.yml"
     if [[ -f $envfile ]]; then
-        current_env=$CONDA_DEFAULT_ENV
-        envname=$(grep "name: *" $envfile | sed -n -e 's/name: //p')
-        if [[ $current_env != $envname ]]; then
-            yavanna
-        fi
+        yavanna $envfile
     fi
 }
