@@ -116,7 +116,7 @@ alias tls="tmux list-sessions"
 alias tns="tmux new-session -s"
 
 # Run commands in background using tmux
-alias lab='tmux new-session -d -s lab; tmux send-keys -t lab "cd $HOME; cenv; jupyter-lab" Enter'
+alias lab='tmux new-session -d -s lab; tmux send-keys -t lab "cd $HOME; conda activate default; jupyter-lab" Enter'
 alias remotelab-tera37='tmux new-session -d -s remotelab-tera37; tmux send-keys -t remotelab-tera37 "ssh -N -L 8837:localhost:8888 tera37.eos.ubc.ca" Enter'
 alias remotelab-tera38='tmux new-session -d -s remotelab-tera38; tmux send-keys -t remotelab-tera38 "ssh -N -L 8838:localhost:8888 tera38.eos.ubc.ca" Enter'
 alias remotelab-tera39='tmux new-session -d -s remotelab-tera39; tmux send-keys -t remotelab-tera39 "ssh -N -L 8839:localhost:8888 tera39.eos.ubc.ca" Enter'
