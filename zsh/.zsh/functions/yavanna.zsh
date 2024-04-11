@@ -96,6 +96,7 @@ EOF
 
     # Run the command for each action
     if [[ $cmd == "activate" ]]; then
+        conda deactivate;
         conda activate "$envname";
 
     elif [[ $cmd == "create" ]]; then
