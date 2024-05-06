@@ -117,12 +117,12 @@ lspconfig.cssls.setup {
 }
 
 -- ltex-ls
-lspconfig.ltex.setup {
- cmd = { "ltex-ls" },
- filetypes = { "markdown", "tex", "gitcommit", "rst" },
- flags = { debounce_text_changes = 300 },
- capabilities = vscode_capabilities,
-}
+-- lspconfig.ltex.setup {
+--  cmd = { "ltex-ls" },
+--  filetypes = { "markdown", "tex", "gitcommit", "rst" },
+--  flags = { debounce_text_changes = 300 },
+--  capabilities = vscode_capabilities,
+-- }
 
 
 -- Global mappings.
