@@ -91,7 +91,10 @@ vim.diagnostic.config({
     prefix = function(diagnostic)
         -- Function to show error code in diagnostics
         -- Idea got from docs (:h diagnostic-quickstart)
-        if diagnostic.source == "flake8" or diagnostic.source == "Ruff" then
+        local condition = (
+          diagnostic.source == "flake8" or diagnostic.source == "Ruff"
+        )
+        if condition then
           return "[" .. diagnostic.code .. "] "
         end
     end,
