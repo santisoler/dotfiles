@@ -48,8 +48,12 @@ mypy.args = {
   '--no-color-output',
   '--no-error-summary',
   '--no-pretty',
+  -- use current active environment
   '--python-executable',
   environment .. '/bin/python',
+  -- hide mypy errors on untyped modules (annoying in every import block)
+  '--disable-error-code',
+  'import-untyped'
 }
 
 -- Autorun linter on read and write
