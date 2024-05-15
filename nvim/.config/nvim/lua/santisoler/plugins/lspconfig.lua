@@ -23,7 +23,7 @@ lspconfig.bashls.setup {
 }
 
 -- Define which python lsp to use
-local python_lsp = "pyright"
+local python_lsp = "jedi"
 
 if python_lsp == "pyright" then
   lspconfig.pyright.setup {
@@ -52,6 +52,10 @@ if python_lsp == "pyright" then
     root_dir = function()
       return vim.fn.getcwd()
     end,
+  }
+elseif python_lsp == "jedi" then
+  lspconfig.jedi_language_server.setup{
+    capabilities = capabilities,
   }
 else
   lspconfig.pylsp.setup {
