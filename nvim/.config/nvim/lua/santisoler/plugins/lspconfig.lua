@@ -23,7 +23,7 @@ lspconfig.bashls.setup {
 }
 
 -- Define which python lsp to use
-local python_lsp = "jedi"
+local python_lsp = "pyright"
 
 if python_lsp == "pyright" then
   lspconfig.pyright.setup {
