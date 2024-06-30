@@ -124,8 +124,8 @@ alias remotelab-tera40='tmux new-session -d -s remotelab-tera40; tmux send-keys 
 alias remotelab-pytorch='tmux new-session -d -s remotelab-pytorch; tmux send-keys -t remotelab-pytorch "ssh -N -L 8899:localhost:9898 pytorch.eos.ubc.ca" Enter'
 alias serve='tmux new-session -d -s serve; tmux send-keys -t serve "livereload -p 8989 ." Enter'
 
-# Mamba aliases
-alias ca='mamba activate'
+# Conda aliases
+alias ca='conda activate'
 alias yv='yavanna'
 alias nbx='jupyter-nbconvert --execute --to notebook --inplace --allow-errors --ExecutePreprocessor.kernel_name=python3'
 
@@ -266,12 +266,12 @@ fi
 
 
 # ------------
-# Set up mamba
+# Set up conda
 # ------------
-if [[ -d $HOME/.mambaforge ]]; then
+if [[ -d $HOME/.miniforge3 ]]; then
 
     # Define path for Mambaforge
-    export MAMBA_PATH=$HOME/.mambaforge
+    export MAMBA_PATH=$HOME/.miniforge3
 
     # Setup and activate the conda and mamba package managers
     __conda_setup="$('${MAMBA_PATH}/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
