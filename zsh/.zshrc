@@ -268,26 +268,30 @@ fi
 # ------------
 # Set up conda
 # ------------
+CONDA_DIR=""
 if [[ -d $HOME/.miniforge3 ]]; then
+    CONDA_DIR=$HOME/.miniforge3
+elif [[ -d $HOME/.mambaforge ]]; then
+    CONDA_DIR=$HOME/.mambaforge
+fi
 
-    # Define path for Mambaforge
-    export MAMBA_PATH=$HOME/.miniforge3
+if [[ -n $CONDA_DIR ]]; then
 
     # Setup and activate the conda and mamba package managers
-    __conda_setup="$('${MAMBA_PATH}/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    __conda_setup="$('${CONDA_DIR}/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
     if [ $? -eq 0 ]; then
         eval "$__conda_setup"
     else
-        if [ -f "$MAMBA_PATH/etc/profile.d/conda.sh" ]; then
-            . "$MAMBA_PATH/etc/profile.d/conda.sh"
+        if [ -f "$CONDA_DIR/etc/profile.d/conda.sh" ]; then
+            . "$CONDA_DIR/etc/profile.d/conda.sh"
         else
-            export PATH="$MAMBA_PATH/bin:$PATH"
+            export PATH="$CONDA_DIR/bin:$PATH"
         fi
     fi
     unset __conda_setup
 
-    if [ -f "$MAMBA_PATH/etc/profile.d/mamba.sh" ]; then
-        . "$MAMBA_PATH/etc/profile.d/mamba.sh"
+    if [ -f "$CONDA_DIR/etc/profile.d/mamba.sh" ]; then
+        . "$CONDA_DIR/etc/profile.d/mamba.sh"
     fi
 
     # Activate environment after running cd
