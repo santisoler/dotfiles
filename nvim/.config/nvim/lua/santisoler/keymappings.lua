@@ -57,3 +57,7 @@ vim.keymap.set('n', '<leader>tde', vim.diagnostic.enable)
 
 -- Search selected text
 vim.keymap.set("v", "//", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
+
+-- Remap Ctrl-a (increment number) to Ctrl-e
+vim.keymap.set("n", "<C-e>", "<C-a>")
+vim.keymap.set("v", "<C-e>", "<C-a>")
