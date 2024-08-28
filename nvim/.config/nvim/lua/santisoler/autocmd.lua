@@ -60,33 +60,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 
--- -------------------------------------------------------------
--- Show cursor line and set relativenumber only in active window
--- -------------------------------------------------------------
--- (don't change relativenumber on NvimTree window)
-vim.api.nvim_create_augroup("cursorline_active_window", { clear = true })
-vim.api.nvim_create_autocmd("WinEnter", {
-    group = "cursorline_active_window",
-    pattern = { "*" },
-    command = "set cursorline",
-})
-vim.api.nvim_create_autocmd("WinEnter", {
-    group = "cursorline_active_window",
-    pattern = { "*" },
-    command = "if &l:number | set relativenumber | endif",
-})
-vim.api.nvim_create_autocmd("WinLeave", {
-    group = "cursorline_active_window",
-    pattern = { "*" },
-    command = "set nocursorline",
-})
-vim.api.nvim_create_autocmd("WinLeave", {
-    group = "cursorline_active_window",
-    pattern = { "*" },
-    command = "if &l:number | set norelativenumber | endif",
-})
-
-
 -- -----------------------------------------------------
 -- Remove the "o" option in formatoptions for every file
 -- -----------------------------------------------------
