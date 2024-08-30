@@ -75,10 +75,7 @@ else
 end
 
 -- Ruff (python linter as lsp)
--- Configure `ruff-lsp`.
--- See: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
--- For the default config, along with instructions on how to customize the settings
-lspconfig.ruff_lsp.setup {
+lspconfig.ruff.setup {
   init_options = {
     settings = {
       -- Any extra CLI arguments for `ruff` go here.
