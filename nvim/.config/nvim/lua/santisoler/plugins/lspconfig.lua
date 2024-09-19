@@ -23,7 +23,7 @@ lspconfig.bashls.setup {
 }
 
 -- Define which python lsp to use
-local python_lsp = "pyright"
+local python_lsp = "pylsp"
 
 if python_lsp == "pyright" then
   lspconfig.pyright.setup {
@@ -53,11 +53,23 @@ if python_lsp == "pyright" then
       return vim.fn.getcwd()
     end,
   }
+elseif python_lsp == "pylyzer" then
+  lspconfig.pylyzer.setup{
+    capabilities = capabilities,
+    settings = {
+      python = {
+        checkOnType = true,
+        diagnostics = true,
+        inlayHints = true,
+        smartCompletion = true
+      }
+    },
+  }
 elseif python_lsp == "jedi" then
   lspconfig.jedi_language_server.setup{
     capabilities = capabilities,
   }
-else
+elseif python_lsp == "pylsp" then
   lspconfig.pylsp.setup {
     capabilities = capabilities,
     settings = {
@@ -68,6 +80,8 @@ else
           pylint = {enabled = false},
           flake8 = {enabled = false},
           pycodestyle = {enabled = false},
+          -- pylsp_mypy = { enabled = true }, -- needs pylsp-mypy (install with pip in the same environment as pylsp: https://github.com/python-lsp/python-lsp-server/discussions/546)
+          jedi_completion = { fuzzy = true },
         },
       },
     },

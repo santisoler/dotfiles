@@ -5,6 +5,7 @@ require("mason").setup()
 
 local MASON_PACKAGES = {
   "pyright",
+  "python-lsp-server", -- pylsp
   "jedi-language-server",
   "black",
   "flake8",
