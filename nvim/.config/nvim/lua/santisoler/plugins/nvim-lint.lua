@@ -4,7 +4,7 @@
 -- Configure nvim-lint
 require('lint').linters_by_ft = {
   c= {'cppcheck'},
-  -- python = {'flake8', 'mypy'},
+  python = {'mypy'},
   tex = {'proselint'},
   sh = {'shellcheck'},
   markdown = {'markdownlint', 'proselint'},
