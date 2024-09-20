@@ -156,6 +156,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Enable completion triggered by <c-x><c-o>
     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
+    -- Disable the formatexpr set by the lsp.
+    -- Needed to avoid ruff not allowing us to use gq.
+    -- Reference: https://github.com/astral-sh/ruff/issues/11634
+    vim.bo[ev.buf].formatexpr = nil
+
     -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local opts = { buffer = ev.buf }
