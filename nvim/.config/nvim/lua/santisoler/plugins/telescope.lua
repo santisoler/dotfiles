@@ -3,7 +3,7 @@
 -- -------------------
 function is_git_repo()
   -- Check if we are inside a git repo
-  local status = os.execute("git rev-parse --show-toplevel 2> /dev/null")
+  local status = os.execute("git rev-parse --show-toplevel 2>&1 > /dev/null")
   if status == 0 then
     return true
   end
