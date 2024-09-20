@@ -78,7 +78,7 @@ elseif python_lsp == "pylsp" then
         plugins = {
           pyflakes = {enabled = false},
           pylint = {enabled = false},
-          flake8 = {enabled = false},
+          flake8 = {enabled = true},
           pycodestyle = {enabled = false},
           -- pylsp_mypy = { enabled = true }, -- needs pylsp-mypy (install with pip in the same environment as pylsp: https://github.com/python-lsp/python-lsp-server/discussions/546)
           jedi_completion = { fuzzy = true },
