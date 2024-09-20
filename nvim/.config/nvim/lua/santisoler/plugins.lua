@@ -66,9 +66,6 @@ return require('packer').startup(function()
   use 'ap/vim-css-color'
   use {
     'mattn/emmet-vim',
-     config = function()
-         vim.g.user_emmet_leader_key = '<C-Z>'
-     end
   }
 
   -- Autoformat files
