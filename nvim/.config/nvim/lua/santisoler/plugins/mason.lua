@@ -47,3 +47,28 @@ function MasonAutoInstall(start_mason)
     vim.api.nvim_command("Mason")
   end
 end
+
+-- Add function to install pylsp plugins in the same environment
+-- -------------------------------------------------------------
+
+function MasonInstallPylspPlugins()
+  -- Installs pylsp plugins in the same environmetn as python-lsp-server
+  -- Reference: https://github.com/williamboman/mason.nvim/issues/392
+
+  local function mason_package_path(package)
+      local path = vim.fn.resolve(vim.fn.stdpath("data") .. "/mason/packages/" .. package)
+      return path
+  end
+
+  -- depends on package manager / language
+  local command = "/venv/bin/pip"
+  local args = { "install", "pylsp-mypy" }
+
+  print("Updating pylsp plugins...")
+  require("plenary.job")
+      :new({
+          command = mason_package_path("python-lsp-server") .. command,
+          args = args,
+      })
+      :start()
+end
