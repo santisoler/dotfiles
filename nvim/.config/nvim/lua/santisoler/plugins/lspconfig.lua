@@ -95,10 +95,14 @@ end
 
 -- Ruff (python linter as lsp)
 lspconfig.ruff.setup {
+  capabilities = capabilities,
+  -- Configure settings: https://docs.astral.sh/ruff/editors/settings/#configuration
   init_options = {
     settings = {
-      -- Any extra CLI arguments for `ruff` go here.
-      args = {},
+      lint = {
+        enable = true,
+        extendSelect = {"F", "E", "ARG"},
+      },
     }
   }
 }
