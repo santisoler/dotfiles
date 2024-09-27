@@ -33,3 +33,7 @@ require('treesitter-context').setup{
 vim.keymap.set("n", "[n", function()
   require("treesitter-context").go_to_context()
 end, { silent = true })
+
+-- Use treesitter for folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
