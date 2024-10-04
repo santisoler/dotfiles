@@ -133,9 +133,7 @@ alias nbx='jupyter-nbconvert --execute --to notebook --inplace --allow-errors --
 alias gti="git"
 alias gi="git"
 alias gts="git status"
-alias "git-branches"="git branch -v --sort=committerdate"
 alias cdtop='cd $(git rev-parse --show-toplevel)' # cd to toplevel of git repo
-alias commithash="git rev-parse HEAD" # returns the hash of the current commit
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert

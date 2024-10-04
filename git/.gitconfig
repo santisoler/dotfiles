@@ -49,4 +49,5 @@
     ds = "! git diff --staged"
     st = "! git status"
     authors = "! git shortlog -sne"
+    commithash = "! git rev-parse HEAD"
 
