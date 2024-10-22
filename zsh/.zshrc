@@ -6,7 +6,7 @@
 #
 #
 # Define default EDITOR
-export EDITOR=/usr/local/bin/nvim
+export EDITOR=$(which nvim)
 
 
 # -------
