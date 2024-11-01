@@ -66,6 +66,9 @@ return require('packer').startup(function()
   use 'ap/vim-css-color'
   use {
     'mattn/emmet-vim',
+    -- pin to this version because emmet wasn't working on markdown files
+    -- reference: https://github.com/mattn/emmet-vim/issues/559
+    commit = "3fb2f63799e1922f7647ed9ff3b32154031a76ee",
   }
 
   -- Autoformat files
