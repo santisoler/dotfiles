@@ -27,15 +27,15 @@ flake8.args = {
 }
 
 -- Modify markdownlint options
-local markdownlint = require('lint.linters.markdownlint')
-markdownlint.args = {
-  '--disable',
-  'MD012',
-  'MD033',
-  'MD034',
-  'MD041',
-  '--',
-}
+-- local markdownlint = require('lint.linters.markdownlint')
+-- markdownlint.args = {
+--   '--disable',
+--   'MD012',
+--   'MD033',
+--   'MD034',
+--   'MD041',
+--   '--',
+-- }
 
 -- Make mypy use the active environment
 local mypy = require('lint.linters.mypy')
