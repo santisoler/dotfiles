@@ -63,7 +63,7 @@ vim.keymap.set('n', '<leader>fe', builtin.resume, {})
 -- Configure telescope
 require('telescope').setup({
   defaults = {
-    layout_strategy = "vertical",
-    layout_config = { height = 0.95 },
+    -- layout_strategy = "vertical",
+    -- layout_config = { height = 0.95 },
   },
 })
