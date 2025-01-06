@@ -16,12 +16,13 @@ local MASON_PACKAGES = {
   "stylelint",
   "proselint",
   "shellcheck",
-  "markdownlint",
+  "markdownlint-cli2",
   "rust-analyzer",
   "tree-sitter-cli",
   "texlab",
   "lua-language-server",
   "ltex-ls",
+  "write-good",
 }
 
 function MasonAutoInstall(start_mason)

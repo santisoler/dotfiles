@@ -7,7 +7,7 @@ require('lint').linters_by_ft = {
   -- python = {'flake8'},
   tex = {'proselint'},
   sh = {'shellcheck'},
-  markdown = {'markdownlint', 'proselint'},
+  markdown = {'markdownlint-cli2', 'proselint', 'write_good'},
   gitcommit = {'proselint'},
   rst = {'rstcheck'},
   html = {'tidy'},
@@ -27,15 +27,12 @@ flake8.args = {
 }
 
 -- Modify markdownlint options
--- local markdownlint = require('lint.linters.markdownlint')
--- markdownlint.args = {
---   '--disable',
---   'MD012',
---   'MD033',
---   'MD034',
---   'MD041',
---   '--',
--- }
+local markdownlintrc = vim.fn.expand '~' .. '/.markdownlint.jsonc'
+local markdownlint = require('lint.linters.markdownlint-cli2')
+markdownlint.args = {
+  '--config',
+  markdownlintrc,
+}
 
 -- Make mypy use the active environment
 local mypy = require('lint.linters.mypy')
