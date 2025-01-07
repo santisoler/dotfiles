@@ -1,0 +1,56 @@
+#!/usr/bin/env python
+import subprocess
+from pathlib import Path
+
+import click
+
+times_fname = "times"
+stream_fname = "stream.flac"
+
+
+def read_times(times_fname: Path) -> list[str]:
+    times = []
+    with times_fname.open("r") as f:
+        for line in f:
+            times.append(line.strip())
+    return times
+
+
+def cut(input_file: Path, times: list[str]):
+    extension = input_file.suffix
+    n_digits = len(str(len(times)))
+    fmt = f"0{n_digits}d"
+
+    prev_time = "00:00"
+    for i, time in enumerate(times):
+        cmd = ["ffmpeg"]
+        cmd += ["-ss", f"{prev_time}", "-to", f"{time}"]
+        cmd += ["-i", f"{input_file}", f"{i:{fmt}}{extension}"]
+        subprocess.run(cmd, check=True)
+        prev_time = time
+
+
+@click.command()
+@click.option(
+    "-t",
+    "--times",
+    type=click.File("rb"),
+    help="File with times to cut the media file on (one time per line).",
+)
+@click.argument(
+    "media",
+    type=click.File("rb"),
+)
+def cli(times, media):
+    """Cut audio files at a specified time."""
+    if times is None:
+        msg = "No times file provided. Please, provide a times file"
+        raise click.BadParameter(msg)
+    input_fname = Path(media.name)
+    times_fname = Path(times.name)
+    times = read_times(times_fname)
+    cut(input_fname, times)
+
+
+if __name__ == "__main__":
+    cli()
