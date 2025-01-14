@@ -168,6 +168,7 @@
   //   // Allowed elements
   //   "allowed_elements": []
   // },
+  "MD033": false,
 
   // MD034/no-bare-urls : Bare URL used : https://github.com/DavidAnson/markdownlint/blob/v0.37.3/doc/md034.md
   "MD034": true,
