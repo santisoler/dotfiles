@@ -46,6 +46,7 @@ dependencies:
   - pandas
   # Geospatial and maps
   - netcdf4
+  - rasterio
   - cartopy
   - pyproj
   - pygmt
