@@ -21,6 +21,7 @@ dependencies:
   # Software Development
   - livereload
   - pytest
+  - hatch
   - black>=22.3
   - isort
   - rope
