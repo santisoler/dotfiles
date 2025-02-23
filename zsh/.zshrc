@@ -263,6 +263,11 @@ if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
 fi
 
+# Add /usr/lib/cargo/bin to PATH
+if [[ -d "/usr/lib/cargo/bin" ]]; then
+    export PATH="/usr/lib/cargo/bin:$PATH"
+fi
+
 
 # ------------
 # Set up conda
