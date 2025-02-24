@@ -99,7 +99,8 @@ alias fgrep='fgrep --colour=auto'
 alias size="du -sh"
 alias open='xdg-open'
 alias xc='xclip -selection clipboard' # copy to clipboard using xclip
-alias ytdlbest='youtube-dl -f bestvideo+bestaudio'
+alias ytbest='yt-dlp -f "bestvideo+bestaudio"'
+alias yt1080mp4='yt-dlp -f "bv[ext=mp4][height<=1080]+ba[ext=m4a]"'
 alias subs='subliminal download -l es -s'
 alias presentation-toggle='xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -T'
 alias monitor-mic='pactl load-module module-loopback latency_msec=1'
@@ -260,6 +261,11 @@ fi
 # Add cargo bin to PATH
 if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+# Add /usr/lib/cargo/bin to PATH
+if [[ -d "/usr/lib/cargo/bin" ]]; then
+    export PATH="/usr/lib/cargo/bin:$PATH"
 fi
 
 
