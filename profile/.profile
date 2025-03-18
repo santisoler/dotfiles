@@ -1,7 +1,7 @@
 export QT_STYLE_OVERRIDE=kvantum
 
 # Define default TERMINAL and EDITOR
-export TERMINAL=/usr/bin/terminator
+export TERMINAL=/usr/bin/gnome-terminal
 export EDITOR=/usr/local/bin/nvim
 
 # Add ~/bin to PATH
