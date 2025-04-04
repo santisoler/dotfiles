@@ -71,6 +71,14 @@ return require('packer').startup(function()
     commit = "3fb2f63799e1922f7647ed9ff3b32154031a76ee",
   }
 
+  -- Markdown TOC
+  use {
+    "hedyhli/markdown-toc.nvim",
+    ft = {"markdown"},
+    cmd = { "Mtoc" },
+    config = function() require('mtoc').setup({}) end,
+  }
+
   -- Autoformat files
   use {
     'sbdchd/neoformat',
