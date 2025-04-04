@@ -62,6 +62,12 @@ return require('packer').startup(function()
     config = function() require('santisoler.plugins.vimtex') end,
   }
 
+  -- typst
+  use {
+    'kaarmu/typst.vim',
+    ft = {'typst'},
+  }
+
   -- Webdev
   use 'ap/vim-css-color'
   use {
