@@ -13,7 +13,7 @@ local function live_git_grep()
 		"-I",
 	}
 	local opts = {
-		prompt_title = "Git Grep",
+		prompt_title = "Git Live Grep",
 		vimgrep_arguments = vimgrep_arguments,
 	}
 	require("telescope.builtin").live_grep(opts)
