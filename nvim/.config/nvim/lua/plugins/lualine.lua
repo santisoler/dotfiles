@@ -1,5 +1,11 @@
 local function config()
-	require("lualine").setup()
+	require("lualine").setup({
+		options = {
+			theme = "catppuccin-macchiato",
+			section_separators = "",
+			component_separators = "",
+		},
+	})
 end
 
 return {
