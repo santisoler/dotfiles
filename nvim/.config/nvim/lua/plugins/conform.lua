@@ -8,6 +8,9 @@ local function config()
 			lua = { "stylua" },
 			python = { "black" },
 			rust = { "rustfmt", lsp_format = "fallback" },
+			markdown = { "prettier" },
+			html = { "prettier" },
+			css = { "prettier" },
 		},
 	})
 
@@ -20,6 +23,7 @@ local function config()
 	})
 
 	vim.api.nvim_create_user_command("Autoformat", Autoformat, {})
+	vim.api.nvim_create_user_command("Conform", Autoformat, {})
 end
 
 return { {
