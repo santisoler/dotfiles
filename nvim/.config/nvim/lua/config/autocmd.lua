@@ -20,13 +20,13 @@ vim.api.nvim_create_augroup("custom_style", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
 	group = "custom_style",
 	pattern = { "python" },
-	command = "setlocal colorcolumn=89",
+	command = "setlocal colorcolumn=89 textwidth=88",
 })
 -- Change text last column for Rust files
 vim.api.nvim_create_autocmd("FileType", {
 	group = "custom_style",
 	pattern = { "rust" },
-	command = "setlocal colorcolumn=100",
+	command = "setlocal colorcolumn=100 textwidth=99",
 })
 -- Set indentation to 2 characters for markdown files
 vim.api.nvim_create_autocmd("FileType", {
