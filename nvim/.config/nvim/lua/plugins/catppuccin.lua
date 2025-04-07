@@ -6,7 +6,7 @@ local function config()
 		},
 	})
 	-- setup must be done before loading
-	vim.cmd.colorscheme("catppuccin")
+	vim.cmd.colorscheme("catppuccin-macchiato")
 end
 
 return {
