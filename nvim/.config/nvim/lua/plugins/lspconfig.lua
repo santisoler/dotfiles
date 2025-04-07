@@ -1,4 +1,12 @@
 PYTHON_LSP = "pyright"
+LANGUAGE_SERVERS = {
+	"pyright",
+	"pylsp",
+	"ruff",
+	"rust_analyzer",
+	"lua_ls",
+	"emmet_language_server",
+}
 
 local function config_cmp()
 	-- Define functions for Tab and Shift+Tab
@@ -249,8 +257,30 @@ end
 -- --------------
 -- Manage plugins
 -- --------------
+-- Since we are using mason-lspconfig, we need to setup the plugins in the
+-- following order:
+--   1. mason.nvim
+--   2. mason-lspconfig.nvim
+--   3. language servers with lspconfig
 --
+-- We are also going to configure nvim-cmp here.
 return {
+	{
+		"williamboman/mason.nvim",
+		config = function()
+			require("mason").setup()
+		end,
+	},
+
+	{
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("mason-lspconfig").setup({
+				ensure_installed = LANGUAGE_SERVERS,
+			})
+		end,
+	},
+
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -258,6 +288,7 @@ return {
 		},
 		config = config_lsp,
 	},
+
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
