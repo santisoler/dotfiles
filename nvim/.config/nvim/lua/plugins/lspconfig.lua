@@ -68,8 +68,7 @@ local function config_cmp()
 		sources = cmp.config.sources({
 			{ name = "nvim_lsp" },
 			{ name = "vsnip" }, -- For vsnip users.
-		}, {
-			{ name = "buffer" },
+			{ name = "path" },
 		}),
 	})
 
