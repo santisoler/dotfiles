@@ -106,7 +106,7 @@ local function config_lsp()
 	vim.api.nvim_create_autocmd("LspAttach", {
 		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 		desc = "LSP actions",
-		callback = function()
+		callback = function(ev)
 			-- Disable the formatexpr set by the lsp.
 			-- Needed to avoid ruff not allowing us to use gq.
 			-- Reference: https://github.com/astral-sh/ruff/issues/11634
