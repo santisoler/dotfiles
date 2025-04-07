@@ -131,6 +131,10 @@ local function config_lsp()
 			vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, opts)
 			-- Renames all references to the symbol under the cursor
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+			-- Trigger autoformat
+			vim.keymap.set("n", "<leader>f", function()
+				vim.lsp.buf.format({ async = true })
+			end, opts)
 		end,
 	})
 
