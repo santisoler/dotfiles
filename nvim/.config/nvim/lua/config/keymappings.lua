@@ -1,6 +1,6 @@
--- ==================
--- Define vim.keymap.setpings
--- ==================
+-- =====================
+-- Configure Keymappings
+-- =====================
 
 -- Navigate between windows
 vim.keymap.set('n', '<C-h>', '<C-w>h')

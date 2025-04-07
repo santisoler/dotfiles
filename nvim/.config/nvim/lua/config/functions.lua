@@ -8,4 +8,3 @@ function trim_trailing_whitespaces()
         vim.fn.winrestview(current_view)
     end
 end
-
