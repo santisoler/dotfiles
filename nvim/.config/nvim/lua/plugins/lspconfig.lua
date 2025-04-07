@@ -107,6 +107,13 @@ local function config_lsp()
 		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 		desc = "LSP actions",
 		callback = function()
+			-- Disable the formatexpr set by the lsp.
+			-- Needed to avoid ruff not allowing us to use gq.
+			-- Reference: https://github.com/astral-sh/ruff/issues/11634
+			vim.bo[ev.buf].formatexpr = nil
+
+			-- Buffer local mappings.
+			-- See `:help vim.lsp.*` for documentation on any of the below functions
 			local opts = { buffer = true }
 			-- Displays hover information about the symbol under the cursor
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
