@@ -1,3 +1,5 @@
+PYTHON_LSP = "pyright"
+
 local function config_cmp()
 	-- Define functions for Tab and Shift+Tab
 	local has_words_before = function()
@@ -123,28 +125,60 @@ local function config_lsp()
 		capabilities = capabilities,
 	})
 
-	-- Pylsp
-	lspconfig.pylsp.setup({
-		capabilities = capabilities,
-		settings = {
-			-- configure plugins in pylsp
-			pylsp = {
-				plugins = {
-					pyflakes = { enabled = false },
-					pylint = { enabled = false },
-					flake8 = { enabled = false },
-					pycodestyle = { enabled = false },
-					jedi_completion = { fuzzy = true },
-					pylsp_mypy = {
-						-- needs pylsp-mypy
-						-- (install with pip in the same environment as pylsp:
-						-- https://github.com/python-lsp/python-lsp-server/discussions/546)
-						enabled = true,
+	-- Python
+	if PYTHON_LSP == "pyright" then
+		lspconfig.pyright.setup({
+			-- Use the following capabilities to disable pyright diagnostics
+			capabilities = {
+				textDocument = {
+					publishDiagnostics = {
+						tagSupport = {
+							valueSet = { 2 },
+						},
 					},
 				},
 			},
-		},
-	})
+			-- change default settings to make it run faster
+			settings = {
+				python = {
+					analysis = {
+						autoSearchPaths = true,
+						diagnosticMode = "openFilesOnly", -- default to "workspace"
+						useLibraryCodeForTypes = true,
+					},
+				},
+			},
+			-- avoid running pyright running on the entire home directory
+			-- (https://github.com/microsoft/pyright/issues/4176)
+			root_dir = function()
+				return vim.fn.getcwd()
+			end,
+		})
+	elseif PYTHON_LSP == "pylsp" then
+		lspconfig.pylsp.setup({
+			capabilities = capabilities,
+			settings = {
+				-- configure plugins in pylsp
+				pylsp = {
+					plugins = {
+						pyflakes = { enabled = false },
+						pylint = { enabled = false },
+						flake8 = { enabled = false },
+						pycodestyle = { enabled = false },
+						jedi_completion = { fuzzy = true },
+						pylsp_mypy = {
+							-- needs pylsp-mypy
+							-- (install with pip in the same environment as pylsp:
+							-- https://github.com/python-lsp/python-lsp-server/discussions/546)
+							enabled = true,
+						},
+					},
+				},
+			},
+		})
+	else
+		error("Invalid Python LSP: '" .. PYTHON_LSP .. "'.", 0)
+	end
 
 	-- Ruff (python linter as lsp)
 	lspconfig.ruff.setup({
