@@ -72,6 +72,9 @@ function MasonInstallPylspPlugins()
       :new({
           command = mason_package_path("python-lsp-server") .. command,
           args = args,
+          on_exit = function(j, return_val)
+            print('Finished installing pylsp plugins.')
+          end,
       })
       :start()
 end
