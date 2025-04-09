@@ -8,3 +8,4 @@ fonts/.fonts/**/.uuid
 ipython/.ipython/profile_default/
 nvim/**/*.add
 nvim/**/*.sug
+nvim/**/lazy-lock.json
