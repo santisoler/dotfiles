@@ -102,42 +102,6 @@ local function config_lsp()
 	local lspconfig = require("lspconfig")
 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-	-- Define LspAttach autocmd
-	vim.api.nvim_create_autocmd("LspAttach", {
-		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-		desc = "LSP actions",
-		callback = function(ev)
-			-- Disable the formatexpr set by the lsp.
-			-- Needed to avoid ruff not allowing us to use gq.
-			-- Reference: https://github.com/astral-sh/ruff/issues/11634
-			vim.bo[ev.buf].formatexpr = nil
-
-			-- Buffer local mappings.
-			-- See `:help vim.lsp.*` for documentation on any of the below functions
-			local opts = { buffer = true }
-			-- Displays hover information about the symbol under the cursor
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-			-- Jump to the definition
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-			-- Jump to declaration
-			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-			-- Lists all the implementations for the symbol under the cursor
-			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-			-- Jumps to the definition of the type symbol
-			vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts)
-			-- Lists all the references
-			vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-			-- Displays a function's signature information
-			vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, opts)
-			-- Renames all references to the symbol under the cursor
-			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-			-- Trigger autoformat
-			vim.keymap.set("n", "<leader>f", function()
-				vim.lsp.buf.format({ async = true })
-			end, opts)
-		end,
-	})
-
 	-- Lua lsp
 	lspconfig.lua_ls.setup({
 		capabilities = capabilities,
