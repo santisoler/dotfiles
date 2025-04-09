@@ -1,15 +1,15 @@
 -- General Neovim Configuration
 -- ============================
 
-local set = vim.opt  -- General configuration
-local wo = vim.wo  -- Window configuration
-local bo = vim.bo  -- Buffer configuration
+local set = vim.opt -- General configuration
+local wo = vim.wo -- Window configuration
+local bo = vim.bo -- Buffer configuration
 
 -- Map leader to spacebar
 vim.g.mapleader = " "
 
 -- Configure Python host
-vim.g.python3_host_prog = '/usr/bin/python'
+vim.g.python3_host_prog = "/usr/bin/python"
 
 -- Allow termguicolors
 vim.opt.termguicolors = true
@@ -28,14 +28,14 @@ set.textwidth = 79
 -- Configure format options
 -- Find more about format options with :h fo-table (Neovim defaults to "tcqj")
 set.formatoptions = {
-  ["1"] = true, -- don't break a like after a one-letter word
-  t = true,     -- auto-wrap text using textwidth
-  c = true,     -- auto-wrap comments inserting comment leader automatically
-  q = true,     -- format comments with "gq"
-  j = true,     -- remove comment leader when joining lines
-  r = true,     -- insert comment char after hitting enter in Insert mode
-  o = false,    -- don't insert comment char on new line in Normal mode
-  n = true,     -- recognize numbered lists when formatting text
+	["1"] = true, -- don't break a like after a one-letter word
+	t = true, -- auto-wrap text using textwidth
+	c = true, -- auto-wrap comments inserting comment leader automatically
+	q = true, -- format comments with "gq"
+	j = true, -- remove comment leader when joining lines
+	r = true, -- insert comment char after hitting enter in Insert mode
+	o = false, -- don't insert comment char on new line in Normal mode
+	n = true, -- recognize numbered lists when formatting text
 }
 
 -- Change configuration for cases
