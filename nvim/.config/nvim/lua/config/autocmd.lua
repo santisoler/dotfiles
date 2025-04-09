@@ -50,3 +50,16 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "html", "markdown", "python", "tex", "rst", "typst" },
 	command = "setlocal spell | set spelllang=en",
 })
+
+-- -----------------------------------------------------
+-- Remove the "o" option in formatoptions for every file
+-- -----------------------------------------------------
+-- When filetype plugin is on, it usually adds the formatoptions "o" argument,
+-- that adds comment leader character on new lines created with the "o" key.
+-- This annoys me a lot: I'd rather add a comment character than delete it.
+vim.api.nvim_create_augroup("fo_without_o", { clear = true })
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	group = "fo_without_o",
+	pattern = { "*" },
+	command = "set formatoptions-=o",
+})
