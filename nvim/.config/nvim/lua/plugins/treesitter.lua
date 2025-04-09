@@ -13,7 +13,11 @@ local function config_treesitter()
 		},
 		sync_install = false,
 		highlight = { enable = true },
-		indent = { enable = true },
+		indent = {
+			enable = true,
+			-- Disable treesitter indent for Python and Markdown
+			disable = { "python", "markdown" },
+		},
 	})
 end
 
