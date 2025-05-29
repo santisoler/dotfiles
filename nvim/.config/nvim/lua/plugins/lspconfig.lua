@@ -1,7 +1,6 @@
 PYTHON_LSP = "pyright"
 LANGUAGE_SERVERS = {
-	"pyright",
-	"pylsp",
+	PYTHON_LSP,
 	"ruff",
 	"rust_analyzer",
 	"lua_ls",
