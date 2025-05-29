@@ -57,7 +57,7 @@ dependencies:
   - pooch
   - verde
   - harmonica
-  - rockhound
+  - bordado
   - boule
   # SimPEG
   - simpeg
