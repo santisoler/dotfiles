@@ -223,6 +223,19 @@ local function config_lsp()
 
 	-- Emmet LSP
 	lspconfig.emmet_language_server.setup({
+		filetypes = {
+			"css",
+			"eruby",
+			"html",
+			"javascript",
+			"javascriptreact",
+			"less",
+			"sass",
+			"scss",
+			"pug",
+			"typescriptreact",
+			"markdown",
+		},
 		capabilities = capabilities,
 	})
 end
