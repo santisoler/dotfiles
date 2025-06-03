@@ -263,6 +263,7 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = LANGUAGE_SERVERS,
+				automatic_enable = false,
 			})
 		end,
 	},
