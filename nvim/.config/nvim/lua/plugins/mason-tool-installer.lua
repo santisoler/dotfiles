@@ -4,11 +4,11 @@ local function config()
 			-- LSPs
 			-- "pyright",
 			-- "python-lsp-server", -- pylsp
-			"ruff",
-			"ltex-ls",
-			"lua-language-server",
-			"rust-analyzer",
-			"emmet-language-server",
+			-- "ruff",
+			-- "ltex-ls",
+			-- "lua-language-server",
+			-- "rust-analyzer",
+			-- "emmet-language-server",
 			-- Linters
 			"prettier",
 			"rstcheck",
