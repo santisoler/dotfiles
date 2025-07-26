@@ -1,0 +1,93 @@
+#!/bin/env python
+import os
+import argparse
+from PIL import Image, ImageFilter
+
+PROG = "square_n_blur"
+DESCRIPTION = 'Create square version of images with blurred margins.'
+FILTER_RADIUS = 100
+DEFAULT_OUTPUT_DIR = "square_blur"
+DEFAULT_JPG_QUALITY = 75
+
+
+def create_square_image(image, filter_radius=FILTER_RADIUS):
+    """
+    Creates square version of an image by completing with blurred margins.
+
+    Parameters
+    ----------
+    image: PIL.Image
+        Original image
+    filter_radius: int
+        Radius for the Gaussian filter. A greater number creates more blur.
+    """
+    # Calculate margin size
+    height, width = image.height, image.width
+    margin_size = int((max(height, width) - min(height, width)) / 2)
+    # Create blurred version of the image
+    blurred = image.filter(ImageFilter.GaussianBlur(radius=filter_radius))
+    # Create new square image
+    size = max(height, width)
+    square_image = Image.new("RGB", (size, size))
+    square_image.info = image.info
+    # Define position for blurred image and original one into the new image
+    blur_box = (0, 2 * margin_size)
+    image_box = (0, margin_size)
+    if height > width:
+        # Reverse tuples in case of vertical image
+        blur_box = blur_box[::-1]
+        image_box = image_box[::-1]
+    # Paste two blurred images (one for each margin) and the original one
+    square_image.paste(blurred, box=(0, 0))
+    square_image.paste(blurred, box=blur_box)
+    square_image.paste(image, box=image_box)
+    return square_image
+
+
+def create_argparser():
+    "Create argument parser"
+    parser = argparse.ArgumentParser(prog=PROG, description=DESCRIPTION)
+    parser.add_argument("input", nargs="+", type=str, help="Input image or images")
+    parser.add_argument("-o", "--output", type=str, default=DEFAULT_OUTPUT_DIR,
+                        help="Output image or directory \
+                        (if multiple input images are passed)")
+    parser.add_argument("--radius", type=int, default=FILTER_RADIUS,
+                        help="Gaussian filter radius. A greater number increses blur. \
+                        Default 100.")
+    parser.add_argument("--quality", type=int, default=FILTER_RADIUS,
+                        help="JPG quality parameter(0-100). \
+                        Default to {}.".format(DEFAULT_JPG_QUALITY))
+    return parser
+
+
+if __name__ == "__main__":
+    # Create argument parser
+    parser = create_argparser()
+    args = parser.parse_args()
+
+    # Override input
+    images_paths = [os.path.join(os.getcwd(), image) for image in args.input]
+
+    # Override output
+    if len(args.input) == 1:
+        if args.output == DEFAULT_OUTPUT_DIR:
+            filename, extension = os.path.splitext(args.input[0])
+            args.output = [os.path.join(os.getcwd(),
+                                        "{}-square{}".format(filename, extension))]
+        else:
+            args.output = [os.path.join(os.getcwd(), args.output)]
+    else:
+        # Create output directory if it does not exist
+        if not os.path.exists(args.output):
+            os.makedirs(args.output)
+        args.output = [os.path.join(os.getcwd(), args.output, image)
+                       for image in args.input]
+
+    # Convert images
+    for image_path, square_path in zip(args.input, args.output):
+        image = Image.open(image_path)
+        square_image = create_square_image(image, filter_radius=args.radius)
+        # Assign quality if image format is JPEG
+        if image.format == "JPEG":
+            square_image.info["quality"] = args.quality
+        square_image.save(square_path, **square_image.info)
