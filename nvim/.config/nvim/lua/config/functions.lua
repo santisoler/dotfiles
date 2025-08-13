@@ -9,7 +9,7 @@ function trim_trailing_whitespaces()
 	end
 end
 
-vim.api.nvim_create_user_command("cppath", function()
+vim.api.nvim_create_user_command("Cppath", function()
 	local path = vim.fn.expand("%:p")
 	vim.fn.setreg("+", path)
 	vim.notify('Copied "' .. path .. '" to the clipboard!')
