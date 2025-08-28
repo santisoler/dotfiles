@@ -128,7 +128,7 @@ alias serve='tmux new-session -d -s serve; tmux send-keys -t serve "livereload -
 # Conda aliases
 alias ca='conda activate'
 alias yv='yavanna'
-alias nbx='jupyter-nbconvert --execute --to notebook --inplace --allow-errors --ExecutePreprocessor.kernel_name=python3'
+alias nbx='jupyter-nbconvert --execute --to notebook --inplace --ExecutePreprocessor.kernel_name=python3'
 
 # Git aliases
 alias gti="git"
