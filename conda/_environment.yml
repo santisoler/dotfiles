@@ -23,6 +23,7 @@ dependencies:
   - pytest
   - hatch
   - black>=22.3
+  - ruff
   - isort
   - rope
   - flake8
