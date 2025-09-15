@@ -105,6 +105,7 @@ alias subs='subliminal download -l es -s'
 alias presentation-toggle='xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -T'
 alias monitor-mic='pactl load-module module-loopback latency_msec=1'
 alias monitor-stop='pactl unload-module module-loopback'
+alias ipy="ipython -i"
 
 # Aliases for taking notes
 alias notes="cd ~/Documents/notes && nvim ."
