@@ -1,7 +1,7 @@
 local function config()
 	vim.opt.termguicolors = true
 	require("bufferline").setup({
-		highlights = require("catppuccin.groups.integrations.bufferline").get(),
+		highlights = require("catppuccin.groups.integrations.bufferline").get_theme(),
 		options = {
 			offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "center" } },
 			separator_style = "thin",
