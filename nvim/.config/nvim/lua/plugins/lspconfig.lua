@@ -101,13 +101,13 @@ local function config_lsp()
 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 	-- Lua lsp
-	vim.lsp.config("lua_ls", {
+	vim.lsp.enable("lua_ls", {
 		capabilities = capabilities,
 	})
 
 	-- Python
 	if PYTHON_LSP == "pyright" then
-		vim.lsp.config("pyright", {
+		vim.lsp.enable("pyright", {
 			-- Use the following capabilities to disable pyright diagnostics
 			capabilities = {
 				textDocument = {
@@ -135,7 +135,7 @@ local function config_lsp()
 			end,
 		})
 	elseif PYTHON_LSP == "pylsp" then
-		vim.lsp.config("pylsp", {
+		vim.lsp.enable("pylsp", {
 			capabilities = capabilities,
 			settings = {
 				-- configure plugins in pylsp
@@ -161,7 +161,7 @@ local function config_lsp()
 	end
 
 	-- Ruff (python linter as lsp)
-	vim.lsp.config("ruff", {
+	vim.lsp.enable("ruff", {
 		capabilities = capabilities,
 		-- Configure settings: https://docs.astral.sh/ruff/editors/settings/#configuration
 		init_options = {
@@ -209,7 +209,7 @@ local function config_lsp()
 	})
 
 	-- Rust analyzer
-	vim.lsp.config("rust_analyzer", {
+	vim.lsp.enable("rust_analyzer", {
 		capabilities = capabilities,
 		settings = {
 			["rust-analyzer"] = {
@@ -221,7 +221,7 @@ local function config_lsp()
 	})
 
 	-- Emmet LSP
-	vim.lsp.config("emmet_language_server", {
+	vim.lsp.enable("emmet_language_server", {
 		filetypes = {
 			"css",
 			"eruby",
