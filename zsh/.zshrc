@@ -106,6 +106,7 @@ alias presentation-toggle='xfconf-query -c xfce4-power-manager -p /xfce4-power-m
 alias monitor-mic='pactl load-module module-loopback latency_msec=1'
 alias monitor-stop='pactl unload-module module-loopback'
 alias ipy="ipython -i"
+alias rfix="ruff check --fix"
 
 # Aliases for taking notes
 alias notes="cd ~/Documents/notes && nvim ."
