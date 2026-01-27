@@ -52,8 +52,7 @@ vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 vim.keymap.set("x", "<leader>v", [["_dP]])
 
 -- Enable/disable diagnostic
-vim.keymap.set("n", "<leader>tdd", vim.diagnostic.disable)
-vim.keymap.set("n", "<leader>tde", vim.diagnostic.enable)
+vim.keymap.set("n", "<leader>td", ":lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())<cr>")
 
 -- Search selected text
 vim.keymap.set("v", "//", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])

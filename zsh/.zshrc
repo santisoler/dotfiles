@@ -282,28 +282,21 @@ elif [[ -d $HOME/.mambaforge ]]; then
 fi
 
 if [[ -n $CONDA_DIR ]]; then
-
-    # Setup and activate the conda and mamba package managers
     __conda_setup="$('${CONDA_DIR}/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
     if [ $? -eq 0 ]; then
         eval "$__conda_setup"
     else
-        if [ -f "$CONDA_DIR/etc/profile.d/conda.sh" ]; then
-            . "$CONDA_DIR/etc/profile.d/conda.sh"
+        if [ -f "${CONDA_DIR}/etc/profile.d/conda.sh" ]; then
+            . "${CONDA_DIR}/etc/profile.d/conda.sh"
         else
-            export PATH="$CONDA_DIR/bin:$PATH"
+            export PATH="${CONDA_DIR}/bin:$PATH"
         fi
     fi
     unset __conda_setup
-
-    if [ -f "$CONDA_DIR/etc/profile.d/mamba.sh" ]; then
-        . "$CONDA_DIR/etc/profile.d/mamba.sh"
-    fi
 
     # Activate environment after running cd
     add-zsh-hook chpwd activate_env
 
     # Activate the conda default environment
     activate_env
-
 fi

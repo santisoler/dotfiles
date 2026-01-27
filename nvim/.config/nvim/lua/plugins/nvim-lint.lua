@@ -4,7 +4,7 @@ local function config()
 		c = { "cppcheck" },
 		tex = { "proselint" },
 		sh = { "shellcheck" },
-		markdown = { "markdownlint-cli2", "proselint", "write_good" },
+		markdown = { "proselint", "write_good" },
 		gitcommit = { "proselint" },
 		rst = { "rstcheck" },
 		html = { "tidy" },
@@ -13,12 +13,12 @@ local function config()
 	}
 
 	-- Modify markdownlint options
-	local markdownlintrc = vim.fn.expand("~") .. "/.markdownlint.jsonc"
-	local markdownlint = require("lint.linters.markdownlint-cli2")
-	markdownlint.args = {
-		"--config",
-		markdownlintrc,
-	}
+	-- local markdownlintrc = vim.fn.expand("~") .. "/.markdownlint.jsonc"
+	-- local markdownlint = require("lint.linters.markdownlint-cli2")
+	-- markdownlint.args = {
+	-- 	"--config",
+	-- 	markdownlintrc,
+	-- }
 
 	-- Autorun linter on read and write
 	vim.api.nvim_create_augroup("linter", { clear = true })

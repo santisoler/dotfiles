@@ -15,7 +15,7 @@ local function config()
 			"stylelint",
 			"proselint",
 			"shellcheck",
-			"markdownlint-cli2",
+			-- "markdownlint-cli2", -- consumes too much ram from time to time
 			"write-good",
 			-- "texlab",
 			-- Autoformatters
