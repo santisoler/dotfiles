@@ -8,7 +8,7 @@ dependencies:
   # IPython and Jupyter
   - ipython
   - jupyter
-  - jupyterlab
+  - jupyterlab>=4.5.0
   - nb_conda_kernels
   - nbdime # git diffs for notebooks
   - nodejs # needed by jupyterlab
