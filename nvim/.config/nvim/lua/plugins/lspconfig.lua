@@ -243,7 +243,7 @@ local function config_lsp()
 	-- Harper (grammar)
 	vim.lsp.config["harper"] = {
 		cmd = { "harper-ls", "--stdio" },
-		filetypes = { "markdown", "text", "tex", "typst", "python", "git-commit" },
+		filetypes = { "markdown", "text", "tex", "typst", "python", "gitcommit" },
 	}
 	vim.lsp.enable("harper")
 
