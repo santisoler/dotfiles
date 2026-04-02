@@ -6,6 +6,7 @@ LANGUAGE_SERVERS = {
 	"lua_ls",
 	"emmet_language_server",
 	"harper_ls",
+	"marksman",
 }
 
 local function config_cmp()
@@ -245,6 +246,9 @@ local function config_lsp()
 		filetypes = { "markdown", "text", "tex", "typst", "python", "git-commit" },
 	}
 	vim.lsp.enable("harper")
+
+	-- Marksman
+	vim.lsp.enable("marksman")
 end
 
 -- --------------
