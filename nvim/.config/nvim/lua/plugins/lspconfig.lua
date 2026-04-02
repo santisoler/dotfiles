@@ -248,6 +248,9 @@ local function config_lsp()
 	vim.lsp.enable("harper")
 
 	-- Marksman
+	vim.lsp.config["marksman"] = {
+		filetypes = { "markdown" },
+	}
 	vim.lsp.enable("marksman")
 end
 
