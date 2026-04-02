@@ -5,6 +5,7 @@ LANGUAGE_SERVERS = {
 	"rust_analyzer",
 	"lua_ls",
 	"emmet_language_server",
+	"harper_ls",
 }
 
 local function config_cmp()
@@ -237,6 +238,13 @@ local function config_lsp()
 		},
 		capabilities = capabilities,
 	})
+
+	-- Harper (grammar)
+	vim.lsp.config["harper"] = {
+		cmd = { "harper-ls", "--stdio" },
+		filetypes = { "markdown", "text", "tex", "typst", "python" },
+	}
+	vim.lsp.enable("harper")
 end
 
 -- --------------

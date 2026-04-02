@@ -1,14 +1,7 @@
 local function config()
 	require("mason-tool-installer").setup({
 		ensure_installed = {
-			-- LSPs
-			-- "pyright",
-			-- "python-lsp-server", -- pylsp
-			-- "ruff",
-			-- "ltex-ls",
-			-- "lua-language-server",
-			-- "rust-analyzer",
-			-- "emmet-language-server",
+			-- LSPs are handled by mason-lspconfig in lspconfig.lua
 			-- Linters
 			"prettier",
 			"rstcheck",
